@@ -527,6 +527,7 @@ namespace UI
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(26)))), ((int)(((byte)(14)))));
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(250, 84);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(934, 577);

@@ -196,6 +196,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Stock\Pickingfrm.resx">
+      <DependentUpon>Pickingfrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stock\Recepcionfrm.resx">
       <DependentUpon>Recepcionfrm.cs</DependentUpon>
     </EmbeddedResource>

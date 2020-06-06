@@ -196,4 +196,13 @@
   <data name="Cierre Def" xml:space="preserve">
     <value>Definitive Close</value>
   </data>
+  <data name="Imprimir" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Conf" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="MostrarConf" xml:space="preserve">
+    <value>Show Confirmed</value>
+  </data>
 </root>

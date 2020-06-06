@@ -142,6 +142,15 @@ namespace UI {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Confirmar.
+        /// </summary>
+        internal static string Conf {
+            get {
+                return ResourceManager.GetString("Conf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Configuracion.
         /// </summary>
         internal static string Config {
@@ -214,6 +223,15 @@ namespace UI {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Imprimir.
+        /// </summary>
+        internal static string Imprimir {
+            get {
+                return ResourceManager.GetString("Imprimir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Inicio.
         /// </summary>
         internal static string Inicio {
@@ -255,6 +273,15 @@ namespace UI {
         internal static string List_Stock {
             get {
                 return ResourceManager.GetString("List Stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Mostrar Confirmados.
+        /// </summary>
+        internal static string MostrarConf {
+            get {
+                return ResourceManager.GetString("MostrarConf", resourceCulture);
             }
         }
         

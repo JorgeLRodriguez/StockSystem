@@ -28,15 +28,257 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.originlab = new System.Windows.Forms.Label();
+            this.destlab = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.depositlab = new System.Windows.Forms.Label();
+            this.codfslab = new System.Windows.Forms.Label();
+            this.desclab = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.codfstxt = new System.Windows.Forms.TextBox();
+            this.desctxt = new System.Windows.Forms.TextBox();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.palletlab = new System.Windows.Forms.Label();
+            this.palletcb = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // originlab
+            // 
+            this.originlab.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.originlab.ForeColor = System.Drawing.Color.White;
+            this.originlab.Location = new System.Drawing.Point(165, 9);
+            this.originlab.Name = "originlab";
+            this.originlab.Size = new System.Drawing.Size(128, 48);
+            this.originlab.TabIndex = 0;
+            this.originlab.Text = strings.Origen;
+            this.originlab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // destlab
+            // 
+            this.destlab.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.destlab.ForeColor = System.Drawing.Color.White;
+            this.destlab.Location = new System.Drawing.Point(580, 9);
+            this.destlab.Name = "destlab";
+            this.destlab.Size = new System.Drawing.Size(251, 48);
+            this.destlab.TabIndex = 1;
+            this.destlab.Text = strings.Destino;
+            this.destlab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 119);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(449, 346);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(476, 119);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(449, 346);
+            this.dataGridView2.TabIndex = 3;
+            // 
+            // depositlab
+            // 
+            this.depositlab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depositlab.ForeColor = System.Drawing.Color.White;
+            this.depositlab.Location = new System.Drawing.Point(12, 67);
+            this.depositlab.Name = "depositlab";
+            this.depositlab.Size = new System.Drawing.Size(42, 35);
+            this.depositlab.TabIndex = 4;
+            this.depositlab.Text = "Dep";
+            this.depositlab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // codfslab
+            // 
+            this.codfslab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codfslab.ForeColor = System.Drawing.Color.White;
+            this.codfslab.Location = new System.Drawing.Point(178, 67);
+            this.codfslab.Name = "codfslab";
+            this.codfslab.Size = new System.Drawing.Size(60, 35);
+            this.codfslab.TabIndex = 5;
+            this.codfslab.Text = "Cod FS";
+            this.codfslab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // desclab
+            // 
+            this.desclab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desclab.ForeColor = System.Drawing.Color.White;
+            this.desclab.Location = new System.Drawing.Point(328, 67);
+            this.desclab.Name = "desclab";
+            this.desclab.Size = new System.Drawing.Size(46, 35);
+            this.desclab.TabIndex = 6;
+            this.desclab.Text = "Desc";
+            this.desclab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(51, 71);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // codfstxt
+            // 
+            this.codfstxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codfstxt.Location = new System.Drawing.Point(235, 70);
+            this.codfstxt.Name = "codfstxt";
+            this.codfstxt.Size = new System.Drawing.Size(87, 27);
+            this.codfstxt.TabIndex = 8;
+            // 
+            // desctxt
+            // 
+            this.desctxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desctxt.Location = new System.Drawing.Point(380, 70);
+            this.desctxt.Name = "desctxt";
+            this.desctxt.Size = new System.Drawing.Size(81, 27);
+            this.desctxt.TabIndex = 9;
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape2,
+            this.lineShape1,
+            this.rectangleShape2,
+            this.rectangleShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(934, 477);
+            this.shapeContainer1.TabIndex = 10;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape2
+            // 
+            this.lineShape2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lineShape2.BorderColor = System.Drawing.Color.White;
+            this.lineShape2.BorderWidth = 2;
+            this.lineShape2.Enabled = false;
+            this.lineShape2.Name = "lineShape2";
+            this.lineShape2.X1 = 476;
+            this.lineShape2.X2 = 923;
+            this.lineShape2.Y1 = 108;
+            this.lineShape2.Y2 = 108;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.BorderColor = System.Drawing.Color.White;
+            this.lineShape1.BorderWidth = 2;
+            this.lineShape1.Enabled = false;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 13;
+            this.lineShape1.X2 = 460;
+            this.lineShape1.Y1 = 108;
+            this.lineShape1.Y2 = 108;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rectangleShape2.BorderColor = System.Drawing.Color.White;
+            this.rectangleShape2.BorderWidth = 2;
+            this.rectangleShape2.Enabled = false;
+            this.rectangleShape2.Location = new System.Drawing.Point(476, 7);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(449, 55);
+            // 
+            // rectangleShape1
+            // 
+            this.rectangleShape1.BorderColor = System.Drawing.Color.White;
+            this.rectangleShape1.BorderWidth = 2;
+            this.rectangleShape1.Enabled = false;
+            this.rectangleShape1.Location = new System.Drawing.Point(13, 7);
+            this.rectangleShape1.Name = "rectangleShape1";
+            this.rectangleShape1.Size = new System.Drawing.Size(449, 55);
+            // 
+            // palletlab
+            // 
+            this.palletlab.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palletlab.ForeColor = System.Drawing.Color.White;
+            this.palletlab.Location = new System.Drawing.Point(632, 67);
+            this.palletlab.Name = "palletlab";
+            this.palletlab.Size = new System.Drawing.Size(58, 35);
+            this.palletlab.TabIndex = 11;
+            this.palletlab.Text = "Pallet";
+            this.palletlab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // palletcb
+            // 
+            this.palletcb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.palletcb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.palletcb.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palletcb.FormattingEnabled = true;
+            this.palletcb.Location = new System.Drawing.Point(696, 70);
+            this.palletcb.Name = "palletcb";
+            this.palletcb.Size = new System.Drawing.Size(121, 28);
+            this.palletcb.TabIndex = 12;
+            // 
+            // Transferenciafrm
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(43)))), ((int)(((byte)(22)))));
             this.ClientSize = new System.Drawing.Size(934, 477);
+            this.Controls.Add(this.palletcb);
+            this.Controls.Add(this.palletlab);
+            this.Controls.Add(this.desctxt);
+            this.Controls.Add(this.codfstxt);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.desclab);
+            this.Controls.Add(this.codfslab);
+            this.Controls.Add(this.depositlab);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.destlab);
+            this.Controls.Add(this.originlab);
+            this.Controls.Add(this.shapeContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Transferenciafrm";
             this.Text = "Transferenciafrm";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label originlab;
+        private System.Windows.Forms.Label destlab;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label depositlab;
+        private System.Windows.Forms.Label codfslab;
+        private System.Windows.Forms.Label desclab;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox codfstxt;
+        private System.Windows.Forms.TextBox desctxt;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private System.Windows.Forms.Label palletlab;
+        private System.Windows.Forms.ComboBox palletcb;
     }
 }

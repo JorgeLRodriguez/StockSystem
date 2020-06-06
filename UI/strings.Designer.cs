@@ -178,6 +178,15 @@ namespace UI {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Destino.
+        /// </summary>
+        internal static string Destino {
+            get {
+                return ResourceManager.GetString("Destino", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Etiquetas.
         /// </summary>
         internal static string Etiq {
@@ -300,6 +309,24 @@ namespace UI {
         internal static string Movimientos {
             get {
                 return ResourceManager.GetString("Movimientos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Observación.
+        /// </summary>
+        internal static string Observacion {
+            get {
+                return ResourceManager.GetString("Observacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Origen.
+        /// </summary>
+        internal static string Origen {
+            get {
+                return ResourceManager.GetString("Origen", resourceCulture);
             }
         }
         

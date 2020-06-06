@@ -196,6 +196,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Stock\AjusteInvfrm.resx">
+      <DependentUpon>AjusteInvfrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stock\Pickingfrm.resx">
       <DependentUpon>Pickingfrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stock\Scaneofrm.resx">
       <DependentUpon>Scaneofrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\Transferenciafrm.resx">
+      <DependentUpon>Transferenciafrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="strings.en-US.resx">
       <Generator>ResXFileCodeGenerator</Generator>

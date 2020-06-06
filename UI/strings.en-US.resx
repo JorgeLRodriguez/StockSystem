@@ -205,4 +205,13 @@
   <data name="MostrarConf" xml:space="preserve">
     <value>Show Confirmed</value>
   </data>
+  <data name="Origen" xml:space="preserve">
+    <value>Origin</value>
+  </data>
+  <data name="Destino" xml:space="preserve">
+    <value>Destination</value>
+  </data>
+  <data name="Observacion" xml:space="preserve">
+    <value>Obvservation</value>
+  </data>
 </root>

@@ -178,6 +178,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.en-US.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ABM\Articfrm.resx">
+      <DependentUpon>Articfrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="configfrm.resx">
       <DependentUpon>configfrm.cs</DependentUpon>
     </EmbeddedResource>

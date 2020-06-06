@@ -5,16 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using ENTIDAD;
 using DAL;
+using DAL.DAO;
 
 namespace BLL
 {
     public class UserBLL
     {
-        UserDAL UD = new UserDAL();
-        public byte VerificarlogIn()
+        UserDAO UD = new UserDAO();
+        public bool UserlogIn(string user, string psw)
         {
-            UD.LogIn("joro", "bado");
-            return 1;
+            if (UD.login(user, psw))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

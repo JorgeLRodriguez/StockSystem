@@ -21,8 +21,8 @@ namespace UI
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LogIn());
-            Application.Run(new MainMenufrm());
+            Application.Run(new LogIn());
+            //Application.Run(new MainMenufrm());
         }
     }
 }

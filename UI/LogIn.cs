@@ -14,7 +14,6 @@ namespace UI
 {
     public partial class LogIn : Form
     {
-        EUser E = new EUser();
         UserBLL UB = new UserBLL();
         public LogIn()
         {
@@ -23,14 +22,17 @@ namespace UI
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-            E.USR = "";
-            E.PSW = "";
-            UB.VerificarlogIn();
+
         }
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
-
+            if (UB.UserlogIn(txtuser.Text, txtpsw.Text))
+            {
+                MainMenufrm mainMenufrm = new MainMenufrm();
+                mainMenufrm.Show();
+                this.Hide();
+            }
         }
 
         private void txtuser_Enter(object sender, EventArgs e)

@@ -169,4 +169,31 @@
   <data name="Importar" xml:space="preserve">
     <value>Import</value>
   </data>
+  <data name="Cliente" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="Guardar" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Fecha" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Remito" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="Comprobante" xml:space="preserve">
+    <value>Receipt</value>
+  </data>
+  <data name="Motivo" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="ComplCant" xml:space="preserve">
+    <value>Complete quantity</value>
+  </data>
+  <data name="Cierre Parcial" xml:space="preserve">
+    <value>Partial Close</value>
+  </data>
+  <data name="Cierre Def" xml:space="preserve">
+    <value>Definitive Close</value>
+  </data>
 </root>

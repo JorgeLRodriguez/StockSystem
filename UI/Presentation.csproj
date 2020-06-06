@@ -199,6 +199,9 @@
     <EmbeddedResource Include="Stock\Recepcionfrm.resx">
       <DependentUpon>Recepcionfrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stock\Scaneofrm.resx">
+      <DependentUpon>Scaneofrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="strings.en-US.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.en-US.Designer.cs</LastGenOutput>

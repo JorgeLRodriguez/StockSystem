@@ -97,6 +97,51 @@ namespace UI {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cierre Definitivo.
+        /// </summary>
+        internal static string Cierre_Def {
+            get {
+                return ResourceManager.GetString("Cierre Def", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cierre Parcial.
+        /// </summary>
+        internal static string Cierre_Parcial {
+            get {
+                return ResourceManager.GetString("Cierre Parcial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cliente.
+        /// </summary>
+        internal static string Cliente {
+            get {
+                return ResourceManager.GetString("Cliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Completar Cantidad.
+        /// </summary>
+        internal static string ComplCant {
+            get {
+                return ResourceManager.GetString("ComplCant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Comprobante.
+        /// </summary>
+        internal static string Comprobante {
+            get {
+                return ResourceManager.GetString("Comprobante", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Configuracion.
         /// </summary>
         internal static string Config {
@@ -129,6 +174,24 @@ namespace UI {
         internal static string Etiq {
             get {
                 return ResourceManager.GetString("Etiq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha.
+        /// </summary>
+        internal static string Fecha {
+            get {
+                return ResourceManager.GetString("Fecha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guardar.
+        /// </summary>
+        internal static string Guardar {
+            get {
+                return ResourceManager.GetString("Guardar", resourceCulture);
             }
         }
         
@@ -196,6 +259,15 @@ namespace UI {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Motivo.
+        /// </summary>
+        internal static string Motivo {
+            get {
+                return ResourceManager.GetString("Motivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Movimientos.
         /// </summary>
         internal static string Movimientos {
@@ -228,6 +300,15 @@ namespace UI {
         internal static string Recepcion {
             get {
                 return ResourceManager.GetString("Recepcion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Remito.
+        /// </summary>
+        internal static string Remito {
+            get {
+                return ResourceManager.GetString("Remito", resourceCulture);
             }
         }
         

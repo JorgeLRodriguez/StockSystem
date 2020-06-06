@@ -583,12 +583,11 @@ namespace UI
             // 
             // labtitle
             // 
-            this.labtitle.AutoSize = true;
             this.labtitle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labtitle.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.labtitle.Location = new System.Drawing.Point(91, 25);
+            this.labtitle.Location = new System.Drawing.Point(91, 27);
             this.labtitle.Name = "labtitle";
-            this.labtitle.Size = new System.Drawing.Size(57, 22);
+            this.labtitle.Size = new System.Drawing.Size(164, 22);
             this.labtitle.TabIndex = 1;
             this.labtitle.Text = "Inicio";
             // 
@@ -598,10 +597,11 @@ namespace UI
             this.iconCurrentChildForm.ForeColor = System.Drawing.Color.MediumSpringGreen;
             this.iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.iconCurrentChildForm.IconColor = System.Drawing.Color.MediumSpringGreen;
-            this.iconCurrentChildForm.IconSize = 75;
-            this.iconCurrentChildForm.Location = new System.Drawing.Point(6, 0);
+            this.iconCurrentChildForm.IconSize = 52;
+            this.iconCurrentChildForm.Location = new System.Drawing.Point(19, 17);
             this.iconCurrentChildForm.Name = "iconCurrentChildForm";
-            this.iconCurrentChildForm.Size = new System.Drawing.Size(81, 75);
+            this.iconCurrentChildForm.Size = new System.Drawing.Size(66, 52);
+            this.iconCurrentChildForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconCurrentChildForm.TabIndex = 0;
             this.iconCurrentChildForm.TabStop = false;
             // 
@@ -624,7 +624,6 @@ namespace UI
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.homepic)).EndInit();
             this.titlepanel.ResumeLayout(false);
-            this.titlepanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.ResumeLayout(false);
 

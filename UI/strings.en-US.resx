@@ -214,4 +214,13 @@
   <data name="Observacion" xml:space="preserve">
     <value>Obvservation</value>
   </data>
+  <data name="Atencion" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="logInEmptyorNull" xml:space="preserve">
+    <value>Text boxes must be completed.</value>
+  </data>
+  <data name="LogInIncorrecto" xml:space="preserve">
+    <value>Incorrect user or password, verify.</value>
+  </data>
 </root>

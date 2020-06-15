@@ -202,6 +202,9 @@
     <EmbeddedResource Include="Stock\AjusteInvfrm.resx">
       <DependentUpon>AjusteInvfrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stock\Importarfrm.resx">
+      <DependentUpon>Importarfrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stock\Pickingfrm.resx">
       <DependentUpon>Pickingfrm.cs</DependentUpon>
     </EmbeddedResource>

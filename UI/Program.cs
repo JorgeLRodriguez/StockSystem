@@ -17,12 +17,11 @@ namespace UI
         [STAThread]
         static void Main()
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LogIn());
-            //Application.Run(new MainMenufrm());
         }
     }
 }

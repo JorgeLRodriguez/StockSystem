@@ -211,5 +211,10 @@ namespace UI
             Form liststfrm = ListadoStockfrm.getInstance();
             openChildFormInPanel(liststfrm);
         }
+
+        private void MainMenufrm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

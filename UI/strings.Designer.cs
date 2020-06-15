@@ -97,6 +97,15 @@ namespace UI {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Atención.
+        /// </summary>
+        internal static string Atencion {
+            get {
+                return ResourceManager.GetString("Atencion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cierre Definitivo.
         /// </summary>
         internal static string Cierre_Def {
@@ -282,6 +291,24 @@ namespace UI {
         internal static string List_Stock {
             get {
                 return ResourceManager.GetString("List Stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Hay campos sin completar..
+        /// </summary>
+        internal static string logInEmptyorNull {
+            get {
+                return ResourceManager.GetString("logInEmptyorNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario o contraseña incorrectos, verifique..
+        /// </summary>
+        internal static string LogInIncorrecto {
+            get {
+                return ResourceManager.GetString("LogInIncorrecto", resourceCulture);
             }
         }
         

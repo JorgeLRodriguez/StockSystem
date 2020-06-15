@@ -22,14 +22,12 @@ namespace DAL.DAO
                     command.CommandText = "Select COUNT (0) From Usuario Where Username = @User";
                     command.Parameters.AddWithValue("@User", user);
                     SqlDataReader sqlDataReader = command.ExecuteReader();
-
                     if (sqlDataReader.HasRows)
                     {
                         sqlDataReader.Close();
                         command.CommandText = "Select * From Usuario Where Username = @User and Contraseña = @Contraseña";
                         command.Parameters.AddWithValue("@Contraseña", pasw);
                         sqlDataReader = command.ExecuteReader();
-
                         if (sqlDataReader.HasRows)
                         {
                             while (sqlDataReader.Read())
@@ -45,7 +43,9 @@ namespace DAL.DAO
                         }
                         else
                         {
-                            //sumar intentos
+                            sqlDataReader.Close();
+                            command.CommandText = "Update Usuario Set Intentos = (Select Isnull(Intentos,0) from Usuario Where username = @User) + 1 Where username = @User";
+                            command.ExecuteNonQuery();
                             return false;
                         }
                     }

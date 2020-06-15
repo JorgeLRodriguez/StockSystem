@@ -135,7 +135,7 @@ namespace UI
             this.lablogin.ForeColor = System.Drawing.Color.DimGray;
             this.lablogin.Location = new System.Drawing.Point(448, 20);
             this.lablogin.Name = "lablogin";
-            this.lablogin.Size = new System.Drawing.Size(151, 49);
+            this.lablogin.Size = new System.Drawing.Size(150, 49);
             this.lablogin.TabIndex = 0;
             this.lablogin.Text = "STOCK";
             // 
@@ -153,13 +153,13 @@ namespace UI
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(435, 49);
             this.btnlogin.TabIndex = 0;
-            this.btnlogin.Text = strings.Acceder;
+            this.btnlogin.Text = global::UI.strings.Acceder;
             this.btnlogin.UseVisualStyleBackColor = false;
             this.btnlogin.Click += new System.EventHandler(this.loginbtn_Click);
             // 
             // btnclose
             // 
-            this.btnclose.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnclose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
             this.btnclose.Location = new System.Drawing.Point(762, 3);
             this.btnclose.Name = "btnclose";
@@ -171,7 +171,7 @@ namespace UI
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(741, 3);
             this.pictureBox1.Name = "pictureBox1";
@@ -183,6 +183,7 @@ namespace UI
             // 
             // LogIn
             // 
+            this.AcceptButton = this.btnlogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -203,7 +204,6 @@ namespace UI
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
-            this.Load += new System.EventHandler(this.LogIn_Load);
             this.leftpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainiconpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnclose)).EndInit();

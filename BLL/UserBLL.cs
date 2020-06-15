@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ENTIDAD;
-using DAL;
 using DAL.DAO;
 
 namespace BLL

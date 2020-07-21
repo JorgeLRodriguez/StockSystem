@@ -5,22 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using ENTIDAD;
 using DAL.DAO;
+using DAL.Repositories;
+using DAL.Entities;
 
 namespace BLL
 {
     public class UserBLL
     {
-        UserDAO UD = new UserDAO();
+        UserRepository _db;
+        public UserBLL()
+        {
+            _db = new UserRepository();
+        }
+
         public bool UserlogIn(string user, string psw)
         {
-            if (UD.login(user, psw))
-            {
-                return true;
-            }
+            if (_db.GetLogIn(user, psw))
+                { return true; }
             else
             {
                 return false;
             }
         }
+
     }
 }

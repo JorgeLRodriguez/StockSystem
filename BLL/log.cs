@@ -7,7 +7,6 @@ namespace BLL
     public class log
     {
         private string Path = ConfigurationManager.AppSettings["PathLog"];
-
         public void Add(string sLog)
         {
             string nombre = GetNameFile();
@@ -18,7 +17,6 @@ namespace BLL
             StreamWriter sw = new StreamWriter(Path + "/" + nombre, true);
             sw.Write(cadena);
             sw.Close();
-
         }
         private string GetNameFile()
         {

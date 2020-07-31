@@ -22,7 +22,7 @@ namespace UI
         private void loginbtn_Click(object sender, EventArgs e)
         {
             UserModel UB = new UserModel();
-            //UserBLL UB = new UserBLL();
+
             if (String.IsNullOrEmpty(txtuser.Text) || String.IsNullOrEmpty(txtpsw.Text) || txtuser.Text == strings.Usuario || txtpsw.Text == strings.Contraseña)
             {
                 MessageBox.Show(strings.logInEmptyorNull, "¡"+strings.Atencion+"!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

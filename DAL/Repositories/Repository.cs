@@ -21,5 +21,7 @@ namespace DAL.Repositories
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Articulo> Articulo { get; set; }
     }
 }

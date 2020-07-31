@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace DAL.Entities
 {
     public class Usuario
     {
-        public int id { get; set; }
+        [Key]
+        public int idUsuario { get; set; }
         public int idRol { get; set; }
         public string Username { get; set; }
         public string Contraseña { get; set; }

@@ -12,6 +12,7 @@ namespace DAL.Contracts
     {
         List<ValidationResult> ValidateModel(T model);
         List<T> Get(Expression<Func<T, bool>> whereExpression = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderFunction = null, string includeModels = "");
+        //T GetById(int id);
         T Create(T entity);
         void Update(T entity);
         void Delete(int id);

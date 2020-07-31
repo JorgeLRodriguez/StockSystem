@@ -1,4 +1,5 @@
 ﻿using DAL.Contracts;
+using DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,10 +9,10 @@ using System.Linq.Expressions;
 
 namespace DAL.Repositories
 {
-    public class MasterRepository <T> : IGenericRepository<T> where T : class
+    public class GenericRepository <T> : IGenericRepository<T> where T : class
     {
         protected Repository _db;
-        public MasterRepository()
+        public GenericRepository()
         {
             _db = new Repository();
         }

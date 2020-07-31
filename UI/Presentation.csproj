@@ -62,120 +62,120 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABM\Articfrm.cs">
+    <Compile Include="Forms\ABM\Articfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM\Articfrm.Designer.cs">
+    <Compile Include="Forms\ABM\Articfrm.Designer.cs">
       <DependentUpon>Articfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM\Etiquetasfrm.cs">
+    <Compile Include="Forms\ABM\Etiquetasfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM\Etiquetasfrm.Designer.cs">
+    <Compile Include="Forms\ABM\Etiquetasfrm.Designer.cs">
       <DependentUpon>Etiquetasfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM\Layoutfrm.cs">
+    <Compile Include="Forms\ABM\Layoutfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM\Layoutfrm.Designer.cs">
+    <Compile Include="Forms\ABM\Layoutfrm.Designer.cs">
       <DependentUpon>Layoutfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM\PxEfrm.cs">
+    <Compile Include="Forms\ABM\PxEfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM\PxEfrm.Designer.cs">
+    <Compile Include="Forms\ABM\PxEfrm.Designer.cs">
       <DependentUpon>PxEfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="configfrm.cs">
+    <Compile Include="Forms\Menu\configfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="configfrm.Designer.cs">
+    <Compile Include="Forms\Menu\configfrm.Designer.cs">
       <DependentUpon>configfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogIn.cs">
+    <Compile Include="Forms\Menu\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogIn.Designer.cs">
+    <Compile Include="Forms\Menu\LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenufrm.cs">
+    <Compile Include="Forms\Menu\MainMenufrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenufrm.Designer.cs">
+    <Compile Include="Forms\Menu\MainMenufrm.Designer.cs">
       <DependentUpon>MainMenufrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportes\Depositofrm.cs">
+    <Compile Include="Forms\Reportes\Depositofrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\Depositofrm.Designer.cs">
+    <Compile Include="Forms\Reportes\Depositofrm.Designer.cs">
       <DependentUpon>Depositofrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\HxEfrm.cs">
+    <Compile Include="Forms\Reportes\HxEfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\HxEfrm.Designer.cs">
+    <Compile Include="Forms\Reportes\HxEfrm.Designer.cs">
       <DependentUpon>HxEfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Inventariofrm.cs">
+    <Compile Include="Forms\Reportes\Inventariofrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\Inventariofrm.Designer.cs">
+    <Compile Include="Forms\Reportes\Inventariofrm.Designer.cs">
       <DependentUpon>Inventariofrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\IxCfrm.cs">
+    <Compile Include="Forms\Reportes\IxCfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\IxCfrm.Designer.cs">
+    <Compile Include="Forms\Reportes\IxCfrm.Designer.cs">
       <DependentUpon>IxCfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\ListadoStockfrm.cs">
+    <Compile Include="Forms\Reportes\ListadoStockfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\ListadoStockfrm.Designer.cs">
+    <Compile Include="Forms\Reportes\ListadoStockfrm.Designer.cs">
       <DependentUpon>ListadoStockfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Movimientosfrm.cs">
+    <Compile Include="Forms\Reportes\Movimientosfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\Movimientosfrm.Designer.cs">
+    <Compile Include="Forms\Reportes\Movimientosfrm.Designer.cs">
       <DependentUpon>Movimientosfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock\AjusteInvfrm.cs">
+    <Compile Include="Forms\Stock\AjusteInvfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\AjusteInvfrm.Designer.cs">
+    <Compile Include="Forms\Stock\AjusteInvfrm.Designer.cs">
       <DependentUpon>AjusteInvfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock\Importarfrm.cs">
+    <Compile Include="Forms\Stock\Importarfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\Importarfrm.Designer.cs">
+    <Compile Include="Forms\Stock\Importarfrm.Designer.cs">
       <DependentUpon>Importarfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock\Pickingfrm.cs">
+    <Compile Include="Forms\Stock\Pickingfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\Pickingfrm.Designer.cs">
+    <Compile Include="Forms\Stock\Pickingfrm.Designer.cs">
       <DependentUpon>Pickingfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock\Recepcionfrm.cs">
+    <Compile Include="Forms\Stock\Recepcionfrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\Recepcionfrm.Designer.cs">
+    <Compile Include="Forms\Stock\Recepcionfrm.Designer.cs">
       <DependentUpon>Recepcionfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock\Scaneofrm.cs">
+    <Compile Include="Forms\Stock\Scaneofrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\Scaneofrm.Designer.cs">
+    <Compile Include="Forms\Stock\Scaneofrm.Designer.cs">
       <DependentUpon>Scaneofrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock\Transferenciafrm.cs">
+    <Compile Include="Forms\Stock\Transferenciafrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock\Transferenciafrm.Designer.cs">
+    <Compile Include="Forms\Stock\Transferenciafrm.Designer.cs">
       <DependentUpon>Transferenciafrm.cs</DependentUpon>
     </Compile>
     <Compile Include="strings.Designer.cs">
@@ -188,16 +188,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.en-US.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ABM\Articfrm.resx">
+    <EmbeddedResource Include="Forms\ABM\Articfrm.resx">
       <DependentUpon>Articfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="configfrm.resx">
+    <EmbeddedResource Include="Forms\Menu\configfrm.resx">
       <DependentUpon>configfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogIn.resx">
+    <EmbeddedResource Include="Forms\Menu\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenufrm.resx">
+    <EmbeddedResource Include="Forms\Menu\MainMenufrm.resx">
       <DependentUpon>MainMenufrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -209,22 +209,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Stock\AjusteInvfrm.resx">
+    <EmbeddedResource Include="Forms\Stock\AjusteInvfrm.resx">
       <DependentUpon>AjusteInvfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\Importarfrm.resx">
+    <EmbeddedResource Include="Forms\Stock\Importarfrm.resx">
       <DependentUpon>Importarfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\Pickingfrm.resx">
+    <EmbeddedResource Include="Forms\Stock\Pickingfrm.resx">
       <DependentUpon>Pickingfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\Recepcionfrm.resx">
+    <EmbeddedResource Include="Forms\Stock\Recepcionfrm.resx">
       <DependentUpon>Recepcionfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\Scaneofrm.resx">
+    <EmbeddedResource Include="Forms\Stock\Scaneofrm.resx">
       <DependentUpon>Scaneofrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock\Transferenciafrm.resx">
+    <EmbeddedResource Include="Forms\Stock\Transferenciafrm.resx">
       <DependentUpon>Transferenciafrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="strings.en-US.resx">
@@ -257,7 +257,9 @@
       <Name>Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

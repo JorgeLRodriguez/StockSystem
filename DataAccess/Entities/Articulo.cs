@@ -9,8 +9,6 @@ namespace DataAccess.Entities
 {
     public class Articulo : IdentityBase
     {
-        //[Key]
-        //public int IdArticulo { get; set; }
         public string Codigo_fs { get; set; }
         public string Descripcion { get; set; }
         public int IdCliente { get; set; }

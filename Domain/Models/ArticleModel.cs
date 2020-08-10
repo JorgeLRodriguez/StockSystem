@@ -11,21 +11,21 @@ namespace Domain.Models
 {
     public class ArticleModel
     {
-        private int id_articulo;
+        private int Id;
         private string codigo_fs;
         private string descripcion;
         private int idCliente;
         private string codigo_barra;
         private bool tiene_codigo_barra;
 
-        public int Id_articulo { get => id_articulo; set => id_articulo = value; }
+        public int ID { get => Id; set => Id = value; }
         public string Codigo_fs { get => codigo_fs; set => codigo_fs = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public int IdCliente { get => idCliente; set => idCliente = value; }
         public string Codigo_barra { get => codigo_barra; set => codigo_barra = value; }
         public bool Tiene_codigo_barra { get => tiene_codigo_barra; set => tiene_codigo_barra = value; }
 
-        private IGenericRepository<Articulo> genericRepository;
+        private IGenericRepository <Articulo> genericRepository;
         public ArticleModel()
         {
             genericRepository = new GenericRepository<Articulo>();
@@ -38,7 +38,7 @@ namespace Domain.Models
             {
                 listArticles.Add(new ArticleModel
                 {
-                    Id_articulo = item.Id,
+                    ID = item.Id,
                     codigo_fs = item.Codigo_fs,
                     descripcion = item.Descripcion,
                     idCliente = item.IdCliente,

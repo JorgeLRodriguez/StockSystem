@@ -589,7 +589,7 @@ namespace UI
             this.labtitle.Name = "labtitle";
             this.labtitle.Size = new System.Drawing.Size(164, 22);
             this.labtitle.TabIndex = 1;
-            this.labtitle.Text = strings.Inicio;
+            this.labtitle.Text = "Inicio";
             // 
             // iconCurrentChildForm
             // 
@@ -618,6 +618,7 @@ namespace UI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenufrm_FormClosed);
+            this.Load += new System.EventHandler(this.MainMenufrm_Load);
             this.panelLeft.ResumeLayout(false);
             this.panelReportes.ResumeLayout(false);
             this.panelABM.ResumeLayout(false);

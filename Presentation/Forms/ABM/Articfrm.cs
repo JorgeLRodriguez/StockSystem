@@ -22,5 +22,10 @@ namespace UI.ABM
             if (instance == null) { instance = new Articfrm(); }
             return instance;
         }
+
+        private void savebtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

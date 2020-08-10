@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entity;
 using Domain.Models;
 
 namespace UI
@@ -30,6 +29,7 @@ namespace UI
 
             if (UB.UserlogIn(txtuser.Text, txtpsw.Text))
             {
+                this.Cursor = Cursors.WaitCursor;
                 MainMenufrm mainMenufrm = new MainMenufrm();
                 mainMenufrm.Show();
                 this.Hide();

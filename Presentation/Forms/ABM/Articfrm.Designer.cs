@@ -43,7 +43,7 @@
             this.clientlab.Name = "clientlab";
             this.clientlab.Size = new System.Drawing.Size(66, 23);
             this.clientlab.TabIndex = 0;
-            this.clientlab.Text = strings.Cliente;
+            this.clientlab.Text = "Cliente";
             // 
             // clientcb
             // 
@@ -64,8 +64,9 @@
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(94, 29);
             this.savebtn.TabIndex = 2;
-            this.savebtn.Text = strings.Guardar;
+            this.savebtn.Text = global::UI.strings.Guardar;
             this.savebtn.UseVisualStyleBackColor = true;
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
             // datadg
             // 

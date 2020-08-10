@@ -216,5 +216,10 @@ namespace UI
         {
             Application.Exit();
         }
+
+        private void MainMenufrm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

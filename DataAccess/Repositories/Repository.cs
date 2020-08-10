@@ -23,5 +23,7 @@ namespace DataAccess.Repositories
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Articulo> Articulo { get; set; }
+        public virtual DbSet<Comprobante> Comprobante { get; set; }
+        public virtual DbSet<ComprobanteDetalle> ComprobanteDetalle { get; set; }
     }
 }

@@ -28,18 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clientlab = new System.Windows.Forms.Label();
             this.datelab = new System.Windows.Forms.Label();
             this.voucherPicker = new System.Windows.Forms.DateTimePicker();
             this.invlab = new System.Windows.Forms.Label();
-            this.invoicetxt = new System.Windows.Forms.TextBox();
+            this.numbertxt = new System.Windows.Forms.TextBox();
             this.invdetdataGrid = new System.Windows.Forms.DataGridView();
+            this.articlecbdg = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.quantitytxtdg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.savebtn = new System.Windows.Forms.Button();
             this.clientcbx = new System.Windows.Forms.ComboBox();
             this.addbtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
-            this.articlecbdg = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.quantitytxtdg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vouchertypelb = new System.Windows.Forms.Label();
+            this.typetxt = new System.Windows.Forms.TextBox();
+            this.letterlab = new System.Windows.Forms.Label();
+            this.lettertxt = new System.Windows.Forms.TextBox();
+            this.subsidiarytxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.invdetdataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,27 +98,69 @@
             this.invlab.TabIndex = 7;
             this.invlab.Text = "Remito #";
             // 
-            // invoicetxt
+            // numbertxt
             // 
-            this.invoicetxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invoicetxt.Location = new System.Drawing.Point(173, 220);
-            this.invoicetxt.Name = "invoicetxt";
-            this.invoicetxt.Size = new System.Drawing.Size(208, 27);
-            this.invoicetxt.TabIndex = 8;
+            this.numbertxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numbertxt.Location = new System.Drawing.Point(173, 220);
+            this.numbertxt.Name = "numbertxt";
+            this.numbertxt.Size = new System.Drawing.Size(208, 27);
+            this.numbertxt.TabIndex = 8;
             // 
             // invdetdataGrid
             // 
             this.invdetdataGrid.AllowUserToAddRows = false;
             this.invdetdataGrid.AllowUserToDeleteRows = false;
+            this.invdetdataGrid.AllowUserToOrderColumns = true;
+            this.invdetdataGrid.CausesValidation = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.invdetdataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.invdetdataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.invdetdataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.articlecbdg,
             this.quantitytxtdg});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.invdetdataGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            this.invdetdataGrid.GridColor = System.Drawing.Color.White;
             this.invdetdataGrid.Location = new System.Drawing.Point(458, 57);
+            this.invdetdataGrid.MultiSelect = false;
             this.invdetdataGrid.Name = "invdetdataGrid";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.invdetdataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.invdetdataGrid.Size = new System.Drawing.Size(403, 468);
             this.invdetdataGrid.TabIndex = 9;
             this.invdetdataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.invdetdataGrid_CellContentClick);
+            // 
+            // articlecbdg
+            // 
+            this.articlecbdg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.articlecbdg.HeaderText = "";
+            this.articlecbdg.Name = "articlecbdg";
+            this.articlecbdg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.articlecbdg.Width = 210;
+            // 
+            // quantitytxtdg
+            // 
+            this.quantitytxtdg.HeaderText = "";
+            this.quantitytxtdg.Name = "quantitytxtdg";
+            this.quantitytxtdg.Width = 150;
             // 
             // savebtn
             // 
@@ -123,6 +174,7 @@
             this.savebtn.TabIndex = 10;
             this.savebtn.Text = global::UI.strings.Guardar;
             this.savebtn.UseVisualStyleBackColor = true;
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
             // clientcbx
             // 
@@ -142,7 +194,7 @@
             this.addbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addbtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbtn.ForeColor = System.Drawing.Color.White;
-            this.addbtn.Location = new System.Drawing.Point(202, 272);
+            this.addbtn.Location = new System.Drawing.Point(201, 272);
             this.addbtn.Name = "addbtn";
             this.addbtn.Size = new System.Drawing.Size(89, 31);
             this.addbtn.TabIndex = 12;
@@ -164,32 +216,87 @@
             this.deletebtn.UseVisualStyleBackColor = true;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
             // 
-            // articlecbdg
+            // vouchertypelb
             // 
-            this.articlecbdg.HeaderText = "";
-            this.articlecbdg.Name = "articlecbdg";
-            this.articlecbdg.Width = 210;
+            this.vouchertypelb.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vouchertypelb.ForeColor = System.Drawing.Color.White;
+            this.vouchertypelb.Location = new System.Drawing.Point(94, 66);
+            this.vouchertypelb.Name = "vouchertypelb";
+            this.vouchertypelb.Size = new System.Drawing.Size(51, 27);
+            this.vouchertypelb.TabIndex = 14;
+            this.vouchertypelb.Text = "Tipo:";
             // 
-            // quantitytxtdg
+            // typetxt
             // 
-            this.quantitytxtdg.HeaderText = "";
-            this.quantitytxtdg.Name = "quantitytxtdg";
-            this.quantitytxtdg.Width = 150;
+            this.typetxt.Enabled = false;
+            this.typetxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typetxt.Location = new System.Drawing.Point(144, 64);
+            this.typetxt.Name = "typetxt";
+            this.typetxt.Size = new System.Drawing.Size(31, 27);
+            this.typetxt.TabIndex = 15;
+            this.typetxt.Text = "SIR";
+            // 
+            // letterlab
+            // 
+            this.letterlab.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.letterlab.ForeColor = System.Drawing.Color.White;
+            this.letterlab.Location = new System.Drawing.Point(181, 66);
+            this.letterlab.Name = "letterlab";
+            this.letterlab.Size = new System.Drawing.Size(62, 27);
+            this.letterlab.TabIndex = 16;
+            this.letterlab.Text = "Letra:";
+            // 
+            // lettertxt
+            // 
+            this.lettertxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lettertxt.Location = new System.Drawing.Point(249, 64);
+            this.lettertxt.Name = "lettertxt";
+            this.lettertxt.Size = new System.Drawing.Size(42, 27);
+            this.lettertxt.TabIndex = 17;
+            this.lettertxt.Text = "X";
+            this.lettertxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // subsidiarytxt
+            // 
+            this.subsidiarytxt.Enabled = false;
+            this.subsidiarytxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subsidiarytxt.Location = new System.Drawing.Point(316, 64);
+            this.subsidiarytxt.Name = "subsidiarytxt";
+            this.subsidiarytxt.Size = new System.Drawing.Size(25, 27);
+            this.subsidiarytxt.TabIndex = 18;
+            this.subsidiarytxt.Text = "01";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(296, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 27);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "-";
             // 
             // Recepcionfrm
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(26)))), ((int)(((byte)(14)))));
             this.ClientSize = new System.Drawing.Size(934, 577);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.subsidiarytxt);
+            this.Controls.Add(this.lettertxt);
+            this.Controls.Add(this.letterlab);
+            this.Controls.Add(this.typetxt);
+            this.Controls.Add(this.vouchertypelb);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.addbtn);
             this.Controls.Add(this.clientcbx);
             this.Controls.Add(this.savebtn);
             this.Controls.Add(this.invdetdataGrid);
-            this.Controls.Add(this.invoicetxt);
+            this.Controls.Add(this.numbertxt);
             this.Controls.Add(this.invlab);
             this.Controls.Add(this.voucherPicker);
             this.Controls.Add(this.datelab);
             this.Controls.Add(this.clientlab);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Recepcionfrm";
             this.Text = "Recepcionfrm";
@@ -204,7 +311,7 @@
         private System.Windows.Forms.Label datelab;
         private System.Windows.Forms.DateTimePicker voucherPicker;
         private System.Windows.Forms.Label invlab;
-        private System.Windows.Forms.TextBox invoicetxt;
+        private System.Windows.Forms.TextBox numbertxt;
         private System.Windows.Forms.DataGridView invdetdataGrid;
         private System.Windows.Forms.Button savebtn;
         public System.Windows.Forms.ComboBox clientcbx;
@@ -212,5 +319,11 @@
         private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.DataGridViewComboBoxColumn articlecbdg;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantitytxtdg;
+        private System.Windows.Forms.Label vouchertypelb;
+        private System.Windows.Forms.TextBox typetxt;
+        private System.Windows.Forms.Label letterlab;
+        private System.Windows.Forms.TextBox lettertxt;
+        private System.Windows.Forms.TextBox subsidiarytxt;
+        private System.Windows.Forms.Label label1;
     }
 }

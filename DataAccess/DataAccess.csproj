@@ -61,6 +61,7 @@
     <Compile Include="Entities\Comprobante.cs" />
     <Compile Include="Entities\ComprobanteDetalle.cs" />
     <Compile Include="Entities\IdentityBase.cs" />
+    <Compile Include="Entities\Numerador.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />

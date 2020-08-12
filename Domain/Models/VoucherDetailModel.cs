@@ -21,7 +21,7 @@ namespace Domain.Models
         private int id_articulo;
         private int cantidad;
         private int id_tipo_rechazo;
-        private int regis_pallet;
+        private int id_pallet;
 
         public int Id { get => id; set => id = value; }
         public DateTime? CreatedOn { get => createdOn; set => createdOn = value; }
@@ -33,7 +33,7 @@ namespace Domain.Models
         public int Id_articulo { get => id_articulo; set => id_articulo = value; }
         public int Cantidad { get => cantidad; set => cantidad = value; }
         public int Id_tipo_rechazo { get => id_tipo_rechazo; set => id_tipo_rechazo = value; }
-        public int Regis_pallet { get => regis_pallet; set => regis_pallet = value; }
+        public int Id_pallet { get => id_pallet; set => id_pallet = value; }
 
         private IGenericRepository<ComprobanteDetalle> genericRepository;
         public VoucherDetailModel()
@@ -51,7 +51,7 @@ namespace Domain.Models
                 comprobanteDetalle.linea = item.Linea;
                 comprobanteDetalle.id_articulo = item.Id_articulo;
                 comprobanteDetalle.cantidad = item.Cantidad;
-                comprobanteDetalle.regis_pallet = item.Regis_pallet;
+                comprobanteDetalle.id_pallet = item.Id_pallet;
                 comprobanteDetalle.ChangedBy = item.ChangedBy;
                 comprobanteDetalle.ChangedOn = item.ChangedOn;
                 comprobanteDetalle.CreatedBy = item.CreatedBy;

@@ -30,22 +30,19 @@ namespace UI.Stock
             if (instance == null) { instance = new Recepcionfrm(); }
             return instance;
         }
-
         private void Recepcionfrm_Load(object sender, EventArgs e)
         {
-            var list = clientModel.GetClients();
+            var list = clientModel.Get();
             clientcbx.DisplayMember = "Descripcion";
             clientcbx.ValueMember = "Id";
             clientcbx.DataSource = list;
             invdetdataGrid.Columns[0].HeaderText = "Articulo"; //cambiar por string
             invdetdataGrid.Columns[1].HeaderText = "Cantidad"; //cambiar por string
         }
-
         private void clientcbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             list_Articles();
         }
-
         private void addbtn_Click(object sender, EventArgs e)
         {
             invdetdataGrid.Rows.Add();
@@ -63,7 +60,7 @@ namespace UI.Stock
         {
             if (clientcbx.SelectedValue != null)
             {
-                var list = articleService.get().FindAll(e => e.IdCliente == Int32.Parse(clientcbx.SelectedValue.ToString()));
+                var list = articleService.Get().FindAll(e => e.IdCliente == Int32.Parse(clientcbx.SelectedValue.ToString()));
                 if (!list.Any())
                 {
                     MessageBox.Show("El Cliente elegido no tiene artículos cargados en el sistema", strings.Atencion, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -79,7 +76,6 @@ namespace UI.Stock
         {
             
         }
-
         private void savebtn_Click(object sender, EventArgs e)
         {
 
@@ -97,15 +93,6 @@ namespace UI.Stock
             VoucherModel.ChangedOn = null;
             VoucherModel.Fecha_comprobante = voucherPicker.Value;
 
-            //for (int n = 0; n <= invdetdataGrid.Rows.Count; n++)
-            //{
-            //    var row = invdetdataGrid.Rows[n];
-            //    foreach (DataGridViewCell cell in row.Cells)
-            //    {
-            //        VoucherDetailModel.Cantidad = Int32.Parse(cell.Value[1].ToString());
-            //    }
-            //}
-
             foreach (DataGridViewRow row in invdetdataGrid.Rows)
             {
                 VoucherDetail.Id_articulo = (int)row.Cells[0].Value;
@@ -114,11 +101,10 @@ namespace UI.Stock
                 VoucherDetail.CreatedOn = DateTime.Now;
                 VoucherDetail.Id_tipo_rechazo = 1;
                 VoucherDetail.Linea = row.Index;
-                VoucherDetail.Regis_pallet = 111;
+                VoucherDetail.Id_pallet = 111;
 
                 voucherDetailList.Add(VoucherDetail);
             }
-
             VoucherService.Save(VoucherModel, voucherDetailList);
         }
     }

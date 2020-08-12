@@ -219,7 +219,6 @@ namespace UI
 
         private void MainMenufrm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

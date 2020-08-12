@@ -15,6 +15,6 @@ namespace DataAccess.Entities
         public string ChangedBy { get; set; }
 
         [Key]
-        public int Id { get; set; }
+        public int ID { get; set; }
     }
 }

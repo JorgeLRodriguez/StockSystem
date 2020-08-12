@@ -13,13 +13,14 @@ namespace UI
 {
     public partial class LogIn : Form
     {
+        UserModel UB = new UserModel();
         public LogIn()
         {
             InitializeComponent();
         }
         private void loginbtn_Click(object sender, EventArgs e)
         {
-            UserModel UB = new UserModel();
+            Cursor = Cursors.WaitCursor;
 
             if (String.IsNullOrEmpty(txtuser.Text) || String.IsNullOrEmpty(txtpsw.Text) || txtuser.Text == strings.Usuario || txtpsw.Text == strings.Contraseña)
             {
@@ -29,7 +30,6 @@ namespace UI
 
             if (UB.UserlogIn(txtuser.Text, txtpsw.Text))
             {
-                this.Cursor = Cursors.WaitCursor;
                 MainMenufrm mainMenufrm = new MainMenufrm();
                 mainMenufrm.Show();
                 this.Hide();

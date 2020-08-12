@@ -10,9 +10,9 @@ namespace Domain.Services
     public class ArticleService
     {
         ArticleModel articleModel = new ArticleModel();
-        public List<ArticleModel> get()
+        public List<ArticleModel> Get()
         {
-            return articleModel.GetArticles();
+            return articleModel.Get();
         }
     }
 }

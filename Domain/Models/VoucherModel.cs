@@ -68,7 +68,7 @@ namespace Domain.Models
             comprobante.CreatedOn = voucherModel.CreatedOn;
 
             genericRepository.Create(comprobante);
-            return comprobante.Id;
+            return comprobante.ID;
         }
     }
 }

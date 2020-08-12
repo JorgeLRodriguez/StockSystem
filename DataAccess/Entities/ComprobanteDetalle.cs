@@ -13,6 +13,6 @@ namespace DataAccess.Entities
 		public int id_articulo { get; set; }
 		public int cantidad { get; set; }
 		public int id_tipo_rechazo { get; set; }
-		public int regis_pallet { get; set; }
+		public int id_pallet { get; set; }
     }
 }

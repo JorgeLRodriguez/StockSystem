@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clientlab = new System.Windows.Forms.Label();
             this.datelab = new System.Windows.Forms.Label();
             this.voucherPicker = new System.Windows.Forms.DateTimePicker();
@@ -56,7 +56,7 @@
             // 
             this.clientlab.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientlab.ForeColor = System.Drawing.Color.White;
-            this.clientlab.Location = new System.Drawing.Point(94, 121);
+            this.clientlab.Location = new System.Drawing.Point(73, 139);
             this.clientlab.Name = "clientlab";
             this.clientlab.Size = new System.Drawing.Size(75, 27);
             this.clientlab.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             this.datelab.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datelab.ForeColor = System.Drawing.Color.White;
-            this.datelab.Location = new System.Drawing.Point(94, 170);
+            this.datelab.Location = new System.Drawing.Point(73, 188);
             this.datelab.Name = "datelab";
             this.datelab.Size = new System.Drawing.Size(71, 27);
             this.datelab.TabIndex = 4;
@@ -83,16 +83,16 @@
             this.voucherPicker.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.voucherPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.voucherPicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.voucherPicker.Location = new System.Drawing.Point(173, 170);
+            this.voucherPicker.Location = new System.Drawing.Point(164, 188);
             this.voucherPicker.Name = "voucherPicker";
-            this.voucherPicker.Size = new System.Drawing.Size(118, 27);
+            this.voucherPicker.Size = new System.Drawing.Size(208, 27);
             this.voucherPicker.TabIndex = 6;
             // 
             // invlab
             // 
             this.invlab.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invlab.ForeColor = System.Drawing.Color.White;
-            this.invlab.Location = new System.Drawing.Point(81, 220);
+            this.invlab.Location = new System.Drawing.Point(72, 237);
             this.invlab.Name = "invlab";
             this.invlab.Size = new System.Drawing.Size(95, 23);
             this.invlab.TabIndex = 7;
@@ -101,7 +101,7 @@
             // numbertxt
             // 
             this.numbertxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numbertxt.Location = new System.Drawing.Point(173, 220);
+            this.numbertxt.Location = new System.Drawing.Point(164, 235);
             this.numbertxt.Name = "numbertxt";
             this.numbertxt.Size = new System.Drawing.Size(208, 27);
             this.numbertxt.TabIndex = 8;
@@ -112,38 +112,38 @@
             this.invdetdataGrid.AllowUserToDeleteRows = false;
             this.invdetdataGrid.AllowUserToOrderColumns = true;
             this.invdetdataGrid.CausesValidation = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.invdetdataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.invdetdataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.invdetdataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.invdetdataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.articlecbdg,
             this.quantitytxtdg});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.invdetdataGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.invdetdataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.invdetdataGrid.GridColor = System.Drawing.Color.White;
             this.invdetdataGrid.Location = new System.Drawing.Point(458, 57);
             this.invdetdataGrid.MultiSelect = false;
             this.invdetdataGrid.Name = "invdetdataGrid";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.invdetdataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.invdetdataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.invdetdataGrid.Size = new System.Drawing.Size(403, 468);
             this.invdetdataGrid.TabIndex = 9;
             this.invdetdataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.invdetdataGrid_CellContentClick);
@@ -168,7 +168,7 @@
             this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.savebtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savebtn.ForeColor = System.Drawing.Color.White;
-            this.savebtn.Location = new System.Drawing.Point(202, 381);
+            this.savebtn.Location = new System.Drawing.Point(191, 413);
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(89, 31);
             this.savebtn.TabIndex = 10;
@@ -182,7 +182,7 @@
             this.clientcbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clientcbx.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientcbx.FormattingEnabled = true;
-            this.clientcbx.Location = new System.Drawing.Point(173, 119);
+            this.clientcbx.Location = new System.Drawing.Point(164, 137);
             this.clientcbx.Name = "clientcbx";
             this.clientcbx.Size = new System.Drawing.Size(208, 29);
             this.clientcbx.TabIndex = 11;
@@ -194,7 +194,7 @@
             this.addbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addbtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbtn.ForeColor = System.Drawing.Color.White;
-            this.addbtn.Location = new System.Drawing.Point(201, 272);
+            this.addbtn.Location = new System.Drawing.Point(191, 300);
             this.addbtn.Name = "addbtn";
             this.addbtn.Size = new System.Drawing.Size(89, 31);
             this.addbtn.TabIndex = 12;
@@ -208,7 +208,7 @@
             this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deletebtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deletebtn.ForeColor = System.Drawing.Color.White;
-            this.deletebtn.Location = new System.Drawing.Point(202, 327);
+            this.deletebtn.Location = new System.Drawing.Point(191, 356);
             this.deletebtn.Name = "deletebtn";
             this.deletebtn.Size = new System.Drawing.Size(89, 31);
             this.deletebtn.TabIndex = 13;
@@ -220,7 +220,7 @@
             // 
             this.vouchertypelb.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vouchertypelb.ForeColor = System.Drawing.Color.White;
-            this.vouchertypelb.Location = new System.Drawing.Point(94, 66);
+            this.vouchertypelb.Location = new System.Drawing.Point(72, 95);
             this.vouchertypelb.Name = "vouchertypelb";
             this.vouchertypelb.Size = new System.Drawing.Size(51, 27);
             this.vouchertypelb.TabIndex = 14;
@@ -230,17 +230,18 @@
             // 
             this.typetxt.Enabled = false;
             this.typetxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typetxt.Location = new System.Drawing.Point(144, 64);
+            this.typetxt.Location = new System.Drawing.Point(136, 93);
             this.typetxt.Name = "typetxt";
-            this.typetxt.Size = new System.Drawing.Size(31, 27);
+            this.typetxt.Size = new System.Drawing.Size(56, 27);
             this.typetxt.TabIndex = 15;
             this.typetxt.Text = "SIR";
+            this.typetxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // letterlab
             // 
             this.letterlab.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.letterlab.ForeColor = System.Drawing.Color.White;
-            this.letterlab.Location = new System.Drawing.Point(181, 66);
+            this.letterlab.Location = new System.Drawing.Point(209, 95);
             this.letterlab.Name = "letterlab";
             this.letterlab.Size = new System.Drawing.Size(62, 27);
             this.letterlab.TabIndex = 16;
@@ -249,7 +250,7 @@
             // lettertxt
             // 
             this.lettertxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lettertxt.Location = new System.Drawing.Point(249, 64);
+            this.lettertxt.Location = new System.Drawing.Point(277, 93);
             this.lettertxt.Name = "lettertxt";
             this.lettertxt.Size = new System.Drawing.Size(42, 27);
             this.lettertxt.TabIndex = 17;
@@ -260,7 +261,7 @@
             // 
             this.subsidiarytxt.Enabled = false;
             this.subsidiarytxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subsidiarytxt.Location = new System.Drawing.Point(316, 64);
+            this.subsidiarytxt.Location = new System.Drawing.Point(347, 93);
             this.subsidiarytxt.Name = "subsidiarytxt";
             this.subsidiarytxt.Size = new System.Drawing.Size(25, 27);
             this.subsidiarytxt.TabIndex = 18;
@@ -270,7 +271,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(296, 66);
+            this.label1.Location = new System.Drawing.Point(326, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 27);
             this.label1.TabIndex = 19;

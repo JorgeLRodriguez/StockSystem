@@ -25,5 +25,6 @@ namespace DataAccess.Repositories
         public virtual DbSet<Articulo> Articulo { get; set; }
         public virtual DbSet<Comprobante> Comprobante { get; set; }
         public virtual DbSet<ComprobanteDetalle> ComprobanteDetalle { get; set; }
+        public virtual DbSet<Numerador> Numerador { get; set; }
     }
 }

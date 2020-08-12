@@ -26,7 +26,7 @@ namespace Domain.Models
             genericRepository = new GenericRepository<Cliente>();
         }
 
-        public List<ClientModel> GetClients()
+        public List<ClientModel> Get()
         {
             var clientDataModel = genericRepository.Get();
             var listClients = new List<ClientModel>();
@@ -34,7 +34,7 @@ namespace Domain.Models
             {
                 listClients.Add(new ClientModel
                 {
-                    idCliente = item.Id,
+                    idCliente = item.ID,
                     cuit = item.Cuit,
                     descripcion = item.Descripcion,
                     activo = item.Activo

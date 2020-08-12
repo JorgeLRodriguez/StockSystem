@@ -25,12 +25,12 @@ namespace Domain.Models
         public string Codigo_barra { get => codigo_barra; set => codigo_barra = value; }
         public bool Tiene_codigo_barra { get => tiene_codigo_barra; set => tiene_codigo_barra = value; }
 
-        private IGenericRepository <Articulo> genericRepository;
+        private readonly IGenericRepository <Articulo> genericRepository;
         public ArticleModel()
         {
             genericRepository = new GenericRepository<Articulo>();
         }
-        public List<ArticleModel> GetArticles()
+        public List<ArticleModel> Get()
         {
             var articleDataModel = genericRepository.Get();
             var listArticles = new List<ArticleModel>();
@@ -38,10 +38,10 @@ namespace Domain.Models
             {
                 listArticles.Add(new ArticleModel
                 {
-                    ID = item.Id,
+                    ID = item.ID,
                     codigo_fs = item.Codigo_fs,
                     descripcion = item.Descripcion,
-                    idCliente = item.IdCliente,
+                    idCliente = item.id_cliente,
                     codigo_barra = item.codigo_barra,
                     tiene_codigo_barra = item.tiene_codigo_barra
                 });

@@ -11,7 +11,7 @@ namespace DataAccess.Entities
     {
         public string Codigo_fs { get; set; }
         public string Descripcion { get; set; }
-        public int IdCliente { get; set; }
+        public int id_cliente { get; set; }
         public string codigo_barra { get; set; }
         public bool tiene_codigo_barra { get; set; }
     }

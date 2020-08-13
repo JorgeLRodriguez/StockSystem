@@ -30,14 +30,14 @@ namespace Domain.Models
         public int Sucursal { get => sucursal; set => sucursal = value; }
         public int Numero { get => numero; set => numero = value; }
 
-        private IGenericRepository<Numerador> genericRepository;
+        private INumeratorRepository numeratorRepository;
         public NumeratorModel()
         {
-            genericRepository = new GenericRepository<Numerador>();
+            numeratorRepository = new NumeratorRepository();
         }
         public List<NumeratorModel> Get()
         {
-            var numeratorDataModel = genericRepository.Get();
+            var numeratorDataModel = numeratorRepository.Get();
             var listNumerator = new List<NumeratorModel>();
             foreach (Numerador item in numeratorDataModel)
             {
@@ -50,6 +50,31 @@ namespace Domain.Models
                 });
             }
             return listNumerator;
+        }
+        public NumeratorModel Get(string id_tipo_comprobante, string letra, int sucursal)
+        {
+            var numeratorDataModel = numeratorRepository.Get(id_tipo_comprobante, letra, sucursal);
+            var numerator = new NumeratorModel();
+            numerator.ID = numeratorDataModel.ID;
+            numerator.id_tipo_comprobante = numeratorDataModel.id_tipo_comprobante;
+            numerator.letra = numeratorDataModel.letra;
+            numerator.sucursal = numeratorDataModel.sucursal;
+            numerator.numero = numeratorDataModel.numero + 1;
+            return numerator;
+        }
+
+        public void Update (NumeratorModel numerator)
+        {
+            Numerador numeratorDataModel = new Numerador();
+            numeratorDataModel.ID = numerator.ID;
+            numeratorDataModel.id_tipo_comprobante = numerator.id_tipo_comprobante;
+            numeratorDataModel.letra = numerator.letra;
+            numeratorDataModel.sucursal = numerator.sucursal;
+            numeratorDataModel.numero = numerator.numero;
+            numeratorDataModel.ChangedBy = Environment.UserName;
+            numeratorDataModel.ChangedOn = DateTime.Now;
+
+            numeratorRepository.Update(numeratorDataModel);
         }
     }
 }

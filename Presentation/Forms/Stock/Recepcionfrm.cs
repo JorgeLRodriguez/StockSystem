@@ -87,25 +87,28 @@ namespace UI.Stock
             VoucherModel.Num_comprobante = 1;
             VoucherModel.Observaciones = "Prueba";
             VoucherModel.Suc_comprobante = Int16.Parse(subsidiarytxt.Text);
-            VoucherModel.CreatedBy = Environment.UserName;
-            VoucherModel.CreatedOn = DateTime.Now;
-            VoucherModel.ChangedBy = null;
-            VoucherModel.ChangedOn = null;
             VoucherModel.Fecha_comprobante = voucherPicker.Value;
 
-            foreach (DataGridViewRow row in invdetdataGrid.Rows)
+            try
             {
-                VoucherDetail.Id_articulo = (int)row.Cells[0].Value;
-                VoucherDetail.Cantidad = Int32.Parse(row.Cells[1].EditedFormattedValue.ToString());
-                VoucherDetail.CreatedBy = Environment.UserName;
-                VoucherDetail.CreatedOn = DateTime.Now;
-                VoucherDetail.Id_tipo_rechazo = 1;
-                VoucherDetail.Linea = row.Index;
-                VoucherDetail.Id_pallet = 111;
+                foreach (DataGridViewRow row in invdetdataGrid.Rows)
+                {
+                    VoucherDetail.Id_articulo = (int)row.Cells[0].Value;
+                    VoucherDetail.Cantidad = Int32.Parse(row.Cells[1].EditedFormattedValue.ToString());
+                    VoucherDetail.Id_tipo_rechazo = 1;
+                    VoucherDetail.Linea = row.Index;
+                    VoucherDetail.Id_pallet = 111;
 
-                voucherDetailList.Add(VoucherDetail);
+                    voucherDetailList.Add(VoucherDetail);
+                }
+                VoucherService.Save(VoucherModel, voucherDetailList);
+                MessageBox.Show("Proceso Correcto.", "");
             }
-            VoucherService.Save(VoucherModel, voucherDetailList);
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, strings.Atencion);
+            }
+            
         }
     }
 }

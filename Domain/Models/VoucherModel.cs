@@ -62,10 +62,8 @@ namespace Domain.Models
             comprobante.fecha_comprobante = voucherModel.Fecha_comprobante;
             comprobante.suc_comprobante = voucherModel.Suc_comprobante;
             comprobante.cierre = voucherModel.Cierre;
-            comprobante.ChangedBy = voucherModel.ChangedBy;
-            comprobante.ChangedOn = voucherModel.ChangedOn;
-            comprobante.CreatedBy = voucherModel.CreatedBy;
-            comprobante.CreatedOn = voucherModel.CreatedOn;
+            comprobante.CreatedBy = Environment.UserName;
+            comprobante.CreatedOn = DateTime.Now;
 
             genericRepository.Create(comprobante);
             return comprobante.ID;

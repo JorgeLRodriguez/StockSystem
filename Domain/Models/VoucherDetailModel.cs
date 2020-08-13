@@ -52,10 +52,8 @@ namespace Domain.Models
                 comprobanteDetalle.id_articulo = item.Id_articulo;
                 comprobanteDetalle.cantidad = item.Cantidad;
                 comprobanteDetalle.id_pallet = item.Id_pallet;
-                comprobanteDetalle.ChangedBy = item.ChangedBy;
-                comprobanteDetalle.ChangedOn = item.ChangedOn;
-                comprobanteDetalle.CreatedBy = item.CreatedBy;
-                comprobanteDetalle.CreatedOn = item.CreatedOn;
+                comprobanteDetalle.CreatedBy = Environment.UserName;
+                comprobanteDetalle.CreatedOn = DateTime.Now;
 
                 genericRepository.Create(comprobanteDetalle);
             }

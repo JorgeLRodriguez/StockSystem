@@ -58,11 +58,13 @@
     <Compile Include="Contracts\IArticleRepository.cs" />
     <Compile Include="Contracts\IClientRepository.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
+    <Compile Include="Contracts\ILogRepository.cs" />
     <Compile Include="Contracts\INumeratorRepository.cs" />
     <Compile Include="Contracts\IRole.cs" />
     <Compile Include="Contracts\ISecurityRepository.cs" />
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="Contracts\IVoucherRepository.cs" />
+    <Compile Include="Repositories\LogRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\SecurityRepository.cs" />
     <Compile Include="Repositories\VoucherRepository.cs" />

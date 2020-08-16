@@ -13,7 +13,7 @@ namespace DataAccess.Repositories
 {
     public class Repository : DbContext
     {
-        public Repository() : base (ConfigurationManager.ConnectionStrings["cnn"].ToString())
+        public Repository() : base(ConfigurationManager.ConnectionStrings["cnn"].ToString())
         {
             Database.SetInitializer<Repository>(null);
         }
@@ -28,5 +28,6 @@ namespace DataAccess.Repositories
         public virtual DbSet<ComprobanteDetalle> ComprobanteDetalle { get; set; }
         public virtual DbSet<Numerador> Numerador { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
+        public virtual DbSet<Log> Log { get; set; }
     }
 }

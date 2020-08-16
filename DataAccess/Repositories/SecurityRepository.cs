@@ -17,43 +17,32 @@ namespace DataAccess.Repositories
         }
         public Usuario VerifyAccess(string user, string pass)
         {
-            //Usuario usr = new Usuario();
-            //Rol rol = new Rol();
-
             using (_db)
             {
-                try
-                {
-                    _db.Configuration.LazyLoadingEnabled = true;
+                _db.Configuration.LazyLoadingEnabled = true;
 
-                    var query = _db.Usuario.Where(x => x.Username == user && x.Contraseña == pass).FirstOrDefault();
-                    if (query != null)
-                    {
-                        Usuario usr = new Usuario();
-                        usr.ID = query.ID;
-                        usr.id_Rol = query.id_Rol;
-                        usr.Username = query.Username;
-                        usr.Contraseña = query.Contraseña;
-                        usr.Apellidos = query.Apellidos;
-                        usr.Nombres = query.Nombres;
-                        usr.UsuarioRed = query.UsuarioRed;
-                        usr.RedLogIn = Environment.MachineName;
-                        usr.ultimoLogIn = DateTime.Now;
-                        usr.Rol = new Rol();
-                        usr.Rol.ID = query.Rol.ID;
-                        usr.Rol.Descripcion = query.Rol.Descripcion;
-                        usr.Rol.NivelAcceso = query.Rol.NivelAcceso;
-                        return usr;
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                }
-                catch (Exception ex)
+                var query = _db.Usuario.Where(x => x.Username == user && x.Contraseña == pass).FirstOrDefault();
+                if (query != null)
                 {
-                    throw new ApplicationException(ex.Message);
-                    //log de errores
+                    Usuario usr = new Usuario();
+                    usr.ID = query.ID;
+                    usr.id_Rol = query.id_Rol;
+                    usr.Username = query.Username;
+                    usr.Contraseña = query.Contraseña;
+                    usr.Apellidos = query.Apellidos;
+                    usr.Nombres = query.Nombres;
+                    usr.UsuarioRed = query.UsuarioRed;
+                    usr.RedLogIn = Environment.MachineName;
+                    usr.ultimoLogIn = DateTime.Now;
+                    usr.Rol = new Rol();
+                    usr.Rol.ID = query.Rol.ID;
+                    usr.Rol.Descripcion = query.Rol.Descripcion;
+                    usr.Rol.NivelAcceso = query.Rol.NivelAcceso;
+                    return usr;
+                }
+                else
+                {
+                    return null;
                 }
             }
         }

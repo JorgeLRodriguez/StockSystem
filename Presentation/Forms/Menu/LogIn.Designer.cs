@@ -121,6 +121,7 @@ namespace UI
             this.txtpsw.ForeColor = System.Drawing.Color.White;
             this.txtpsw.Location = new System.Drawing.Point(397, 168);
             this.txtpsw.Name = "txtpsw";
+            this.txtpsw.PasswordChar = '♦';
             this.txtpsw.Size = new System.Drawing.Size(337, 20);
             this.txtpsw.TabIndex = 2;
             // 
@@ -187,6 +188,7 @@ namespace UI
             this.usrlab.Size = new System.Drawing.Size(70, 21);
             this.usrlab.TabIndex = 7;
             this.usrlab.Text = "Usuario:";
+            this.usrlab.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pswlab
             // 
@@ -198,6 +200,7 @@ namespace UI
             this.pswlab.Size = new System.Drawing.Size(107, 21);
             this.pswlab.TabIndex = 8;
             this.pswlab.Text = "Contraseña:";
+            this.pswlab.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LogIn
             // 
@@ -224,6 +227,7 @@ namespace UI
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
+            this.Load += new System.EventHandler(this.LogIn_Load);
             this.leftpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainiconpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnclose)).EndInit();

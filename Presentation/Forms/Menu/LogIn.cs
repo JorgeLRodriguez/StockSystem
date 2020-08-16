@@ -16,7 +16,7 @@ namespace UI
 {
     public partial class LogIn : Form
     {
-        SecurityModel UB = new SecurityModel();
+        SecurityModel S = new SecurityModel();
         public LogIn()
         {
             InitializeComponent();
@@ -24,11 +24,10 @@ namespace UI
         private void loginbtn_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            User usr = new User();
 
             try
             {
-                if (UB.VerifyAccess(txtuser.Text, txtpsw.Text) != null)
+                if (S.VerifyAccess(txtuser.Text, txtpsw.Text) != null)
                 {
                     MainMenufrm mainMenufrm = new MainMenufrm();
                     mainMenufrm.Show();
@@ -41,25 +40,18 @@ namespace UI
                 {
                     case "LogInIncorrecto":
                         MessageBox.Show(strings.LogInIncorrecto, "¡" + strings.Atencion + "!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        txtuser.Clear();
-                        txtpsw.Clear();
-                        txtuser.Focus();
-                        Cursor = Cursors.Arrow;
+                        Clean();
                         break;
                     case "logInEmptyorNull":
                         MessageBox.Show(strings.logInEmptyorNull, "¡" + strings.Atencion + "!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        txtuser.Clear();
-                        txtpsw.Clear();
-                        txtuser.Focus();
-                        Cursor = Cursors.Arrow;
+                        Clean();
                         break;
                     default:
-                        Cursor = Cursors.Arrow;
+                        Clean();
                         MessageBox.Show(ex.Message, "");
                         return;
                 }
             }
-
         }
         private void btnclose_Click(object sender, EventArgs e)
         {
@@ -68,6 +60,20 @@ namespace UI
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+        private void Clean()
+        {
+            txtuser.Clear();
+            txtpsw.Clear();
+            txtuser.Focus();
+            Cursor = Cursors.Arrow;
+        }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+            usrlab.Text = strings.Usuario +":";
+            pswlab.Text = strings.Contraseña + ":";
+            btnlogin.Text = strings.Acceder;
         }
     }
 }

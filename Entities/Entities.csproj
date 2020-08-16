@@ -47,6 +47,7 @@
     <Compile Include="Comprobante.cs" />
     <Compile Include="ComprobanteDetalle.cs" />
     <Compile Include="IdentityBase.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Numerador.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="Seguridad.cs" />

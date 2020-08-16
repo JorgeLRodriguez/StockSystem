@@ -2,26 +2,20 @@
 using Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using System.Transactions;
 
 namespace DataAccess.Repositories
 {
-    public class UserRepository : IUserRepository 
+    public class ClientRepository : IClientRepository
     {
         protected Repository _db;
-        public UserRepository()
+        public ClientRepository()
         {
             _db = new Repository();
         }
-        public Usuario Create(Usuario entity)
+        public Cliente Create(Cliente article)
         {
             throw new NotImplementedException();
         }
@@ -31,12 +25,12 @@ namespace DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public List<Usuario> Get()
+        public List<Cliente> Get()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Usuario entity)
+        public void Update(Cliente article)
         {
             throw new NotImplementedException();
         }

@@ -1,5 +1,5 @@
 ﻿using DataAccess.Contracts;
-using DataAccess.Entities;
+using Entities;
 using DataAccess.Repositories;
 using System;
 using System.Collections.Generic;

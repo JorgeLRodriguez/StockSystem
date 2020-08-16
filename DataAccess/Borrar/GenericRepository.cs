@@ -1,5 +1,5 @@
 ﻿using DataAccess.Contracts;
-using DataAccess.Entities;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

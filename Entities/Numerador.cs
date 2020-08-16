@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Entities
+namespace Entities
 {
-    public class Numerador : IdentityBase
+    public class Numerador: IdentityBase
     {
+        //public int ID { get; set; }
         public string id_tipo_comprobante { get; set; }
         public string letra { get; set; }
         public int sucursal { get; set; }

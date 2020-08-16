@@ -20,6 +20,7 @@ namespace UI.Stock
         private VoucherService VoucherService = new VoucherService();
         private VoucherModel VoucherModel = new VoucherModel();
         private VoucherDetailModel VoucherDetail = new VoucherDetailModel();
+        private NumeratorModel NumeratorModel = new NumeratorModel();
         public Recepcionfrm()
         {
             InitializeComponent();
@@ -78,19 +79,18 @@ namespace UI.Stock
         }
         private void savebtn_Click(object sender, EventArgs e)
         {
-
-            List<VoucherDetailModel> voucherDetailList = new List<VoucherDetailModel>();
-            VoucherModel.Id_cliente = Int32.Parse(clientcbx.SelectedValue.ToString());
-            VoucherModel.Id_tipo_comprobante = typetxt.Text;
-            VoucherModel.Letra_comprobante = lettertxt.Text;
-            VoucherModel.Nro_remito_cliente = numbertxt.Text;
-            VoucherModel.Num_comprobante = 1;
-            VoucherModel.Observaciones = "Prueba";
-            VoucherModel.Suc_comprobante = Int16.Parse(subsidiarytxt.Text);
-            VoucherModel.Fecha_comprobante = voucherPicker.Value;
-
             try
             {
+                List<VoucherDetailModel> voucherDetailList = new List<VoucherDetailModel>();
+                VoucherModel.Id_cliente = Int32.Parse(clientcbx.SelectedValue.ToString());
+                VoucherModel.Id_tipo_comprobante = typetxt.Text;
+                VoucherModel.Letra_comprobante = lettertxt.Text;
+                VoucherModel.Suc_comprobante = int.Parse(subsidiarytxt.Text);
+                VoucherModel.Nro_remito_cliente = numbertxt.Text;
+                VoucherModel.Fecha_comprobante = voucherPicker.Value;
+                //VoucherModel.Num_comprobante = 1;
+                //VoucherModel.Observaciones = "Prueba";
+
                 foreach (DataGridViewRow row in invdetdataGrid.Rows)
                 {
                     VoucherDetail.Id_articulo = (int)row.Cells[0].Value;
@@ -98,7 +98,6 @@ namespace UI.Stock
                     VoucherDetail.Id_tipo_rechazo = 1;
                     VoucherDetail.Linea = row.Index;
                     VoucherDetail.Id_pallet = 111;
-
                     voucherDetailList.Add(VoucherDetail);
                 }
                 VoucherService.Save(VoucherModel, voucherDetailList);

@@ -1,19 +1,22 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain.Models;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace UI
 {
     public partial class LogIn : Form
     {
-        UserModel UB = new UserModel();
+        SecurityModel UB = new SecurityModel();
         public LogIn()
         {
             InitializeComponent();
@@ -21,60 +24,42 @@ namespace UI
         private void loginbtn_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
+            User usr = new User();
 
-            if (String.IsNullOrEmpty(txtuser.Text) || String.IsNullOrEmpty(txtpsw.Text) || txtuser.Text == strings.Usuario || txtpsw.Text == strings.Contraseña)
+            try
             {
-                MessageBox.Show(strings.logInEmptyorNull, "¡"+strings.Atencion+"!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                if (UB.VerifyAccess(txtuser.Text, txtpsw.Text) != null)
+                {
+                    MainMenufrm mainMenufrm = new MainMenufrm();
+                    mainMenufrm.Show();
+                    Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                switch (ex.Message.ToString())
+                {
+                    case "LogInIncorrecto":
+                        MessageBox.Show(strings.LogInIncorrecto, "¡" + strings.Atencion + "!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtuser.Clear();
+                        txtpsw.Clear();
+                        txtuser.Focus();
+                        Cursor = Cursors.Arrow;
+                        break;
+                    case "logInEmptyorNull":
+                        MessageBox.Show(strings.logInEmptyorNull, "¡" + strings.Atencion + "!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtuser.Clear();
+                        txtpsw.Clear();
+                        txtuser.Focus();
+                        Cursor = Cursors.Arrow;
+                        break;
+                    default:
+                        Cursor = Cursors.Arrow;
+                        MessageBox.Show(ex.Message, "");
+                        return;
+                }
             }
 
-            if (UB.UserlogIn(txtuser.Text, txtpsw.Text))
-            {
-                MainMenufrm mainMenufrm = new MainMenufrm();
-                mainMenufrm.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show(strings.LogInIncorrecto, "¡" + strings.Atencion + "!", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                txtuser.Clear();
-                txtpsw.Clear();
-                txtuser.Focus();
-            }
-        }
-        private void txtuser_Enter(object sender, EventArgs e)
-        {
-            if (txtuser.Text == strings.Usuario)
-            {
-                txtuser.Text = "";
-                txtuser.ForeColor = Color.LightGray;
-            }
-        }
-        private void txtuser_Leave(object sender, EventArgs e)
-        {
-            if (txtuser.Text == "")
-            {
-                txtuser.Text = strings.Usuario;
-                txtuser.ForeColor = Color.DimGray;
-            }
-        }
-        private void txtpsw_Enter(object sender, EventArgs e)
-        {
-            if (txtpsw.Text == strings.Contraseña)
-            {
-                txtpsw.Text = "";
-                txtpsw.ForeColor = Color.LightGray;
-                txtpsw.UseSystemPasswordChar = true;
-            }
-        }
-        private void txtpsw_Leave(object sender, EventArgs e)
-        {
-            if (txtpsw.Text == "")
-            {
-                txtpsw.Text = strings.Contraseña;
-                txtpsw.ForeColor = Color.DimGray;
-                txtpsw.UseSystemPasswordChar = false;
-            }
         }
         private void btnclose_Click(object sender, EventArgs e)
         {

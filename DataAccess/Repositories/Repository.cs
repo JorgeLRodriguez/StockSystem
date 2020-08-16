@@ -1,7 +1,8 @@
-﻿using DataAccess.Entities;
+﻿using Entities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -26,5 +27,6 @@ namespace DataAccess.Repositories
         public virtual DbSet<Comprobante> Comprobante { get; set; }
         public virtual DbSet<ComprobanteDetalle> ComprobanteDetalle { get; set; }
         public virtual DbSet<Numerador> Numerador { get; set; }
+        public virtual DbSet<Rol> Rol { get; set; }
     }
 }

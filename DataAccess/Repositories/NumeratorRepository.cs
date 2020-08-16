@@ -1,5 +1,5 @@
 ﻿using DataAccess.Contracts;
-using DataAccess.Entities;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -28,7 +28,7 @@ namespace DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public List<Numerador> Get(Expression<Func<Numerador, bool>> whereExpression = null, Func<IQueryable<Numerador>, IOrderedQueryable<Numerador>> orderFunction = null, string includeModels = "")
+        public List<Numerador> Get()
         {
             throw new NotImplementedException();
         }
@@ -51,21 +51,10 @@ namespace DataAccess.Repositories
             }
             return numerador;
         }
-
-        public int Get()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update(Numerador entity)
         {
             _db.Entry(entity).State = EntityState.Modified;
             _db.SaveChanges();
-        }
-
-        public List<ValidationResult> ValidateModel(Numerador model)
-        {
-            throw new NotImplementedException();
         }
     }
 }

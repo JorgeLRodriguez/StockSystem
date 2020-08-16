@@ -42,6 +42,8 @@ namespace UI
             this.btnlogin = new System.Windows.Forms.Button();
             this.btnclose = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.usrlab = new System.Windows.Forms.Label();
+            this.pswlab = new System.Windows.Forms.Label();
             this.leftpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainiconpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnclose)).BeginInit();
@@ -85,8 +87,8 @@ namespace UI
             this.lineShape2.BorderColor = System.Drawing.Color.DimGray;
             this.lineShape2.Enabled = false;
             this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 299;
-            this.lineShape2.X2 = 734;
+            this.lineShape2.X1 = 395;
+            this.lineShape2.X2 = 727;
             this.lineShape2.Y1 = 191;
             this.lineShape2.Y2 = 191;
             // 
@@ -95,8 +97,8 @@ namespace UI
             this.lineShape1.BorderColor = System.Drawing.Color.DimGray;
             this.lineShape1.Enabled = false;
             this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 298;
-            this.lineShape1.X2 = 735;
+            this.lineShape1.X1 = 395;
+            this.lineShape1.X2 = 727;
             this.lineShape1.Y1 = 122;
             this.lineShape1.Y2 = 122;
             // 
@@ -105,28 +107,22 @@ namespace UI
             this.txtuser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtuser.ForeColor = System.Drawing.Color.DimGray;
-            this.txtuser.Location = new System.Drawing.Point(301, 99);
+            this.txtuser.ForeColor = System.Drawing.Color.White;
+            this.txtuser.Location = new System.Drawing.Point(397, 99);
             this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(435, 20);
+            this.txtuser.Size = new System.Drawing.Size(339, 20);
             this.txtuser.TabIndex = 1;
-            this.txtuser.Text = strings.Usuario;
-            this.txtuser.Enter += new System.EventHandler(this.txtuser_Enter);
-            this.txtuser.Leave += new System.EventHandler(this.txtuser_Leave);
             // 
             // txtpsw
             // 
             this.txtpsw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtpsw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpsw.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpsw.ForeColor = System.Drawing.Color.DimGray;
-            this.txtpsw.Location = new System.Drawing.Point(299, 168);
+            this.txtpsw.ForeColor = System.Drawing.Color.White;
+            this.txtpsw.Location = new System.Drawing.Point(397, 168);
             this.txtpsw.Name = "txtpsw";
-            this.txtpsw.Size = new System.Drawing.Size(435, 20);
+            this.txtpsw.Size = new System.Drawing.Size(337, 20);
             this.txtpsw.TabIndex = 2;
-            this.txtpsw.Text = strings.Contraseña;
-            this.txtpsw.Enter += new System.EventHandler(this.txtpsw_Enter);
-            this.txtpsw.Leave += new System.EventHandler(this.txtpsw_Leave);
             // 
             // lablogin
             // 
@@ -181,6 +177,28 @@ namespace UI
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // usrlab
+            // 
+            this.usrlab.AutoSize = true;
+            this.usrlab.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usrlab.ForeColor = System.Drawing.Color.White;
+            this.usrlab.Location = new System.Drawing.Point(320, 99);
+            this.usrlab.Name = "usrlab";
+            this.usrlab.Size = new System.Drawing.Size(70, 21);
+            this.usrlab.TabIndex = 7;
+            this.usrlab.Text = "Usuario:";
+            // 
+            // pswlab
+            // 
+            this.pswlab.AutoSize = true;
+            this.pswlab.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pswlab.ForeColor = System.Drawing.Color.White;
+            this.pswlab.Location = new System.Drawing.Point(283, 168);
+            this.pswlab.Name = "pswlab";
+            this.pswlab.Size = new System.Drawing.Size(107, 21);
+            this.pswlab.TabIndex = 8;
+            this.pswlab.Text = "Contraseña:";
+            // 
             // LogIn
             // 
             this.AcceptButton = this.btnlogin;
@@ -188,6 +206,8 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(780, 330);
+            this.Controls.Add(this.pswlab);
+            this.Controls.Add(this.usrlab);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnclose);
             this.Controls.Add(this.btnlogin);
@@ -226,5 +246,7 @@ namespace UI
         private System.Windows.Forms.Button btnlogin;
         private System.Windows.Forms.PictureBox btnclose;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label usrlab;
+        private System.Windows.Forms.Label pswlab;
     }
 }

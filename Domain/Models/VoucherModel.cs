@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Contracts;
-using DataAccess.Entities;
 using DataAccess.Repositories;
+using Entities;
 
 namespace Domain.Models
 {

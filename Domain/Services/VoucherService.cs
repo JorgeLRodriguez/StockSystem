@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Models;
-using DataAccess.Entities;
 
 namespace Domain.Services
 {
@@ -13,16 +12,20 @@ namespace Domain.Services
         VoucherModel VoucherModel = new VoucherModel();
         VoucherDetailModel VoucherModelDetail = new VoucherDetailModel();
         NumeratorModel NumeratorModel = new NumeratorModel();
+
         public void Save (VoucherModel voucherModel, List<VoucherDetailModel> voucherModelDetail)
         {
-            var NumeratorDataModel = NumeratorModel.Get("SIR", "X", 1);
+            var NumeratorDataModel = NumeratorModel.Get
+                (voucherModel.Id_tipo_comprobante, voucherModel.Letra_comprobante, voucherModel.Suc_comprobante);
 
             voucherModel.Num_comprobante = NumeratorDataModel.Numero;
 
-            int id_comprobante = VoucherModel.Save(voucherModel);
-            VoucherModelDetail.Save(voucherModelDetail, id_comprobante);
+            //voucherModel.Num_comprobante = NumeratorDataModel.Numero;
 
-            NumeratorDataModel.Update(NumeratorDataModel);
+            //int id_comprobante = VoucherModel.Save(voucherModel);
+            //VoucherModelDetail.Save(voucherModelDetail, id_comprobante);
+            VoucherModelDetail.Save(voucherModelDetail, VoucherModel.Save(voucherModel));
+            NumeratorModel.Update(NumeratorDataModel);
         }
     }
 }

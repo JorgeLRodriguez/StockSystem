@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Contracts
 {
-    public interface IUserRepository
+    public interface IVoucherRepository
     {
-        List<Usuario> Get();
+        List<Comprobante> Get();
         //T GetById(int id);
-        Usuario Create(Usuario usuario);
-        void Update(Usuario usuario);
+        Comprobante Create(Comprobante article);
+        void Update(Comprobante article);
         void Delete(int id);
     }
 }

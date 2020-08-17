@@ -1,22 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain.Models;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace UI
 {
     public partial class LogIn : Form
     {
-        SecurityModel S = new SecurityModel();
         public LogIn()
         {
             InitializeComponent();
@@ -27,6 +16,7 @@ namespace UI
 
             try
             {
+                SecurityModel S = new SecurityModel();
                 if (S.VerifyAccess(txtuser.Text, txtpsw.Text) != null)
                 {
                     MainMenufrm mainMenufrm = new MainMenufrm();

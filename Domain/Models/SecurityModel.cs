@@ -13,8 +13,6 @@ namespace Domain.Models
     public class SecurityModel
     {
         private readonly ISecurityRepository securityRepository;
-        LogModel logModel = new LogModel();
-        Log log = new Log();
         public SecurityModel()
         {
             securityRepository = new SecurityRepository();
@@ -22,6 +20,8 @@ namespace Domain.Models
         public Usuario VerifyAccess(string user, string psw)
         {
             Usuario usr = new Usuario();
+            LogModel logModel = new LogModel();
+            Log log = new Log();
             try
             {
                 if (String.IsNullOrEmpty(user) || String.IsNullOrEmpty(psw)) throw new ApplicationException("logInEmptyorNull");
@@ -38,7 +38,7 @@ namespace Domain.Models
                 logModel.Log(log, ex);
                 throw new ApplicationException(ex.Message);
             }
-            log.Mensaje = "El usuario "+ user+" ingresó al sistema.";
+            log.Mensaje = "El usuario "+ user +" ingresó al sistema.";
             log.Ubicacion = Environment.UserDomainName.ToString();
             logModel.Log(log, null);
             return usr;

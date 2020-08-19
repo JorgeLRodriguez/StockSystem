@@ -4,28 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Models;
+using Entities;
 
 namespace Domain.Services
 {
     public class VoucherService
     {
         VoucherModel VoucherModel = new VoucherModel();
-        VoucherDetailModel VoucherModelDetail = new VoucherDetailModel();
         NumeratorModel NumeratorModel = new NumeratorModel();
-
-        public void Save (VoucherModel voucherModel, List<VoucherDetailModel> voucherModelDetail)
+        public Comprobante Create(Comprobante comprobante)
         {
-            var NumeratorDataModel = NumeratorModel.Get
-                (voucherModel.Id_tipo_comprobante, voucherModel.Letra_comprobante, voucherModel.Suc_comprobante);
+            try
+            {
+                Numerador numerador = new Numerador();
+                numerador = NumeratorModel.Get(comprobante.id_tipo_comprobante, comprobante.letra_comprobante, comprobante.suc_comprobante);
+                comprobante.num_comprobante = numerador.numero;
+                VoucherModel.Create(comprobante);
+                numerador.numero = comprobante.num_comprobante;
+                NumeratorModel.Update(numerador);
+            }
+            catch (Exception ex)
+            {
+                Log log = new Log();
+                LogModel.Instance.Log(log, ex);
+                //agregar return
+            }
+            return comprobante;
 
-            voucherModel.Num_comprobante = NumeratorDataModel.Numero;
-
-            //voucherModel.Num_comprobante = NumeratorDataModel.Numero;
-
-            //int id_comprobante = VoucherModel.Save(voucherModel);
-            //VoucherModelDetail.Save(voucherModelDetail, id_comprobante);
-            VoucherModelDetail.Save(voucherModelDetail, VoucherModel.Save(voucherModel));
-            NumeratorModel.Update(NumeratorDataModel);
         }
     }
 }

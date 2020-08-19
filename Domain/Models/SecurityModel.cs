@@ -19,12 +19,12 @@ namespace Domain.Models
         }
         public Usuario VerifyAccess(string user, string psw)
         {
-            Usuario usr = new Usuario();
+            Usuario usr;
             LogModel logModel = new LogModel();
             Log log = new Log();
-            try
-            {
-                if (String.IsNullOrEmpty(user) || String.IsNullOrEmpty(psw)) throw new ApplicationException("logInEmptyorNull");
+            //try
+            //{
+                if (String.IsNullOrEmpty(user) || String.IsNullOrEmpty(psw)) throw new NullReferenceException (user);
 
                 usr = (securityRepository.VerifyAccess(user, psw));
 
@@ -32,12 +32,12 @@ namespace Domain.Models
                 {
                     throw new ApplicationException("LogInIncorrecto");
                 }
-            }
-            catch (Exception ex)
-            {
-                logModel.Log(log, ex);
-                throw new ApplicationException(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    logModel.Log(log, ex);
+            //    throw new ApplicationException(ex.Message);
+            //}
             log.Mensaje = "El usuario "+ user +" ingresó al sistema.";
             log.Ubicacion = Environment.UserDomainName.ToString();
             logModel.Log(log, null);

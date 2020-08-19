@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,5 +19,6 @@ namespace Entities
         public char cierre { get; set; }
         public int id_destinatario {get;set;}
         public string observaciones { get; set; }
+        public virtual ICollection<ComprobanteDetalle> ComprobanteDetalle { get; set; }
     }
 }

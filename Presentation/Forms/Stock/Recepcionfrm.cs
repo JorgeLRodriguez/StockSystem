@@ -1,5 +1,6 @@
 ﻿using Domain.Models;
 using Domain.Services;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,8 @@ namespace UI.Stock
 {
     public partial class Recepcionfrm : Form
     {
-        private ClientModel clientModel = new ClientModel();
-        private ArticleService articleService = new ArticleService();
         private VoucherService VoucherService = new VoucherService();
         private VoucherModel VoucherModel = new VoucherModel();
-        private VoucherDetailModel VoucherDetail = new VoucherDetailModel();
-        private NumeratorModel NumeratorModel = new NumeratorModel();
         public Recepcionfrm()
         {
             InitializeComponent();
@@ -33,12 +30,12 @@ namespace UI.Stock
         }
         private void Recepcionfrm_Load(object sender, EventArgs e)
         {
+            ClientModel clientModel = new ClientModel();
             var list = clientModel.Get();
             clientcbx.DisplayMember = "Descripcion";
             clientcbx.ValueMember = "Id";
             clientcbx.DataSource = list;
-            invdetdataGrid.Columns[0].HeaderText = "Articulo"; //cambiar por string
-            invdetdataGrid.Columns[1].HeaderText = "Cantidad"; //cambiar por string
+            load_language();
         }
         private void clientcbx_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -61,6 +58,7 @@ namespace UI.Stock
         {
             if (clientcbx.SelectedValue != null)
             {
+                ArticleService articleService = new ArticleService();
                 var list = articleService.Get().FindAll(e => e.IdCliente == Int32.Parse(clientcbx.SelectedValue.ToString()));
                 if (!list.Any())
                 {
@@ -81,33 +79,52 @@ namespace UI.Stock
         {
             try
             {
-                List<VoucherDetailModel> voucherDetailList = new List<VoucherDetailModel>();
-                VoucherModel.Id_cliente = Int32.Parse(clientcbx.SelectedValue.ToString());
-                VoucherModel.Id_tipo_comprobante = typetxt.Text;
-                VoucherModel.Letra_comprobante = lettertxt.Text;
-                VoucherModel.Suc_comprobante = int.Parse(subsidiarytxt.Text);
-                VoucherModel.Nro_remito_cliente = numbertxt.Text;
-                VoucherModel.Fecha_comprobante = voucherPicker.Value;
-                //VoucherModel.Num_comprobante = 1;
-                //VoucherModel.Observaciones = "Prueba";
+                Comprobante comprobante = new Comprobante();
+
+                comprobante.id_cliente = Int32.Parse(clientcbx.SelectedValue.ToString());
+                comprobante.id_tipo_comprobante = typetxt.Text;
+                comprobante.letra_comprobante = lettertxt.Text;
+                comprobante.suc_comprobante = int.Parse(subsidiarytxt.Text);
+                comprobante.nro_remito_cliente = numbertxt.Text;
+                comprobante.fecha_comprobante = voucherPicker.Value;
+                comprobante.CreatedBy = Environment.UserName;
+                comprobante.CreatedOn = DateTime.Now;
+
+                List<ComprobanteDetalle> comprobanteDetalles = new List<ComprobanteDetalle>();
 
                 foreach (DataGridViewRow row in invdetdataGrid.Rows)
                 {
-                    VoucherDetail.Id_articulo = (int)row.Cells[0].Value;
-                    VoucherDetail.Cantidad = Int32.Parse(row.Cells[1].EditedFormattedValue.ToString());
-                    VoucherDetail.Id_tipo_rechazo = 1;
-                    VoucherDetail.Linea = row.Index;
-                    VoucherDetail.Id_pallet = 111;
-                    voucherDetailList.Add(VoucherDetail);
+                    ComprobanteDetalle comprobanteDetalle = new ComprobanteDetalle();
+                    comprobanteDetalle.id_articulo = (int)row.Cells[0].Value;
+                    comprobanteDetalle.cantidad = Int32.Parse(row.Cells[1].EditedFormattedValue.ToString());
+                    comprobanteDetalle.id_tipo_rechazo = 1;
+                    comprobanteDetalle.linea = row.Index;
+                    comprobanteDetalle.id_pallet = 111;
+                    comprobanteDetalle.CreatedBy = Environment.UserName;
+                    comprobanteDetalle.CreatedOn = DateTime.Now;
+                    comprobanteDetalles.Add(comprobanteDetalle);
                 }
-                VoucherService.Save(VoucherModel, voucherDetailList);
-                MessageBox.Show("Proceso Correcto.", "");
+                comprobante.ComprobanteDetalle = comprobanteDetalles;
+                VoucherService.Create(comprobante);
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, strings.Atencion);
-            }
-            
+            } 
+        }
+        private void load_language()
+        {
+            invdetdataGrid.Columns[0].HeaderText = strings.Articulos.Substring(0, strings.Articulos.Length - 1);
+            invdetdataGrid.Columns[1].HeaderText = strings.Cantidad;
+            vouchertypelb.Text = strings.Tipo;
+            letterlab.Text = strings.Letra;
+            clientlab.Text = strings.Cliente;
+            datelab.Text = strings.Fecha;
+            invlab.Text = strings.Remito + " #";
+            addbtn.Text = strings.Agregar;
+            deletebtn.Text = strings.Eliminar;
+            savebtn.Text = strings.Guardar;
         }
     }
 }

@@ -243,4 +243,22 @@
   <data name="LogInIncorrecto" xml:space="preserve">
     <value>Usuario o contraseña incorrectos, verifique.</value>
   </data>
+  <data name="Tipo" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Letra" xml:space="preserve">
+    <value>Letra</value>
+  </data>
+  <data name="Agregar" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="Eliminar" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Descripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Cantidad" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
 </root>

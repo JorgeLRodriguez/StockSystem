@@ -2,22 +2,25 @@
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace DataAccess.Repositories
 {
     public class VoucherRepository : IVoucherRepository
     {
         protected Repository _db;
-        public VoucherRepository()
+        public Comprobante Create(Comprobante comprobante)
         {
-            _db = new Repository();
-        }
-        public Comprobante Create(Comprobante article)
-        {
-            throw new NotImplementedException();
+            using (_db = new Repository())
+            {
+                _db.Set<Comprobante>().Add(comprobante);
+                _db.SaveChanges();
+                return comprobante;
+            }
         }
 
         public void Delete(int id)

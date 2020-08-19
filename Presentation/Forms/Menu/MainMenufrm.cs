@@ -18,12 +18,14 @@ namespace UI
     public partial class MainMenufrm : Form
     {
         private IconButton currentBtn;
-        private Panel leftBorderBtn;
+        private readonly Panel leftBorderBtn;
         public MainMenufrm()
         {
             InitializeComponent();
-            leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 60);
+            leftBorderBtn = new Panel
+            {
+                Size = new Size(7, 60)
+            };
             panelLeft.Controls.Add(leftBorderBtn);
         }
         private void showSubMenu(Panel subMenu)

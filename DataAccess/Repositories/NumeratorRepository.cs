@@ -14,10 +14,6 @@ namespace DataAccess.Repositories
     public class NumeratorRepository : INumeratorRepository
     {
         protected Repository _db;
-        public NumeratorRepository()
-        {
-            _db = new Repository();
-        }
         public Numerador Create(Numerador entity)
         {
             throw new NotImplementedException();
@@ -36,7 +32,7 @@ namespace DataAccess.Repositories
         public Numerador Get(string id_tipo_comprobante, string letra, int sucursal)
         {
             Numerador numerador = new Numerador();
-            using (_db)
+            using (_db = new Repository())
             {
                 var query = from u in _db.Numerador
                             where u.id_tipo_comprobante == id_tipo_comprobante &&
@@ -51,10 +47,13 @@ namespace DataAccess.Repositories
             }
             return numerador;
         }
-        public void Update(Numerador entity)
+        public void Update(Numerador numerador)
         {
-            _db.Entry(entity).State = EntityState.Modified;
-            _db.SaveChanges();
+            using (_db = new Repository())
+            {
+                _db.Entry(numerador).State = EntityState.Modified;
+                _db.SaveChanges();
+            }
         }
     }
 }

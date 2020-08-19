@@ -74,7 +74,6 @@ namespace UI
             // 
             // panelLeft
             // 
-            this.panelLeft.AutoScroll = true;
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(26)))), ((int)(((byte)(14)))));
             this.panelLeft.Controls.Add(this.panelReportes);
             this.panelLeft.Controls.Add(this.btnReportes);
@@ -99,9 +98,9 @@ namespace UI
             this.panelReportes.Controls.Add(this.btnInventario);
             this.panelReportes.Controls.Add(this.btndeposito);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportes.Location = new System.Drawing.Point(0, 681);
+            this.panelReportes.Location = new System.Drawing.Point(0, 683);
             this.panelReportes.Name = "panelReportes";
-            this.panelReportes.Size = new System.Drawing.Size(233, 214);
+            this.panelReportes.Size = new System.Drawing.Size(250, 214);
             this.panelReportes.TabIndex = 6;
             this.panelReportes.Visible = false;
             // 
@@ -116,7 +115,7 @@ namespace UI
             this.btnListStock.Location = new System.Drawing.Point(0, 175);
             this.btnListStock.Name = "btnListStock";
             this.btnListStock.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnListStock.Size = new System.Drawing.Size(233, 35);
+            this.btnListStock.Size = new System.Drawing.Size(250, 35);
             this.btnListStock.TabIndex = 5;
             this.btnListStock.Text = global::UI.strings.List_Stock;
             this.btnListStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -134,7 +133,7 @@ namespace UI
             this.btnIxC.Location = new System.Drawing.Point(0, 140);
             this.btnIxC.Name = "btnIxC";
             this.btnIxC.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnIxC.Size = new System.Drawing.Size(233, 35);
+            this.btnIxC.Size = new System.Drawing.Size(250, 35);
             this.btnIxC.TabIndex = 4;
             this.btnIxC.Text = global::UI.strings.IxC;
             this.btnIxC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -152,7 +151,7 @@ namespace UI
             this.btnHxI.Location = new System.Drawing.Point(0, 105);
             this.btnHxI.Name = "btnHxI";
             this.btnHxI.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnHxI.Size = new System.Drawing.Size(233, 35);
+            this.btnHxI.Size = new System.Drawing.Size(250, 35);
             this.btnHxI.TabIndex = 3;
             this.btnHxI.Text = global::UI.strings.HxI;
             this.btnHxI.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -170,7 +169,7 @@ namespace UI
             this.btnMovim.Location = new System.Drawing.Point(0, 70);
             this.btnMovim.Name = "btnMovim";
             this.btnMovim.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnMovim.Size = new System.Drawing.Size(233, 35);
+            this.btnMovim.Size = new System.Drawing.Size(250, 35);
             this.btnMovim.TabIndex = 2;
             this.btnMovim.Text = global::UI.strings.Movimientos;
             this.btnMovim.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -188,7 +187,7 @@ namespace UI
             this.btnInventario.Location = new System.Drawing.Point(0, 35);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnInventario.Size = new System.Drawing.Size(233, 35);
+            this.btnInventario.Size = new System.Drawing.Size(250, 35);
             this.btnInventario.TabIndex = 1;
             this.btnInventario.Text = global::UI.strings.Inventario;
             this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -206,7 +205,7 @@ namespace UI
             this.btndeposito.Location = new System.Drawing.Point(0, 0);
             this.btndeposito.Name = "btndeposito";
             this.btndeposito.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btndeposito.Size = new System.Drawing.Size(233, 35);
+            this.btndeposito.Size = new System.Drawing.Size(250, 35);
             this.btndeposito.TabIndex = 0;
             this.btndeposito.Text = global::UI.strings.Deposito;
             this.btndeposito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -226,7 +225,7 @@ namespace UI
             this.btnReportes.IconColor = System.Drawing.Color.White;
             this.btnReportes.IconSize = 40;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 621);
+            this.btnReportes.Location = new System.Drawing.Point(0, 623);
             this.btnReportes.MaximumSize = new System.Drawing.Size(250, 60);
             this.btnReportes.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnReportes.Name = "btnReportes";
@@ -248,9 +247,9 @@ namespace UI
             this.panelABM.Controls.Add(this.btnPxE);
             this.panelABM.Controls.Add(this.btnArticulos);
             this.panelABM.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelABM.Location = new System.Drawing.Point(0, 476);
+            this.panelABM.Location = new System.Drawing.Point(0, 478);
             this.panelABM.Name = "panelABM";
-            this.panelABM.Size = new System.Drawing.Size(233, 145);
+            this.panelABM.Size = new System.Drawing.Size(250, 145);
             this.panelABM.TabIndex = 4;
             this.panelABM.Visible = false;
             // 
@@ -265,7 +264,7 @@ namespace UI
             this.btnEtiq.Location = new System.Drawing.Point(0, 105);
             this.btnEtiq.Name = "btnEtiq";
             this.btnEtiq.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnEtiq.Size = new System.Drawing.Size(233, 35);
+            this.btnEtiq.Size = new System.Drawing.Size(250, 35);
             this.btnEtiq.TabIndex = 3;
             this.btnEtiq.Text = global::UI.strings.Etiq;
             this.btnEtiq.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -283,7 +282,7 @@ namespace UI
             this.btnLayout.Location = new System.Drawing.Point(0, 70);
             this.btnLayout.Name = "btnLayout";
             this.btnLayout.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnLayout.Size = new System.Drawing.Size(233, 35);
+            this.btnLayout.Size = new System.Drawing.Size(250, 35);
             this.btnLayout.TabIndex = 2;
             this.btnLayout.Text = global::UI.strings.Layout;
             this.btnLayout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -301,7 +300,7 @@ namespace UI
             this.btnPxE.Location = new System.Drawing.Point(0, 35);
             this.btnPxE.Name = "btnPxE";
             this.btnPxE.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnPxE.Size = new System.Drawing.Size(233, 35);
+            this.btnPxE.Size = new System.Drawing.Size(250, 35);
             this.btnPxE.TabIndex = 1;
             this.btnPxE.Text = global::UI.strings.PxE;
             this.btnPxE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -319,7 +318,7 @@ namespace UI
             this.btnArticulos.Location = new System.Drawing.Point(0, 0);
             this.btnArticulos.Name = "btnArticulos";
             this.btnArticulos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnArticulos.Size = new System.Drawing.Size(233, 35);
+            this.btnArticulos.Size = new System.Drawing.Size(250, 35);
             this.btnArticulos.TabIndex = 0;
             this.btnArticulos.Text = global::UI.strings.Articulos;
             this.btnArticulos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -339,7 +338,7 @@ namespace UI
             this.btnABM.IconColor = System.Drawing.Color.White;
             this.btnABM.IconSize = 40;
             this.btnABM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnABM.Location = new System.Drawing.Point(0, 416);
+            this.btnABM.Location = new System.Drawing.Point(0, 418);
             this.btnABM.MaximumSize = new System.Drawing.Size(250, 60);
             this.btnABM.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnABM.Name = "btnABM";
@@ -363,9 +362,9 @@ namespace UI
             this.panelStock.Controls.Add(this.btnscaneo);
             this.panelStock.Controls.Add(this.btnrecepcion);
             this.panelStock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStock.Location = new System.Drawing.Point(0, 200);
+            this.panelStock.Location = new System.Drawing.Point(0, 202);
             this.panelStock.Name = "panelStock";
-            this.panelStock.Size = new System.Drawing.Size(233, 216);
+            this.panelStock.Size = new System.Drawing.Size(250, 216);
             this.panelStock.TabIndex = 2;
             this.panelStock.Visible = false;
             // 
@@ -380,7 +379,7 @@ namespace UI
             this.btnImportar.Location = new System.Drawing.Point(0, 175);
             this.btnImportar.Name = "btnImportar";
             this.btnImportar.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnImportar.Size = new System.Drawing.Size(233, 35);
+            this.btnImportar.Size = new System.Drawing.Size(250, 35);
             this.btnImportar.TabIndex = 5;
             this.btnImportar.Text = global::UI.strings.Importar;
             this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -398,7 +397,7 @@ namespace UI
             this.btnajuste.Location = new System.Drawing.Point(0, 140);
             this.btnajuste.Name = "btnajuste";
             this.btnajuste.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnajuste.Size = new System.Drawing.Size(233, 35);
+            this.btnajuste.Size = new System.Drawing.Size(250, 35);
             this.btnajuste.TabIndex = 4;
             this.btnajuste.Text = global::UI.strings.Ajuste;
             this.btnajuste.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -416,7 +415,7 @@ namespace UI
             this.btntransf.Location = new System.Drawing.Point(0, 105);
             this.btntransf.Name = "btntransf";
             this.btntransf.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btntransf.Size = new System.Drawing.Size(233, 35);
+            this.btntransf.Size = new System.Drawing.Size(250, 35);
             this.btntransf.TabIndex = 3;
             this.btntransf.Text = global::UI.strings.Transferencia;
             this.btntransf.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -434,7 +433,7 @@ namespace UI
             this.btnpicking.Location = new System.Drawing.Point(0, 70);
             this.btnpicking.Name = "btnpicking";
             this.btnpicking.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnpicking.Size = new System.Drawing.Size(233, 35);
+            this.btnpicking.Size = new System.Drawing.Size(250, 35);
             this.btnpicking.TabIndex = 2;
             this.btnpicking.Text = global::UI.strings.Picking;
             this.btnpicking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -452,7 +451,7 @@ namespace UI
             this.btnscaneo.Location = new System.Drawing.Point(0, 35);
             this.btnscaneo.Name = "btnscaneo";
             this.btnscaneo.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnscaneo.Size = new System.Drawing.Size(233, 35);
+            this.btnscaneo.Size = new System.Drawing.Size(250, 35);
             this.btnscaneo.TabIndex = 1;
             this.btnscaneo.Text = global::UI.strings.Scaneo;
             this.btnscaneo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -470,7 +469,7 @@ namespace UI
             this.btnrecepcion.Location = new System.Drawing.Point(0, 0);
             this.btnrecepcion.Name = "btnrecepcion";
             this.btnrecepcion.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnrecepcion.Size = new System.Drawing.Size(233, 35);
+            this.btnrecepcion.Size = new System.Drawing.Size(250, 35);
             this.btnrecepcion.TabIndex = 0;
             this.btnrecepcion.Text = global::UI.strings.Recepcion;
             this.btnrecepcion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -490,7 +489,7 @@ namespace UI
             this.btnStock.IconColor = System.Drawing.Color.White;
             this.btnStock.IconSize = 40;
             this.btnStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStock.Location = new System.Drawing.Point(0, 140);
+            this.btnStock.Location = new System.Drawing.Point(0, 142);
             this.btnStock.MaximumSize = new System.Drawing.Size(250, 60);
             this.btnStock.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnStock.Name = "btnStock";
@@ -510,7 +509,7 @@ namespace UI
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(233, 140);
+            this.panelLogo.Size = new System.Drawing.Size(250, 142);
             this.panelLogo.TabIndex = 0;
             // 
             // homepic

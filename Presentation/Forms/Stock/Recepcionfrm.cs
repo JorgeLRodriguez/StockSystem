@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using Domain.Services;
 using Entities;
+using Language;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,8 @@ namespace UI.Stock
 {
     public partial class Recepcionfrm : Form
     {
-        private VoucherService VoucherService = new VoucherService();
-        private VoucherModel VoucherModel = new VoucherModel();
+        private readonly VoucherService VoucherService = new VoucherService();
+        //private VoucherModel VoucherModel = new VoucherModel();
         public Recepcionfrm()
         {
             InitializeComponent();
@@ -79,29 +80,32 @@ namespace UI.Stock
         {
             try
             {
-                Comprobante comprobante = new Comprobante();
-
-                comprobante.id_cliente = Int32.Parse(clientcbx.SelectedValue.ToString());
-                comprobante.id_tipo_comprobante = typetxt.Text;
-                comprobante.letra_comprobante = lettertxt.Text;
-                comprobante.suc_comprobante = int.Parse(subsidiarytxt.Text);
-                comprobante.nro_remito_cliente = numbertxt.Text;
-                comprobante.fecha_comprobante = voucherPicker.Value;
-                comprobante.CreatedBy = Environment.UserName;
-                comprobante.CreatedOn = DateTime.Now;
+                Comprobante comprobante = new Comprobante
+                {
+                    id_cliente = Int32.Parse(clientcbx.SelectedValue.ToString()),
+                    id_tipo_comprobante = typetxt.Text,
+                    letra_comprobante = lettertxt.Text,
+                    suc_comprobante = int.Parse(subsidiarytxt.Text),
+                    nro_remito_cliente = numbertxt.Text,
+                    fecha_comprobante = voucherPicker.Value,
+                    CreatedBy = Environment.UserName,
+                    CreatedOn = DateTime.Now
+                };
 
                 List<ComprobanteDetalle> comprobanteDetalles = new List<ComprobanteDetalle>();
 
                 foreach (DataGridViewRow row in invdetdataGrid.Rows)
                 {
-                    ComprobanteDetalle comprobanteDetalle = new ComprobanteDetalle();
-                    comprobanteDetalle.id_articulo = (int)row.Cells[0].Value;
-                    comprobanteDetalle.cantidad = Int32.Parse(row.Cells[1].EditedFormattedValue.ToString());
-                    comprobanteDetalle.id_tipo_rechazo = 1;
-                    comprobanteDetalle.linea = row.Index;
-                    comprobanteDetalle.id_pallet = 111;
-                    comprobanteDetalle.CreatedBy = Environment.UserName;
-                    comprobanteDetalle.CreatedOn = DateTime.Now;
+                    ComprobanteDetalle comprobanteDetalle = new ComprobanteDetalle
+                    {
+                        id_articulo = (int)row.Cells[0].Value,
+                        cantidad = Int32.Parse(row.Cells[1].EditedFormattedValue.ToString()),
+                        id_tipo_rechazo = 1,
+                        linea = row.Index,
+                        id_pallet = 111,
+                        CreatedBy = Environment.UserName,
+                        CreatedOn = DateTime.Now
+                    };
                     comprobanteDetalles.Add(comprobanteDetalle);
                 }
                 comprobante.ComprobanteDetalle = comprobanteDetalles;

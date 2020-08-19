@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Domain.Models;
+using Language;
 
 namespace UI
 {
@@ -26,21 +27,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                switch (ex.Message.ToString())
-                {
-                    case "LogInIncorrecto":
-                        MessageBox.Show(strings.LogInIncorrecto, "¡" + strings.Atencion + "!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        Clean();
-                        break;
-                    case "logInEmptyorNull":
-                        MessageBox.Show(strings.logInEmptyorNull, "¡" + strings.Atencion + "!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        Clean();
-                        break;
-                    default:
-                        Clean();
-                        MessageBox.Show(ex.Message, "");
-                        return;
-                }
+                Clean();
+                MessageBox.Show(ex.Message, strings.Atencion);
             }
         }
         private void btnclose_Click(object sender, EventArgs e)

@@ -178,16 +178,6 @@
     <Compile Include="Forms\Stock\Transferenciafrm.Designer.cs">
       <DependentUpon>Transferenciafrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="strings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>strings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="strings.en-US.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>strings.en-US.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\ABM\Articfrm.resx">
       <DependentUpon>Articfrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,14 +217,6 @@
     <EmbeddedResource Include="Forms\Stock\Transferenciafrm.resx">
       <DependentUpon>Transferenciafrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.en-US.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>strings.en-US.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="strings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>strings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -255,6 +237,10 @@
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{5579d945-535d-45d7-ad14-39024cba3613}</Project>
       <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\Language.csproj">
+      <Project>{92a7084f-c2fb-4c2d-856c-ff9b05eb6245}</Project>
+      <Name>Language</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Language;
 
 namespace UI.Stock
 {
@@ -99,7 +100,7 @@ namespace UI.Stock
             this.completecb.Name = "completecb";
             this.completecb.Size = new System.Drawing.Size(195, 24);
             this.completecb.TabIndex = 4;
-            this.completecb.Text = global::UI.strings.ComplCant;
+            this.completecb.Text = strings.ComplCant;
             this.completecb.UseVisualStyleBackColor = true;
             // 
             // maindg
@@ -145,7 +146,7 @@ namespace UI.Stock
             this.pcbtn.Name = "pcbtn";
             this.pcbtn.Size = new System.Drawing.Size(150, 34);
             this.pcbtn.TabIndex = 10;
-            this.pcbtn.Text = global::UI.strings.Cierre_Parcial;
+            this.pcbtn.Text = strings.Cierre_Parcial;
             this.pcbtn.UseVisualStyleBackColor = true;
             // 
             // dcbtn
@@ -160,7 +161,7 @@ namespace UI.Stock
             this.dcbtn.Name = "dcbtn";
             this.dcbtn.Size = new System.Drawing.Size(150, 34);
             this.dcbtn.TabIndex = 11;
-            this.dcbtn.Text = global::UI.strings.Cierre_Def;
+            this.dcbtn.Text = strings.Cierre_Def;
             this.dcbtn.UseVisualStyleBackColor = true;
             // 
             // receiptdg

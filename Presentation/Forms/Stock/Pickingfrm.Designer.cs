@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Language;
+using System;
 
 namespace UI.Stock
 {

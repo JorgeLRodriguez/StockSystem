@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Language;
+using System;
 
 namespace UI
 {
@@ -150,7 +151,7 @@ namespace UI
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(435, 49);
             this.btnlogin.TabIndex = 0;
-            this.btnlogin.Text = global::UI.strings.Acceder;
+            this.btnlogin.Text = strings.Acceder;
             this.btnlogin.UseVisualStyleBackColor = false;
             this.btnlogin.Click += new System.EventHandler(this.loginbtn_Click);
             // 

@@ -1,4 +1,6 @@
-﻿namespace UI.Stock
+﻿using Language;
+
+namespace UI.Stock
 {
     partial class Recepcionfrm
     {
@@ -183,7 +185,7 @@
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(89, 31);
             this.savebtn.TabIndex = 10;
-            this.savebtn.Text = global::UI.strings.Guardar;
+            this.savebtn.Text = strings.Guardar;
             this.savebtn.UseVisualStyleBackColor = true;
             this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 

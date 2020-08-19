@@ -1,4 +1,5 @@
-﻿namespace UI.Stock
+﻿using Language;
+namespace UI.Stock
 {
     partial class Importarfrm
     {
@@ -51,7 +52,7 @@
             this.impbtn.Rotation = 0D;
             this.impbtn.Size = new System.Drawing.Size(117, 33);
             this.impbtn.TabIndex = 0;
-            this.impbtn.Text = global::UI.strings.Importar;
+            this.impbtn.Text = strings.Importar;
             this.impbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.impbtn.UseVisualStyleBackColor = true;
             this.impbtn.Click += new System.EventHandler(this.iconButton1_Click);

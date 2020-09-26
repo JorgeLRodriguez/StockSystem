@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Contracts
 {
-    public interface IRole
+    public interface IRole : IGenericRepository<Rol>
     {
-        List<Rol> Get();
-        Rol GetById(int id);
-        Rol Create(Rol article);
-        void Update(Rol article);
-        void Delete(int id);
+        //List<Rol> Get();
+        //Rol GetById(int id);
+        //Rol Create(Rol article);
+        //void Update(Rol article);
+        //void Delete(int id);
     }
 }

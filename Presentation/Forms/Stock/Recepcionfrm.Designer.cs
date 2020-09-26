@@ -158,7 +158,6 @@ namespace UI.Stock
             this.invdetdataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.invdetdataGrid.Size = new System.Drawing.Size(403, 468);
             this.invdetdataGrid.TabIndex = 9;
-            this.invdetdataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.invdetdataGrid_CellContentClick);
             // 
             // articlecbdg
             // 
@@ -185,7 +184,7 @@ namespace UI.Stock
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(89, 31);
             this.savebtn.TabIndex = 10;
-            this.savebtn.Text = strings.Guardar;
+            this.savebtn.Text = "Guardar";
             this.savebtn.UseVisualStyleBackColor = true;
             this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
@@ -358,7 +357,6 @@ namespace UI.Stock
         private System.Windows.Forms.Label datelab;
         private System.Windows.Forms.DateTimePicker voucherPicker;
         private System.Windows.Forms.Label invlab;
-        private System.Windows.Forms.TextBox numbertxt;
         private System.Windows.Forms.DataGridView invdetdataGrid;
         private System.Windows.Forms.Button savebtn;
         public System.Windows.Forms.ComboBox clientcbx;
@@ -374,5 +372,6 @@ namespace UI.Stock
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel leftpanel;
         private System.Windows.Forms.Panel panelright;
+        private System.Windows.Forms.TextBox numbertxt;
     }
 }

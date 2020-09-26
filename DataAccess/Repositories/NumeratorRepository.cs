@@ -47,6 +47,17 @@ namespace DataAccess.Repositories
             }
             return numerador;
         }
+
+        public List<Numerador> Get(Expression<Func<Numerador, bool>> whereExpression = null, Func<IQueryable<Numerador>, IOrderedQueryable<Numerador>> orderFunction = null, string includeModels = "")
+        {
+            throw new NotImplementedException();
+        }
+
+        public Numerador GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Numerador numerador)
         {
             using (_db = new Repository())

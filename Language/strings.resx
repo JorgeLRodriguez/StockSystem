@@ -261,4 +261,13 @@
   <data name="Cantidad" xml:space="preserve">
     <value>Cantidad</value>
   </data>
+  <data name="loginCorrecto" xml:space="preserve">
+    <value>ingresó al sistema.</value>
+  </data>
+  <data name="ErrorCampoVacio" xml:space="preserve">
+    <value>Debe completar todos los campos.</value>
+  </data>
+  <data name="ErrorValorNumerico" xml:space="preserve">
+    <value>Debe ingresar solo números.</value>
+  </data>
 </root>

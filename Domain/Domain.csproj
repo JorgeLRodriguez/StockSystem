@@ -46,7 +46,6 @@
     <Compile Include="Models\LogModel.cs" />
     <Compile Include="Models\ArticleModel.cs" />
     <Compile Include="Models\ClientModel.cs" />
-    <Compile Include="Models\NumeratorModel.cs" />
     <Compile Include="Models\SecurityModel.cs" />
     <Compile Include="Models\VoucherModel.cs" />
     <Compile Include="Models\UserModel.cs" />

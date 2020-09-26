@@ -232,6 +232,24 @@ namespace Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Debe completar todos los campos..
+        /// </summary>
+        public static string ErrorCampoVacio {
+            get {
+                return ResourceManager.GetString("ErrorCampoVacio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe ingresar solo números..
+        /// </summary>
+        public static string ErrorValorNumerico {
+            get {
+                return ResourceManager.GetString("ErrorValorNumerico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Etiquetas.
         /// </summary>
         public static string Etiq {
@@ -336,6 +354,15 @@ namespace Language {
         public static string List_Stock {
             get {
                 return ResourceManager.GetString("List Stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ingresó al sistema..
+        /// </summary>
+        public static string loginCorrecto {
+            get {
+                return ResourceManager.GetString("loginCorrecto", resourceCulture);
             }
         }
         

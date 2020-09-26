@@ -73,5 +73,10 @@ namespace DataAccess.Repositories
             _db.SaveChanges();
             return entity;
         }
+
+        public T GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Contracts
 {
-    public interface IClientRepository
+    public interface IClientRepository: IGenericRepository<Cliente>
     {
-        List<Cliente> Get();
-        //T GetById(int id);
-        Cliente Create(Cliente article);
-        void Update(Cliente article);
-        void Delete(int id);
+        //List<Cliente> Get();
+        ////T GetById(int id);
+        //Cliente Create(Cliente article);
+        //void Update(Cliente article);
+        //void Delete(int id);
     }
 }

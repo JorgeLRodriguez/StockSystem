@@ -3,6 +3,7 @@ using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,8 +25,7 @@ namespace DataAccess.Repositories
         {
             throw new NotImplementedException();
         }
-
-        public List<Rol> Get()
+        public List<Rol> Get(Expression<Func<Rol, bool>> whereExpression = null, Func<IQueryable<Rol>, IOrderedQueryable<Rol>> orderFunction = null, string includeModels = "")
         {
             throw new NotImplementedException();
         }
@@ -45,7 +45,7 @@ namespace DataAccess.Repositories
             return rol;
         }
 
-        public void Update(Rol article)
+        public void Update(Rol rol)
         {
             throw new NotImplementedException();
         }

@@ -9,10 +9,10 @@ namespace DataAccess.Contracts
 {
     public interface IArticleRepository
     {
-        List<Articulo> Get();
-        //T GetById(int id);
-        Articulo Create(Articulo article);
-        void Update(Articulo article);
-        void Delete(int id);
+        //List<Articulo> Get();
+        ////T GetById(int id);
+        //Articulo Create(Articulo article);
+        //void Update(Articulo article);
+        //void Delete(int id);
     }
 }

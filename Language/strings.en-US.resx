@@ -241,4 +241,13 @@
   <data name="Cantidad" xml:space="preserve">
     <value>Quantity</value>
   </data>
+  <data name="loginCorrecto" xml:space="preserve">
+    <value>logged in system.</value>
+  </data>
+  <data name="ErrorCampoVacio" xml:space="preserve">
+    <value>Must complete all the fields.</value>
+  </data>
+  <data name="ErrorValorNumerico" xml:space="preserve">
+    <value>Must enter only numbers.</value>
+  </data>
 </root>

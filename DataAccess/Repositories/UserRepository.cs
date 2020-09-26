@@ -30,8 +30,12 @@ namespace DataAccess.Repositories
         {
             throw new NotImplementedException();
         }
+        public List<Usuario> Get(Expression<Func<Usuario, bool>> whereExpression = null, Func<IQueryable<Usuario>, IOrderedQueryable<Usuario>> orderFunction = null, string includeModels = "")
+        {
+            throw new NotImplementedException();
+        }
 
-        public List<Usuario> Get()
+        public Usuario GetById(int id)
         {
             throw new NotImplementedException();
         }

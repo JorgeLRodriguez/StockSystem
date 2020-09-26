@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Contracts
 {
-    public interface IVoucherRepository
+    public interface IVoucherRepository : IGenericRepository<Comprobante>
     {
-        List<Comprobante> Get();
+        //List<Comprobante> Get();
         //T GetById(int id);
-        Comprobante Create(Comprobante article);
-        void Update(Comprobante article);
-        void Delete(int id);
+        //Comprobante Create(Comprobante comprobante);
+        //void Update(Comprobante comprobante);
+        //void Delete(int id);
     }
 }

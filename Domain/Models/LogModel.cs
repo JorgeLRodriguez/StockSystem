@@ -11,10 +11,10 @@ namespace Domain
 {
     public class LogModel
     {
-        public readonly ILogRepository logRepository;
+        private readonly ILogRepository logRepository;
         public LogModel()
         {
-            logRepository = new LogRepository();
+            logRepository =  new LogRepository();
         }
         public readonly static LogModel Instance = new LogModel();
 

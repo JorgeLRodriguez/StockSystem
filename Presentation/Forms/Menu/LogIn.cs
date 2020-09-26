@@ -17,18 +17,17 @@ namespace UI
 
             try
             {
+                if (String.IsNullOrEmpty(txtuser.Text) || String.IsNullOrEmpty(txtpsw.Text)) throw new ApplicationException(strings.logInEmptyorNull);
                 SecurityModel S = new SecurityModel();
-                if (S.VerifyAccess(txtuser.Text, txtpsw.Text) != null)
-                {
-                    MainMenufrm mainMenufrm = new MainMenufrm();
-                    mainMenufrm.Show();
-                    Hide();
-                }
+                S.VerifyAccess(txtuser.Text, txtpsw.Text);
+                MainMenufrm mainMenufrm = new MainMenufrm();
+                mainMenufrm.Show();
+                Hide();
             }
             catch (Exception ex)
             {
                 Clean();
-                MessageBox.Show(ex.Message, strings.Atencion);
+                MessageBox.Show(ex.Message, strings.Atencion, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btnclose_Click(object sender, EventArgs e)

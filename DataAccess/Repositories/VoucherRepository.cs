@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -28,7 +29,12 @@ namespace DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public List<Comprobante> Get()
+        public List<Comprobante> Get(Expression<Func<Comprobante, bool>> whereExpression = null, Func<IQueryable<Comprobante>, IOrderedQueryable<Comprobante>> orderFunction = null, string includeModels = "")
+        {
+            throw new NotImplementedException();
+        }
+
+        public Comprobante GetById(int id)
         {
             throw new NotImplementedException();
         }

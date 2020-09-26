@@ -21,12 +21,11 @@ namespace Domain.Models
         public Usuario VerifyAccess(string user, string psw)
         {
             Usuario usr;
-            LogModel logModel = new LogModel();
             Log log = new Log();
+            LogModel logModel = new LogModel();
+
             try
             {
-                if (String.IsNullOrEmpty(user) || String.IsNullOrEmpty(psw)) throw new ApplicationException (strings.logInEmptyorNull);
-
                 usr = (securityRepository.VerifyAccess(user, psw));
 
                 if (usr == null)
@@ -39,7 +38,7 @@ namespace Domain.Models
                 logModel.Log(log, ex);
                 throw new ApplicationException(ex.Message);
             }
-            log.Mensaje = "El usuario "+ user +" ingresó al sistema.";
+            log.Mensaje = user + strings.loginCorrecto;
             log.Ubicacion = Environment.UserDomainName.ToString();
             logModel.Log(log, null);
             return usr;

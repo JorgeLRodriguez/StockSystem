@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Contracts
 {
-    public interface INumeratorRepository
+    public interface INumeratorRepository : IGenericRepository<Numerador>
     {
         Numerador Get(string id_tipo_comprobante, string letra, int sucursal);
-        List<Numerador> Get();
-        //T GetById(int id);
-        Numerador Create(Numerador article);
-        void Update(Numerador article);
-        void Delete(int id);
     }
 }

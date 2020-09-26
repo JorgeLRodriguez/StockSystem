@@ -17,13 +17,13 @@ namespace UI.Stock
 {
     public partial class Recepcionfrm : Form
     {
+
         private readonly VoucherService VoucherService = new VoucherService();
-        //private VoucherModel VoucherModel = new VoucherModel();
         public Recepcionfrm()
         {
             InitializeComponent();
         }
-        private static Recepcionfrm instance = null;     
+        private static Recepcionfrm instance = null;
         public static Recepcionfrm getInstance()
         {
             if (instance == null) { instance = new Recepcionfrm(); }
@@ -45,14 +45,10 @@ namespace UI.Stock
         private void addbtn_Click(object sender, EventArgs e)
         {
             invdetdataGrid.Rows.Add();
-
         }
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            if (invdetdataGrid.Rows.Count == 0)
-            {
-                return;
-            }
+            if (invdetdataGrid.Rows.Count == 0) return;
             invdetdataGrid.Rows.Remove(invdetdataGrid.CurrentRow);
         }
         private void list_Articles()
@@ -72,14 +68,13 @@ namespace UI.Stock
                 articlecbdg.DataSource = list;
             }
         }
-        private void invdetdataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
         private void savebtn_Click(object sender, EventArgs e)
         {
             try
             {
+                if (String.IsNullOrEmpty(numbertxt.Text)) throw new Exception(strings.ErrorCampoVacio);
+                if (!ValidateNumber(numbertxt.Text)) throw new Exception(strings.ErrorValorNumerico+": "+invlab.Text);
+
                 Comprobante comprobante = new Comprobante
                 {
                     id_cliente = Int32.Parse(clientcbx.SelectedValue.ToString()),
@@ -92,10 +87,13 @@ namespace UI.Stock
                     CreatedOn = DateTime.Now
                 };
 
+                if (invdetdataGrid.Rows.Count == 0) throw new Exception("Debe ingresar líneas."); //agregar string
+
                 List<ComprobanteDetalle> comprobanteDetalles = new List<ComprobanteDetalle>();
 
                 foreach (DataGridViewRow row in invdetdataGrid.Rows)
                 {
+                    if (String.IsNullOrEmpty(row.Cells[0].EditedFormattedValue.ToString()) || String.IsNullOrEmpty(row.Cells[1].EditedFormattedValue.ToString())) throw new NullReferenceException(strings.ErrorCampoVacio);
                     ComprobanteDetalle comprobanteDetalle = new ComprobanteDetalle
                     {
                         id_articulo = (int)row.Cells[0].Value,
@@ -110,12 +108,11 @@ namespace UI.Stock
                 }
                 comprobante.ComprobanteDetalle = comprobanteDetalles;
                 VoucherService.Create(comprobante);
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, strings.Atencion);
-            } 
+                MessageBox.Show(ex.Message, strings.Atencion, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void load_language()
         {
@@ -129,6 +126,15 @@ namespace UI.Stock
             addbtn.Text = strings.Agregar;
             deletebtn.Text = strings.Eliminar;
             savebtn.Text = strings.Guardar;
+        }
+        private bool ValidateNumber(String value)
+        {
+            int number;
+            if (!int.TryParse(value.ToString(), out number))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

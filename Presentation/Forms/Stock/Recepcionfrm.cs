@@ -18,7 +18,7 @@ namespace UI.Stock
     public partial class Recepcionfrm : Form
     {
 
-        private readonly VoucherService VoucherService = new VoucherService();
+        private readonly ComprobanteService VoucherService = new ComprobanteService();
         public Recepcionfrm()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace UI.Stock
         }
         private void Recepcionfrm_Load(object sender, EventArgs e)
         {
-            ClientModel clientModel = new ClientModel();
+            ClienteModel clientModel = new ClienteModel();
             var list = clientModel.Get();
             clientcbx.DisplayMember = "Descripcion";
             clientcbx.ValueMember = "Id";
@@ -55,7 +55,7 @@ namespace UI.Stock
         {
             if (clientcbx.SelectedValue != null)
             {
-                ArticleService articleService = new ArticleService();
+                ArticuloService articleService = new ArticuloService();
                 var list = articleService.Get().FindAll(e => e.IdCliente == Int32.Parse(clientcbx.SelectedValue.ToString()));
                 if (!list.Any())
                 {
@@ -129,8 +129,7 @@ namespace UI.Stock
         }
         private bool ValidateNumber(String value)
         {
-            int number;
-            if (!int.TryParse(value.ToString(), out number))
+            if (!int.TryParse(value.ToString(), out int number))
             {
                 return false;
             }

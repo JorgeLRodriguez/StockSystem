@@ -1,5 +1,6 @@
 ﻿using DataAccess.Contracts;
 using DataAccess.Repositories;
+using DataAccess.UnitOfWork;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public class ClientModel
+    public class ClienteModel
     {
         private int idCliente;
         private string cuit;
@@ -20,19 +21,19 @@ namespace Domain.Models
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public bool Activo { private get => activo; set => activo = value; }
 
-        private IGenericRepository<Cliente> genericRepository;
-        public ClientModel()
+        private readonly IUnitOfWork clienteRepository;
+        public ClienteModel()
         {
-            genericRepository = new GenericRepository<Cliente>();
+            clienteRepository = new UnitOfWork();
         }
 
-        public List<ClientModel> Get()
+        public List<ClienteModel> Get()
         {
-            var clientDataModel = genericRepository.Get();
-            var listClients = new List<ClientModel>();
+            var clientDataModel = clienteRepository.ClienteRepository.Get();
+            var listClients = new List<ClienteModel>();
             foreach (Cliente item in clientDataModel)
             {
-                listClients.Add(new ClientModel
+                listClients.Add(new ClienteModel
                 {
                     idCliente = item.ID,
                     cuit = item.Cuit,

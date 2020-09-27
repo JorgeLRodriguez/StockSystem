@@ -8,9 +8,9 @@ using Entities;
 
 namespace Domain.Services
 {
-    public class VoucherService
+    public class ComprobanteService
     {
-        VoucherModel VoucherModel = new VoucherModel();
+        private readonly ComprobanteModel VoucherModel = new ComprobanteModel();
         public Comprobante Create(Comprobante comprobante)
         {
             VoucherModel.Create(comprobante);

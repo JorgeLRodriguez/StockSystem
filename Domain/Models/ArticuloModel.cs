@@ -1,5 +1,6 @@
 ﻿using DataAccess.Contracts;
 using DataAccess.Repositories;
+using DataAccess.UnitOfWork;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public class ArticleModel
+    public class ArticuloModel
     {
         private int Id;
         private string codigo_fs;
@@ -25,18 +26,24 @@ namespace Domain.Models
         public string Codigo_barra { get => codigo_barra; set => codigo_barra = value; }
         public bool Tiene_codigo_barra { get => tiene_codigo_barra; set => tiene_codigo_barra = value; }
 
-        private readonly IGenericRepository <Articulo> genericRepository;
-        public ArticleModel()
+        //private readonly IGenericRepository <Articulo> genericRepository;
+        //public ArticleModel()
+        //{
+        //    genericRepository = new GenericRepository<Articulo>();
+        //}
+        private readonly IUnitOfWork unitOfWork;
+        public ArticuloModel()
         {
-            genericRepository = new GenericRepository<Articulo>();
+            unitOfWork = new UnitOfWork();
         }
-        public List<ArticleModel> Get()
+        public List<ArticuloModel> Get()
         {
-            var articleDataModel = genericRepository.Get();
-            var listArticles = new List<ArticleModel>();
+            //var articleDataModel = genericRepository.Get();
+            var articleDataModel = unitOfWork.ArticuloRepository.Get();
+            var listArticles = new List<ArticuloModel>();
             foreach (Articulo item in articleDataModel)
             {
-                listArticles.Add(new ArticleModel
+                listArticles.Add(new ArticuloModel
                 {
                     ID = item.ID,
                     codigo_fs = item.Codigo_fs,

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Services
 {
-    public class ArticleService
+    public class ArticuloService
     {
-        ArticleModel articleModel = new ArticleModel();
-        public List<ArticleModel> Get()
+        private readonly ArticuloModel articleModel = new ArticuloModel();
+        public List<ArticuloModel> Get()
         {
             return articleModel.Get();
         }

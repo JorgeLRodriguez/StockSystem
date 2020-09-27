@@ -13,14 +13,6 @@ namespace DataAccess.Repositories
 {
     public class Repository : DbContext
     {
-        private static readonly Repository _instancia = new Repository();
-        public static Repository Instancia
-        {
-            get
-            {
-                return Repository._instancia;
-            }
-        }
         public Repository() : base(ConfigurationManager.ConnectionStrings["cnn"].ToString())
         {
             Database.SetInitializer<Repository>(null);

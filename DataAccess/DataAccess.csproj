@@ -55,26 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IArticleRepository.cs" />
-    <Compile Include="Contracts\IClientRepository.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Contracts\ILogRepository.cs" />
-    <Compile Include="Contracts\INumeratorRepository.cs" />
-    <Compile Include="Contracts\IRole.cs" />
     <Compile Include="Contracts\ISecurityRepository.cs" />
-    <Compile Include="Contracts\IUserRepository.cs" />
-    <Compile Include="Contracts\IVoucherRepository.cs" />
     <Compile Include="Repositories\LogRepository.cs" />
-    <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\SecurityRepository.cs" />
-    <Compile Include="Repositories\VoucherRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\ArticleRepository.cs" />
-    <Compile Include="Repositories\ClientRepository.cs" />
-    <Compile Include="Repositories\NumeratorRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -89,9 +79,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Borrar\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

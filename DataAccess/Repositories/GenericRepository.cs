@@ -9,12 +9,12 @@ using System.Linq.Expressions;
 
 namespace DataAccess.Repositories
 {
-    public class GenericRepository <T> : IGenericRepository<T> where T : class
+    public class GenericRepository <T> : IGenericRepository<T> where T : IdentityBase, new()
     {
         protected Repository _db;
-        public GenericRepository()
+        public GenericRepository(Repository repository)
         {
-            _db = new Repository();
+            _db = repository;
         }
         public List<ValidationResult> ValidateModel(T model)
         {
@@ -32,51 +32,53 @@ namespace DataAccess.Repositories
                 return r;
             }
         }
-        public virtual List<T> Get(Expression<Func<T, bool>> whereExpression = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderFunction = null, string includeEntities = "")
+        public virtual IEnumerable<T> Get(Expression<Func<T, bool>> filter = null,
+        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+        string includeProperties = "")
         {
             IQueryable<T> query = _db.Set<T>();
 
-            if (whereExpression != null)
+            if (filter != null)
             {
-                query = query.Where(whereExpression);
+                query = query.Where(filter);
             }
 
-            var entity = includeEntities.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            var entity = includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var model in entity)
             {
                 query = query.Include(model);
             }
 
-            if (orderFunction != null)
+            if (orderBy != null)
             {
-                query = orderFunction(query);
+                query = orderBy(query);
             }
-
             return query.ToList();
         }
         public virtual void Update(T entity)
         {
             _db.Entry(entity).State = EntityState.Modified;
-            _db.SaveChanges();
         }
         public virtual void Delete(int id)
         {
             var entity = _db.Set<T>().Find(id);
             _db.Set<T>().Remove(entity);
-            _db.SaveChanges();
         }
 
         public virtual T Create(T entity)
         {
             _db.Set<T>().Add(entity);
-            _db.SaveChanges();
             return entity;
         }
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return _db.Set<T>().SingleOrDefault(x => x.ID == id);
+        }
+        public virtual void SaveChanges()
+        {
+            _db.SaveChanges();
         }
     }
 }

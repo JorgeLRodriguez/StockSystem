@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public class UserModel
+    public class UsuarioModel
     {
-        public UserModel()
+        public UsuarioModel()
         {
             //userRepository = new UserRepository();
         }

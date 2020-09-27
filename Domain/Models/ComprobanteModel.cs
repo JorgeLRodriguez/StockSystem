@@ -7,6 +7,7 @@ using DataAccess.Contracts;
 using DataAccess.Repositories;
 using DataAccess.UnitOfWork;
 using Entities;
+using Language;
 
 namespace Domain.Models
 {
@@ -23,6 +24,12 @@ namespace Domain.Models
             //validaciones
 
             if (comprobante.fecha_comprobante < DateTime.Today) throw new ApplicationException("No puede ingresar una fecha menor a la actual");
+            if (String.IsNullOrEmpty(comprobante.nro_remito_cliente)) throw new Exception(strings.ErrorCampoVacio);
+            if (comprobante.ComprobanteDetalle.Count == 0) throw new Exception("Debe ingresar líneas."); //agregar string
+            foreach (var row in comprobante.ComprobanteDetalle)
+            {
+                if (row.id_articulo == -1 || row.cantidad == -1) throw new NullReferenceException(strings.ErrorCampoVacio);
+            }
 
             try
             {

@@ -14,6 +14,7 @@ namespace DataAccess.UnitOfWork
         IGenericRepository<Comprobante> ComprobanteRepository { get; }
         IGenericRepository<Articulo> ArticuloRepository { get; }
         IGenericRepository<Cliente> ClienteRepository { get; }
+        IGenericRepository<Usuario> UsuarioRepository { get; }
         void SaveChanges();
     }
 }

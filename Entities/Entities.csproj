@@ -50,7 +50,6 @@
     <Compile Include="Log.cs" />
     <Compile Include="Numerador.cs" />
     <Compile Include="Rol.cs" />
-    <Compile Include="Seguridad.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

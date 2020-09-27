@@ -16,6 +16,7 @@ namespace DataAccess.Repositories
         private GenericRepository<Numerador> _NumeradorRepository;
         private GenericRepository<Articulo> _ArticuloRepository;
         private GenericRepository<Cliente> _ClienteRepository;
+        private GenericRepository<Usuario> _UsuarioRepository;
         public UnitOfWork()
         {
             _db = new Repository();
@@ -46,6 +47,14 @@ namespace DataAccess.Repositories
             get
             {
                 return _ClienteRepository = _ClienteRepository ?? new GenericRepository<Cliente>(_db);
+            }
+        }
+
+        public IGenericRepository<Usuario> UsuarioRepository
+        {
+            get
+            {
+                return _UsuarioRepository = _UsuarioRepository ?? new GenericRepository<Usuario>(_db);
             }
         }
         public void SaveChanges()

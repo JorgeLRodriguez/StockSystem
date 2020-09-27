@@ -17,11 +17,15 @@ namespace UI.Stock
 {
     public partial class Recepcionfrm : Form
     {
-
-        private readonly ComprobanteService VoucherService = new ComprobanteService();
+        private readonly ComprobanteService CbteS;
+        private readonly ClienteService CnteS;
+        private readonly ArticuloService ArcS;
         public Recepcionfrm()
         {
             InitializeComponent();
+            CbteS = new ComprobanteService();
+            CnteS = new ClienteService();
+            ArcS = new ArticuloService();
         }
         private static Recepcionfrm instance = null;
         public static Recepcionfrm getInstance()
@@ -31,8 +35,7 @@ namespace UI.Stock
         }
         private void Recepcionfrm_Load(object sender, EventArgs e)
         {
-            ClienteModel clientModel = new ClienteModel();
-            var list = clientModel.Get();
+            var list = CnteS.Get();
             clientcbx.DisplayMember = "Descripcion";
             clientcbx.ValueMember = "Id";
             clientcbx.DataSource = list;
@@ -53,61 +56,57 @@ namespace UI.Stock
         }
         private void list_Articles()
         {
-            if (clientcbx.SelectedValue != null)
+            try
             {
-                ArticuloService articleService = new ArticuloService();
-                var list = articleService.Get().FindAll(e => e.IdCliente == Int32.Parse(clientcbx.SelectedValue.ToString()));
-                if (!list.Any())
-                {
-                    MessageBox.Show("El Cliente elegido no tiene artículos cargados en el sistema", strings.Atencion, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
                 DataGridViewComboBoxColumn articlecbdg = invdetdataGrid.Columns[0] as DataGridViewComboBoxColumn;
+                var list = ArcS.Get(Int32.Parse(clientcbx.SelectedValue.ToString()));
                 articlecbdg.DisplayMember = "Descripcion";
                 articlecbdg.ValueMember = "ID";
                 articlecbdg.DataSource = list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, strings.Atencion, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void savebtn_Click(object sender, EventArgs e)
         {
             try
             {
-                if (String.IsNullOrEmpty(numbertxt.Text)) throw new Exception(strings.ErrorCampoVacio);
-                if (!ValidateNumber(numbertxt.Text)) throw new Exception(strings.ErrorValorNumerico+": "+invlab.Text);
-
                 Comprobante comprobante = new Comprobante
                 {
                     id_cliente = Int32.Parse(clientcbx.SelectedValue.ToString()),
                     id_tipo_comprobante = typetxt.Text,
                     letra_comprobante = lettertxt.Text,
                     suc_comprobante = int.Parse(subsidiarytxt.Text),
-                    nro_remito_cliente = numbertxt.Text,
+                    nro_remito_cliente = (maskednumber.Text).ToString().Trim(),
                     fecha_comprobante = voucherPicker.Value,
                     CreatedBy = Environment.UserName,
                     CreatedOn = DateTime.Now
                 };
 
-                if (invdetdataGrid.Rows.Count == 0) throw new Exception("Debe ingresar líneas."); //agregar string
-
                 List<ComprobanteDetalle> comprobanteDetalles = new List<ComprobanteDetalle>();
-
-                foreach (DataGridViewRow row in invdetdataGrid.Rows)
+                if (invdetdataGrid.Rows.Count > 0)
                 {
-                    if (String.IsNullOrEmpty(row.Cells[0].EditedFormattedValue.ToString()) || String.IsNullOrEmpty(row.Cells[1].EditedFormattedValue.ToString())) throw new NullReferenceException(strings.ErrorCampoVacio);
-                    ComprobanteDetalle comprobanteDetalle = new ComprobanteDetalle
+                    foreach (DataGridViewRow row in invdetdataGrid.Rows)
                     {
-                        id_articulo = (int)row.Cells[0].Value,
-                        cantidad = Int32.Parse(row.Cells[1].EditedFormattedValue.ToString()),
-                        id_tipo_rechazo = 1,
-                        linea = row.Index,
-                        id_pallet = 111,
-                        CreatedBy = Environment.UserName,
-                        CreatedOn = DateTime.Now
-                    };
-                    comprobanteDetalles.Add(comprobanteDetalle);
+                        int cantidad = String.IsNullOrEmpty(row.Cells[1].EditedFormattedValue.ToString()) ? -1 : int.Parse(row.Cells[1].EditedFormattedValue.ToString());
+                        int id_articulo = String.IsNullOrEmpty(row.Cells[0].EditedFormattedValue.ToString()) ? -1 : (int)row.Cells[0].Value;
+                        ComprobanteDetalle comprobanteDetalle = new ComprobanteDetalle
+                        {
+                            id_articulo = id_articulo,
+                            cantidad = cantidad,
+                            id_tipo_rechazo = 1,
+                            linea = row.Index,
+                            id_pallet = 111,
+                            CreatedBy = Environment.UserName,
+                            CreatedOn = DateTime.Now
+                        };
+                        comprobanteDetalles.Add(comprobanteDetalle);
+                    }
                 }
                 comprobante.ComprobanteDetalle = comprobanteDetalles;
-                VoucherService.Create(comprobante);
+                CbteS.Create(comprobante);
             }
             catch (Exception ex)
             {
@@ -127,13 +126,19 @@ namespace UI.Stock
             deletebtn.Text = strings.Eliminar;
             savebtn.Text = strings.Guardar;
         }
-        private bool ValidateNumber(String value)
+        private void maskednumber_Enter(object sender, EventArgs e)
         {
-            if (!int.TryParse(value.ToString(), out int number))
-            {
-                return false;
-            }
-            return true;
+            maskednumber.SelectionStart = 0;
+        }
+
+        private void maskednumber_Click(object sender, EventArgs e)
+        {
+            maskednumber.Select(0, 0);
+        }
+
+        private void invdetdataGrid_DefaultValuesNeeded_1(object sender, DataGridViewRowEventArgs e)
+        {
+             e.Row.Cells[1].Value = 0;
         }
     }
 }

@@ -31,16 +31,14 @@ namespace UI.Stock
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clientlab = new System.Windows.Forms.Label();
             this.datelab = new System.Windows.Forms.Label();
             this.voucherPicker = new System.Windows.Forms.DateTimePicker();
             this.invlab = new System.Windows.Forms.Label();
-            this.numbertxt = new System.Windows.Forms.TextBox();
             this.invdetdataGrid = new System.Windows.Forms.DataGridView();
-            this.articlecbdg = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.quantitytxtdg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.savebtn = new System.Windows.Forms.Button();
             this.clientcbx = new System.Windows.Forms.ComboBox();
             this.addbtn = new System.Windows.Forms.Button();
@@ -52,7 +50,10 @@ namespace UI.Stock
             this.subsidiarytxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.leftpanel = new System.Windows.Forms.Panel();
+            this.maskednumber = new System.Windows.Forms.MaskedTextBox();
             this.panelright = new System.Windows.Forms.Panel();
+            this.articlecbdg = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.quantitytxtdg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.invdetdataGrid)).BeginInit();
             this.leftpanel.SuspendLayout();
             this.panelright.SuspendLayout();
@@ -104,18 +105,9 @@ namespace UI.Stock
             this.invlab.ForeColor = System.Drawing.Color.White;
             this.invlab.Location = new System.Drawing.Point(65, 196);
             this.invlab.Name = "invlab";
-            this.invlab.Size = new System.Drawing.Size(95, 23);
+            this.invlab.Size = new System.Drawing.Size(98, 23);
             this.invlab.TabIndex = 7;
             this.invlab.Text = "Remito #";
-            // 
-            // numbertxt
-            // 
-            this.numbertxt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numbertxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numbertxt.Location = new System.Drawing.Point(154, 194);
-            this.numbertxt.Name = "numbertxt";
-            this.numbertxt.Size = new System.Drawing.Size(200, 27);
-            this.numbertxt.TabIndex = 8;
             // 
             // invdetdataGrid
             // 
@@ -136,42 +128,29 @@ namespace UI.Stock
             this.invdetdataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.articlecbdg,
             this.quantitytxtdg});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.invdetdataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.invdetdataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.invdetdataGrid.GridColor = System.Drawing.Color.White;
             this.invdetdataGrid.Location = new System.Drawing.Point(29, 52);
             this.invdetdataGrid.MultiSelect = false;
             this.invdetdataGrid.Name = "invdetdataGrid";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.invdetdataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.invdetdataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.invdetdataGrid.Size = new System.Drawing.Size(403, 468);
             this.invdetdataGrid.TabIndex = 9;
-            // 
-            // articlecbdg
-            // 
-            this.articlecbdg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.articlecbdg.HeaderText = "";
-            this.articlecbdg.Name = "articlecbdg";
-            this.articlecbdg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.articlecbdg.Width = 210;
-            // 
-            // quantitytxtdg
-            // 
-            this.quantitytxtdg.HeaderText = "";
-            this.quantitytxtdg.Name = "quantitytxtdg";
-            this.quantitytxtdg.Width = 150;
+            this.invdetdataGrid.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.invdetdataGrid_DefaultValuesNeeded_1);
             // 
             // savebtn
             // 
@@ -303,6 +282,7 @@ namespace UI.Stock
             this.leftpanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.leftpanel.Controls.Add(this.maskednumber);
             this.leftpanel.Controls.Add(this.letterlab);
             this.leftpanel.Controls.Add(this.lettertxt);
             this.leftpanel.Controls.Add(this.clientlab);
@@ -312,7 +292,6 @@ namespace UI.Stock
             this.leftpanel.Controls.Add(this.vouchertypelb);
             this.leftpanel.Controls.Add(this.voucherPicker);
             this.leftpanel.Controls.Add(this.label1);
-            this.leftpanel.Controls.Add(this.numbertxt);
             this.leftpanel.Controls.Add(this.clientcbx);
             this.leftpanel.Controls.Add(this.invlab);
             this.leftpanel.Controls.Add(this.addbtn);
@@ -322,6 +301,21 @@ namespace UI.Stock
             this.leftpanel.Name = "leftpanel";
             this.leftpanel.Size = new System.Drawing.Size(456, 553);
             this.leftpanel.TabIndex = 20;
+            // 
+            // maskednumber
+            // 
+            this.maskednumber.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.maskednumber.BeepOnError = true;
+            this.maskednumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskednumber.Location = new System.Drawing.Point(161, 194);
+            this.maskednumber.Mask = "00000000000";
+            this.maskednumber.Name = "maskednumber";
+            this.maskednumber.PromptChar = ' ';
+            this.maskednumber.Size = new System.Drawing.Size(193, 27);
+            this.maskednumber.TabIndex = 20;
+            this.maskednumber.ValidatingType = typeof(int);
+            this.maskednumber.Click += new System.EventHandler(this.maskednumber_Click);
+            this.maskednumber.Enter += new System.EventHandler(this.maskednumber_Enter);
             // 
             // panelright
             // 
@@ -333,6 +327,22 @@ namespace UI.Stock
             this.panelright.Name = "panelright";
             this.panelright.Size = new System.Drawing.Size(460, 553);
             this.panelright.TabIndex = 21;
+            // 
+            // articlecbdg
+            // 
+            this.articlecbdg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.articlecbdg.HeaderText = "";
+            this.articlecbdg.Name = "articlecbdg";
+            this.articlecbdg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.articlecbdg.Width = 210;
+            // 
+            // quantitytxtdg
+            // 
+            dataGridViewCellStyle2.NullValue = null;
+            this.quantitytxtdg.DefaultCellStyle = dataGridViewCellStyle2;
+            this.quantitytxtdg.HeaderText = "";
+            this.quantitytxtdg.Name = "quantitytxtdg";
+            this.quantitytxtdg.Width = 150;
             // 
             // Recepcionfrm
             // 
@@ -362,8 +372,6 @@ namespace UI.Stock
         public System.Windows.Forms.ComboBox clientcbx;
         private System.Windows.Forms.Button addbtn;
         private System.Windows.Forms.Button deletebtn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn articlecbdg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantitytxtdg;
         private System.Windows.Forms.Label vouchertypelb;
         private System.Windows.Forms.TextBox typetxt;
         private System.Windows.Forms.Label letterlab;
@@ -372,6 +380,8 @@ namespace UI.Stock
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel leftpanel;
         private System.Windows.Forms.Panel panelright;
-        private System.Windows.Forms.TextBox numbertxt;
+        private System.Windows.Forms.MaskedTextBox maskednumber;
+        private System.Windows.Forms.DataGridViewComboBoxColumn articlecbdg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantitytxtdg;
     }
 }

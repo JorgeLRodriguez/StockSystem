@@ -46,13 +46,14 @@
     <Compile Include="Models\LogModel.cs" />
     <Compile Include="Models\ArticuloModel.cs" />
     <Compile Include="Models\ClienteModel.cs" />
-    <Compile Include="Models\SecurityModel.cs" />
-    <Compile Include="Models\VoucherModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\ComprobanteModel.cs" />
+    <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="remito_stockBLL.cs" />
-    <Compile Include="Services\ArticleService.cs" />
-    <Compile Include="Services\VoucherService.cs" />
+    <Compile Include="Services\ArticuloService.cs" />
+    <Compile Include="Services\ClienteService.cs" />
+    <Compile Include="Services\ComprobanteService.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">

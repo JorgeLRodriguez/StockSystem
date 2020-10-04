@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Forms.Impresion;
 
 namespace UI.Stock
 {
@@ -20,6 +21,7 @@ namespace UI.Stock
         private readonly ComprobanteService CbteS;
         private readonly ClienteService CnteS;
         private readonly ArticuloService ArcS;
+        private printfrm printfrm;
         public Recepcionfrm()
         {
             InitializeComponent();
@@ -59,7 +61,7 @@ namespace UI.Stock
             try
             {
                 DataGridViewComboBoxColumn articlecbdg = invdetdataGrid.Columns[0] as DataGridViewComboBoxColumn;
-                var list = ArcS.Get(Int32.Parse(clientcbx.SelectedValue.ToString()));
+                var list = ArcS.GetbyClient(Int32.Parse(clientcbx.SelectedValue.ToString()));
                 articlecbdg.DisplayMember = "Descripcion";
                 articlecbdg.ValueMember = "ID";
                 articlecbdg.DataSource = list;
@@ -107,6 +109,8 @@ namespace UI.Stock
                 }
                 comprobante.ComprobanteDetalle = comprobanteDetalles;
                 CbteS.Create(comprobante);
+                printfrm = new printfrm(invdetdataGrid);
+                printfrm.Show();
             }
             catch (Exception ex)
             {
@@ -134,11 +138,6 @@ namespace UI.Stock
         private void maskednumber_Click(object sender, EventArgs e)
         {
             maskednumber.Select(0, 0);
-        }
-
-        private void invdetdataGrid_DefaultValuesNeeded_1(object sender, DataGridViewRowEventArgs e)
-        {
-             e.Row.Cells[1].Value = 0;
         }
     }
 }

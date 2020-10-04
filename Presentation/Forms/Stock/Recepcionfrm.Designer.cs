@@ -150,7 +150,6 @@ namespace UI.Stock
             this.invdetdataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.invdetdataGrid.Size = new System.Drawing.Size(403, 468);
             this.invdetdataGrid.TabIndex = 9;
-            this.invdetdataGrid.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.invdetdataGrid_DefaultValuesNeeded_1);
             // 
             // savebtn
             // 

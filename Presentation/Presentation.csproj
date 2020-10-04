@@ -86,6 +86,12 @@
     <Compile Include="Forms\ABM\PxEfrm.Designer.cs">
       <DependentUpon>PxEfrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Impresion\printfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Impresion\printfrm.Designer.cs">
+      <DependentUpon>printfrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Menu\configfrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     <EmbeddedResource Include="Forms\ABM\Articfrm.resx">
       <DependentUpon>Articfrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Impresion\printfrm.resx">
+      <DependentUpon>printfrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menu\configfrm.resx">
       <DependentUpon>configfrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +252,7 @@
       <Name>Language</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

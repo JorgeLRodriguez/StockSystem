@@ -18,18 +18,31 @@ namespace Domain.Models
         {
             unitOfWork = new UnitOfWork();
         }
-        public IEnumerable<Articulo> Get(int? id_cliente)
+        public IEnumerable<Articulo> GetbyClient(int? id_cliente)
         {
             try
             {
                 articulos = unitOfWork.ArticuloRepository.Get(filter: x => x.id_cliente == id_cliente);
-                if (!articulos.Any()) throw new ApplicationException("No se encontraron registros.");
+
             }
             catch (Exception ex)
             {
                 throw new Exception (ex.Message);
             }
+            if (!articulos.Any()) throw new ApplicationException("No se encontraron registros.");
             return articulos;
+        }
+        public Articulo GetbyID (int id)
+        {
+            try
+            {
+                return unitOfWork.ArticuloRepository.GetById(id);
+            }
+            catch (Exception ex)
+            {
+                //log
+                return null;
+            }
         }
     }
 }

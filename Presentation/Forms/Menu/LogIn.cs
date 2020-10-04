@@ -8,8 +8,8 @@ namespace UI
 {
     public partial class LogIn : Form
     {
-        private UsuarioService US;
-        private MainMenufrm MMfrm;
+        private readonly UsuarioService US;
+        private readonly MainMenufrm MMfrm;
         public LogIn()
         {
             InitializeComponent();

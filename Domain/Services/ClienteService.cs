@@ -10,7 +10,7 @@ namespace Domain.Services
 {
     public class ClienteService
     {
-        private ClienteModel CM;
+        private readonly ClienteModel CM;
         public ClienteService()
         {
             CM = new ClienteModel();

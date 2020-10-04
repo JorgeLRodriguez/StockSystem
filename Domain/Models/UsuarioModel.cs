@@ -1,4 +1,4 @@
-﻿using DataAccess.Repositories;
+﻿using DataAccess.UnitOfWork;
 using Entities;
 using Language;
 using System;
@@ -9,9 +9,9 @@ namespace Domain.Models
     public class UsuarioModel
     {
         private Usuario usr;
-        private Log log;
-        private LogModel logModel;
-        private UnitOfWork UnitOfWork;
+        private readonly Log log;
+        private readonly LogModel logModel;
+        private readonly UnitOfWork UnitOfWork;
         public UsuarioModel()
         {
             usr = new Usuario();

@@ -14,16 +14,16 @@ namespace Domain.Models
     public class ComprobanteModel
     {
         private readonly IUnitOfWork unitOfWork;
+        private Numerador numerador;
         public ComprobanteModel()
         {
             unitOfWork = new UnitOfWork();
+            numerador = new Numerador();
         }
 
         public void Create(Comprobante comprobante)
         {
-            //validaciones
-
-            if (comprobante.fecha_comprobante < DateTime.Today) throw new ApplicationException("No puede ingresar una fecha menor a la actual");
+            if (comprobante.fecha_comprobante < DateTime.Today) throw new ApplicationException("No puede ingresar una fecha menor a la actual"); //agregar string
             if (String.IsNullOrEmpty(comprobante.nro_remito_cliente)) throw new Exception(strings.ErrorCampoVacio);
             if (comprobante.ComprobanteDetalle.Count == 0) throw new Exception("Debe ingresar líneas."); //agregar string
             foreach (var row in comprobante.ComprobanteDetalle)
@@ -33,7 +33,6 @@ namespace Domain.Models
 
             try
             {
-                Numerador numerador = new Numerador();
                 numerador = unitOfWork.NumeradorRepository.Get(filter: x => x.id_tipo_comprobante == comprobante.id_tipo_comprobante &&
                 x.letra == comprobante.letra_comprobante && x.sucursal == comprobante.suc_comprobante).SingleOrDefault();
                 comprobante.num_comprobante = numerador.numero + 1;
@@ -44,7 +43,7 @@ namespace Domain.Models
             }
             catch (Exception)
             {
-
+                //agregar log
             }
         }
     }

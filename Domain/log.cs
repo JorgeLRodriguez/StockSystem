@@ -6,7 +6,7 @@ namespace Domain
 {
     public class log
     {
-        private string Path = ConfigurationManager.AppSettings["PathLog"];
+        private readonly string Path = ConfigurationManager.AppSettings["PathLog"];
         public void Add(string sLog)
         {
             string nombre = GetNameFile();

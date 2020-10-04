@@ -10,7 +10,7 @@ namespace Domain.Services
 {
     public class UsuarioService
     {
-        private UsuarioModel Usuario;
+        private readonly UsuarioModel Usuario;
 
         public UsuarioService()
         {

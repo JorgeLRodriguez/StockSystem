@@ -11,9 +11,13 @@ namespace Domain.Services
     public class ArticuloService
     {
         private readonly ArticuloModel articleModel = new ArticuloModel();
-        public IEnumerable<Articulo> Get(int? id_cliente = null)
+        public IEnumerable<Articulo> GetbyClient(int? id_cliente = null)
         {
-            return articleModel.Get(id_cliente);
+            return articleModel.GetbyClient(id_cliente);
+        }
+        public Articulo GetbyID (int id)
+        {
+            return articleModel.GetbyID(id);
         }
     }
 }

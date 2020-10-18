@@ -18,5 +18,7 @@ namespace Entities
 
 		[ForeignKey("id_comprobante")]
 		public virtual Comprobante Comprobante { get; set; }
-    }
+		[ForeignKey("id_articulo")]
+		public virtual Articulo Articulo { get; set; }
+	}
 }

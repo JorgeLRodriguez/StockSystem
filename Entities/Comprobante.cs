@@ -13,7 +13,7 @@ namespace Entities
         public string id_tipo_comprobante { get; set; }
         public string letra_comprobante { get; set; }
         public int suc_comprobante { get; set; }
-        public int num_comprobante {get;set;}
+        public int num_comprobante { get; set; }
         public string nro_remito_cliente { get; set; }
         public DateTime? fecha_comprobante { get; set; }
         public char cierre { get; set; }

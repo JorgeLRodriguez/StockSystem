@@ -16,5 +16,9 @@ namespace Domain.Services
             VoucherModel.Create(comprobante);
             return comprobante;
         }
+        public Comprobante GetComprobante (string id_tipo_comprobante, string letra, int numero_comprobante, int sucursal)
+        {
+            return VoucherModel.GetComprobante("A","ASD","ASD",1);
+        }
     }
 }

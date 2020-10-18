@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI
+namespace UI.Forms.Impresion
 {
-    public partial class borrar : Form
+    public partial class printcompbte : Form
     {
-        public borrar()
+        public printcompbte()
         {
             InitializeComponent();
         }

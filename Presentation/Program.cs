@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Forms.Impresion;
 
 namespace UI
 {
@@ -20,7 +21,8 @@ namespace UI
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogIn());
+            //Application.Run(new LogIn());
+            Application.Run(new printcompfrm());
         }
     }
 }

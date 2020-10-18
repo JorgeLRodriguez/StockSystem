@@ -46,5 +46,9 @@ namespace Domain.Models
                 //agregar log
             }
         }
+        public Comprobante GetComprobante (string id_tipo_comprobante, string letra, string numero_comprobante, int sucursal)
+        {
+            return unitOfWork.ComprobanteRepository.GetById(2);
+        }
     }
 }

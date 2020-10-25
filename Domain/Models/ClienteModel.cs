@@ -2,6 +2,7 @@
 using DataAccess.Repositories;
 using DataAccess.UnitOfWork;
 using Entities;
+using Language;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,29 @@ namespace Domain.Models
 {
     public class ClienteModel
     {
-        private readonly IUnitOfWork clienteRepository;
+        private readonly IUnitOfWork unitOfWork;
+        private readonly LogModel logModel;
+        private IEnumerable<Cliente> clientes;
+        private Log log;
         public ClienteModel()
         {
-            clienteRepository = new UnitOfWork();
+            unitOfWork = UnitOfWork.instance();
+            log = new Log();
         }
 
         public IEnumerable<Cliente> Get()
         {
-            return clienteRepository.ClienteRepository.Get();
+            try
+            {
+                clientes = unitOfWork.ClienteRepository.Get();
+            }
+            catch (Exception ex)
+            {
+                logModel.Log(log, ex);
+                throw new Exception(ex.Message);
+            }
+            if (clientes == null) throw new ApplicationException(strings.ErrorSinRegistros);
+            return clientes;
         }
     }
 }

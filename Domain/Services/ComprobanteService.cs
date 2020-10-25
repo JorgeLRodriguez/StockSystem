@@ -10,15 +10,15 @@ namespace Domain.Services
 {
     public class ComprobanteService
     {
-        private readonly ComprobanteModel VoucherModel = new ComprobanteModel();
+        private readonly ComprobanteModel comprobanteModel = new ComprobanteModel();
         public Comprobante Create(Comprobante comprobante)
         {
-            VoucherModel.Create(comprobante);
+            comprobanteModel.Create(comprobante);
             return comprobante;
         }
-        public Comprobante GetComprobante (string id_tipo_comprobante, string letra, int numero_comprobante, int sucursal)
+        public Comprobante GetComprobanteByID (int ID)
         {
-            return VoucherModel.GetComprobante("A","ASD","ASD",1);
+            return comprobanteModel.GetComprobanteByID(ID);
         }
     }
 }

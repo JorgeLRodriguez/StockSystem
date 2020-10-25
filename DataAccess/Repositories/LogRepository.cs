@@ -11,14 +11,13 @@ namespace DataAccess.Repositories
     public class LogRepository : ILogRepository
     {
         protected Repository _db;
-        public LogRepository()
+        public LogRepository(Repository db)
         {
-            _db = new Repository();
+            _db = db;
         }
         public Log Create(Log log)
         {
             _db.Set<Log>().Add(log);
-            _db.SaveChanges();
             return log;
         }
     }

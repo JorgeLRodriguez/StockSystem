@@ -13,6 +13,12 @@ namespace DataAccess.Repositories
 {
     public class Repository : DbContext
     {
+        private static Repository _instance;
+        public static Repository instance()
+        {
+            return _instance = _instance ?? new Repository();
+        }
+
         public Repository() : base(ConfigurationManager.ConnectionStrings["cnn"].ToString())
         {
             Database.SetInitializer<Repository>(null);

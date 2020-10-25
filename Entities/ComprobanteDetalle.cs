@@ -13,8 +13,8 @@ namespace Entities
 		public int linea { get; set; }
 		public int id_articulo { get; set; }
 		public int cantidad { get; set; }
-		public int id_tipo_rechazo { get; set; }
-		public int id_pallet { get; set; }
+		public int ?id_tipo_rechazo { get; set; }
+		public int ?id_pallet { get; set; }
 
 		[ForeignKey("id_comprobante")]
 		public virtual Comprobante Comprobante { get; set; }

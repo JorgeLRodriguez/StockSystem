@@ -6,18 +6,22 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Contracts;
 using DataAccess.Repositories;
+using DataAccess.UnitOfWork;
 
 namespace Domain
 {
     public class LogModel
     {
-        private readonly ILogRepository logRepository;
+        private readonly IUnitOfWork unitOfWork;
+        private static LogModel _instance = new LogModel();
+        public static LogModel instance()
+        {
+            return _instance = _instance ?? new LogModel();
+        }
         public LogModel()
         {
-            logRepository =  new LogRepository();
+            unitOfWork = UnitOfWork.instance();
         }
-        public readonly static LogModel Instance = new LogModel();
-
         public void Log(Log log, Exception ex)
         {
             try
@@ -35,8 +39,8 @@ namespace Domain
                     log.Mensaje = ex.Message;
                     log.Ubicacion = ex.StackTrace;
                 }
-
-                logRepository.Create(log);
+                unitOfWork.LogRepository.Create(log);
+                unitOfWork.SaveChanges();
             }
             catch
             {

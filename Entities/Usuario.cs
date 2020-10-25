@@ -9,7 +9,6 @@ namespace Entities
 {
     public class Usuario : IdentityBase
     {
-        //public int ID { get; set; }
         public int id_Rol { get; set; }
         public string Username { get; set; }
         public string Contraseña { get; set; }

@@ -58,6 +58,8 @@ namespace DataAccess.Repositories
         }
         public virtual void Update(T entity)
         {
+            entity.ChangedBy = Environment.UserName;
+            entity.ChangedOn = DateTime.Now;
             _db.Entry(entity).State = EntityState.Modified;
         }
         public virtual void Delete(int id)
@@ -68,6 +70,8 @@ namespace DataAccess.Repositories
 
         public virtual T Create(T entity)
         {
+            entity.CreatedBy = Environment.UserName;
+            entity.CreatedOn = DateTime.Now;
             _db.Set<T>().Add(entity);
             return entity;
         }

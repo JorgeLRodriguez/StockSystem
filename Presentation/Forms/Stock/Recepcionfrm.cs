@@ -21,7 +21,7 @@ namespace UI.Stock
         private readonly ComprobanteService CbteS;
         private readonly ClienteService CnteS;
         private readonly ArticuloService ArcS;
-        private printfrm printfrm;
+        private printcompfrm printcompfrm;
         public Recepcionfrm()
         {
             InitializeComponent();
@@ -32,8 +32,7 @@ namespace UI.Stock
         private static Recepcionfrm instance = null;
         public static Recepcionfrm getInstance()
         {
-            if (instance == null) { instance = new Recepcionfrm(); }
-            return instance;
+            return instance = instance ?? new Recepcionfrm();
         }
         private void Recepcionfrm_Load(object sender, EventArgs e)
         {
@@ -73,6 +72,7 @@ namespace UI.Stock
         }
         private void savebtn_Click(object sender, EventArgs e)
         {
+            invdetdataGrid.EndEdit();
             try
             {
                 Comprobante comprobante = new Comprobante
@@ -94,23 +94,22 @@ namespace UI.Stock
                     {
                         int cantidad = String.IsNullOrEmpty(row.Cells[1].EditedFormattedValue.ToString()) ? -1 : int.Parse(row.Cells[1].EditedFormattedValue.ToString());
                         int id_articulo = String.IsNullOrEmpty(row.Cells[0].EditedFormattedValue.ToString()) ? -1 : (int)row.Cells[0].Value;
+
                         ComprobanteDetalle comprobanteDetalle = new ComprobanteDetalle
                         {
                             id_articulo = id_articulo,
                             cantidad = cantidad,
-                            id_tipo_rechazo = 1,
-                            linea = row.Index,
-                            id_pallet = 111,
-                            CreatedBy = Environment.UserName,
-                            CreatedOn = DateTime.Now
+                            linea = row.Index + 1,
                         };
                         comprobanteDetalles.Add(comprobanteDetalle);
                     }
                 }
                 comprobante.ComprobanteDetalle = comprobanteDetalles;
-                CbteS.Create(comprobante);
-                printfrm = new printfrm(invdetdataGrid);
-                printfrm.Show();
+                comprobante = CbteS.Create(comprobante);
+                MessageBox.Show(strings.ComprobanteGenerado, strings.ProcesoCorrecto, MessageBoxButtons.OK);
+                printcompfrm = new printcompfrm(comprobante);
+                printcompfrm.Show();
+                reset();
             }
             catch (Exception ex)
             {
@@ -138,6 +137,13 @@ namespace UI.Stock
         private void maskednumber_Click(object sender, EventArgs e)
         {
             maskednumber.Select(0, 0);
+        }
+        private void reset()
+        {
+            list_Articles();
+            voucherPicker.ResetText();
+            maskednumber.Clear();
+            invdetdataGrid.Rows.Clear();
         }
     }
 }

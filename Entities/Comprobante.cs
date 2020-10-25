@@ -20,5 +20,7 @@ namespace Entities
         public int id_destinatario {get;set;}
         public string observaciones { get; set; }
         public virtual ICollection<ComprobanteDetalle> ComprobanteDetalle { get; set; }
+        [ForeignKey("id_cliente")]
+        public virtual Cliente Cliente { get; set; }
     }
 }

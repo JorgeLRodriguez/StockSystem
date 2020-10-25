@@ -104,12 +104,6 @@
     <Compile Include="Forms\ABM\PxEfrm.Designer.cs">
       <DependentUpon>PxEfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Impresion\printcompbte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Impresion\printcompbte.Designer.cs">
-      <DependentUpon>printcompbte.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Impresion\printcompfrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,9 +212,6 @@
       <DependentUpon>Articfrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Impresion\compbte.rdlc" />
-    <EmbeddedResource Include="Forms\Impresion\printcompbte.resx">
-      <DependentUpon>printcompbte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Impresion\printcompfrm.resx">
       <DependentUpon>printcompfrm.cs</DependentUpon>
     </EmbeddedResource>

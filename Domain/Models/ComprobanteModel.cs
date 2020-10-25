@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataAccess.Contracts;
-using DataAccess.Repositories;
 using DataAccess.UnitOfWork;
 using Entities;
 using Language;
@@ -14,23 +12,27 @@ namespace Domain.Models
     public class ComprobanteModel
     {
         private readonly IUnitOfWork unitOfWork;
+        private readonly LogModel logModel;
+        private Comprobante comprobante;
         private Numerador numerador;
+        private Log log;
         public ComprobanteModel()
         {
-            unitOfWork = new UnitOfWork();
-            numerador = new Numerador();
+            unitOfWork = UnitOfWork.instance();
+            logModel = LogModel.instance();
+            //numerador = new Numerador();
+            log = new Log();
         }
 
         public void Create(Comprobante comprobante)
         {
-            if (comprobante.fecha_comprobante < DateTime.Today) throw new ApplicationException("No puede ingresar una fecha menor a la actual"); //agregar string
+            if (comprobante.fecha_comprobante < DateTime.Today) throw new ApplicationException(strings.ErrorFechaMenAct);
             if (String.IsNullOrEmpty(comprobante.nro_remito_cliente)) throw new Exception(strings.ErrorCampoVacio);
-            if (comprobante.ComprobanteDetalle.Count == 0) throw new Exception("Debe ingresar líneas."); //agregar string
+            if (comprobante.ComprobanteDetalle.Count == 0) throw new Exception(strings.ErrorFaltanLineas);
             foreach (var row in comprobante.ComprobanteDetalle)
             {
                 if (row.id_articulo == -1 || row.cantidad == -1) throw new NullReferenceException(strings.ErrorCampoVacio);
             }
-
             try
             {
                 numerador = unitOfWork.NumeradorRepository.Get(filter: x => x.id_tipo_comprobante == comprobante.id_tipo_comprobante &&
@@ -41,14 +43,28 @@ namespace Domain.Models
                 unitOfWork.NumeradorRepository.Update(numerador);
                 unitOfWork.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //agregar log
+                logModel.Log(log, ex);
+                throw new Exception(ex.Message);
             }
+            log.Mensaje = strings.Comprobante + " " + comprobante.id_tipo_comprobante + " " + comprobante.letra_comprobante + " " + comprobante.suc_comprobante + " " + comprobante.num_comprobante.ToString() + " " + strings.Generado.ToLower();
+            log.Ubicacion = Environment.UserDomainName.ToString();
+            logModel.Log(log, null);
         }
-        public Comprobante GetComprobante (string id_tipo_comprobante, string letra, string numero_comprobante, int sucursal)
+        public Comprobante GetComprobanteByID(int ID)
         {
-            return unitOfWork.ComprobanteRepository.GetById(2);
+            try
+            {
+                comprobante = unitOfWork.ComprobanteRepository.GetById(ID);
+            }
+            catch (Exception ex)
+            {
+                logModel.Log(log, ex);
+                throw new Exception(ex.Message);
+            }
+            if (comprobante == null) throw new ApplicationException(strings.ErrorSinRegistros);
+            return comprobante;
         }
     }
 }

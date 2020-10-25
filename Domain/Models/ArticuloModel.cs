@@ -2,6 +2,7 @@
 using DataAccess.Repositories;
 using DataAccess.UnitOfWork;
 using Entities;
+using Language;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,15 @@ namespace Domain.Models
     public class ArticuloModel
     {
         private readonly IUnitOfWork unitOfWork;
+        private readonly LogModel logModel;
         private IEnumerable<Articulo> articulos;
+        private Articulo articulo;
+        private Log log;
         public ArticuloModel()
         {
-            unitOfWork = new UnitOfWork();
+            unitOfWork = UnitOfWork.instance();
+            logModel = LogModel.instance();
+            log = new Log();
         }
         public IEnumerable<Articulo> GetbyClient(int? id_cliente)
         {
@@ -27,22 +33,25 @@ namespace Domain.Models
             }
             catch (Exception ex)
             {
+                logModel.Log(log, ex);
                 throw new Exception (ex.Message);
             }
-            if (!articulos.Any()) throw new ApplicationException("No se encontraron registros.");
+            if (!articulos.Any()) throw new ApplicationException(strings.ErrorSinRegistros);
             return articulos;
         }
         public Articulo GetbyID (int id)
         {
             try
             {
-                return unitOfWork.ArticuloRepository.GetById(id);
+                articulo = unitOfWork.ArticuloRepository.GetById(id);
             }
             catch (Exception ex)
             {
-                //log
-                return null;
+                logModel.Log(log, ex);
+                throw new Exception(ex.Message);
             }
+            if (articulo == null) throw new ApplicationException(strings.ErrorSinRegistros);
+            return articulo;
         }
     }
 }

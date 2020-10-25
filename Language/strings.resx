@@ -270,4 +270,40 @@
   <data name="ErrorValorNumerico" xml:space="preserve">
     <value>Debe ingresar solo números.</value>
   </data>
+  <data name="CantidadTotal" xml:space="preserve">
+    <value>Cantidad total</value>
+  </data>
+  <data name="Original" xml:space="preserve">
+    <value>Original</value>
+  </data>
+  <data name="Duplicado" xml:space="preserve">
+    <value>Duplicado</value>
+  </data>
+  <data name="Triplicado" xml:space="preserve">
+    <value>Triplicado</value>
+  </data>
+  <data name="Codigo" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="SeleCopia" xml:space="preserve">
+    <value>Seleccionar copia</value>
+  </data>
+  <data name="ErrorFechaMenAct" xml:space="preserve">
+    <value>No se puede ingresar una fecha menor a la actual.</value>
+  </data>
+  <data name="ErrorFaltanLineas" xml:space="preserve">
+    <value>Debe ingresar líneas.</value>
+  </data>
+  <data name="ProcesoCorrecto" xml:space="preserve">
+    <value>Proceso correcto.</value>
+  </data>
+  <data name="ComprobanteGenerado" xml:space="preserve">
+    <value>El comprobante ha sido generado exitosamente.</value>
+  </data>
+  <data name="ErrorSinRegistros" xml:space="preserve">
+    <value>No se encontraron registros.</value>
+  </data>
+  <data name="Generado" xml:space="preserve">
+    <value>Generado</value>
+  </data>
 </root>

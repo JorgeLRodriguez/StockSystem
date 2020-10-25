@@ -9,15 +9,14 @@ namespace Domain.Models
     public class UsuarioModel
     {
         private Usuario usr;
-        private readonly Log log;
+        private Log log;
         private readonly LogModel logModel;
-        private readonly UnitOfWork UnitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         public UsuarioModel()
         {
-            usr = new Usuario();
             log = new Log();
-            logModel = new LogModel();
-            UnitOfWork = new UnitOfWork();
+            unitOfWork = UnitOfWork.instance();
+            logModel = LogModel.instance();
         }
 
         public Usuario LogIn(string user, string psw)
@@ -25,7 +24,7 @@ namespace Domain.Models
             if (String.IsNullOrEmpty(user) || String.IsNullOrEmpty(psw)) throw new ApplicationException(strings.logInEmptyorNull);
             try
             {
-                usr = (UnitOfWork.UsuarioRepository.Get(filter: x => x.Username == user && x.Contraseña == psw, null, "Rol")).SingleOrDefault();
+                usr = (unitOfWork.UsuarioRepository.Get(filter: x => x.Username == user && x.Contraseña == psw, null, "Rol")).SingleOrDefault();
             }
             catch (Exception ex)
             {
@@ -33,7 +32,7 @@ namespace Domain.Models
                 throw new ApplicationException(ex.Message);
             }
             if (usr == null) throw new ApplicationException(strings.LogInIncorrecto);
-            log.Mensaje = user + strings.loginCorrecto;
+            log.Mensaje = user + " " + strings.loginCorrecto;
             log.Ubicacion = Environment.UserDomainName.ToString();
             logModel.Log(log, null);
             return usr;

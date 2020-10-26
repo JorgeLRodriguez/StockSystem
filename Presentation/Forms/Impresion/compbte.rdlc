@@ -1231,7 +1231,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=RIGHT("00000000" + Str(First(Fields!num_comprobante.Value, "Comprobante")),8)</Value>
+                      <Value>=RIGHT("00000000" + LTrim(Str(First(Fields!num_comprobante.Value, "Comprobante"))),8)</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>

@@ -19,6 +19,7 @@ namespace DataAccess.UnitOfWork
         private GenericRepository<Articulo> _ArticuloRepository;
         private GenericRepository<Cliente> _ClienteRepository;
         private GenericRepository<Usuario> _UsuarioRepository;
+        private GenericRepository<Etiqueta> _EtiquetaRepository;
         private LogRepository _LogRepository;
 
         public static UnitOfWork instance()
@@ -62,6 +63,13 @@ namespace DataAccess.UnitOfWork
             get
             {
                 return _UsuarioRepository = _UsuarioRepository ?? new GenericRepository<Usuario>(_db);
+            }
+        }
+        public IGenericRepository<Etiqueta> EtiquetaRepository
+        {
+            get
+            {
+                return _EtiquetaRepository = _EtiquetaRepository ?? new GenericRepository<Etiqueta>(_db);
             }
         }
         public ILogRepository LogRepository

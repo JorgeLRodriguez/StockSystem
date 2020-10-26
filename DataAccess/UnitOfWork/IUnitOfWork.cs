@@ -15,6 +15,7 @@ namespace DataAccess.UnitOfWork
         IGenericRepository<Articulo> ArticuloRepository { get; }
         IGenericRepository<Cliente> ClienteRepository { get; }
         IGenericRepository<Usuario> UsuarioRepository { get; }
+        IGenericRepository<Etiqueta> EtiquetaRepository { get; }
         ILogRepository LogRepository { get; }
         void SaveChanges();
     }

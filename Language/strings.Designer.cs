@@ -322,6 +322,15 @@ namespace Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Etiquetas generadas.
+        /// </summary>
+        public static string EtiquetasGeneradas {
+            get {
+                return ResourceManager.GetString("EtiquetasGeneradas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Fecha.
         /// </summary>
         public static string Fecha {

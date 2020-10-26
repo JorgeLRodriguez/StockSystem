@@ -29,6 +29,7 @@ namespace UI.Forms.Impresion
 
         private void printcompfrm_Load(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             copiacb.Items.Add(strings.Original);
             copiacb.Items.Add(strings.Duplicado);
             copiacb.Items.Add(strings.Triplicado);
@@ -74,6 +75,7 @@ namespace UI.Forms.Impresion
             this.reportViewer1.LocalReport.DataSources.Add(ClienteDS);
             this.reportViewer1.LocalReport.Refresh();
             this.reportViewer1.RefreshReport();
+            Cursor = Cursors.Default;
 
             //        http://datazarblog.blogspot.com/2018/04/como-generar-un-reporte-con-parametros.html
             //https://si.ua.es/es/documentacion/informes-net/documentos/apuntes-de-referencia/origen-de-datos.pdf

@@ -42,8 +42,9 @@ namespace Domain
                 unitOfWork.LogRepository.Create(log);
                 unitOfWork.SaveChanges();
             }
-            catch
+            catch(Exception e)
             {
+
             }
         }
     }

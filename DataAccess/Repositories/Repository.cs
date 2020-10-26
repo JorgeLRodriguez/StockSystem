@@ -35,5 +35,6 @@ namespace DataAccess.Repositories
         public virtual DbSet<Numerador> Numerador { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<Log> Log { get; set; }
+        public virtual DbSet<Etiqueta> Etiqueta { get; set; }
     }
 }

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="log.cs" />
+    <Compile Include="Models\EtiquetaModel.cs" />
     <Compile Include="Models\LogModel.cs" />
     <Compile Include="Models\ArticuloModel.cs" />
     <Compile Include="Models\ClienteModel.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Services\ArticuloService.cs" />
     <Compile Include="Services\ClienteService.cs" />
     <Compile Include="Services\ComprobanteService.cs" />
+    <Compile Include="Services\EtiquetaService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>

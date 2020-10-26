@@ -20,7 +20,6 @@ namespace Domain.Models
         {
             unitOfWork = UnitOfWork.instance();
             logModel = LogModel.instance();
-            //numerador = new Numerador();
             log = new Log();
         }
 

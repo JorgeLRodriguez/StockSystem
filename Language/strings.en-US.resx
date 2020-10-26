@@ -284,6 +284,9 @@
     <value>No records found.</value>
   </data>
   <data name="Generado" xml:space="preserve">
-    <value>Generated.</value>
+    <value>Generated</value>
+  </data>
+  <data name="EtiquetasGeneradas" xml:space="preserve">
+    <value>Tags generated</value>
   </data>
 </root>

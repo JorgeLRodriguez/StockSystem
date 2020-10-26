@@ -46,6 +46,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Comprobante.cs" />
     <Compile Include="ComprobanteDetalle.cs" />
+    <Compile Include="Etiqueta.cs" />
     <Compile Include="IdentityBase.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Numerador.cs" />

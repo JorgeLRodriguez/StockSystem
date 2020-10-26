@@ -22,6 +22,7 @@ namespace UI.Stock
         private readonly ClienteService CnteS;
         private readonly ArticuloService ArcS;
         private printcompfrm printcompfrm;
+        private printetiq printetiq;
         public Recepcionfrm()
         {
             InitializeComponent();
@@ -109,6 +110,8 @@ namespace UI.Stock
                 MessageBox.Show(strings.ComprobanteGenerado, strings.ProcesoCorrecto, MessageBoxButtons.OK);
                 printcompfrm = new printcompfrm(comprobante);
                 printcompfrm.Show();
+                printetiq = new printetiq(comprobante);
+                printetiq.Show();
                 reset();
             }
             catch (Exception ex)

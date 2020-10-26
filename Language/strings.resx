@@ -306,4 +306,7 @@
   <data name="Generado" xml:space="preserve">
     <value>Generado</value>
   </data>
+  <data name="EtiquetasGeneradas" xml:space="preserve">
+    <value>Etiquetas generadas</value>
+  </data>
 </root>

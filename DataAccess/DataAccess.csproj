@@ -55,12 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DigitosVerificadores\CalculadoraDV.cs" />
+    <Compile Include="DigitosVerificadores\ICalculadoraDV.cs" />
+    <Compile Include="DigitosVerificadores\CalculadoraIntegridadDV.cs" />
+    <Compile Include="DigitosVerificadores\ICalculadoraIntegridadDV.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Contracts\ILogRepository.cs" />
     <Compile Include="Repositories\LogRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\DatabaseContext.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
@@ -71,6 +75,10 @@
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{5579d945-535d-45d7-ad14-39024cba3613}</Project>
       <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{1bd92003-e395-4acc-9c03-cc2b8fa27913}</Project>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

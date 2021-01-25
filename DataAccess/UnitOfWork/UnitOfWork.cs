@@ -12,24 +12,25 @@ namespace DataAccess.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private protected Repository _db;
-        private static UnitOfWork _instance = null;
-        private GenericRepository<Comprobante> _ComprobanteRepository;
-        private GenericRepository<Numerador> _NumeradorRepository;
-        private GenericRepository<Articulo> _ArticuloRepository;
-        private GenericRepository<Cliente> _ClienteRepository;
-        private GenericRepository<Usuario> _UsuarioRepository;
-        private GenericRepository<Etiqueta> _EtiquetaRepository;
-        private LogRepository _LogRepository;
+        private protected DatabaseContext _db;
+        private static UnitOfWork _instance;
+        private IGenericRepository<Comprobante> _ComprobanteRepository;
+        private IGenericRepository<Numerador> _NumeradorRepository;
+        private IGenericRepository<Articulo> _ArticuloRepository;
+        private IGenericRepository<Cliente> _ClienteRepository;
+        private IGenericRepository<Usuario> _UsuarioRepository;
+        private IGenericRepository<Etiqueta> _EtiquetaRepository;
+        private ILogRepository _LogRepository;
 
-        public static UnitOfWork instance()
+        public UnitOfWork()
+        {
+            _db = DatabaseContext.Instance();
+        }
+        public static UnitOfWork Instance()
         {
             return _instance = _instance ?? new UnitOfWork();
         }
-        public UnitOfWork()
-        {
-            _db = Repository.instance();
-        }
+
         public IGenericRepository<Numerador> NumeradorRepository
         {
             get
@@ -79,7 +80,6 @@ namespace DataAccess.UnitOfWork
                 return _LogRepository = _LogRepository ?? new LogRepository(_db);
             }
         }
-
         public void SaveChanges()
         {
             _db.SaveChanges();

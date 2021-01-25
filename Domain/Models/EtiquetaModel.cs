@@ -19,8 +19,8 @@ namespace Domain.Models
         private int count = 0;
         public EtiquetaModel()
         {
-            unitOfWork = UnitOfWork.instance();
-            logModel = LogModel.instance();
+            unitOfWork = UnitOfWork.Instance();
+            logModel = LogModel.Instance();
             log = new Log();
         }
         public void Create(Comprobante comprobante)
@@ -34,8 +34,8 @@ namespace Domain.Models
                     {
                         etiqueta = new Etiqueta()
                         {
-                            id_comprobante = comprobante.ID,
-                            id_articulo = cbtedet.id_articulo,
+                            Comprobante_ID = comprobante.ID,
+                            Articulo_ID = cbtedet.Articulo_ID,
                             etiq_nro = count,
                             etiq_total = cbtedet.cantidad
                         };
@@ -58,7 +58,7 @@ namespace Domain.Models
         {
             try
             {
-                etiquetas = unitOfWork.EtiquetaRepository.Get(filter: x => x.id_comprobante == comprobante.ID);
+                etiquetas = unitOfWork.EtiquetaRepository.Get(filter: x => x.Comprobante_ID == comprobante.ID);
             }
             catch(Exception ex)
             {

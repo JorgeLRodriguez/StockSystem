@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{32394203-BF6F-4902-A178-9CB5DCA2212D}</ProjectGuid>
+    <ProjectGuid>{1BD92003-E395-4ACC-9C03-CC2B8FA27913}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domain</RootNamespace>
-    <AssemblyName>Domain</AssemblyName>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,37 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="log.cs" />
-    <Compile Include="Models\EtiquetaModel.cs" />
-    <Compile Include="Models\LogModel.cs" />
-    <Compile Include="Models\ArticuloModel.cs" />
-    <Compile Include="Models\ClienteModel.cs" />
-    <Compile Include="Models\ComprobanteModel.cs" />
-    <Compile Include="Models\UsuarioModel.cs" />
+    <Compile Include="Copiador.cs" />
+    <Compile Include="Crypto\CSP.cs" />
+    <Compile Include="Crypto\Hash.cs" />
+    <Compile Include="Crypto\ICriptografia.cs" />
+    <Compile Include="FamiliasPorDefecto.cs" />
+    <Compile Include="PatentesDelSistema.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="remito_stockBLL.cs" />
-    <Compile Include="Services\ArticuloService.cs" />
-    <Compile Include="Services\ClienteService.cs" />
-    <Compile Include="Services\ComprobanteService.cs" />
-    <Compile Include="Services\EtiquetaService.cs" />
-    <Compile Include="Services\UsuarioService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
-      <Project>{288c5e0a-36b6-40c6-b3ed-0e2444fa8772}</Project>
-      <Name>DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{5579d945-535d-45d7-ad14-39024cba3613}</Project>
-      <Name>Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Language\Language.csproj">
-      <Project>{92a7084f-c2fb-4c2d-856c-ff9b05eb6245}</Project>
-      <Name>Language</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

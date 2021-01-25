@@ -9,7 +9,7 @@ namespace Entities
 {
     public class IdentityBase
     {
-        [Key]
+        [Key,Required]
         public int ID { get; set; }
         public DateTime? CreatedOn { get; set; }
         public string CreatedBy { get; set; }

@@ -19,7 +19,7 @@ namespace Domain.Models
         private Log log;
         public ClienteModel()
         {
-            unitOfWork = UnitOfWork.instance();
+            unitOfWork = new UnitOfWork();
             log = new Log();
         }
 

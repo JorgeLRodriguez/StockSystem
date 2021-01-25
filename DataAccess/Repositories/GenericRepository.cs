@@ -11,8 +11,8 @@ namespace DataAccess.Repositories
 {
     public class GenericRepository <T> : IGenericRepository<T> where T : IdentityBase, new()
     {
-        protected Repository _db;
-        public GenericRepository(Repository repository)
+        protected DatabaseContext _db;
+        public GenericRepository(DatabaseContext repository)
         {
             _db = repository;
         }

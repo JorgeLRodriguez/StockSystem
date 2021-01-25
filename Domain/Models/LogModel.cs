@@ -14,13 +14,13 @@ namespace Domain
     {
         private readonly IUnitOfWork unitOfWork;
         private static LogModel _instance = new LogModel();
-        public static LogModel instance()
+        public static LogModel Instance()
         {
             return _instance = _instance ?? new LogModel();
         }
         public LogModel()
         {
-            unitOfWork = UnitOfWork.instance();
+            unitOfWork = UnitOfWork.Instance();
         }
         public void Log(Log log, Exception ex)
         {

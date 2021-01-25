@@ -61,7 +61,7 @@ namespace UI.Stock
             try
             {
                 DataGridViewComboBoxColumn articlecbdg = invdetdataGrid.Columns[0] as DataGridViewComboBoxColumn;
-                var list = ArcS.GetbyClient(Int32.Parse(clientcbx.SelectedValue.ToString()));
+                var list = ArcS.GetbyClient(int.Parse(clientcbx.SelectedValue.ToString()));
                 articlecbdg.DisplayMember = "Descripcion";
                 articlecbdg.ValueMember = "ID";
                 articlecbdg.DataSource = list;
@@ -78,8 +78,8 @@ namespace UI.Stock
             {
                 Comprobante comprobante = new Comprobante
                 {
-                    id_cliente = Int32.Parse(clientcbx.SelectedValue.ToString()),
-                    id_tipo_comprobante = typetxt.Text,
+                    Cliente_ID = Int32.Parse(clientcbx.SelectedValue.ToString()),
+                    id_tipo_comprobante = "SIR",
                     letra_comprobante = lettertxt.Text,
                     suc_comprobante = int.Parse(subsidiarytxt.Text),
                     nro_remito_cliente = (maskednumber.Text).ToString().Trim(),
@@ -98,7 +98,7 @@ namespace UI.Stock
 
                         ComprobanteDetalle comprobanteDetalle = new ComprobanteDetalle
                         {
-                            id_articulo = id_articulo,
+                            Articulo_ID = id_articulo,
                             cantidad = cantidad,
                             linea = row.Index + 1,
                         };

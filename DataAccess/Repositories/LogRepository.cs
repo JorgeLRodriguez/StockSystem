@@ -10,8 +10,8 @@ namespace DataAccess.Repositories
 {
     public class LogRepository : ILogRepository
     {
-        protected Repository _db;
-        public LogRepository(Repository db)
+        protected DatabaseContext _db;
+        public LogRepository(DatabaseContext db)
         {
             _db = db;
         }

@@ -15,8 +15,8 @@ namespace Domain.Models
         public UsuarioModel()
         {
             log = new Log();
-            unitOfWork = UnitOfWork.instance();
-            logModel = LogModel.instance();
+            unitOfWork = UnitOfWork.Instance();
+            logModel = LogModel.Instance();
         }
 
         public Usuario LogIn(string user, string psw)

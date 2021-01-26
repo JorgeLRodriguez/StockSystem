@@ -1,15 +1,7 @@
-﻿using DataAccess.DigitosVerificadores;
-using Entities;
-using System;
-using System.Collections.Generic;
+﻿using Entities;
 using System.Configuration;
-using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {

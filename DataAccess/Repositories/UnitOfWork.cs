@@ -1,6 +1,5 @@
 ﻿using DataAccess.Contracts;
 using DataAccess.Repositories;
-using DataAccess.UnitOfWork;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.UnitOfWork
+namespace DataAccess.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -21,6 +20,7 @@ namespace DataAccess.UnitOfWork
         private IGenericRepository<Usuario> _UsuarioRepository;
         private IGenericRepository<Etiqueta> _EtiquetaRepository;
         private ILogRepository _LogRepository;
+        private IIdiomaRepository _IdiomaRepository;
 
         public UnitOfWork()
         {
@@ -78,6 +78,13 @@ namespace DataAccess.UnitOfWork
             get
             {
                 return _LogRepository = _LogRepository ?? new LogRepository(_db);
+            }
+        }
+        public IIdiomaRepository IdiomaRepository
+        {
+            get
+            {
+                return _IdiomaRepository = _IdiomaRepository ?? new IdiomaRepository();
             }
         }
         public void SaveChanges()

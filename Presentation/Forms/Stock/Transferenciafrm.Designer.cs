@@ -59,7 +59,7 @@ namespace UI.Stock
             this.originlab.Name = "originlab";
             this.originlab.Size = new System.Drawing.Size(128, 48);
             this.originlab.TabIndex = 0;
-            this.originlab.Text = strings.Origen;
+            this.originlab.Text = "Origen";
             this.originlab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // destlab
@@ -70,7 +70,7 @@ namespace UI.Stock
             this.destlab.Name = "destlab";
             this.destlab.Size = new System.Drawing.Size(251, 48);
             this.destlab.TabIndex = 1;
-            this.destlab.Text = strings.Destino;
+            this.destlab.Text = "Destino";
             this.destlab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView1

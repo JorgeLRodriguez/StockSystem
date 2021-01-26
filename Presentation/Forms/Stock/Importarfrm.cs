@@ -71,11 +71,11 @@ namespace UI.Stock
             {
                 if (!_StockBLL.validaDatos(dt))
                 {
-                    MessageBox.Show("No se puede guardar porque contiene errores, verifique el log.", strings.Atencion, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No se puede guardar porque contiene errores, verifique el log.", "strings.Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
-                    MessageBox.Show("Proceso correcto.", strings.Atencion, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Proceso correcto.", "strings.Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception ex)

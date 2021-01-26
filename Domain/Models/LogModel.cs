@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Contracts;
 using DataAccess.Repositories;
-using DataAccess.UnitOfWork;
 
 namespace Domain
 {

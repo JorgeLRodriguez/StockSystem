@@ -113,7 +113,7 @@ namespace UI
             leftBorderBtn.Visible = false;
             iconCurrentChildForm.IconChar = IconChar.Home;
             iconCurrentChildForm.IconColor = Color.MediumSpringGreen;
-            labtitle.Text = strings.Inicio;
+            //labtitle.Text = strings.Inicio;
         }
         private void homepic_Click(object sender, EventArgs e)
         {
@@ -222,26 +222,26 @@ namespace UI
 
         private void MainMenufrm_Load(object sender, EventArgs e)
         {
-            labtitle.Text = strings.Inicio;
-            btnrecepcion.Text = strings.Recepcion;
-            btnscaneo.Text = strings.Scaneo;
-            btnpicking.Text = strings.Picking;
-            btntransf.Text = strings.Transferencia;
-            btnajuste.Text = strings.Ajuste;
-            btnImportar.Text = strings.Importar;
-            btnABM.Text = strings.Administrar;
-            btnArticulos.Text = strings.Articulos;
-            btnPxE.Text = strings.PxE;
-            btnLayout.Text = strings.Layout;
-            btnEtiq.Text = strings.Etiq;
-            btnReportes.Text = strings.Reportes;
-            btndeposito.Text = strings.Deposito;
-            btnInventario.Text = strings.Inventario;
-            btnMovim.Text = strings.Movimientos;
-            btnHxI.Text = strings.HxI;
-            btnIxC.Text = strings.IxC;
-            btnListStock.Text = strings.List_Stock;
-            btnconfig.Text = strings.Config;
+            //labtitle.Text = strings.Inicio;
+            //btnrecepcion.Text = strings.Recepcion;
+            //btnscaneo.Text = strings.Scaneo;
+            //btnpicking.Text = strings.Picking;
+            //btntransf.Text = strings.Transferencia;
+            //btnajuste.Text = strings.Ajuste;
+            //btnImportar.Text = strings.Importar;
+            //btnABM.Text = strings.Administrar;
+            //btnArticulos.Text = strings.Articulos;
+            //btnPxE.Text = strings.PxE;
+            //btnLayout.Text = strings.Layout;
+            //btnEtiq.Text = strings.Etiq;
+            //btnReportes.Text = strings.Reportes;
+            //btndeposito.Text = strings.Deposito;
+            //btnInventario.Text = strings.Inventario;
+            //btnMovim.Text = strings.Movimientos;
+            //btnHxI.Text = strings.HxI;
+            //btnIxC.Text = strings.IxC;
+            //btnListStock.Text = strings.List_Stock;
+            //btnconfig.Text = strings.Config;
         }
     }
 }

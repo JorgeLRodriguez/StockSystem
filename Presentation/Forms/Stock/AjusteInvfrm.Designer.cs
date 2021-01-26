@@ -50,7 +50,7 @@ namespace UI.Stock
             this.clientlab.Name = "clientlab";
             this.clientlab.Size = new System.Drawing.Size(68, 26);
             this.clientlab.TabIndex = 0;
-            this.clientlab.Text = strings.Cliente;
+            this.clientlab.Text = "Cliente";
             this.clientlab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // clientbtn
@@ -83,7 +83,7 @@ namespace UI.Stock
             this.datelab.Name = "datelab";
             this.datelab.Size = new System.Drawing.Size(60, 26);
             this.datelab.TabIndex = 3;
-            this.datelab.Text = strings.Fecha;
+            this.datelab.Text = "Fecha";
             this.datelab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dateTimePicker1
@@ -103,7 +103,7 @@ namespace UI.Stock
             this.obslab.Name = "obslab";
             this.obslab.Size = new System.Drawing.Size(127, 26);
             this.obslab.TabIndex = 5;
-            this.obslab.Text = strings.Observacion;
+            this.obslab.Text = "Observacion";
             this.obslab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // obstxt
@@ -139,7 +139,7 @@ namespace UI.Stock
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(97, 35);
             this.savebtn.TabIndex = 8;
-            this.savebtn.Text = strings.Guardar;
+            this.savebtn.Text = "Guardar";
             this.savebtn.UseVisualStyleBackColor = true;
             // 
             // AjusteInvfrm

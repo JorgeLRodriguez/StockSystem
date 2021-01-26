@@ -51,7 +51,7 @@ namespace UI.Stock
             this.printbtn.Name = "printbtn";
             this.printbtn.Size = new System.Drawing.Size(87, 35);
             this.printbtn.TabIndex = 0;
-            this.printbtn.Text = strings.Imprimir;
+            this.printbtn.Text = "Imprimir";
             this.printbtn.UseVisualStyleBackColor = true;
             // 
             // confirmbtn
@@ -65,7 +65,7 @@ namespace UI.Stock
             this.confirmbtn.Name = "confirmbtn";
             this.confirmbtn.Size = new System.Drawing.Size(105, 35);
             this.confirmbtn.TabIndex = 1;
-            this.confirmbtn.Text = strings.Conf;
+            this.confirmbtn.Text = "Confirmar";
             this.confirmbtn.UseVisualStyleBackColor = true;
             // 
             // showconfcb
@@ -77,7 +77,7 @@ namespace UI.Stock
             this.showconfcb.Name = "showconfcb";
             this.showconfcb.Size = new System.Drawing.Size(189, 24);
             this.showconfcb.TabIndex = 2;
-            this.showconfcb.Text = strings.MostrarConf;
+            this.showconfcb.Text = "MostrarConf";
             this.showconfcb.UseVisualStyleBackColor = true;
             // 
             // pickingdg

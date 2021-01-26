@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.UnitOfWork
+namespace DataAccess.Contracts
 {
     public interface IUnitOfWork
     {
@@ -17,6 +17,7 @@ namespace DataAccess.UnitOfWork
         IGenericRepository<Usuario> UsuarioRepository { get; }
         IGenericRepository<Etiqueta> EtiquetaRepository { get; }
         ILogRepository LogRepository { get; }
+        IIdiomaRepository IdiomaRepository { get; }
         void SaveChanges();
     }
 }

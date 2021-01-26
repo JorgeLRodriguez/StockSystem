@@ -30,24 +30,24 @@ namespace UI.Forms.Impresion
         private void printcompfrm_Load(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            copiacb.Items.Add(strings.Original);
-            copiacb.Items.Add(strings.Duplicado);
-            copiacb.Items.Add(strings.Triplicado);
+            //copiacb.Items.Add(strings.Original);
+            //copiacb.Items.Add(strings.Duplicado);
+            //copiacb.Items.Add(strings.Triplicado);
 
-            copialab.Text = strings.SeleCopia + ":";
+            //copialab.Text = strings.SeleCopia + ":";
 
             ReportParameter[] reportParameters = new ReportParameter[10];
 
             reportParameters[0] = new ReportParameter("informe", "Informe de Recepción", true);
-            reportParameters[1] = new ReportParameter("cliente", strings.Cliente, true);
-            reportParameters[2] = new ReportParameter("remito", strings.Remito, true);
-            reportParameters[3] = new ReportParameter("copia", strings.Original, true);
-            reportParameters[4] = new ReportParameter("comprobante", strings.Comprobante, true);
-            reportParameters[5] = new ReportParameter("fecha", strings.Fecha, true);
-            reportParameters[6] = new ReportParameter("codigo", strings.Codigo, true);
-            reportParameters[7] = new ReportParameter("descripcion", strings.Descripcion, true);
-            reportParameters[8] = new ReportParameter("cantidad", strings.Cantidad, true);
-            reportParameters[9] = new ReportParameter("cantidadtotal", strings.CantidadTotal, true);
+            //reportParameters[1] = new ReportParameter("cliente", strings.Cliente, true);
+            //reportParameters[2] = new ReportParameter("remito", strings.Remito, true);
+            //reportParameters[3] = new ReportParameter("copia", strings.Original, true);
+            //reportParameters[4] = new ReportParameter("comprobante", strings.Comprobante, true);
+            //reportParameters[5] = new ReportParameter("fecha", strings.Fecha, true);
+            //reportParameters[6] = new ReportParameter("codigo", strings.Codigo, true);
+            //reportParameters[7] = new ReportParameter("descripcion", strings.Descripcion, true);
+            //reportParameters[8] = new ReportParameter("cantidad", strings.Cantidad, true);
+            //reportParameters[9] = new ReportParameter("cantidadtotal", strings.CantidadTotal, true);
 
             reportViewer1.LocalReport.SetParameters(reportParameters);
 

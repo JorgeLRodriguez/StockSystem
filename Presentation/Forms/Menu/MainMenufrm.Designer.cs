@@ -118,7 +118,7 @@ namespace UI
             this.btnListStock.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnListStock.Size = new System.Drawing.Size(250, 35);
             this.btnListStock.TabIndex = 5;
-            this.btnListStock.Text = strings.List_Stock;
+            this.btnListStock.Text = "List_Stock";
             this.btnListStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListStock.UseVisualStyleBackColor = true;
             this.btnListStock.Click += new System.EventHandler(this.btnListStock_Click);
@@ -136,7 +136,7 @@ namespace UI
             this.btnIxC.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnIxC.Size = new System.Drawing.Size(250, 35);
             this.btnIxC.TabIndex = 4;
-            this.btnIxC.Text = strings.IxC;
+            this.btnIxC.Text = "Inv por Cliente";
             this.btnIxC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIxC.UseVisualStyleBackColor = true;
             this.btnIxC.Click += new System.EventHandler(this.btnIxC_Click);
@@ -154,7 +154,7 @@ namespace UI
             this.btnHxI.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnHxI.Size = new System.Drawing.Size(250, 35);
             this.btnHxI.TabIndex = 3;
-            this.btnHxI.Text = strings.HxI;
+            this.btnHxI.Text = "HistorialxItem";
             this.btnHxI.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHxI.UseVisualStyleBackColor = true;
             this.btnHxI.Click += new System.EventHandler(this.btnHxI_Click);
@@ -172,7 +172,7 @@ namespace UI
             this.btnMovim.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnMovim.Size = new System.Drawing.Size(250, 35);
             this.btnMovim.TabIndex = 2;
-            this.btnMovim.Text = strings.Movimientos;
+            this.btnMovim.Text = "Movimientos";
             this.btnMovim.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMovim.UseVisualStyleBackColor = true;
             this.btnMovim.Click += new System.EventHandler(this.btnMovim_Click);
@@ -190,7 +190,7 @@ namespace UI
             this.btnInventario.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnInventario.Size = new System.Drawing.Size(250, 35);
             this.btnInventario.TabIndex = 1;
-            this.btnInventario.Text = strings.Inventario;
+            this.btnInventario.Text = "Inventario";
             this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInventario.UseVisualStyleBackColor = true;
             this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
@@ -208,7 +208,7 @@ namespace UI
             this.btndeposito.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btndeposito.Size = new System.Drawing.Size(250, 35);
             this.btndeposito.TabIndex = 0;
-            this.btndeposito.Text = strings.Deposito;
+            this.btndeposito.Text = "Deposito";
             this.btndeposito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btndeposito.UseVisualStyleBackColor = true;
             this.btndeposito.Click += new System.EventHandler(this.btndeposito_Click);
@@ -234,7 +234,7 @@ namespace UI
             this.btnReportes.Rotation = 0D;
             this.btnReportes.Size = new System.Drawing.Size(250, 60);
             this.btnReportes.TabIndex = 3;
-            this.btnReportes.Text = strings.Reportes;
+            this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportes.UseVisualStyleBackColor = true;
@@ -267,7 +267,7 @@ namespace UI
             this.btnEtiq.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnEtiq.Size = new System.Drawing.Size(250, 35);
             this.btnEtiq.TabIndex = 3;
-            this.btnEtiq.Text = strings.Etiq;
+            this.btnEtiq.Text = "Etiq";
             this.btnEtiq.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEtiq.UseVisualStyleBackColor = true;
             this.btnEtiq.Click += new System.EventHandler(this.btnEtiq_Click);
@@ -285,7 +285,7 @@ namespace UI
             this.btnLayout.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnLayout.Size = new System.Drawing.Size(250, 35);
             this.btnLayout.TabIndex = 2;
-            this.btnLayout.Text = strings.Layout;
+            this.btnLayout.Text = "Layout";
             this.btnLayout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLayout.UseVisualStyleBackColor = true;
             this.btnLayout.Click += new System.EventHandler(this.btnLayout_Click);
@@ -303,7 +303,7 @@ namespace UI
             this.btnPxE.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnPxE.Size = new System.Drawing.Size(250, 35);
             this.btnPxE.TabIndex = 1;
-            this.btnPxE.Text = strings.PxE;
+            this.btnPxE.Text = "PxE";
             this.btnPxE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPxE.UseVisualStyleBackColor = true;
             this.btnPxE.Click += new System.EventHandler(this.btnPxE_Click);
@@ -321,7 +321,7 @@ namespace UI
             this.btnArticulos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnArticulos.Size = new System.Drawing.Size(250, 35);
             this.btnArticulos.TabIndex = 0;
-            this.btnArticulos.Text = strings.Articulos;
+            this.btnArticulos.Text = "Articulos";
             this.btnArticulos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnArticulos.UseVisualStyleBackColor = true;
             this.btnArticulos.Click += new System.EventHandler(this.btnArticulos_Click);
@@ -347,7 +347,7 @@ namespace UI
             this.btnABM.Rotation = 0D;
             this.btnABM.Size = new System.Drawing.Size(250, 60);
             this.btnABM.TabIndex = 2;
-            this.btnABM.Text = strings.Administrar;
+            this.btnABM.Text = "Administrar";
             this.btnABM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnABM.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnABM.UseVisualStyleBackColor = true;
@@ -382,7 +382,7 @@ namespace UI
             this.btnImportar.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnImportar.Size = new System.Drawing.Size(250, 35);
             this.btnImportar.TabIndex = 5;
-            this.btnImportar.Text = strings.Importar;
+            this.btnImportar.Text = "Importar";
             this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImportar.UseVisualStyleBackColor = true;
             this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
@@ -400,7 +400,7 @@ namespace UI
             this.btnajuste.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnajuste.Size = new System.Drawing.Size(250, 35);
             this.btnajuste.TabIndex = 4;
-            this.btnajuste.Text = strings.Ajuste;
+            this.btnajuste.Text = "Ajuste";
             this.btnajuste.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnajuste.UseVisualStyleBackColor = true;
             this.btnajuste.Click += new System.EventHandler(this.btnajuste_Click);
@@ -418,7 +418,7 @@ namespace UI
             this.btntransf.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btntransf.Size = new System.Drawing.Size(250, 35);
             this.btntransf.TabIndex = 3;
-            this.btntransf.Text = strings.Transferencia;
+            this.btntransf.Text = "Transferencia";
             this.btntransf.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btntransf.UseVisualStyleBackColor = true;
             this.btntransf.Click += new System.EventHandler(this.btntransf_Click);
@@ -436,7 +436,7 @@ namespace UI
             this.btnpicking.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnpicking.Size = new System.Drawing.Size(250, 35);
             this.btnpicking.TabIndex = 2;
-            this.btnpicking.Text = strings.Picking;
+            this.btnpicking.Text = "Picking";
             this.btnpicking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnpicking.UseVisualStyleBackColor = true;
             this.btnpicking.Click += new System.EventHandler(this.btnpicking_Click);
@@ -454,7 +454,7 @@ namespace UI
             this.btnscaneo.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnscaneo.Size = new System.Drawing.Size(250, 35);
             this.btnscaneo.TabIndex = 1;
-            this.btnscaneo.Text = strings.Scaneo;
+            this.btnscaneo.Text = "Scaneo";
             this.btnscaneo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnscaneo.UseVisualStyleBackColor = true;
             this.btnscaneo.Click += new System.EventHandler(this.btnscaneo_Click);
@@ -472,7 +472,7 @@ namespace UI
             this.btnrecepcion.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnrecepcion.Size = new System.Drawing.Size(250, 35);
             this.btnrecepcion.TabIndex = 0;
-            this.btnrecepcion.Text = strings.Recepcion;
+            this.btnrecepcion.Text = "Recepcion";
             this.btnrecepcion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnrecepcion.UseVisualStyleBackColor = true;
             this.btnrecepcion.Click += new System.EventHandler(this.btnrecepcion_Click);
@@ -498,7 +498,7 @@ namespace UI
             this.btnStock.Rotation = 0D;
             this.btnStock.Size = new System.Drawing.Size(250, 60);
             this.btnStock.TabIndex = 1;
-            this.btnStock.Text = strings.Stock;
+            this.btnStock.Text = "Stock";
             this.btnStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStock.UseVisualStyleBackColor = true;
@@ -575,7 +575,7 @@ namespace UI
             this.btnconfig.Rotation = 0D;
             this.btnconfig.Size = new System.Drawing.Size(200, 75);
             this.btnconfig.TabIndex = 4;
-            this.btnconfig.Text = strings.Config;
+            this.btnconfig.Text = "Config";
             this.btnconfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnconfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnconfig.UseVisualStyleBackColor = true;

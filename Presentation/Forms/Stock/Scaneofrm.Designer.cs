@@ -57,7 +57,7 @@ namespace UI.Stock
             this.receiptlab.Name = "receiptlab";
             this.receiptlab.Size = new System.Drawing.Size(124, 23);
             this.receiptlab.TabIndex = 0;
-            this.receiptlab.Text = strings.Comprobante;
+            this.receiptlab.Text = "Comprobante";
             // 
             // receiptcb
             // 
@@ -78,7 +78,7 @@ namespace UI.Stock
             this.reasonlab.Name = "reasonlab";
             this.reasonlab.Size = new System.Drawing.Size(76, 23);
             this.reasonlab.TabIndex = 2;
-            this.reasonlab.Text = strings.Motivo;
+            this.reasonlab.Text = "Motivo";
             // 
             // reasoncb
             // 
@@ -100,7 +100,7 @@ namespace UI.Stock
             this.completecb.Name = "completecb";
             this.completecb.Size = new System.Drawing.Size(195, 24);
             this.completecb.TabIndex = 4;
-            this.completecb.Text = strings.ComplCant;
+            this.completecb.Text = "CompletarCantidad";
             this.completecb.UseVisualStyleBackColor = true;
             // 
             // maindg
@@ -146,7 +146,7 @@ namespace UI.Stock
             this.pcbtn.Name = "pcbtn";
             this.pcbtn.Size = new System.Drawing.Size(150, 34);
             this.pcbtn.TabIndex = 10;
-            this.pcbtn.Text = strings.Cierre_Parcial;
+            this.pcbtn.Text = "Cierre Parcial";
             this.pcbtn.UseVisualStyleBackColor = true;
             // 
             // dcbtn
@@ -161,7 +161,7 @@ namespace UI.Stock
             this.dcbtn.Name = "dcbtn";
             this.dcbtn.Size = new System.Drawing.Size(150, 34);
             this.dcbtn.TabIndex = 11;
-            this.dcbtn.Text = strings.Cierre_Def;
+            this.dcbtn.Text = "Cierre Definitivo";
             this.dcbtn.UseVisualStyleBackColor = true;
             // 
             // receiptdg

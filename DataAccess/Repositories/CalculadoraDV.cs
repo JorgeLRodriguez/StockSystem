@@ -1,13 +1,13 @@
-﻿using Entities;
+﻿using DataAccess.Contracts;
+using Entities;
 using Services.Crypto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace DataAccess.DigitosVerificadores
+namespace DataAccess.Repositories
 {
     public class CalculadoraDV : ICalculadoraDV
     {

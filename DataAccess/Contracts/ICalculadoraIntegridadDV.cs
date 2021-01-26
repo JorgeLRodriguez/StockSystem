@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataAccess.DigitosVerificadores
+namespace DataAccess.Contracts
 {
     interface ICalculadoraIntegridadDV
     {

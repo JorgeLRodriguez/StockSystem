@@ -1,4 +1,4 @@
-﻿using Language;
+﻿//using Language;
 
 namespace UI.ABM
 {
@@ -66,7 +66,7 @@ namespace UI.ABM
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(94, 29);
             this.savebtn.TabIndex = 2;
-            this.savebtn.Text = strings.Guardar;
+            this.savebtn.Text = "Guardar";
             this.savebtn.UseVisualStyleBackColor = true;
             this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 

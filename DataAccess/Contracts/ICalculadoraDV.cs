@@ -1,7 +1,7 @@
 ﻿using Entities;
 using System.Collections.Generic;
 
-namespace DataAccess.DigitosVerificadores
+namespace DataAccess.Contracts
 {
     public interface ICalculadoraDV
     {

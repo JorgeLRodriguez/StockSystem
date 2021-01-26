@@ -68,7 +68,7 @@ namespace UI.Stock
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, strings.Atencion, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message, "strings.Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void savebtn_Click(object sender, EventArgs e)
@@ -107,7 +107,7 @@ namespace UI.Stock
                 }
                 comprobante.ComprobanteDetalle = comprobanteDetalles;
                 comprobante = CbteS.Create(comprobante);
-                MessageBox.Show(strings.ComprobanteGenerado, strings.ProcesoCorrecto, MessageBoxButtons.OK);
+                MessageBox.Show("strings.ComprobanteGenerado", "strings.ProcesoCorrecto", MessageBoxButtons.OK);
                 printcompfrm = new printcompfrm(comprobante);
                 printcompfrm.Show();
                 printetiq = new printetiq(comprobante);
@@ -116,21 +116,21 @@ namespace UI.Stock
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, strings.Atencion, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "strings.Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void load_language()
         {
-            invdetdataGrid.Columns[0].HeaderText = strings.Articulos.Substring(0, strings.Articulos.Length - 1);
-            invdetdataGrid.Columns[1].HeaderText = strings.Cantidad;
-            vouchertypelb.Text = strings.Tipo;
-            letterlab.Text = strings.Letra;
-            clientlab.Text = strings.Cliente;
-            datelab.Text = strings.Fecha;
-            invlab.Text = strings.Remito + " #";
-            addbtn.Text = strings.Agregar;
-            deletebtn.Text = strings.Eliminar;
-            savebtn.Text = strings.Guardar;
+            //invdetdataGrid.Columns[0].HeaderText = strings.Articulos.Substring(0, strings.Articulos.Length - 1);
+            //invdetdataGrid.Columns[1].HeaderText = strings.Cantidad;
+            //vouchertypelb.Text = strings.Tipo;
+            //letterlab.Text = strings.Letra;
+            //clientlab.Text = strings.Cliente;
+            //datelab.Text = strings.Fecha;
+            //invlab.Text = strings.Remito + " #";
+            //addbtn.Text = strings.Agregar;
+            //deletebtn.Text = strings.Eliminar;
+            //savebtn.Text = strings.Guardar;
         }
         private void maskednumber_Enter(object sender, EventArgs e)
         {

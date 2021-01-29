@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using DataAccess.Contracts;
 using DataAccess.Repositories;
 using Entities;
-using Language;
 
 namespace Domain.Models
 {
@@ -26,12 +25,12 @@ namespace Domain.Models
 
         public void Create(Comprobante comprobante)
         {
-            if (comprobante.fecha_comprobante < DateTime.Today) throw new ApplicationException(strings.ErrorFechaMenAct);
-            if (String.IsNullOrEmpty(comprobante.nro_remito_cliente)) throw new Exception(strings.ErrorCampoVacio);
-            if (comprobante.ComprobanteDetalle.Count == 0) throw new Exception(strings.ErrorFaltanLineas);
+            if (comprobante.fecha_comprobante < DateTime.Today) throw new ApplicationException("strings.ErrorFechaMenAct");
+            if (String.IsNullOrEmpty(comprobante.nro_remito_cliente)) throw new Exception("strings.ErrorCampoVacio");
+            if (comprobante.ComprobanteDetalle.Count == 0) throw new Exception("strings.ErrorFaltanLineas");
             foreach (var row in comprobante.ComprobanteDetalle)
             {
-                if (row.Articulo_ID == -1 || row.cantidad == -1) throw new NullReferenceException(strings.ErrorCampoVacio);
+                if (row.Articulo_ID == -1 || row.cantidad == -1) throw new NullReferenceException("strings.ErrorCampoVacio");
             }
             try
             {
@@ -60,7 +59,7 @@ namespace Domain.Models
                 logModel.Log(log, ex);
                 throw new Exception(ex.Message);
             }
-            log.Mensaje = strings.Comprobante + " " + comprobante.ID + " " + comprobante.letra_comprobante + " " + comprobante.suc_comprobante + " " + comprobante.num_comprobante.ToString() + " " + strings.Generado.ToLower();
+            log.Mensaje = "strings.Comprobante" + " " + comprobante.ID + " " + comprobante.letra_comprobante + " " + comprobante.suc_comprobante + " " + comprobante.num_comprobante.ToString() + " " + "strings.Generado.ToLower()";
             log.Ubicacion = Environment.UserDomainName.ToString();
             logModel.Log(log, null);
         }
@@ -75,7 +74,7 @@ namespace Domain.Models
                 logModel.Log(log, ex);
                 throw new Exception(ex.Message);
             }
-            if (comprobante == null) throw new ApplicationException(strings.ErrorSinRegistros);
+            if (comprobante == null) throw new ApplicationException("strings.ErrorSinRegistros");
             return comprobante;
         }
     }

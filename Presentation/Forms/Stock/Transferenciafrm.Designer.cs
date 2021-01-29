@@ -1,6 +1,4 @@
-﻿using Language;
-
-namespace UI.Stock
+﻿namespace UI.Stock
 {
     partial class Transferenciafrm
     {

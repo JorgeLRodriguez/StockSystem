@@ -12,7 +12,6 @@ using Domain.Services;
 using Microsoft.Reporting.WinForms;
 using System.IO;
 using Microsoft.ReportingServices.Diagnostics.Internal;
-using Language;
 
 namespace UI.Forms.Impresion
 {

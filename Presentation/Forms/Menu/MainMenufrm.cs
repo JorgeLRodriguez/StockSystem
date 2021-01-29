@@ -1,5 +1,4 @@
 ﻿using FontAwesome.Sharp;
-using Language;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

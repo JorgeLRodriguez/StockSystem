@@ -1,7 +1,6 @@
 ﻿using DataAccess.Contracts;
 using DataAccess.Repositories;
 using Entities;
-using Language;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +32,7 @@ namespace Domain.Models
                 logModel.Log(log, ex);
                 throw new Exception(ex.Message);
             }
-            if (clientes == null) throw new ApplicationException(strings.ErrorSinRegistros);
+            if (clientes == null) throw new ApplicationException("strings.ErrorSinRegistros");
             return clientes;
         }
     }

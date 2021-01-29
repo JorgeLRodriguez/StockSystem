@@ -40,10 +40,10 @@ namespace UI
             return MostrarDialogo(thisForm, traductor, constanteDeTexto, MessageBoxIcon.Warning);
         }
 
-        //public static DialogResult MostrarDialogoError(this Form thisForm, ITraductor traductor, ErrorDeValidacionException excepcion)
-        //{
-        //    return MostrarDialogo(thisForm, excepcion.TraducirMensaje(traductor), MessageBoxIcon.Error);
-        //}
+        public static DialogResult MostrarDialogoError(this Form thisForm, ITraductor traductor, ErrorDeValidacionException excepcion)
+        {
+            return MostrarDialogo(thisForm, excepcion.TraducirMensaje(traductor), MessageBoxIcon.Error);
+        }
 
         public static DialogResult MostrarDialogoError(this Form thisForm, ITraductor traductor, string constanteDeTexto)
         {

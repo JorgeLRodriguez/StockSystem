@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using Domain.Contracts;
 using Domain.Services;
 using Entities;
-using Language;
 
 namespace UI
 {
@@ -12,7 +11,6 @@ namespace UI
         private readonly ITraductorUsuario _traductorUsuario;
         private readonly IServiciosAplicacion _serviciosAplicacion;
         private readonly UsuarioService US;
-        private readonly MainMenufrm MMfrm;
         public LogIn(IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
@@ -22,13 +20,6 @@ namespace UI
             this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
 
             US = new UsuarioService();
-            MMfrm = new MainMenufrm();
-        }
-        private void LogIn_Load(object sender, EventArgs e)
-        {
-            //usrlab.Text = strings.Usuario + ":";
-            //pswlab.Text = strings.Contraseña + ":";
-            //btnlogin.Text = strings.Acceder;
         }
         private void Clean()
         {
@@ -43,13 +34,13 @@ namespace UI
             try
             {
                 US.LogIn(txtuser.Text, txtpsw.Text);
-                MMfrm.Show();
+                new MainMenufrm().Show();
                 Hide();
             }
-            catch (Exception ex)
+            catch (ErrorDeValidacionException ex)
             {
                 Clean();
-                //MessageBox.Show(ex.Message, strings.Atencion, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.MostrarDialogoError(_traductorUsuario, ex.Message + "." + ex.InnerException.ToString());
             }
         }
         private void btnclose_Click(object sender, EventArgs e)

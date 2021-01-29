@@ -1,5 +1,4 @@
-﻿using Language;
-using System;
+﻿using System;
 
 namespace UI
 {
@@ -107,33 +106,33 @@ namespace UI
             // 
             this.txtuser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtuser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtuser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.ForeColor = System.Drawing.Color.White;
             this.txtuser.Location = new System.Drawing.Point(397, 99);
             this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(339, 20);
+            this.txtuser.Size = new System.Drawing.Size(339, 19);
             this.txtuser.TabIndex = 1;
             // 
             // txtpsw
             // 
             this.txtpsw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtpsw.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtpsw.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpsw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpsw.ForeColor = System.Drawing.Color.White;
             this.txtpsw.Location = new System.Drawing.Point(397, 168);
             this.txtpsw.Name = "txtpsw";
             this.txtpsw.PasswordChar = '♦';
-            this.txtpsw.Size = new System.Drawing.Size(337, 20);
+            this.txtpsw.Size = new System.Drawing.Size(337, 19);
             this.txtpsw.TabIndex = 2;
             // 
             // lablogin
             // 
             this.lablogin.AutoSize = true;
-            this.lablogin.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lablogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lablogin.ForeColor = System.Drawing.Color.DimGray;
             this.lablogin.Location = new System.Drawing.Point(448, 20);
             this.lablogin.Name = "lablogin";
-            this.lablogin.Size = new System.Drawing.Size(150, 49);
+            this.lablogin.Size = new System.Drawing.Size(157, 46);
             this.lablogin.TabIndex = 0;
             this.lablogin.Text = "STOCK";
             // 
@@ -145,13 +144,13 @@ namespace UI
             this.btnlogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btnlogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlogin.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogin.ForeColor = System.Drawing.Color.White;
             this.btnlogin.Location = new System.Drawing.Point(299, 234);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(435, 49);
             this.btnlogin.TabIndex = 0;
-            this.btnlogin.Text = "jaja";
+            this.btnlogin.Text = "Ingresar";
             this.btnlogin.UseVisualStyleBackColor = false;
             this.btnlogin.Click += new System.EventHandler(this.loginbtn_Click);
             // 
@@ -182,11 +181,11 @@ namespace UI
             // usrlab
             // 
             this.usrlab.AutoSize = true;
-            this.usrlab.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usrlab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usrlab.ForeColor = System.Drawing.Color.White;
             this.usrlab.Location = new System.Drawing.Point(320, 99);
             this.usrlab.Name = "usrlab";
-            this.usrlab.Size = new System.Drawing.Size(70, 21);
+            this.usrlab.Size = new System.Drawing.Size(68, 20);
             this.usrlab.TabIndex = 7;
             this.usrlab.Text = "Usuario:";
             this.usrlab.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -194,11 +193,11 @@ namespace UI
             // pswlab
             // 
             this.pswlab.AutoSize = true;
-            this.pswlab.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pswlab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pswlab.ForeColor = System.Drawing.Color.White;
             this.pswlab.Location = new System.Drawing.Point(283, 168);
             this.pswlab.Name = "pswlab";
-            this.pswlab.Size = new System.Drawing.Size(107, 21);
+            this.pswlab.Size = new System.Drawing.Size(96, 20);
             this.pswlab.TabIndex = 8;
             this.pswlab.Text = "Contraseña:";
             this.pswlab.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -228,7 +227,6 @@ namespace UI
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
-            this.Load += new System.EventHandler(this.LogIn_Load);
             this.leftpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainiconpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnclose)).EndInit();

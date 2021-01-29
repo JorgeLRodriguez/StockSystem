@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ErrorDeValidacionException.cs" />
     <Compile Include="FormExtensions.cs" />
     <Compile Include="Forms\ABM\Articfrm.cs">
       <SubType>Form</SubType>
@@ -290,10 +291,6 @@
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{5579d945-535d-45d7-ad14-39024cba3613}</Project>
       <Name>Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Language\Language.csproj">
-      <Project>{92a7084f-c2fb-4c2d-856c-ff9b05eb6245}</Project>
-      <Name>Language</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

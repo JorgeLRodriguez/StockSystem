@@ -1,7 +1,6 @@
 ﻿using DataAccess.Contracts;
 using DataAccess.Repositories;
 using Entities;
-using Language;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +50,7 @@ namespace Domain.Models
                 logModel.Log(log, ex);
                 throw new Exception(ex.Message);
             }
-            log.Mensaje = strings.EtiquetasGeneradas.ToLower() + ": " + strings.Comprobante + " " + comprobante.id_tipo_comprobante + " " + comprobante.letra_comprobante + " " + comprobante.suc_comprobante + " " + comprobante.num_comprobante.ToString();
+            log.Mensaje = "strings.EtiquetasGeneradas.ToLower()" + ": " + "strings.Comprobante" + " " + comprobante.id_tipo_comprobante + " " + comprobante.letra_comprobante + " " + comprobante.suc_comprobante + " " + comprobante.num_comprobante.ToString();
             log.Ubicacion = Environment.UserDomainName.ToString();
             logModel.Log(log, null);
         }
@@ -66,7 +65,7 @@ namespace Domain.Models
                 logModel.Log(log, ex);
                 throw new Exception(ex.Message);
             }
-            if (!etiquetas.Any()) throw new ApplicationException(strings.ErrorSinRegistros);
+            if (!etiquetas.Any()) throw new ApplicationException("strings.ErrorSinRegistros");
             return etiquetas;
         }
     }

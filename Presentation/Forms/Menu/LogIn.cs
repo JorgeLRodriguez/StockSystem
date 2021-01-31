@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using Domain.Contracts;
-using Domain.Services;
 using Entities;
+using Entities.Infraestructure;
 
 namespace UI
 {
@@ -10,16 +10,12 @@ namespace UI
     {
         private readonly ITraductorUsuario _traductorUsuario;
         private readonly IServiciosAplicacion _serviciosAplicacion;
-        private readonly UsuarioService US;
         public LogIn(IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
-
             _serviciosAplicacion = serviciosAplicacion;
             _traductorUsuario = serviciosAplicacion.TraductorUsuario;
             this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
-
-            US = new UsuarioService();
         }
         private void Clean()
         {
@@ -33,14 +29,15 @@ namespace UI
             Cursor = Cursors.WaitCursor;
             try
             {
-                US.LogIn(txtuser.Text, txtpsw.Text);
+                var userLogIn = _serviciosAplicacion.Usuario;
+                userLogIn.IniciarSesion(txtuser.Text, txtpsw.Text);
                 new MainMenufrm().Show();
                 Hide();
             }
-            catch (ErrorDeValidacionException ex)
+            catch (Exception ex)
             {
                 Clean();
-                this.MostrarDialogoError(_traductorUsuario, ex.Message + "." + ex.InnerException.ToString());
+                this.MostrarDialogoError(_traductorUsuario, ex.Message);
             }
         }
         private void btnclose_Click(object sender, EventArgs e)

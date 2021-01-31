@@ -22,6 +22,10 @@ namespace Domain.Models
         {
             get { return _enlazadorDeDependencias.Resolver<ITraductorUsuario>(); }
         }
+        public IUsuario Usuario
+        {
+            get { return _enlazadorDeDependencias.Resolver<IUsuario>(); }
+        }
         public void Dispose()
         {
             _enlazadorDeDependencias?.Dispose();

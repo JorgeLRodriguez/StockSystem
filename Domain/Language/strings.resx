@@ -183,7 +183,7 @@
   <data name="IxC" xml:space="preserve">
     <value>Inventario x Cliente</value>
   </data>
-  <data name="List Stock" xml:space="preserve">
+  <data name="ListStock" xml:space="preserve">
     <value>Listado Stock</value>
   </data>
   <data name="Importar" xml:space="preserve">
@@ -210,10 +210,10 @@
   <data name="ComplCant" xml:space="preserve">
     <value>Completar Cantidad</value>
   </data>
-  <data name="Cierre Parcial" xml:space="preserve">
+  <data name="CierreParcial" xml:space="preserve">
     <value>Cierre Parcial</value>
   </data>
-  <data name="Cierre Def" xml:space="preserve">
+  <data name="CierreDef" xml:space="preserve">
     <value>Cierre Definitivo</value>
   </data>
   <data name="Imprimir" xml:space="preserve">
@@ -237,10 +237,10 @@
   <data name="Atencion" xml:space="preserve">
     <value>Atención</value>
   </data>
-  <data name="logInEmptyorNull" xml:space="preserve">
+  <data name="AtLogInEmptyorNull" xml:space="preserve">
     <value>Hay campos sin completar.</value>
   </data>
-  <data name="LogInIncorrecto" xml:space="preserve">
+  <data name="AtLogInIncorrecto" xml:space="preserve">
     <value>Usuario o contraseña incorrectos, verifique.</value>
   </data>
   <data name="Tipo" xml:space="preserve">

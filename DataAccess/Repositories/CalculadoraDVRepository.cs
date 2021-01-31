@@ -1,5 +1,6 @@
 ﻿using DataAccess.Contracts;
 using Entities;
+using Entities.Security;
 using Services.Crypto;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Text;
 
 namespace DataAccess.Repositories
 {
-    public class CalculadoraDV : ICalculadoraDV
+    public class CalculadoraDVRepository : ICalculadoraDVRepository
     {
         private readonly Hash _hash = new Hash();
 

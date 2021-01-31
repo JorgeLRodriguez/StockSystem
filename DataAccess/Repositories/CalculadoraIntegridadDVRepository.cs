@@ -1,5 +1,6 @@
 ﻿using DataAccess.Contracts;
 using Entities;
+using Entities.Security;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    internal class CalculadoraIntegridadDV : ICalculadoraIntegridadDV
+    internal class CalculadoraIntegridadDVRepository : ICalculadoraIntegridadDVRepository
     {
         private readonly DatabaseContext _context;
-        private readonly ICalculadoraDV _calculadoraDv;
+        private readonly ICalculadoraDVRepository _calculadoraDv;
 
         //public CalculadoraIntegridadDV(DatabaseContext context)
-        public CalculadoraIntegridadDV()
+        public CalculadoraIntegridadDVRepository()
         {
             //_context = context;
-            _calculadoraDv = new CalculadoraDV();
+            _calculadoraDv = new CalculadoraDVRepository();
         }
 
         public bool ComprobarIntegridad(Type tipoEntidad)

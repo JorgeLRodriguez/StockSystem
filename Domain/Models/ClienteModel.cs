@@ -11,13 +11,13 @@ namespace Domain.Models
 {
     public class ClienteModel
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkRepository unitOfWork;
         private readonly LogModel logModel;
         private IEnumerable<Cliente> clientes;
         private Log log;
         public ClienteModel()
         {
-            unitOfWork = new UnitOfWork();
+            //unitOfWork = new UnitOfWorkRepository();
             log = new Log();
         }
 

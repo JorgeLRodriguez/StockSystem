@@ -1,9 +1,9 @@
-﻿using Entities;
+﻿using Entities.Security;
 using System.Collections.Generic;
 
 namespace DataAccess.Contracts
 {
-    public interface ICalculadoraDV
+    public interface ICalculadoraDVRepository
     {
         bool EsValido(IDigitoVerificadorHorizontal entity);
         byte[] CalcularDigitoVerificadorParaEntidad(IDigitoVerificadorHorizontal entity);

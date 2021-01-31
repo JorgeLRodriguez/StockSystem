@@ -1,10 +1,5 @@
 ﻿using Domain.Models;
-using Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Entities.Infraestructure;
 
 namespace Domain.Services
 {
@@ -12,13 +7,13 @@ namespace Domain.Services
     {
         private readonly UsuarioModel Usuario;
 
-        public UsuarioService()
-        {
-            Usuario = new UsuarioModel();
-        }
-        public Usuario LogIn (string usuario, string contraseña)
-        {
-            return Usuario.LogIn(usuario, contraseña);
-        }
+        //public UsuarioService()
+        //{
+        //    Usuario = new UsuarioModel();
+        //}
+        //public Usuario LogIn (string usuario, string contraseña)
+        //{
+        //    return Usuario.LogIn(usuario, contraseña);
+        //}
     }
 }

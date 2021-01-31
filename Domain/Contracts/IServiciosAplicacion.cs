@@ -11,7 +11,7 @@ namespace Domain.Contracts
         //IControlDePatentes ControlDePatentes { get; }
         ITraductorUsuario TraductorUsuario { get; }
         //IBitacora Bitacora { get; }
-        //IUsuario Usuario { get; }
+        IUsuario Usuario { get; }
         //IEmpleado Empleado { get; }
         //IBackupRestore BackupRestore { get; }
         //IGestorDePermisos GestorDePermisos { get; }

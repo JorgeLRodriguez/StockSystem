@@ -1,4 +1,6 @@
 ﻿using Entities;
+using Entities.Bitacora;
+using Entities.Infraestructure;
 using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -20,7 +22,7 @@ namespace DataAccess.Repositories
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
-        public IDbSet <Usuario> Usuario { get; set; }
+        public IDbSet<Usuario> Usuario { get; set; }
         public IDbSet<Cliente> Cliente { get; set; }
         public IDbSet<Articulo> Articulo { get; set; }
         public IDbSet<Comprobante> Comprobante { get; set; }
@@ -29,5 +31,6 @@ namespace DataAccess.Repositories
         public IDbSet<Rol> Rol { get; set; }
         public IDbSet<Log> Log { get; set; }
         public IDbSet<Etiqueta> Etiqueta { get; set; }
+        public IDbSet<Bitacora> Bitacora { get; set; }
     }
 }

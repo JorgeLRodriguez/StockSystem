@@ -11,7 +11,7 @@ namespace Domain
 {
     public class LogModel
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkRepository unitOfWork;
         private static LogModel _instance = new LogModel();
         public static LogModel Instance()
         {
@@ -19,7 +19,7 @@ namespace Domain
         }
         public LogModel()
         {
-            unitOfWork = UnitOfWork.Instance();
+            //unitOfWork = UnitOfWork.Instance;
         }
         public void Log(Log log, Exception ex)
         {

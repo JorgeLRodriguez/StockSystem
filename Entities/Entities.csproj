@@ -43,20 +43,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Articulo.cs" />
+    <Compile Include="Bitacora\Severidad.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Comprobante.cs" />
     <Compile Include="ComprobanteDetalle.cs" />
-    <Compile Include="ConstantesTexto.cs" />
+    <Compile Include="Infraestructure\ConstantesTexto.cs" />
     <Compile Include="Destinatario.cs" />
-    <Compile Include="IDigitoVerificadorHorizontal.cs" />
+    <Compile Include="Bitacora\Bitacora.cs" />
+    <Compile Include="Bitacora\Evento.cs" />
+    <Compile Include="Security\IDigitoVerificadorHorizontal.cs" />
     <Compile Include="Etiqueta.cs" />
     <Compile Include="IdentityBase.cs" />
     <Compile Include="Idioma.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Numerador.cs" />
     <Compile Include="Rol.cs" />
-    <Compile Include="DigitoVerificadorVertical.cs" />
-    <Compile Include="Usuario.cs" />
+    <Compile Include="Security\DigitoVerificadorVertical.cs" />
+    <Compile Include="Infraestructure\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,5 +68,6 @@
     <None Include="Properties\DataSources\Comprobante.datasource" />
     <None Include="Properties\DataSources\ComprobanteDetalle.datasource" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

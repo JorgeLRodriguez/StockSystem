@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ConfigGlobal.cs" />
     <Compile Include="Contracts\IArticulo.cs" />
+    <Compile Include="Contracts\IBitacora.cs" />
     <Compile Include="Contracts\ICliente.cs" />
     <Compile Include="Contracts\IComprobante.cs" />
     <Compile Include="Contracts\IEtiqueta.cs" />
@@ -71,6 +72,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="log.cs" />
+    <Compile Include="Models\BitacoraModel.cs" />
     <Compile Include="Models\EtiquetaModel.cs" />
     <Compile Include="Models\LogModel.cs" />
     <Compile Include="Models\ArticuloModel.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Services\ComprobanteService.cs" />
     <Compile Include="Services\EtiquetaService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
+    <Compile Include="SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">

@@ -1,4 +1,4 @@
-﻿namespace Entities
+﻿namespace Entities.Security
 {
     public class DigitoVerificadorVertical
     {

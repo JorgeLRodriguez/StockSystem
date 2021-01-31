@@ -115,6 +115,24 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Hay campos sin completar..
+        /// </summary>
+        internal static string AtLogInEmptyorNull {
+            get {
+                return ResourceManager.GetString("AtLogInEmptyorNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario o contraseña incorrectos, verifique..
+        /// </summary>
+        internal static string AtLogInIncorrecto {
+            get {
+                return ResourceManager.GetString("AtLogInIncorrecto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cantidad.
         /// </summary>
         internal static string Cantidad {
@@ -135,18 +153,18 @@ namespace Domain.Language {
         /// <summary>
         ///   Busca una cadena traducida similar a Cierre Definitivo.
         /// </summary>
-        internal static string Cierre_Def {
+        internal static string CierreDef {
             get {
-                return ResourceManager.GetString("Cierre Def", resourceCulture);
+                return ResourceManager.GetString("CierreDef", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Busca una cadena traducida similar a Cierre Parcial.
         /// </summary>
-        internal static string Cierre_Parcial {
+        internal static string CierreParcial {
             get {
-                return ResourceManager.GetString("Cierre Parcial", resourceCulture);
+                return ResourceManager.GetString("CierreParcial", resourceCulture);
             }
         }
         
@@ -432,9 +450,9 @@ namespace Domain.Language {
         /// <summary>
         ///   Busca una cadena traducida similar a Listado Stock.
         /// </summary>
-        internal static string List_Stock {
+        internal static string ListStock {
             get {
-                return ResourceManager.GetString("List Stock", resourceCulture);
+                return ResourceManager.GetString("ListStock", resourceCulture);
             }
         }
         
@@ -444,24 +462,6 @@ namespace Domain.Language {
         internal static string loginCorrecto {
             get {
                 return ResourceManager.GetString("loginCorrecto", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Hay campos sin completar..
-        /// </summary>
-        internal static string logInEmptyorNull {
-            get {
-                return ResourceManager.GetString("logInEmptyorNull", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Usuario o contraseña incorrectos, verifique..
-        /// </summary>
-        internal static string LogInIncorrecto {
-            get {
-                return ResourceManager.GetString("LogInIncorrecto", resourceCulture);
             }
         }
         

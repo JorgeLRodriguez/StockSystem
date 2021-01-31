@@ -12,11 +12,11 @@ namespace Domain.Models
 {
     public class ArticuloModel : IArticulo
     {
-        private readonly IUnitOfWork _UoW;
+        private readonly IUnitOfWorkRepository _UoW;
         private readonly LogModel logModel;
         public ArticuloModel()
         {
-            _UoW = UnitOfWork.Instance();
+            //_UoW = UnitOfWorkRepository.Instance;
             logModel = LogModel.Instance();
         }
         public IEnumerable<Articulo> GetByClient(int? id_cliente)

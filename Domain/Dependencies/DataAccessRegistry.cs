@@ -19,8 +19,10 @@ namespace Domain.Dependencies
                 x.WithDefaultConventions();
             });
 
-            For<IUnitOfWork>().Singleton();
+            //For<IUnitOfWorkRepository>().Use(() => UnitOfWorkRepository());
+            For<IUnitOfWorkRepository>().Use(() => UnitOfWorkRepository.Default);
             For<IIdiomaRepository>().Use(x => x.GetInstance<IdiomaRepository>());
+            For<IBitacoraRepository>().Singleton();
         }
     }
 }

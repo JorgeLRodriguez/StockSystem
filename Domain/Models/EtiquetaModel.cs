@@ -11,7 +11,7 @@ namespace Domain.Models
 {
     public class EtiquetaModel
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkRepository unitOfWork;
         private readonly LogModel logModel;
         private IEnumerable<Etiqueta> etiquetas;
         private Etiqueta etiqueta;
@@ -19,7 +19,7 @@ namespace Domain.Models
         private int count = 0;
         public EtiquetaModel()
         {
-            unitOfWork = UnitOfWork.Instance();
+            //unitOfWork = UnitOfWorkRepository.Instance;
             logModel = LogModel.Instance();
             log = new Log();
         }

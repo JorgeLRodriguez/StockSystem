@@ -11,14 +11,14 @@ namespace Domain.Models
 {
     public class ComprobanteModel
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWorkRepository unitOfWork;
         private readonly LogModel logModel;
         private Comprobante comprobante;
         private Numerador numerador;
         private Log log;
         public ComprobanteModel()
         {
-            unitOfWork = UnitOfWork.Instance();
+            //unitOfWork = UnitOfWorkRepository.Instance;
             logModel = LogModel.Instance();
             log = new Log();
         }

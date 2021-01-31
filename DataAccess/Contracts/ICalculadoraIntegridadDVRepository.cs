@@ -2,7 +2,7 @@
 
 namespace DataAccess.Contracts
 {
-    interface ICalculadoraIntegridadDV
+    interface ICalculadoraIntegridadDVRepository
     {
         bool ComprobarIntegridad(Type tipoEntidad);
     }

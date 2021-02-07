@@ -385,6 +385,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Impresión de Comprobante.
+        /// </summary>
+        internal static string ImpComprobante {
+            get {
+                return ResourceManager.GetString("ImpComprobante", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Importar.
         /// </summary>
         internal static string Importar {
@@ -399,6 +408,15 @@ namespace Domain.Language {
         internal static string Imprimir {
             get {
                 return ResourceManager.GetString("Imprimir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Informe de Recepción.
+        /// </summary>
+        internal static string InformeRecepcion {
+            get {
+                return ResourceManager.GetString("InformeRecepcion", resourceCulture);
             }
         }
         
@@ -453,6 +471,15 @@ namespace Domain.Language {
         internal static string ListStock {
             get {
                 return ResourceManager.GetString("ListStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Login.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
             }
         }
         

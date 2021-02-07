@@ -1,35 +1,31 @@
-﻿using Domain.Services;
+﻿using Domain.Contracts;
 using Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Forms.Impresion
 {
     public partial class printfrm : Form
     {
+        private readonly ITraductorUsuario _traductorUsuario;
+        private readonly IServiciosAplicacion _serviciosAplicacion;
         PrintPreviewDialog PrintPreviewDialog = new PrintPreviewDialog();
         PrintDocument printDocument = new PrintDocument();
         Bitmap bitmap;
         DataGridView data;
-        private readonly ArticuloService ArcS;
         private Articulo articulo;
-        public printfrm(DataGridView dataGridView)
+        public printfrm(DataGridView dataGridView, IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
             data = dataGridView;
-            ArcS = new ArticuloService();
             articulo = new Articulo();
             loaddg(data);
+            _serviciosAplicacion = serviciosAplicacion;
+            _traductorUsuario = serviciosAplicacion.TraductorUsuario;
+            this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
         }
-
         private void printbtn_Click(object sender, EventArgs e)
         {
             Print(this.printpanel);
@@ -49,7 +45,6 @@ namespace UI.Forms.Impresion
             Rectangle pagearea = e.PageBounds;
             e.Graphics.DrawImage(bitmap, (pagearea.Width/2) - (this.printpanel.Width/2), this.printpanel.Location.Y);
         }
-
         private void loaddg(DataGridView dataGridView)
         {
             dataGridView = data;
@@ -57,13 +52,12 @@ namespace UI.Forms.Impresion
             {
                 int index = dataGriddata.Rows.Add();
                 int ID = Convert.ToInt32(row.Cells[index].Value.ToString());
-                articulo = ArcS.GetbyID(ID);
+                articulo = _serviciosAplicacion.Articulo.GetByID(ID);
                 dataGriddata.Rows[index].Cells[0].Value = articulo.Codigo_fs;
                 dataGriddata.Rows[index].Cells[1].Value = articulo.Descripcion;
                 dataGriddata.Rows[index].Cells[2].Value = row.Cells[1].Value;
 
             }
         }
-
     }
 }

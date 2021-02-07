@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Entities;
 
 namespace Domain.Contracts
 {
-    interface IComprobante
+    public interface IComprobante
     {
+        Comprobante Create(Comprobante comprobante);
+        Comprobante GetComprobanteByID(int ID);
     }
 }

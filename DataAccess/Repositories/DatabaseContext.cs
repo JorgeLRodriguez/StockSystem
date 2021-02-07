@@ -1,6 +1,7 @@
 ﻿using Entities;
 using Entities.Bitacora;
 using Entities.Infraestructure;
+using Entities.Security;
 using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -32,5 +33,6 @@ namespace DataAccess.Repositories
         public IDbSet<Log> Log { get; set; }
         public IDbSet<Etiqueta> Etiqueta { get; set; }
         public IDbSet<Bitacora> Bitacora { get; set; }
+        public IDbSet<DigitoVerificadorVertical> DigitoVerificadorVertical { get; set; }
     }
 }

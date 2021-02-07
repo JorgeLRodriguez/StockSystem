@@ -1,46 +1,38 @@
-﻿using Domain.Models;
-using Domain.Services;
+﻿using Domain.Contracts;
 using Entities;
+using Entities.Infraestructure;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Forms.Impresion;
+using System.Threading;
 
 namespace UI.Stock
 {
-    public partial class Recepcionfrm : Form
+    public partial class Recepcionfrm : Form , ISubscriptorCambioIdioma
     {
-        private readonly ComprobanteService CbteS;
-        private readonly ClienteService CnteS;
-        private readonly ArticuloService ArcS;
-        private printcompfrm printcompfrm;
-        private printetiq printetiq;
-        public Recepcionfrm()
+        private readonly ITraductorUsuario _traductorUsuario;
+        private readonly IServiciosAplicacion _serviciosAplicacion;
+        private static Recepcionfrm _instance = null;
+        //private printcompfrm printcompfrm;
+        //private printetiq printetiq;
+        private Recepcionfrm(IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
-            CbteS = new ComprobanteService();
-            CnteS = new ClienteService();
-            ArcS = new ArticuloService();
+            _serviciosAplicacion = serviciosAplicacion;
+            _traductorUsuario = serviciosAplicacion.TraductorUsuario;
+            this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
         }
-        private static Recepcionfrm instance = null;
-        public static Recepcionfrm getInstance()
+        public static Recepcionfrm getInstance(IServiciosAplicacion serviciosAplicacion)
         {
-            return instance = instance ?? new Recepcionfrm();
+            return _instance = _instance ?? new Recepcionfrm(serviciosAplicacion);
         }
         private void Recepcionfrm_Load(object sender, EventArgs e)
         {
-            var list = CnteS.Get();
+            var list = _serviciosAplicacion.Cliente.Get();
             clientcbx.DisplayMember = "Descripcion";
             clientcbx.ValueMember = "Id";
             clientcbx.DataSource = list;
-            load_language();
         }
         private void clientcbx_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -60,14 +52,15 @@ namespace UI.Stock
             try
             {
                 DataGridViewComboBoxColumn articlecbdg = invdetdataGrid.Columns[0] as DataGridViewComboBoxColumn;
-                var list = ArcS.GetbyClient(int.Parse(clientcbx.SelectedValue.ToString()));
+                var list = _serviciosAplicacion.Articulo.GetByClient(int.Parse(clientcbx.SelectedValue.ToString()));
                 articlecbdg.DisplayMember = "Descripcion";
                 articlecbdg.ValueMember = "ID";
                 articlecbdg.DataSource = list;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "strings.Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(ex.Message, "strings.Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.MostrarDialogoError(_traductorUsuario, ex.Message);
             }
         }
         private void savebtn_Click(object sender, EventArgs e)
@@ -105,37 +98,23 @@ namespace UI.Stock
                     }
                 }
                 comprobante.ComprobanteDetalle = comprobanteDetalles;
-                comprobante = CbteS.Create(comprobante);
-                MessageBox.Show("strings.ComprobanteGenerado", "strings.ProcesoCorrecto", MessageBoxButtons.OK);
-                printcompfrm = new printcompfrm(comprobante);
-                printcompfrm.Show();
-                printetiq = new printetiq(comprobante);
-                printetiq.Show();
+                comprobante = _serviciosAplicacion.Comprobante.Create(comprobante);
+                this.MostrarDialogoInformacion(_traductorUsuario, ConstantesTexto.ComprobanteGenerado);
+                //MessageBox.Show("strings.ComprobanteGenerado", "strings.ProcesoCorrecto", MessageBoxButtons.OK);
+                new printcompfrm(comprobante, _serviciosAplicacion).ShowDialog();
+                new printetiq(comprobante, _serviciosAplicacion).ShowDialog();
                 reset();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "strings.Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.MostrarDialogoError(_traductorUsuario, ex.Message);
+                //MessageBox.Show(ex.Message, "strings.Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-        private void load_language()
-        {
-            //invdetdataGrid.Columns[0].HeaderText = strings.Articulos.Substring(0, strings.Articulos.Length - 1);
-            //invdetdataGrid.Columns[1].HeaderText = strings.Cantidad;
-            //vouchertypelb.Text = strings.Tipo;
-            //letterlab.Text = strings.Letra;
-            //clientlab.Text = strings.Cliente;
-            //datelab.Text = strings.Fecha;
-            //invlab.Text = strings.Remito + " #";
-            //addbtn.Text = strings.Agregar;
-            //deletebtn.Text = strings.Eliminar;
-            //savebtn.Text = strings.Guardar;
         }
         private void maskednumber_Enter(object sender, EventArgs e)
         {
             maskednumber.SelectionStart = 0;
         }
-
         private void maskednumber_Click(object sender, EventArgs e)
         {
             maskednumber.Select(0, 0);
@@ -146,6 +125,20 @@ namespace UI.Stock
             voucherPicker.ResetText();
             maskednumber.Clear();
             invdetdataGrid.Rows.Clear();
+        }
+        public void IdiomaCambiado(Idioma nuevoIdioma)
+        {
+            invdetdataGrid.Columns[0].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Articulos).Substring(0, _traductorUsuario.Traducir(ConstantesTexto.Articulos).Length - 1);
+            invdetdataGrid.Columns[1].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Cantidad);
+            vouchertypelb.Text = _traductorUsuario.Traducir(ConstantesTexto.Tipo);
+            letterlab.Text = _traductorUsuario.Traducir(ConstantesTexto.Letra);
+            clientlab.Text = _traductorUsuario.Traducir(ConstantesTexto.Cliente);
+            datelab.Text = _traductorUsuario.Traducir(ConstantesTexto.Fecha);
+            invlab.Text = _traductorUsuario.Traducir(ConstantesTexto.Remito) + " #";
+            addbtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Agregar);
+            deletebtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Eliminar);
+            savebtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Guardar);
+            this.Text = _traductorUsuario.Traducir(ConstantesTexto.Recepcion);
         }
     }
 }

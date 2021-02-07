@@ -1,5 +1,4 @@
 ﻿using DataAccess.Contracts;
-using Entities;
 using Entities.Security;
 using Services.Crypto;
 using System;
@@ -32,18 +31,10 @@ namespace DataAccess.Repositories
             var tipoEntidad = entidad.GetType();
             foreach (PropertyDescriptor propertyDescriptor in TypeDescriptor.GetProperties(tipoEntidad))
             {
-                var fieldMarkedForRc = propertyDescriptor.Attributes
-                    .OfType<DigitoVerificadorVertical>()
-                    .FirstOrDefault();
-
-                if (fieldMarkedForRc != null)
-                {
-                    //TODO: Verificar el orden del armado de la semilla, mientras sea la misma version de la clase no importa
-                    var propertyValueSerialized = Convert.ToString(propertyDescriptor.GetValue(entidad) ?? string.Empty);
-                    seed.Append(propertyValueSerialized);
-                }
+                //TODO: Verificar el orden del armado de la semilla, mientras sea la misma version de la clase no importa
+                var propertyValueSerialized = Convert.ToString(propertyDescriptor.GetValue(entidad) ?? string.Empty);
+                seed.Append(propertyValueSerialized);
             }
-
             return _hash.CreateHash(seed.ToString());
         }
     }

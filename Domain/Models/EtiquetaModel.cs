@@ -1,30 +1,29 @@
 ﻿using DataAccess.Contracts;
-using DataAccess.Repositories;
+using Domain.Contracts;
 using Entities;
+using Entities.Infraestructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public class EtiquetaModel
+    public class EtiquetaModel : IEtiqueta
     {
-        private readonly IUnitOfWorkRepository unitOfWork;
-        private readonly LogModel logModel;
-        private IEnumerable<Etiqueta> etiquetas;
-        private Etiqueta etiqueta;
-        private Log log;
+        private readonly IUnitOfWorkRepository _unitOfWork;
+        //private readonly LogModel logModel;
+        //private Log log;
         private int count = 0;
-        public EtiquetaModel()
+        public EtiquetaModel(IUnitOfWorkRepository unitOfWork)
         {
+            _unitOfWork = unitOfWork;
             //unitOfWork = UnitOfWorkRepository.Instance;
-            logModel = LogModel.Instance();
-            log = new Log();
+            //logModel = LogModel.Instance();
+            //log = new Log();
         }
         public void Create(Comprobante comprobante)
         {
+            Etiqueta etiqueta;
             try
             {
                 foreach (var cbtedet in comprobante.ComprobanteDetalle)
@@ -39,33 +38,34 @@ namespace Domain.Models
                             etiq_nro = count,
                             etiq_total = cbtedet.cantidad
                         };
-                        unitOfWork.EtiquetaRepository.Create(etiqueta);
+                        _unitOfWork.EtiquetaRepository.Create(etiqueta);
                         count++;
                     }
                 }
-                unitOfWork.SaveChanges();
+                _unitOfWork.SaveChanges();
             }
             catch(Exception ex)
             {
-                logModel.Log(log, ex);
+                //logModel.Log(log, ex);
                 throw new Exception(ex.Message);
             }
-            log.Mensaje = "strings.EtiquetasGeneradas.ToLower()" + ": " + "strings.Comprobante" + " " + comprobante.id_tipo_comprobante + " " + comprobante.letra_comprobante + " " + comprobante.suc_comprobante + " " + comprobante.num_comprobante.ToString();
-            log.Ubicacion = Environment.UserDomainName.ToString();
-            logModel.Log(log, null);
+            //log.Mensaje = "strings.EtiquetasGeneradas.ToLower()" + ": " + "strings.Comprobante" + " " + comprobante.id_tipo_comprobante + " " + comprobante.letra_comprobante + " " + comprobante.suc_comprobante + " " + comprobante.num_comprobante.ToString();
+            //log.Ubicacion = Environment.UserDomainName.ToString();
+            //logModel.Log(log, null);
         }
         public IEnumerable<Etiqueta> GetbyIDComp (Comprobante comprobante)
         {
+            IEnumerable<Etiqueta> etiquetas;
             try
             {
-                etiquetas = unitOfWork.EtiquetaRepository.Get(filter: x => x.Comprobante_ID == comprobante.ID);
+                etiquetas = _unitOfWork.EtiquetaRepository.Get(filter: x => x.Comprobante_ID == comprobante.ID);
             }
             catch(Exception ex)
             {
-                logModel.Log(log, ex);
+                //logModel.Log(log, ex);
                 throw new Exception(ex.Message);
             }
-            if (!etiquetas.Any()) throw new ApplicationException("strings.ErrorSinRegistros");
+            if (!etiquetas.Any()) throw new Exception(ConstantesTexto.ErrorSinRegistros);
             return etiquetas;
         }
     }

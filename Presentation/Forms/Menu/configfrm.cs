@@ -1,30 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using Domain.Contracts;
+using Entities;
+using System;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class configfrm : Form
+    public partial class configfrm : Form , ISubscriptorCambioIdioma
     {
-        public configfrm()
+        private readonly ITraductorUsuario _traductorUsuario;
+        private readonly IServiciosAplicacion _serviciosAplicacion;
+        private static configfrm _instance = null;
+        private configfrm(IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
+            _serviciosAplicacion = serviciosAplicacion;
+            _traductorUsuario = serviciosAplicacion.TraductorUsuario;
+            this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
         }
-        private static configfrm instance = null;
-        public static configfrm getInstance()
+        public static configfrm getInstance(IServiciosAplicacion serviciosAplicacion)
         {
-            if (instance == null) { instance = new configfrm(); }
-            return instance;
+            return _instance = _instance ?? new configfrm(serviciosAplicacion);
         }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedValue.ToString() != null)
@@ -41,19 +40,23 @@ namespace UI
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
                 if (checkedListBox1.SelectedIndex == 1)
                 {
                     Thread.CurrentThread.CurrentCulture = new CultureInfo("");
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo("");
                 }
-            
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-
+            var codigoIdiomaPorDefecto = "es-AR";
+            var idiomaPorDefecto =
+                _traductorUsuario.IdiomasSoportados.Single(
+                    i => i.CodigoIso.Equals(codigoIdiomaPorDefecto, StringComparison.InvariantCultureIgnoreCase));
+            _traductorUsuario.IdiomaPreferido = idiomaPorDefecto;
+        }
+        public void IdiomaCambiado(Idioma nuevoIdioma)
+        {
+            
         }
     }
 }

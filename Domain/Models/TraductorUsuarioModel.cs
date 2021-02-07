@@ -63,7 +63,7 @@ namespace Domain.Models
                 new ResourceManager
                 ("Domain.Language.strings", this.GetType().Assembly)
                 .GetString(constanteDeTexto, CultureInfo.GetCultureInfo(this.IdiomaPreferido.CodigoIso)
-                );
+                ) ?? constanteDeTexto;
         }
 
         public string TraducirConFormato(string constanteDeTexto, params object[] args)

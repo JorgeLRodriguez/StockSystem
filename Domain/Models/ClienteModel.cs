@@ -1,38 +1,33 @@
 ﻿using DataAccess.Contracts;
-using DataAccess.Repositories;
+using Domain.Contracts;
 using Entities;
+using Entities.Infraestructure;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public class ClienteModel
+    public class ClienteModel : ICliente
     {
-        private readonly IUnitOfWorkRepository unitOfWork;
-        private readonly LogModel logModel;
-        private IEnumerable<Cliente> clientes;
-        private Log log;
-        public ClienteModel()
+        private readonly IUnitOfWorkRepository _unitOfWork;
+        //private readonly LogModel logModel;
+        public ClienteModel(IUnitOfWorkRepository unitOfWork)
         {
-            //unitOfWork = new UnitOfWorkRepository();
-            log = new Log();
+            _unitOfWork = unitOfWork;
         }
-
         public IEnumerable<Cliente> Get()
         {
+            IEnumerable<Cliente> clientes;
             try
             {
-                clientes = unitOfWork.ClienteRepository.Get();
+                clientes = _unitOfWork.ClienteRepository.Get();
             }
             catch (Exception ex)
             {
-                logModel.Log(log, ex);
+                //logModel.Log(log, ex);
                 throw new Exception(ex.Message);
             }
-            if (clientes == null) throw new ApplicationException("strings.ErrorSinRegistros");
+            if (clientes == null) throw new Exception(ConstantesTexto.ErrorSinRegistros);
             return clientes;
         }
     }

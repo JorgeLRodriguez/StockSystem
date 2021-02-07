@@ -31,7 +31,7 @@ namespace UI
             {
                 var userLogIn = _serviciosAplicacion.Usuario;
                 userLogIn.IniciarSesion(txtuser.Text, txtpsw.Text);
-                new MainMenufrm().Show();
+                new MainMenufrm(_serviciosAplicacion).Show();
                 Hide();
             }
             catch (Exception ex)
@@ -48,12 +48,12 @@ namespace UI
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         public void IdiomaCambiado(Idioma nuevoIdioma)
         {
             usrlab.Text = _traductorUsuario.Traducir(ConstantesTexto.Usuario) + ":";
             pswlab.Text = _traductorUsuario.Traducir(ConstantesTexto.Contraseña) + ":";
             btnlogin.Text = _traductorUsuario.Traducir(ConstantesTexto.Acceder);
+            this.Text = _traductorUsuario.Traducir(ConstantesTexto.Login);
         }
     }
 }

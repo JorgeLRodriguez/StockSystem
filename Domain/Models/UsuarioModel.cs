@@ -47,7 +47,6 @@ namespace Domain.Models
         {
             _unitOfWork = unitOfWork;
         }
-
         public Usuario IniciarSesion(string nombreUsuario, string contraseña)
         {
             if (String.IsNullOrEmpty(nombreUsuario) || String.IsNullOrEmpty(contraseña))
@@ -77,7 +76,6 @@ namespace Domain.Models
             }
             return usuarioActual ?? throw new ApplicationException(ConstantesTexto.AtLogInIncorrecto);
         }
-
         public Usuario FinalizarSesion()
         {
             var ultimoUsuarioEnLinea = SessionManager.Instance.UsuarioActual;

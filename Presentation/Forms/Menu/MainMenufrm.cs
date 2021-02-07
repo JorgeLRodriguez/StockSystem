@@ -1,13 +1,9 @@
-﻿using FontAwesome.Sharp;
+﻿using Domain.Contracts;
+using Entities;
+using Entities.Infraestructure;
+using FontAwesome.Sharp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.ABM;
 using UI.Reportes;
@@ -15,11 +11,13 @@ using UI.Stock;
 
 namespace UI
 {
-    public partial class MainMenufrm : Form
+    public partial class MainMenufrm : Form, ISubscriptorCambioIdioma
     {
         private IconButton currentBtn;
         private readonly Panel leftBorderBtn;
-        public MainMenufrm()
+        private readonly ITraductorUsuario _traductorUsuario;
+        private readonly IServiciosAplicacion _serviciosAplicacion;
+        public MainMenufrm(IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
             leftBorderBtn = new Panel
@@ -27,6 +25,9 @@ namespace UI
                 Size = new Size(7, 60)
             };
             panelLeft.Controls.Add(leftBorderBtn);
+            _serviciosAplicacion = serviciosAplicacion;
+            _traductorUsuario = serviciosAplicacion.TraductorUsuario;
+            this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
         }
         private void showSubMenu(Panel subMenu)
         {
@@ -60,7 +61,7 @@ namespace UI
         }
         private void btnconfig_Click(object sender, EventArgs e)
         {
-            Form recfrm = configfrm.getInstance();
+            Form recfrm = configfrm.getInstance(_serviciosAplicacion);
             openChildFormInPanel(recfrm);
             ActivateButton(sender, Color.FromArgb(5, 26, 14));
         }
@@ -112,7 +113,6 @@ namespace UI
             leftBorderBtn.Visible = false;
             iconCurrentChildForm.IconChar = IconChar.Home;
             iconCurrentChildForm.IconColor = Color.MediumSpringGreen;
-            //labtitle.Text = strings.Inicio;
         }
         private void homepic_Click(object sender, EventArgs e)
         {
@@ -121,7 +121,7 @@ namespace UI
 
         private void btnrecepcion_Click(object sender, EventArgs e)
         {
-            Form recfrm = Recepcionfrm.getInstance();
+            Form recfrm = Recepcionfrm.getInstance(_serviciosAplicacion);
             openChildFormInPanel(recfrm);
         }
         private void btnscaneo_Click(object sender, EventArgs e)
@@ -218,29 +218,29 @@ namespace UI
         {
             Application.Exit();
         }
-
-        private void MainMenufrm_Load(object sender, EventArgs e)
+        public void IdiomaCambiado(Idioma nuevoIdioma)
         {
-            //labtitle.Text = strings.Inicio;
-            //btnrecepcion.Text = strings.Recepcion;
-            //btnscaneo.Text = strings.Scaneo;
-            //btnpicking.Text = strings.Picking;
-            //btntransf.Text = strings.Transferencia;
-            //btnajuste.Text = strings.Ajuste;
-            //btnImportar.Text = strings.Importar;
-            //btnABM.Text = strings.Administrar;
-            //btnArticulos.Text = strings.Articulos;
-            //btnPxE.Text = strings.PxE;
-            //btnLayout.Text = strings.Layout;
-            //btnEtiq.Text = strings.Etiq;
-            //btnReportes.Text = strings.Reportes;
-            //btndeposito.Text = strings.Deposito;
-            //btnInventario.Text = strings.Inventario;
-            //btnMovim.Text = strings.Movimientos;
-            //btnHxI.Text = strings.HxI;
-            //btnIxC.Text = strings.IxC;
-            //btnListStock.Text = strings.List_Stock;
-            //btnconfig.Text = strings.Config;
+            labtitle.Text = _traductorUsuario.Traducir(ConstantesTexto.Inicio);
+            btnrecepcion.Text = _traductorUsuario.Traducir(ConstantesTexto.Recepcion);
+            btnscaneo.Text = _traductorUsuario.Traducir(ConstantesTexto.Scaneo);
+            btnpicking.Text = _traductorUsuario.Traducir(ConstantesTexto.Picking);
+            btntransf.Text = _traductorUsuario.Traducir(ConstantesTexto.Transferencia);
+            btnajuste.Text = _traductorUsuario.Traducir(ConstantesTexto.Ajuste);
+            btnImportar.Text = _traductorUsuario.Traducir(ConstantesTexto.Importar);
+            btnABM.Text = _traductorUsuario.Traducir(ConstantesTexto.Administrar);
+            btnArticulos.Text = _traductorUsuario.Traducir(ConstantesTexto.Articulos);
+            btnPxE.Text = _traductorUsuario.Traducir(ConstantesTexto.PxE);
+            btnLayout.Text = _traductorUsuario.Traducir(ConstantesTexto.Layout);
+            btnEtiq.Text = _traductorUsuario.Traducir(ConstantesTexto.Etiq);
+            btnReportes.Text = _traductorUsuario.Traducir(ConstantesTexto.Reportes);
+            btndeposito.Text = _traductorUsuario.Traducir(ConstantesTexto.Deposito);
+            btnInventario.Text = _traductorUsuario.Traducir(ConstantesTexto.Inventario);
+            btnMovim.Text = _traductorUsuario.Traducir(ConstantesTexto.Movimientos);
+            btnHxI.Text = _traductorUsuario.Traducir(ConstantesTexto.HxI);
+            btnIxC.Text = _traductorUsuario.Traducir(ConstantesTexto.IxC);
+            btnListStock.Text = _traductorUsuario.Traducir(ConstantesTexto.ListStock);
+            btnconfig.Text = _traductorUsuario.Traducir(ConstantesTexto.Config);
+            this.Text = _traductorUsuario.Traducir(ConstantesTexto.Stock);
         }
     }
 }

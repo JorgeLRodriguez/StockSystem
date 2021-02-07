@@ -57,6 +57,11 @@
         public const string Codigo = "Codigo";
         public const string SeleCopia = "SeleCopia";
         public const string Generado = "Generado";
+        public const string InformeRecepcion = "InformeRecepcion";
+
+        //TitulosForms
+        public const string Login = "Login";
+        public const string ImpComprobante = "ImpComprobante";
 
         //Mensaje
         public const string loginCorrecto = "loginCorrecto";

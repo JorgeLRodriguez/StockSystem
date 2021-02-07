@@ -74,6 +74,10 @@
           <DataField>Articulo</DataField>
           <rd:TypeName>Entities.Articulo</rd:TypeName>
         </Field>
+        <Field Name="Articulo_ID">
+          <DataField>Articulo_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="cantidad">
           <DataField>cantidad</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -90,6 +94,10 @@
           <DataField>Comprobante</DataField>
           <rd:TypeName>Entities.Comprobante</rd:TypeName>
         </Field>
+        <Field Name="Comprobante_ID">
+          <DataField>Comprobante_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="CreatedBy">
           <DataField>CreatedBy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -102,21 +110,13 @@
           <DataField>ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="id_articulo">
-          <DataField>id_articulo</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="id_comprobante">
-          <DataField>id_comprobante</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="id_pallet">
           <DataField>id_pallet</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
         <Field Name="id_tipo_rechazo">
           <DataField>id_tipo_rechazo</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
         <Field Name="linea">
           <DataField>linea</DataField>
@@ -412,7 +412,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Lookup(Fields!id_articulo.Value, Fields!ID.Value,Fields!Codigo_fs.Value,"Articulo")</Value>
+                                  <Value>=Lookup(Fields!Articulo_ID.Value, Fields!ID.Value,Fields!Codigo_fs.Value,"Articulo")</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -431,6 +431,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -442,7 +443,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Lookup(Fields!id_articulo.Value, Fields!ID.Value,Fields!Descripcion.Value,"Articulo")</Value>
+                                  <Value>=Lookup(Fields!Articulo_ID.Value, Fields!ID.Value,Fields!Descripcion.Value,"Articulo")</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>

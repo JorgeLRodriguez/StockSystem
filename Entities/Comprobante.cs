@@ -27,10 +27,8 @@ namespace Entities
         [ForeignKey("Destinatario_ID")]
         public virtual Destinatario Destinatario { get; set; }
         public string observaciones { get; set; }
-
         public byte[] DVH { get; set; }
         public virtual ICollection<ComprobanteDetalle> ComprobanteDetalle { get; set; }
         public virtual ICollection<Etiqueta> Etiquetas { get; set; }
-       
     }
 }

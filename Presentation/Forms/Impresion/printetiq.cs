@@ -1,34 +1,35 @@
-﻿using Domain.Services;
+﻿using Domain.Contracts;
 using Entities;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Forms.Impresion
 {
-    public partial class printetiq : Form
+    public partial class printetiq : Form, ISubscriptorCambioIdioma
     {
-        private EtiquetaService ES;
-        private ComprobanteService CS;
-        private IEnumerable<Etiqueta> E;
+        private readonly ITraductorUsuario _traductorUsuario;
+        private readonly IServiciosAplicacion _serviciosAplicacion;
         private Comprobante C;
-        public printetiq(Comprobante comprobante)
+        public printetiq(Comprobante comprobante, IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
-            ES = new EtiquetaService();
-            CS = new ComprobanteService();
             C = comprobante;
+            _serviciosAplicacion = serviciosAplicacion;
+            _traductorUsuario = serviciosAplicacion.TraductorUsuario;
+            this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
+        }
+        public void IdiomaCambiado(Idioma nuevoIdioma)
+        {
+            
         }
         private void printetiq_Load(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
+            IEnumerable<Etiqueta> E;
             try
             {
                 BindingSource Comprobante = new BindingSource();
@@ -36,9 +37,9 @@ namespace UI.Forms.Impresion
                 BindingSource Articulo = new BindingSource();
                 BindingSource Etiqueta = new BindingSource();
 
-                ES.Create(C);
-                E = ES.GetbyIDComp(C);
-                C = CS.GetComprobanteByID(C.ID);
+                _serviciosAplicacion.Etiqueta.Create(C);
+                E = _serviciosAplicacion.Etiqueta.GetbyIDComp(C);
+                C = _serviciosAplicacion.Comprobante.GetComprobanteByID(C.ID);
 
                 Articulo.DataSource = C.ComprobanteDetalle.Select(x => x.Articulo);
                 Comprobante.DataSource = C;

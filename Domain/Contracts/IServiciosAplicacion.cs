@@ -12,6 +12,10 @@ namespace Domain.Contracts
         ITraductorUsuario TraductorUsuario { get; }
         //IBitacora Bitacora { get; }
         IUsuario Usuario { get; }
+        ICliente Cliente { get; }
+        IArticulo Articulo { get; }
+        IComprobante Comprobante { get; }
+        IEtiqueta Etiqueta { get; }
         //IEmpleado Empleado { get; }
         //IBackupRestore BackupRestore { get; }
         //IGestorDePermisos GestorDePermisos { get; }

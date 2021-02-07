@@ -33,6 +33,10 @@
           <DataField>Cliente</DataField>
           <rd:TypeName>Entities.Cliente</rd:TypeName>
         </Field>
+        <Field Name="Cliente_ID">
+          <DataField>Cliente_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="CreatedBy">
           <DataField>CreatedBy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -41,20 +45,24 @@
           <DataField>CreatedOn</DataField>
           <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
+        <Field Name="Destinatario">
+          <DataField>Destinatario</DataField>
+          <rd:TypeName>Entities.Destinatario</rd:TypeName>
+        </Field>
+        <Field Name="Destinatario_ID">
+          <DataField>Destinatario_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DVH">
+          <DataField>DVH</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
         <Field Name="fecha_comprobante">
           <DataField>fecha_comprobante</DataField>
           <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
         <Field Name="ID">
           <DataField>ID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="id_cliente">
-          <DataField>id_cliente</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="id_destinatario">
-          <DataField>id_destinatario</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="id_tipo_comprobante">
@@ -147,6 +155,14 @@
           <DataField>ChangedOn</DataField>
           <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
+        <Field Name="Cliente">
+          <DataField>Cliente</DataField>
+          <rd:TypeName>Entities.Cliente</rd:TypeName>
+        </Field>
+        <Field Name="Cliente_ID">
+          <DataField>Cliente_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="codigo_barra">
           <DataField>codigo_barra</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -171,10 +187,6 @@
           <DataField>ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="id_cliente">
-          <DataField>id_cliente</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="tiene_codigo_barra">
           <DataField>tiene_codigo_barra</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
@@ -196,6 +208,10 @@
           <DataField>Articulo</DataField>
           <rd:TypeName>Entities.Articulo</rd:TypeName>
         </Field>
+        <Field Name="Articulo_ID">
+          <DataField>Articulo_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="ChangedBy">
           <DataField>ChangedBy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -207,6 +223,10 @@
         <Field Name="Comprobante">
           <DataField>Comprobante</DataField>
           <rd:TypeName>Entities.Comprobante</rd:TypeName>
+        </Field>
+        <Field Name="Comprobante_ID">
+          <DataField>Comprobante_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="CreatedBy">
           <DataField>CreatedBy</DataField>
@@ -226,14 +246,6 @@
         </Field>
         <Field Name="ID">
           <DataField>ID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="id_articulo">
-          <DataField>id_articulo</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="id_comprobante">
-          <DataField>id_comprobante</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
@@ -333,7 +345,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Lookup(Fields!id_articulo.Value, Fields!ID.Value,Fields!Codigo_fs.Value,"Articulo")</Value>
+                                      <Value>=Lookup(Fields!Articulo_ID.Value, Fields!ID.Value,Fields!Codigo_fs.Value,"Articulo")</Value>
                                       <Style />
                                     </TextRun>
                                   </TextRuns>
@@ -365,7 +377,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Lookup(Fields!id_articulo.Value, Fields!ID.Value,Fields!Descripcion.Value,"Articulo")</Value>
+                                      <Value>=Lookup(Fields!Articulo_ID.Value, Fields!ID.Value,Fields!Descripcion.Value,"Articulo")</Value>
                                       <Style />
                                     </TextRun>
                                   </TextRuns>
@@ -620,9 +632,9 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Trim("*"&amp;LTrim(Str(Fields!id_articulo.Value))&amp;"*")</Value>
+                                      <Value>=Trim("*"&amp;LTrim(Str(Fields!Articulo_ID.Value))&amp;"*")</Value>
                                       <Style>
-                                        <FontFamily>code39-Digits</FontFamily>
+                                        <FontFamily>Code39-Digits</FontFamily>
                                         <FontSize>28pt</FontSize>
                                       </Style>
                                     </TextRun>

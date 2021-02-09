@@ -37,13 +37,13 @@ namespace UI.Forms.Impresion
                 BindingSource Articulo = new BindingSource();
                 BindingSource Etiqueta = new BindingSource();
 
-                _serviciosAplicacion.Etiqueta.Create(C);
-                E = _serviciosAplicacion.Etiqueta.GetbyIDComp(C);
+                //_serviciosAplicacion.Etiqueta.Create(C);
+                //E = _serviciosAplicacion.Etiqueta.GetbyIDComp(C);
                 C = _serviciosAplicacion.Comprobante.GetComprobanteByID(C.ID);
 
                 Articulo.DataSource = C.ComprobanteDetalle.Select(x => x.Articulo);
                 Comprobante.DataSource = C;
-                Etiqueta.DataSource = E.ToList();
+                Etiqueta.DataSource = C.Etiquetas.ToList();
                 Cliente.DataSource = C.Cliente;
 
                 ReportDataSource ArticuloDS = new ReportDataSource("Articulo", Articulo);

@@ -8,10 +8,10 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace DataAccess.Repositories
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : DatabaseContextDV
     {
         private static DatabaseContext _instance;
-        public DatabaseContext() : base(ConfigurationManager.ConnectionStrings["cnn"].ToString())
+        public DatabaseContext() : base(ConfigurationManager.ConnectionStrings["cnn"].ToString(),new CalculadoraDVRepository())
         {
             Database.SetInitializer<DatabaseContext>(null);
         }

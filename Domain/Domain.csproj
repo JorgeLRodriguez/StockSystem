@@ -61,6 +61,7 @@
     <Compile Include="Dependencies\DataAccessRegistry.cs" />
     <Compile Include="Dependencies\DomainRegistry.cs" />
     <Compile Include="Dependencies\EnlazadorDeDependencias.cs" />
+    <Compile Include="IntegridadSistema.cs" />
     <Compile Include="Language\strings.Designer.cs">
       <DependentUpon>strings.resx</DependentUpon>
       <AutoGen>True</AutoGen>

@@ -30,6 +30,7 @@ namespace DataAccess.Repositories
             LogRepository = new LogRepository(_db);
             IdiomaRepository = new IdiomaRepository();
             BitacoraRepository = new BitacoraRepository(_db);
+            CalculadoraIntegridadDVRepository = new CalculadoraIntegridadDVRepository(_db);
         }
         public IGenericRepository<Numerador> NumeradorRepository { get; }
         public IGenericRepository<Comprobante> ComprobanteRepository { get; }
@@ -41,6 +42,7 @@ namespace DataAccess.Repositories
         public IIdiomaRepository IdiomaRepository { get; }
         public IBitacoraRepository BitacoraRepository { get; }
         public IUsuarioRepository UsuarioRepository { get; }
+        public ICalculadoraIntegridadDVRepository CalculadoraIntegridadDVRepository { get; }
         public void Dispose() { _db.Dispose(); }
         public void SaveChanges() { _db.SaveChanges(); }
     }

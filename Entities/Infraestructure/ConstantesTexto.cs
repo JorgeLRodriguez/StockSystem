@@ -79,5 +79,6 @@
         public const string ErrorSinRegistros = "ErrorSinRegistros";
         public const string ErrorFechaMenAct = "ErrorFechaMenAct";
         public const string ErrorFaltanLineas = "ErrorFaltanLineas";
+        public const string ErrorSistemaCorrupto = "ErrorSistemaCorrupto";
     }
 }

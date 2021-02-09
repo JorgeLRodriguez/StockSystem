@@ -318,4 +318,7 @@
   <data name="ImpComprobante" xml:space="preserve">
     <value>Impresión de Comprobante</value>
   </data>
+  <data name="ErrorSistemaCorrupto" xml:space="preserve">
+    <value>¡Error de integridad! El sistema se encuentra inoperable. Contacte con el administrador del sistema.</value>
+  </data>
 </root>

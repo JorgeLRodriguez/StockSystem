@@ -322,6 +322,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ¡Error de integridad! El sistema se encuentra inoperable. Contacte con el administrador del sistema..
+        /// </summary>
+        internal static string ErrorSistemaCorrupto {
+            get {
+                return ResourceManager.GetString("ErrorSistemaCorrupto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Debe ingresar solo números..
         /// </summary>
         internal static string ErrorValorNumerico {

@@ -1,6 +1,5 @@
 ﻿using DataAccess.Contracts;
 using Entities;
-using Entities.Security;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,7 +11,7 @@ namespace DataAccess.Repositories
 {
     public class GenericRepository <T> : IGenericRepository<T> where T : IdentityBase, new()
     {
-        protected DatabaseContext _db;
+        private readonly DatabaseContext _db;
         ICalculadoraDVRepository calculadoraDVRepository;
         public GenericRepository(DatabaseContext repository)
         {
@@ -76,13 +75,6 @@ namespace DataAccess.Repositories
             entity.CreatedOn = DateTime.Now;
             _db.Set<T>().Add(entity);
 
-            if (entity is IDigitoVerificadorHorizontal)
-            {
-                IDigitoVerificadorHorizontal h = (IDigitoVerificadorHorizontal)entity;
-                h.DVH = calculadoraDVRepository.CalcularDigitoVerificadorParaEntidad(h);
-                ActualizarDigitosVerificadoresVerticales(h as T);
-                return h as T;
-            }
             return entity;
         }
         public T GetById(int id)
@@ -92,29 +84,6 @@ namespace DataAccess.Repositories
         public virtual void SaveChanges()
         {
             _db.SaveChanges();
-        }
-        private void ActualizarDigitosVerificadoresVerticales(T entity)
-        {
-            var entityName = entity.GetType().FullName;
-            var checksum = this.CalculateChecksumForEntityType(_db, entity.GetType());
-            var digitoVerificadorVerticalDbSet = _db.Set<DigitoVerificadorVertical>();
-            var vcd = digitoVerificadorVerticalDbSet.Find(entityName);
-            if (vcd == null)
-            {
-                vcd = digitoVerificadorVerticalDbSet.Create();
-                digitoVerificadorVerticalDbSet.Add(vcd);
-            }
-            vcd.Entidad = entityName;
-            vcd.Checksum = checksum;
-        }
-        private byte[] CalculateChecksumForEntityType(DbContext context, Type entityType)
-        {
-            var crcs = new List<byte[]>();
-            foreach (IDigitoVerificadorHorizontal entity in context.Set(entityType))
-                crcs.Add(entity.DVH);
-
-            var verticalChecksum = calculadoraDVRepository.CalcularDigitoVerificadorDesdeMultiplesDigitos(crcs);
-            return verticalChecksum;
         }
     }
 }

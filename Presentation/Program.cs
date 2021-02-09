@@ -1,14 +1,10 @@
 ﻿using Domain;
 using Domain.Contracts;
 using Domain.Models;
+using Entities.Infraestructure;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using UI.Forms.Impresion;
 
 namespace UI
 {
@@ -23,14 +19,12 @@ namespace UI
             var ServiciosAplicacion = new ServiciosAplicacionModel(ConfigGlobal.Instance);
             var TraductorUsuario = ServiciosAplicacion.TraductorUsuario;
             ConfigurarIdiomaPorDefecto(TraductorUsuario);
-            //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            if (!ComprobarIntegridadDelSistema(TraductorUsuario))
+                return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LogIn(ServiciosAplicacion));
-            //Application.Run(new printcompfrm());
         }
-
         public static void ConfigurarIdiomaPorDefecto(ITraductorUsuario traductorUsuario)
         {
             var codigoIdiomaPorDefecto = "en-US";
@@ -38,6 +32,21 @@ namespace UI
                 traductorUsuario.IdiomasSoportados.Single(
                     i => i.CodigoIso.Equals(codigoIdiomaPorDefecto, StringComparison.InvariantCultureIgnoreCase));
             traductorUsuario.IdiomaPreferido = idiomaPorDefecto;
+        }
+        public static bool ComprobarIntegridadDelSistema(ITraductorUsuario traductorUsuario)
+        {
+            try
+            {
+                var integridadSistema = new Domain.IntegridadSistema(Settings.Default.Corrupto);
+                integridadSistema.ComprobarIntegridad();
+            }
+            catch (IntegridadSistema.SistemaCorruptoException ex)
+            {
+                MessageBox.Show(traductorUsuario.Traducir(ex.ConstanteError), traductorUsuario.Traducir(ConstantesTexto.Stock),
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }

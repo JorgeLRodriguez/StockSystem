@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DataAccess.Contracts;
 using Domain.Contracts;
@@ -44,9 +45,10 @@ namespace Domain.Models
                     }
                 );
                 _unitOfWork.SaveChanges();
-                
-                comprobante.num_comprobante = numerador.numero + 1;
+
+                comprobante.num_comprobante = numerador.numero+1;
                 numerador.numero = comprobante.num_comprobante;
+                comprobante.Etiquetas = GetEtiquetas(comprobante);
                 _unitOfWork.ComprobanteRepository.Create(comprobante);
                 _unitOfWork.NumeradorRepository.Update(numerador);
                 _unitOfWork.SaveChanges();
@@ -75,6 +77,26 @@ namespace Domain.Models
             }
             if (comprobante == null) throw new ApplicationException(ConstantesTexto.ErrorSinRegistros);
             return comprobante;
+        }
+
+        private List<Etiqueta> GetEtiquetas(Comprobante comprobante)
+        {
+            List<Etiqueta> etiquetas = new List<Etiqueta>();
+
+            foreach (var cbtedet in comprobante.ComprobanteDetalle)
+            {
+                for (int i = 1; i <= cbtedet.cantidad; i++)
+                {
+                    etiquetas.Add(new Etiqueta()
+                    {
+                        Comprobante_ID = comprobante.ID,
+                        Articulo_ID = cbtedet.Articulo_ID,
+                        etiq_nro = i,
+                        etiq_total = cbtedet.cantidad
+                    });
+                }
+            }
+            return etiquetas;
         }
     }
 }

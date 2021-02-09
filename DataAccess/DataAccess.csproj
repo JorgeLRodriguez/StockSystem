@@ -65,6 +65,7 @@
     <Compile Include="Contracts\ICalculadoraIntegridadDVRepository.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Contracts\ILogRepository.cs" />
+    <Compile Include="Repositories\DatabaseContextDV.cs" />
     <Compile Include="Repositories\IdiomaRepository.cs" />
     <Compile Include="Repositories\LogRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

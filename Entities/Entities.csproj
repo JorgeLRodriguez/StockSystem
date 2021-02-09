@@ -51,6 +51,7 @@
     <Compile Include="Destinatario.cs" />
     <Compile Include="Bitacora\Bitacora.cs" />
     <Compile Include="Bitacora\Evento.cs" />
+    <Compile Include="Security\DatoSensible.cs" />
     <Compile Include="Security\IDigitoVerificadorHorizontal.cs" />
     <Compile Include="Etiqueta.cs" />
     <Compile Include="IdentityBase.cs" />

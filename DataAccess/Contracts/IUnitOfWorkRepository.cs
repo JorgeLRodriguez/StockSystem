@@ -21,6 +21,7 @@ namespace DataAccess.Contracts
         IIdiomaRepository IdiomaRepository { get; }
         IBitacoraRepository BitacoraRepository { get; }
         IUsuarioRepository UsuarioRepository { get; }
+        ICalculadoraIntegridadDVRepository CalculadoraIntegridadDVRepository { get; }
         void SaveChanges();
     }
 }

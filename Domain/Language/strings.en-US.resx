@@ -318,4 +318,7 @@
   <data name="ImpComprobante" xml:space="preserve">
     <value>Voucher printing</value>
   </data>
+  <data name="ErrorSistemaCorrupto" xml:space="preserve">
+    <value>Integrity check failed! The system is in unoperable state. Contact with your administrator.</value>
+  </data>
 </root>

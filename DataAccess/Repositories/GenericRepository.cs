@@ -12,11 +12,9 @@ namespace DataAccess.Repositories
     public class GenericRepository <T> : IGenericRepository<T> where T : IdentityBase, new()
     {
         private readonly DatabaseContext _db;
-        ICalculadoraDVRepository calculadoraDVRepository;
         public GenericRepository(DatabaseContext repository)
         {
             _db = repository;
-            calculadoraDVRepository = new CalculadoraDVRepository();
         }
         public List<ValidationResult> ValidateModel(T model)
         {
@@ -74,7 +72,6 @@ namespace DataAccess.Repositories
             entity.CreatedBy = Environment.UserName;
             entity.CreatedOn = DateTime.Now;
             _db.Set<T>().Add(entity);
-
             return entity;
         }
         public T GetById(int id)

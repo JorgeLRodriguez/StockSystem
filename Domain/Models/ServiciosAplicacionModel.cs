@@ -1,10 +1,5 @@
 ﻿using Domain.Contracts;
 using Domain.Dependencies;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Models
 {
@@ -37,10 +32,6 @@ namespace Domain.Models
         public IComprobante Comprobante
         {
             get { return _enlazadorDeDependencias.Resolver<IComprobante>(); }
-        }
-        public IEtiqueta Etiqueta
-        {
-            get { return _enlazadorDeDependencias.Resolver<IEtiqueta>(); }
         }
         public void Dispose()
         {

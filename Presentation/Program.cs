@@ -5,6 +5,7 @@ using Entities.Infraestructure;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using UI.Properties;
 
 namespace UI
 {
@@ -27,7 +28,7 @@ namespace UI
         }
         public static void ConfigurarIdiomaPorDefecto(ITraductorUsuario traductorUsuario)
         {
-            var codigoIdiomaPorDefecto = "en-US";
+            var codigoIdiomaPorDefecto = Settings.Default.Idioma;
             var idiomaPorDefecto =
                 traductorUsuario.IdiomasSoportados.Single(
                     i => i.CodigoIso.Equals(codigoIdiomaPorDefecto, StringComparison.InvariantCultureIgnoreCase));

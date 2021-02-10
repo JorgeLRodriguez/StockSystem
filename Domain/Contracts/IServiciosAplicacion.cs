@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Contracts
 {
@@ -15,15 +11,5 @@ namespace Domain.Contracts
         ICliente Cliente { get; }
         IArticulo Articulo { get; }
         IComprobante Comprobante { get; }
-        IEtiqueta Etiqueta { get; }
-        //IEmpleado Empleado { get; }
-        //IBackupRestore BackupRestore { get; }
-        //IGestorDePermisos GestorDePermisos { get; }
-        //ICentroDeSalud CentroDeSalud { get; }
-        //IEspecialidad Especialidad { get; }
-        //IAgenda Agenda { get; }
-        //ITurno Turno { get; }
-        //IPaciente Paciente { get; }
-        //IHistoriaClinica HistoriaClinica { get; }
     }
 }

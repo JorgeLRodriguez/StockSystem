@@ -216,11 +216,6 @@
     <Compile Include="Forms\Stock\Transferenciafrm.Designer.cs">
       <DependentUpon>Transferenciafrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\ABM\Articfrm.resx">
       <DependentUpon>Articfrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,10 +282,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">

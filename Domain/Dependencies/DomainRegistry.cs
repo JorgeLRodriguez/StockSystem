@@ -15,15 +15,10 @@ namespace Domain.Dependencies
                 x.WithDefaultConventions();
             });
 
-            //For<IArticulo>().Use(() => new ArticuloModel());
-            //For<ICliente>().Use(() => new ClienteModel());
-            //For<IComprobante>().Use(() => new ComprobanteModel());
-            //For<IEtiqueta>().Use(() => new EtiquetaModel());
             For<IUsuario>().Use<UsuarioModel>();
             For<ICliente>().Use<ClienteModel>();
             For<IArticulo>().Use<ArticuloModel>();
             For<IComprobante>().Use<ComprobanteModel>();
-            For<IEtiqueta>().Use<EtiquetaModel>();
             For<ITraductorUsuario>().Singleton();
             For<ITraductor>().Use(ctx => ctx.GetInstance<ITraductorUsuario>());
             For<ICriptografia>().Use(() => Criptografia.Default);

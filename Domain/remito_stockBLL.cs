@@ -22,7 +22,7 @@ namespace Domain
                             IsNumber(Convert.ToString(dt.Rows[y][i]), dt.Columns[i].ColumnName, Convert.ToString(y + 1));
                             if (Convert.ToString(dt.Rows[y][i]).Length != 11)
                             {
-                                AddLog(dt.Columns[i].ColumnName + " : Debe tener 11 dígitos sin guiones ni espacios. Posición:[" + Convert.ToString(y + 1) + "]");
+                                //AddLog(dt.Columns[i].ColumnName + " : Debe tener 11 dígitos sin guiones ni espacios. Posición:[" + Convert.ToString(y + 1) + "]");
                             }
                             break;
                         case 2: //LetraRemito
@@ -42,7 +42,7 @@ namespace Domain
                             IsNumber(Convert.ToString(dt.Rows[y][i]), dt.Columns[i].ColumnName, Convert.ToString(y + 1));
                             if (Convert.ToInt32(dt.Rows[y][i]) > 6 || Convert.ToInt32(dt.Rows[y][i]) < 1)
                             {
-                                AddLog(dt.Columns[i].ColumnName+": Debe estar en el rango 1 a 6. Posición:[" + Convert.ToString(y + 1) + "]");
+                                //AddLog(dt.Columns[i].ColumnName+": Debe estar en el rango 1 a 6. Posición:[" + Convert.ToString(y + 1) + "]");
                             }
                             break;
                         case 6: //DestinatarioDocumento
@@ -82,7 +82,7 @@ namespace Domain
                             StringLenght(Convert.ToInt16(Convert.ToString(dt.Rows[y][i]).Length), dt.Columns[i].ColumnName, Convert.ToString(y + 1), 0);
                             if (!EmailIsValid(Convert.ToString(dt.Rows[y][i])))
                             {
-                                AddLog(dt.Columns[i].ColumnName+ ": Formato incorrecto. Posición:[" + Convert.ToString(y + 1) + "]");
+                                //AddLog(dt.Columns[i].ColumnName+ ": Formato incorrecto. Posición:[" + Convert.ToString(y + 1) + "]");
                             }
                             break;
                         case 14: //FechaEntrega
@@ -90,7 +90,7 @@ namespace Domain
                             IsDate(Convert.ToString(dt.Rows[y][i]), dt.Columns[i].ColumnName, Convert.ToString(y + 1));
                             if (DateTime.Parse(Convert.ToString(dt.Rows[y][i])) < DateTime.Now)
                             {
-                                AddLog(dt.Columns[i].ColumnName + ": No puede ser menor a la actual. Posición: [" + Convert.ToString(y + 1) + "]");
+                                //AddLog(dt.Columns[i].ColumnName + ": No puede ser menor a la actual. Posición: [" + Convert.ToString(y + 1) + "]");
                             }
                             break;
                         case 16: //FechaRetiro
@@ -142,7 +142,7 @@ namespace Domain
             }
             catch
             {
-                AddLog(columna + ": Formato inválido. Posición: [" + fila + "].");
+                //AddLog(columna + ": Formato inválido. Posición: [" + fila + "].");
             }
         }
         private void IsNumber(String num, String columna, String fila)
@@ -153,7 +153,7 @@ namespace Domain
             }
             catch
             {
-                AddLog(columna + ": Debe ser numérico. Posición:[" + fila + "]");
+                //AddLog(columna + ": Debe ser numérico. Posición:[" + fila + "]");
             }
         }
         private void IsString(String letra, String columna, String fila)
@@ -161,7 +161,7 @@ namespace Domain
             try
             {
                 Int64.Parse(letra);
-                AddLog(columna + ": Debe ser alfabético. Posición:[" + fila + "]");
+                //AddLog(columna + ": Debe ser alfabético. Posición:[" + fila + "]");
             }
             catch
             {
@@ -171,22 +171,22 @@ namespace Domain
         {
             if (lenght == 0)
             {
-                AddLog(columna + ": No se completó el campo. Posición:[" + fila + "]");
+                //AddLog(columna + ": No se completó el campo. Posición:[" + fila + "]");
             }
             if (num > 0)
             {
                 if (lenght > num)
                 {
-                    AddLog(columna + ": Se excedió la cantidad de digitos. Posición:[" + fila + "]");
+                    //AddLog(columna + ": Se excedió la cantidad de digitos. Posición:[" + fila + "]");
                 }
             }
         }
-        private void AddLog(string message)
-        {
-            log log = new log();
-            log.Add(message);
-            CountErrores++;
-        }
+        //private void AddLog(string message)
+        //{
+        //    log log = new log();
+        //    log.Add(message);
+        //    CountErrores++;
+        //}
         private static bool EmailIsValid(string email)
         {
             string expression = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";

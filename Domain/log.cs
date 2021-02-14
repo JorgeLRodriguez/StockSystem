@@ -1,31 +1,25 @@
 ﻿using System;
-using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 
 namespace Domain
 {
-    public class log
+    public class Log
     {
-        private readonly string Path = ConfigurationManager.AppSettings["PathLog"];
-        public void Add(string sLog)
+        public static void Save(object obj, Exception ex)
         {
-            string nombre = GetNameFile();
-            string cadena = "";
+            string fecha = DateTime.Now.ToString("yyyyMMdd");
+            string hora = DateTime.Now.ToString("HH:mm:ss");
 
-            cadena += DateTime.Now + " - " + sLog + Environment.NewLine;
+            StreamWriter sw = new StreamWriter(Path.Combine(ConfigGlobal.Instance.LogPath, fecha + ".txt"), true);
 
-            StreamWriter sw = new StreamWriter(Path + "/" + nombre, true);
-            sw.Write(cadena);
+            StackTrace stacktrace = new StackTrace();
+            sw.WriteLine(obj.GetType().FullName + " " + fecha + " " + hora);
+            sw.WriteLine(stacktrace.GetFrame(1).GetMethod().Name + " - " + ex.Message);
+            sw.WriteLine("");
+
+            sw.Flush();
             sw.Close();
         }
-        private string GetNameFile()
-        {
-            string nombre = "";
-
-            nombre = "log_" + DateTime.Now.Year + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + ".txt";
-
-            return nombre;
-        }
     }
-
 }

@@ -24,10 +24,8 @@ namespace DataAccess.Repositories
             ComprobanteRepository = new GenericRepository<Comprobante>(_db);
             ArticuloRepository = new GenericRepository<Articulo>(_db);
             ClienteRepository = new GenericRepository<Cliente>(_db);
-            //UsuarioRepository = new GenericRepository<Usuario>(_db);
             UsuarioRepository = new UsuarioRepository(_db);
             EtiquetaRepository = new GenericRepository<Etiqueta>(_db);
-            LogRepository = new LogRepository(_db);
             IdiomaRepository = new IdiomaRepository();
             BitacoraRepository = new BitacoraRepository(_db);
             CalculadoraIntegridadDVRepository = new CalculadoraIntegridadDVRepository(_db);
@@ -36,9 +34,7 @@ namespace DataAccess.Repositories
         public IGenericRepository<Comprobante> ComprobanteRepository { get; }
         public IGenericRepository<Articulo> ArticuloRepository { get; }
         public IGenericRepository<Cliente> ClienteRepository { get; }
-        //public IGenericRepository<Usuario> UsuarioRepository { get; }
         public IGenericRepository<Etiqueta> EtiquetaRepository { get; }
-        public ILogRepository LogRepository { get; }
         public IIdiomaRepository IdiomaRepository { get; }
         public IBitacoraRepository BitacoraRepository { get; }
         public IUsuarioRepository UsuarioRepository { get; }

@@ -51,7 +51,6 @@
     <Compile Include="Contracts\IBitacora.cs" />
     <Compile Include="Contracts\ICliente.cs" />
     <Compile Include="Contracts\IComprobante.cs" />
-    <Compile Include="Contracts\ILog.cs" />
     <Compile Include="Contracts\IServiciosAplicacion.cs" />
     <Compile Include="Contracts\ISubscriptorIdioma.cs" />
     <Compile Include="Contracts\ITraductor.cs" />
@@ -73,9 +72,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="log.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Models\BitacoraModel.cs" />
-    <Compile Include="Models\LogModel.cs" />
     <Compile Include="Models\ArticuloModel.cs" />
     <Compile Include="Models\ClienteModel.cs" />
     <Compile Include="Models\ComprobanteModel.cs" />

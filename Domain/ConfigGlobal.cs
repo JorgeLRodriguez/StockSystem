@@ -18,5 +18,10 @@ namespace Domain
         }
 
         #endregion
+
+        /// <summary>
+        /// Devuelve o establece el path donde se guardará el log de errores.
+        /// </summary>
+        public string LogPath { get; set; }
     }
 }

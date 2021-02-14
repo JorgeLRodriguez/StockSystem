@@ -15,9 +15,7 @@ namespace DataAccess.Contracts
         IGenericRepository<Comprobante> ComprobanteRepository { get; }
         IGenericRepository<Articulo> ArticuloRepository { get; }
         IGenericRepository<Cliente> ClienteRepository { get; }
-        //IGenericRepository<Usuario> UsuarioRepository { get; }
         IGenericRepository<Etiqueta> EtiquetaRepository { get; }
-        ILogRepository LogRepository { get; }
         IIdiomaRepository IdiomaRepository { get; }
         IBitacoraRepository BitacoraRepository { get; }
         IUsuarioRepository UsuarioRepository { get; }

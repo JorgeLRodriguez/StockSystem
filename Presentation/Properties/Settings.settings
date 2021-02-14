@@ -8,5 +8,8 @@
     <Setting Name="Idioma" Type="System.String" Scope="Application">
       <Value Profile="(Default)">en-US</Value>
     </Setting>
+    <Setting Name="LogPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Users\jorge\Documents</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

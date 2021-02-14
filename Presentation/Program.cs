@@ -19,6 +19,7 @@ namespace UI
         [STAThread]
         static void Main()
         {
+            ConfigurarLogPath();
             var ServiciosAplicacion = new ServiciosAplicacionModel(ConfigGlobal.Instance);
             var TraductorUsuario = ServiciosAplicacion.TraductorUsuario;
             ConfigurarIdiomaPorDefecto(TraductorUsuario);
@@ -53,6 +54,10 @@ namespace UI
                 return false;
             }
             return true;
+        }
+        public static void ConfigurarLogPath()
+        {
+            ConfigGlobal.Instance.LogPath = Settings.Default.LogPath;
         }
     }
 }

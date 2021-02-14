@@ -4,6 +4,7 @@ using System.Linq;
 using DataAccess.Contracts;
 using Domain.Contracts;
 using Entities;
+using Entities.Bitacora;
 using Entities.Infraestructure;
 
 namespace Domain.Models
@@ -11,14 +12,9 @@ namespace Domain.Models
     public class ComprobanteModel : IComprobante
     {
         private readonly IUnitOfWorkRepository _unitOfWork;
-        //private readonly LogModel logModel;
-        //private Log log;
         public ComprobanteModel(IUnitOfWorkRepository unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            //unitOfWork = UnitOfWorkRepository.Instance;
-            //logModel = LogModel.Instance();
-            //log = new Log();
         }
         public Comprobante Create(Comprobante comprobante)
         {
@@ -58,16 +54,24 @@ namespace Domain.Models
                 comprobante = _unitOfWork.ComprobanteRepository.Create(comprobante);
                 _unitOfWork.NumeradorRepository.Update(numerador);
                 _unitOfWork.SaveChanges();
+
+                BitacoraModel.Default.RegistrarEnBitacora
+                    (
+                    Evento.ComprobanteGenerado,
+                    Severidad.Informativo,
+                    comprobante.id_tipo_comprobante + " - " +
+                    comprobante.letra_comprobante + " - " +
+                    comprobante.suc_comprobante + " - " +
+                    comprobante.num_comprobante
+                    );
+
                 return comprobante;
             }
             catch (Exception ex)
             {
-                //logModel.Log(log, ex);
+                Log.Save(this, ex);
                 throw ex;
             }
-            //log.Mensaje = "strings.Comprobante" + " " + comprobante.ID + " " + comprobante.letra_comprobante + " " + comprobante.suc_comprobante + " " + comprobante.num_comprobante.ToString() + " " + "strings.Generado.ToLower()";
-            //log.Ubicacion = Environment.UserDomainName.ToString();
-            //logModel.Log(log, null);
         }
         public Comprobante GetComprobanteByID(int ID)
         {
@@ -78,7 +82,7 @@ namespace Domain.Models
             }
             catch (Exception ex)
             {
-                //logModel.Log(log, ex);
+                Log.Save(this, ex);
                 throw ex;
             }
             if (comprobante == null) throw new ApplicationException(ConstantesTexto.ErrorSinRegistros);

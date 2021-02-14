@@ -11,11 +11,9 @@ namespace Domain.Models
     public class ArticuloModel : IArticulo
     {
         private readonly IUnitOfWorkRepository _unitOfWork;
-        //private readonly LogModel logModel;
         public ArticuloModel(IUnitOfWorkRepository unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            //logModel = LogModel.Instance();
         }
         public IEnumerable<Articulo> GetByClient(int? id_cliente)
         {
@@ -27,10 +25,10 @@ namespace Domain.Models
             }
             catch (Exception ex)
             {
-                //logModel.Log(new Log(), ex);
-                throw new Exception (ex.Message);
+                Log.Save(this, ex);
+                throw ex;
             }
-            if (!articulos.Any()) throw new ApplicationException(ConstantesTexto.ErrorSinRegistros);
+            if (!articulos.Any()) throw new Exception(ConstantesTexto.ErrorSinRegistros);
             return articulos;
         }
         public Articulo GetByID (int id)
@@ -41,7 +39,7 @@ namespace Domain.Models
             }
             catch (Exception ex)
             {
-                //_unitOfWork.Log(new Log(), ex);
+                Log.Save(this, ex);
                 throw new Exception(ex.Message);
             }
         }

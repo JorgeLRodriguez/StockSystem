@@ -20,10 +20,6 @@ namespace Domain.Models
         {
             Numerador numerador;
             if (comprobante.fecha_comprobante < DateTime.Today) throw new Exception(ConstantesTexto.ErrorFechaMenAct);
-            foreach (var row in comprobante.ComprobanteDetalle)
-            {
-                if (row.Articulo_ID == -1 || row.cantidad == -1) throw new NullReferenceException(ConstantesTexto.ErrorCampoVacio);
-            }
             try
             {
                 numerador = 

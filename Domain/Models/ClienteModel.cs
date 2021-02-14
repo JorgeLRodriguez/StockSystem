@@ -10,7 +10,6 @@ namespace Domain.Models
     public class ClienteModel : ICliente
     {
         private readonly IUnitOfWorkRepository _unitOfWork;
-        //private readonly LogModel logModel;
         public ClienteModel(IUnitOfWorkRepository unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -24,7 +23,7 @@ namespace Domain.Models
             }
             catch (Exception ex)
             {
-                //logModel.Log(log, ex);
+                Log.Save(this, ex);
                 throw new Exception(ex.Message);
             }
             if (clientes == null) throw new Exception(ConstantesTexto.ErrorSinRegistros);

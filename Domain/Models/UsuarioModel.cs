@@ -1,11 +1,8 @@
 ﻿using DataAccess.Contracts;
-using DataAccess.Repositories;
 using Domain.Contracts;
-using Entities;
 using Entities.Bitacora;
 using Entities.Infraestructure;
 using System;
-using System.Linq;
 
 namespace Domain.Models
 {
@@ -41,9 +38,10 @@ namespace Domain.Models
             }
             catch(Exception ex)
             {
+                Log.Save(this, ex);
                 throw ex;
             }
-            return usuarioActual ?? throw new ApplicationException(ConstantesTexto.AtLogInIncorrecto);
+            return usuarioActual ?? throw new Exception(ConstantesTexto.AtLogInIncorrecto);
         }
         public Usuario FinalizarSesion()
         {

@@ -44,7 +44,7 @@ namespace UI
         {
             try
             {
-                var integridadSistema = new Domain.IntegridadSistema(Settings.Default.Corrupto);
+                var integridadSistema = new IntegridadSistema(Settings.Default.Corrupto);
                 integridadSistema.ComprobarIntegridad();
             }
             catch (IntegridadSistema.SistemaCorruptoException ex)

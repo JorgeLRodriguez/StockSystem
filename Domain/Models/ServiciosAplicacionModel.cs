@@ -5,7 +5,7 @@ namespace Domain.Models
 {
     public class ServiciosAplicacionModel : IServiciosAplicacion
     {
-        private ConfigGlobal _configGlobal;
+        private readonly ConfigGlobal _configGlobal;
         private readonly EnlazadorDeDependencias _enlazadorDeDependencias;
 
         public ServiciosAplicacionModel(ConfigGlobal configuracion)

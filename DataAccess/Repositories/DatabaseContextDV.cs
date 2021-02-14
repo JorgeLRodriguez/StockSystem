@@ -61,8 +61,7 @@ namespace DataAccess.Repositories
         {
             foreach (var dbEntityEntry in entries)
             {
-                var entidadConDigitoVerificador = dbEntityEntry.Entity as IDigitoVerificadorHorizontal;
-                if (entidadConDigitoVerificador != null)
+                if (dbEntityEntry.Entity is IDigitoVerificadorHorizontal entidadConDigitoVerificador)
                 {
                     entidadConDigitoVerificador.DVH = _calculadoraDigitosVerificadores.CalcularDigitoVerificadorParaEntidad(entidadConDigitoVerificador);
                     var entityType = ObtenerTipoDeEntidad(entidadConDigitoVerificador);
@@ -74,8 +73,7 @@ namespace DataAccess.Repositories
         {
             foreach (var dbEntityEntry in entries)
             {
-                var entidadConDigitoVerificador = dbEntityEntry.Entity as IDigitoVerificadorHorizontal;
-                if (entidadConDigitoVerificador != null)
+                if (dbEntityEntry.Entity is IDigitoVerificadorHorizontal entidadConDigitoVerificador)
                     grupoDeEntidadesAfectadas.Add(ObtenerTipoDeEntidad(entidadConDigitoVerificador));
             }
         }

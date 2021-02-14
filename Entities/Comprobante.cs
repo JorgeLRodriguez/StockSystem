@@ -26,7 +26,7 @@ namespace Entities
         [Required, DatoSensible, Range(1, int.MaxValue)]
         [Display(Name = ConstantesTexto.NumeroComprobante)]
         public int num_comprobante { get; set; }
-        [DatoSensible, StringLength(10, MinimumLength = 1)]
+        [DatoSensible, StringLength(10, MinimumLength = 1), RegularExpression("^[0-9]*$"), Range(1, int.MaxValue)]
         [Display(Name = ConstantesTexto.Remito)]
         public string nro_remito_cliente { get; set; }
         [DatoSensible, Required]

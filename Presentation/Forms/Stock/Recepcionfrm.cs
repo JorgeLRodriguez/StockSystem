@@ -20,7 +20,7 @@ namespace UI.Stock
             _traductorUsuario = serviciosAplicacion.TraductorUsuario;
             this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
         }
-        public static Recepcionfrm getInstance(IServiciosAplicacion serviciosAplicacion)
+        public static Recepcionfrm GetInstance(IServiciosAplicacion serviciosAplicacion)
         {
             return _instance = _instance ?? new Recepcionfrm(serviciosAplicacion);
         }
@@ -31,20 +31,20 @@ namespace UI.Stock
             clientcbx.ValueMember = "Id";
             clientcbx.DataSource = list;
         }
-        private void clientcbx_SelectedIndexChanged(object sender, EventArgs e)
+        private void Clientcbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            list_Articles();
+            List_Articles();
         }
-        private void addbtn_Click(object sender, EventArgs e)
+        private void Addbtn_Click(object sender, EventArgs e)
         {
             invdetdataGrid.Rows.Add();
         }
-        private void deletebtn_Click(object sender, EventArgs e)
+        private void Deletebtn_Click(object sender, EventArgs e)
         {
             if (invdetdataGrid.Rows.Count == 0) return;
             invdetdataGrid.Rows.Remove(invdetdataGrid.CurrentRow);
         }
-        private void list_Articles()
+        private void List_Articles()
         {
             try
             {
@@ -59,7 +59,7 @@ namespace UI.Stock
                 this.MostrarDialogoError(_traductorUsuario, ex.Message);
             }
         }
-        private void savebtn_Click(object sender, EventArgs e)
+        private void Savebtn_Click(object sender, EventArgs e)
         {
             invdetdataGrid.EndEdit();
             try
@@ -70,7 +70,7 @@ namespace UI.Stock
                     id_tipo_comprobante = TipoComprobante.SIR.ToString(),
                     letra_comprobante = lettertxt.Text,
                     suc_comprobante = int.Parse(subsidiarytxt.Text),
-                    nro_remito_cliente = (maskednumber.Text).ToString().Trim(),
+                    nro_remito_cliente = (remitotxt.Text).ToString().Trim(),
                     fecha_comprobante = voucherPicker.Value,
                     CreatedBy = Environment.UserName,
                     CreatedOn = DateTime.Now
@@ -95,26 +95,18 @@ namespace UI.Stock
                 this.MostrarDialogoInformacion(_traductorUsuario, ConstantesTexto.ComprobanteGenerado);
                 new printcompfrm(comprobante, _serviciosAplicacion).ShowDialog();
                 new printetiq(comprobante, _serviciosAplicacion).ShowDialog();
-                reset();
+                Reset();
             }
             catch (Exception ex)
             {
                 this.MostrarDialogoError(_traductorUsuario, ex.Message);
             }
         }
-        private void maskednumber_Enter(object sender, EventArgs e)
+        private void Reset()
         {
-            maskednumber.SelectionStart = 0;
-        }
-        private void maskednumber_Click(object sender, EventArgs e)
-        {
-            maskednumber.Select(0, 0);
-        }
-        private void reset()
-        {
-            list_Articles();
+            List_Articles();
             voucherPicker.ResetText();
-            maskednumber.Clear();
+            remitotxt.Clear();
             invdetdataGrid.Rows.Clear();
         }
         public void IdiomaCambiado(Idioma nuevoIdioma)
@@ -129,6 +121,7 @@ namespace UI.Stock
             addbtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Agregar);
             deletebtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Eliminar);
             savebtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Guardar);
+            typetxt.Text = TipoComprobante.SIR.ToString();
             this.Text = _traductorUsuario.Traducir(ConstantesTexto.Recepcion);
         }
     }

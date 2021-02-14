@@ -40,7 +40,7 @@ namespace Domain.Models
                 );
                 _unitOfWork.SaveChanges();
 
-                numerador.numero = numerador.numero + 1;
+                numerador.numero += 1;
                 comprobante.num_comprobante = numerador.numero;
                 comprobante.Etiquetas = GetEtiquetas(comprobante);
 

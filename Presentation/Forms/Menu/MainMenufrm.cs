@@ -114,7 +114,7 @@ namespace UI
         }
         private void btnrecepcion_Click(object sender, EventArgs e)
         {
-            Form recfrm = Recepcionfrm.getInstance(_serviciosAplicacion);
+            Form recfrm = Recepcionfrm.GetInstance(_serviciosAplicacion);
             openChildFormInPanel(recfrm);
         }
         private void btnscaneo_Click(object sender, EventArgs e)

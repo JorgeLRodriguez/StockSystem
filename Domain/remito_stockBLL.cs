@@ -6,7 +6,7 @@ namespace Domain
 {
     public class remito_stockBLL
     {
-        int CountErrores;
+        readonly int CountErrores;
         public bool validaDatos(DataTable dt)
         {
             for (int y = 0; y < dt.Rows.Count; y++)

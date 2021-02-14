@@ -37,6 +37,8 @@
             this.voucherPicker = new System.Windows.Forms.DateTimePicker();
             this.invlab = new System.Windows.Forms.Label();
             this.invdetdataGrid = new System.Windows.Forms.DataGridView();
+            this.articlecbdg = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.quantitytxtdg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.savebtn = new System.Windows.Forms.Button();
             this.clientcbx = new System.Windows.Forms.ComboBox();
             this.addbtn = new System.Windows.Forms.Button();
@@ -48,10 +50,8 @@
             this.subsidiarytxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.leftpanel = new System.Windows.Forms.Panel();
-            this.maskednumber = new System.Windows.Forms.MaskedTextBox();
             this.panelright = new System.Windows.Forms.Panel();
-            this.articlecbdg = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.quantitytxtdg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remitotxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.invdetdataGrid)).BeginInit();
             this.leftpanel.SuspendLayout();
             this.panelright.SuspendLayout();
@@ -149,6 +149,22 @@
             this.invdetdataGrid.Size = new System.Drawing.Size(403, 468);
             this.invdetdataGrid.TabIndex = 9;
             // 
+            // articlecbdg
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.articlecbdg.DefaultCellStyle = dataGridViewCellStyle2;
+            this.articlecbdg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.articlecbdg.HeaderText = "";
+            this.articlecbdg.Name = "articlecbdg";
+            this.articlecbdg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.articlecbdg.Width = 210;
+            // 
+            // quantitytxtdg
+            // 
+            this.quantitytxtdg.HeaderText = "";
+            this.quantitytxtdg.Name = "quantitytxtdg";
+            this.quantitytxtdg.Width = 150;
+            // 
             // savebtn
             // 
             this.savebtn.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -162,7 +178,7 @@
             this.savebtn.TabIndex = 10;
             this.savebtn.Text = "Guardar";
             this.savebtn.UseVisualStyleBackColor = true;
-            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
+            this.savebtn.Click += new System.EventHandler(this.Savebtn_Click);
             // 
             // clientcbx
             // 
@@ -175,7 +191,7 @@
             this.clientcbx.Name = "clientcbx";
             this.clientcbx.Size = new System.Drawing.Size(208, 29);
             this.clientcbx.TabIndex = 11;
-            this.clientcbx.SelectedIndexChanged += new System.EventHandler(this.clientcbx_SelectedIndexChanged);
+            this.clientcbx.SelectedIndexChanged += new System.EventHandler(this.Clientcbx_SelectedIndexChanged);
             // 
             // addbtn
             // 
@@ -190,7 +206,7 @@
             this.addbtn.TabIndex = 12;
             this.addbtn.Text = "Agregar";
             this.addbtn.UseVisualStyleBackColor = true;
-            this.addbtn.Click += new System.EventHandler(this.addbtn_Click);
+            this.addbtn.Click += new System.EventHandler(this.Addbtn_Click);
             // 
             // deletebtn
             // 
@@ -205,7 +221,7 @@
             this.deletebtn.TabIndex = 13;
             this.deletebtn.Text = "Eliminar";
             this.deletebtn.UseVisualStyleBackColor = true;
-            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
+            this.deletebtn.Click += new System.EventHandler(this.Deletebtn_Click);
             // 
             // vouchertypelb
             // 
@@ -214,7 +230,7 @@
             this.vouchertypelb.ForeColor = System.Drawing.Color.White;
             this.vouchertypelb.Location = new System.Drawing.Point(65, 67);
             this.vouchertypelb.Name = "vouchertypelb";
-            this.vouchertypelb.Size = new System.Drawing.Size(51, 27);
+            this.vouchertypelb.Size = new System.Drawing.Size(59, 27);
             this.vouchertypelb.TabIndex = 14;
             this.vouchertypelb.Text = "Tipo:";
             // 
@@ -235,9 +251,9 @@
             this.letterlab.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.letterlab.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.letterlab.ForeColor = System.Drawing.Color.White;
-            this.letterlab.Location = new System.Drawing.Point(189, 67);
+            this.letterlab.Location = new System.Drawing.Point(181, 67);
             this.letterlab.Name = "letterlab";
-            this.letterlab.Size = new System.Drawing.Size(62, 27);
+            this.letterlab.Size = new System.Drawing.Size(73, 27);
             this.letterlab.TabIndex = 16;
             this.letterlab.Text = "Letra:";
             // 
@@ -279,7 +295,7 @@
             this.leftpanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.leftpanel.Controls.Add(this.maskednumber);
+            this.leftpanel.Controls.Add(this.remitotxt);
             this.leftpanel.Controls.Add(this.letterlab);
             this.leftpanel.Controls.Add(this.lettertxt);
             this.leftpanel.Controls.Add(this.clientlab);
@@ -299,21 +315,6 @@
             this.leftpanel.Size = new System.Drawing.Size(456, 553);
             this.leftpanel.TabIndex = 20;
             // 
-            // maskednumber
-            // 
-            this.maskednumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskednumber.BeepOnError = true;
-            this.maskednumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskednumber.Location = new System.Drawing.Point(161, 194);
-            this.maskednumber.Mask = "00000000000";
-            this.maskednumber.Name = "maskednumber";
-            this.maskednumber.PromptChar = ' ';
-            this.maskednumber.Size = new System.Drawing.Size(193, 27);
-            this.maskednumber.TabIndex = 20;
-            this.maskednumber.ValidatingType = typeof(int);
-            this.maskednumber.Click += new System.EventHandler(this.maskednumber_Click);
-            this.maskednumber.Enter += new System.EventHandler(this.maskednumber_Enter);
-            // 
             // panelright
             // 
             this.panelright.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -325,21 +326,15 @@
             this.panelright.Size = new System.Drawing.Size(460, 553);
             this.panelright.TabIndex = 21;
             // 
-            // articlecbdg
+            // remitotxt
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.articlecbdg.DefaultCellStyle = dataGridViewCellStyle2;
-            this.articlecbdg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.articlecbdg.HeaderText = "";
-            this.articlecbdg.Name = "articlecbdg";
-            this.articlecbdg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.articlecbdg.Width = 210;
-            // 
-            // quantitytxtdg
-            // 
-            this.quantitytxtdg.HeaderText = "";
-            this.quantitytxtdg.Name = "quantitytxtdg";
-            this.quantitytxtdg.Width = 150;
+            this.remitotxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.remitotxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remitotxt.Location = new System.Drawing.Point(161, 195);
+            this.remitotxt.MaxLength = 11;
+            this.remitotxt.Name = "remitotxt";
+            this.remitotxt.Size = new System.Drawing.Size(193, 27);
+            this.remitotxt.TabIndex = 21;
             // 
             // Recepcionfrm
             // 
@@ -376,9 +371,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel leftpanel;
         private System.Windows.Forms.Panel panelright;
-        private System.Windows.Forms.MaskedTextBox maskednumber;
         private System.Windows.Forms.ComboBox clientcbx;
         private System.Windows.Forms.DataGridViewComboBoxColumn articlecbdg;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantitytxtdg;
+        private System.Windows.Forms.TextBox remitotxt;
     }
 }

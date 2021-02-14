@@ -8,7 +8,7 @@ namespace DataAccess.Repositories
     public class UnitOfWorkRepository : IUnitOfWorkRepository
     {
         #region "Singleton"
-        private static Lazy<IUnitOfWorkRepository> _default = new Lazy<IUnitOfWorkRepository>(() => new UnitOfWorkRepository(new DatabaseContext()));
+        private static readonly Lazy<IUnitOfWorkRepository> _default = new Lazy<IUnitOfWorkRepository>(() => new UnitOfWorkRepository(new DatabaseContext()));
 
         public static IUnitOfWorkRepository Default
         {

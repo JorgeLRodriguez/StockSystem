@@ -9,7 +9,7 @@ namespace Domain.Models
     public class ValidateModel<T> : IValidateModel<T> where T : class
     {
         #region "Singleton"
-        private static Lazy<IValidateModel<T>> _default = new Lazy<IValidateModel<T>>(() => new ValidateModel<T>());
+        private static readonly Lazy<IValidateModel<T>> _default = new Lazy<IValidateModel<T>>(() => new ValidateModel<T>());
         public static IValidateModel<T> Default
         {
             get { return _default.Value; }

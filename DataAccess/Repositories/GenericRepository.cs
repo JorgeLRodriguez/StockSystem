@@ -16,22 +16,6 @@ namespace DataAccess.Repositories
         {
             _db = repository;
         }
-        public List<ValidationResult> ValidateModel(T model)
-        {
-            ValidationContext v = new ValidationContext(model);
-            List<ValidationResult> r = new List<ValidationResult>();
-
-            bool validate = Validator.TryValidateObject(model, v, r, true);
-
-            if (validate)
-            {
-                return null;
-            }
-            else
-            {
-                return r;
-            }
-        }
         public virtual IEnumerable<T> Get(Expression<Func<T, bool>> filter = null,
         Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
         string includeProperties = "")

@@ -29,8 +29,7 @@ namespace UI
             Cursor = Cursors.WaitCursor;
             try
             {
-                var userLogIn = _serviciosAplicacion.Usuario;
-                userLogIn.IniciarSesion(txtuser.Text, txtpsw.Text);
+                _serviciosAplicacion.Usuario.IniciarSesion(txtuser.Text, txtpsw.Text);
                 new MainMenufrm(_serviciosAplicacion).Show();
                 Hide();
             }
@@ -53,7 +52,7 @@ namespace UI
             usrlab.Text = _traductorUsuario.Traducir(ConstantesTexto.Usuario) + ":";
             pswlab.Text = _traductorUsuario.Traducir(ConstantesTexto.Contraseña) + ":";
             btnlogin.Text = _traductorUsuario.Traducir(ConstantesTexto.Acceder);
-            this.Text = _traductorUsuario.Traducir(ConstantesTexto.Login);
+            Text = _traductorUsuario.Traducir(ConstantesTexto.Login);
         }
     }
 }

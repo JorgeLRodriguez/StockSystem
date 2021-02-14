@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using UI.Forms.Impresion;
-using System.Threading;
 
 namespace UI.Stock
 {
@@ -14,8 +13,6 @@ namespace UI.Stock
         private readonly ITraductorUsuario _traductorUsuario;
         private readonly IServiciosAplicacion _serviciosAplicacion;
         private static Recepcionfrm _instance = null;
-        //private printcompfrm printcompfrm;
-        //private printetiq printetiq;
         private Recepcionfrm(IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
@@ -59,7 +56,6 @@ namespace UI.Stock
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message, "strings.Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.MostrarDialogoError(_traductorUsuario, ex.Message);
             }
         }
@@ -71,7 +67,7 @@ namespace UI.Stock
                 Comprobante comprobante = new Comprobante
                 {
                     Cliente_ID = Int32.Parse(clientcbx.SelectedValue.ToString()),
-                    id_tipo_comprobante = "SIR",
+                    id_tipo_comprobante = TipoComprobante.SIR.ToString(),
                     letra_comprobante = lettertxt.Text,
                     suc_comprobante = int.Parse(subsidiarytxt.Text),
                     nro_remito_cliente = (maskednumber.Text).ToString().Trim(),
@@ -85,13 +81,10 @@ namespace UI.Stock
                 {
                     foreach (DataGridViewRow row in invdetdataGrid.Rows)
                     {
-                        int cantidad = String.IsNullOrEmpty(row.Cells[1].EditedFormattedValue.ToString()) ? -1 : int.Parse(row.Cells[1].EditedFormattedValue.ToString());
-                        int id_articulo = String.IsNullOrEmpty(row.Cells[0].EditedFormattedValue.ToString()) ? -1 : (int)row.Cells[0].Value;
-
                         ComprobanteDetalle comprobanteDetalle = new ComprobanteDetalle
                         {
-                            Articulo_ID = id_articulo,
-                            cantidad = cantidad,
+                            Articulo_ID = String.IsNullOrEmpty(row.Cells[0].EditedFormattedValue.ToString()) ? 0 : (int)row.Cells[0].Value,
+                            cantidad = String.IsNullOrEmpty(row.Cells[1].EditedFormattedValue.ToString()) ? 0 : int.Parse(row.Cells[1].EditedFormattedValue.ToString()),
                             linea = row.Index + 1,
                         };
                         comprobanteDetalles.Add(comprobanteDetalle);
@@ -100,7 +93,6 @@ namespace UI.Stock
                 comprobante.ComprobanteDetalle = comprobanteDetalles;
                 comprobante = _serviciosAplicacion.Comprobante.Create(comprobante);
                 this.MostrarDialogoInformacion(_traductorUsuario, ConstantesTexto.ComprobanteGenerado);
-                //MessageBox.Show("strings.ComprobanteGenerado", "strings.ProcesoCorrecto", MessageBoxButtons.OK);
                 new printcompfrm(comprobante, _serviciosAplicacion).ShowDialog();
                 new printetiq(comprobante, _serviciosAplicacion).ShowDialog();
                 reset();
@@ -108,7 +100,6 @@ namespace UI.Stock
             catch (Exception ex)
             {
                 this.MostrarDialogoError(_traductorUsuario, ex.Message);
-                //MessageBox.Show(ex.Message, "strings.Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void maskednumber_Enter(object sender, EventArgs e)

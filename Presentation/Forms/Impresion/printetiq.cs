@@ -1,8 +1,8 @@
 ﻿using Domain.Contracts;
 using Entities;
+using Entities.Infraestructure;
 using Microsoft.Reporting.WinForms;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,34 +12,27 @@ namespace UI.Forms.Impresion
     public partial class printetiq : Form, ISubscriptorCambioIdioma
     {
         private readonly ITraductorUsuario _traductorUsuario;
-        private readonly IServiciosAplicacion _serviciosAplicacion;
         private Comprobante C;
         public printetiq(Comprobante comprobante, IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
             C = comprobante;
-            _serviciosAplicacion = serviciosAplicacion;
             _traductorUsuario = serviciosAplicacion.TraductorUsuario;
             this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
         }
         public void IdiomaCambiado(Idioma nuevoIdioma)
         {
-            
+            this.Text = _traductorUsuario.Traducir(ConstantesTexto.ImpEtiq);
         }
         private void printetiq_Load(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            IEnumerable<Etiqueta> E;
             try
             {
                 BindingSource Comprobante = new BindingSource();
                 BindingSource Cliente = new BindingSource();
                 BindingSource Articulo = new BindingSource();
                 BindingSource Etiqueta = new BindingSource();
-
-                //_serviciosAplicacion.Etiqueta.Create(C);
-                //E = _serviciosAplicacion.Etiqueta.GetbyIDComp(C);
-                C = _serviciosAplicacion.Comprobante.GetComprobanteByID(C.ID);
 
                 Articulo.DataSource = C.ComprobanteDetalle.Select(x => x.Articulo);
                 Comprobante.DataSource = C;
@@ -62,7 +55,7 @@ namespace UI.Forms.Impresion
             }
             catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
     }

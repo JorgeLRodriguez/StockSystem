@@ -3,7 +3,9 @@ using Domain.Contracts;
 using Domain.Models;
 using Entities.Infraestructure;
 using System;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using UI.Properties;
 
@@ -33,6 +35,9 @@ namespace UI
                 traductorUsuario.IdiomasSoportados.Single(
                     i => i.CodigoIso.Equals(codigoIdiomaPorDefecto, StringComparison.InvariantCultureIgnoreCase));
             traductorUsuario.IdiomaPreferido = idiomaPorDefecto;
+
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(codigoIdiomaPorDefecto);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(codigoIdiomaPorDefecto);
         }
         public static bool ComprobarIntegridadDelSistema(ITraductorUsuario traductorUsuario)
         {

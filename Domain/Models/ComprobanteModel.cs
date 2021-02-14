@@ -24,17 +24,19 @@ namespace Domain.Models
         {
             Numerador numerador;
             if (comprobante.fecha_comprobante < DateTime.Today) throw new Exception(ConstantesTexto.ErrorFechaMenAct);
-            if (String.IsNullOrEmpty(comprobante.nro_remito_cliente)) throw new Exception(ConstantesTexto.ErrorCampoVacio);
-            if (comprobante.ComprobanteDetalle.Count == 0) throw new Exception(ConstantesTexto.ErrorFaltanLineas);
             foreach (var row in comprobante.ComprobanteDetalle)
             {
                 if (row.Articulo_ID == -1 || row.cantidad == -1) throw new NullReferenceException(ConstantesTexto.ErrorCampoVacio);
             }
             try
             {
-                numerador = _unitOfWork.NumeradorRepository.Get(filter: x => x.id_tipo_comprobante == comprobante.id_tipo_comprobante &&
-                x.letra == comprobante.letra_comprobante && x.sucursal == comprobante.suc_comprobante).SingleOrDefault()
-                ?? _unitOfWork.NumeradorRepository.Create
+                numerador = 
+                    _unitOfWork.NumeradorRepository
+                    .Get(filter: x => x.id_tipo_comprobante == comprobante.id_tipo_comprobante &&
+                    x.letra == comprobante.letra_comprobante &&
+                    x.sucursal == comprobante.suc_comprobante)
+                    .SingleOrDefault() 
+                    ?? _unitOfWork.NumeradorRepository.Create
                 (
                     new Numerador()
                     {
@@ -46,10 +48,14 @@ namespace Domain.Models
                 );
                 _unitOfWork.SaveChanges();
 
-                comprobante.num_comprobante = numerador.numero+1;
-                numerador.numero = comprobante.num_comprobante;
+                numerador.numero = numerador.numero + 1;
+                comprobante.num_comprobante = numerador.numero;
                 comprobante.Etiquetas = GetEtiquetas(comprobante);
-                _unitOfWork.ComprobanteRepository.Create(comprobante);
+
+                ValidateModel<Comprobante>.Default.Validar(comprobante);
+                ValidateModel<ComprobanteDetalle>.Default.Validar(comprobante.ComprobanteDetalle.ToList());
+
+                comprobante = _unitOfWork.ComprobanteRepository.Create(comprobante);
                 _unitOfWork.NumeradorRepository.Update(numerador);
                 _unitOfWork.SaveChanges();
                 return comprobante;
@@ -73,12 +79,11 @@ namespace Domain.Models
             catch (Exception ex)
             {
                 //logModel.Log(log, ex);
-                throw new Exception(ex.Message);
+                throw ex;
             }
             if (comprobante == null) throw new ApplicationException(ConstantesTexto.ErrorSinRegistros);
             return comprobante;
         }
-
         private List<Etiqueta> GetEtiquetas(Comprobante comprobante)
         {
             List<Etiqueta> etiquetas = new List<Etiqueta>();

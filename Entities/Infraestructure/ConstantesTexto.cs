@@ -19,6 +19,7 @@
         public const string Transferencia = "Transferencia";
         public const string Ajuste = "Ajuste";
         public const string Articulos = "Articulos";
+        public const string Articulo = "Articulo";
         public const string PxE = "PxE";
         public const string Layout = "Layout";
         public const string Etiq = "Etiq";
@@ -34,6 +35,7 @@
         public const string Fecha = "Fecha";
         public const string Remito = "Remito";
         public const string Comprobante = "Comprobante";
+        public const string ComprobanteDetalle = "ComprobanteDetalle";
         public const string Motivo = "Motivo";
         public const string ComplCant = "ComplCant";
         public const string CierreParcial = "CierreParcial";
@@ -58,10 +60,16 @@
         public const string SeleCopia = "SeleCopia";
         public const string Generado = "Generado";
         public const string InformeRecepcion = "InformeRecepcion";
+        public const string Sucursal = "Sucursal";
+        public const string NumeroComprobante = "NumeroComprobante";
+        public const string Cierre = "Cierre";
+        public const string Destinatario = "Destinatario";
+        public const string Linea = "Linea";
 
         //TitulosForms
         public const string Login = "Login";
         public const string ImpComprobante = "ImpComprobante";
+        public const string ImpEtiq = "ImpEtiq";
 
         //Mensaje
         public const string loginCorrecto = "loginCorrecto";

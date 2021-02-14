@@ -3,6 +3,7 @@ using DataAccess.Repositories;
 using Domain.Contracts;
 using Domain.Language;
 using Entities;
+using Entities.Infraestructure;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -59,11 +60,17 @@ namespace Domain.Models
 
         public string Traducir(string constanteDeTexto)
         {
-            return 
-                new ResourceManager
-                ("Domain.Language.strings", this.GetType().Assembly)
-                .GetString(constanteDeTexto, CultureInfo.GetCultureInfo(this.IdiomaPreferido.CodigoIso)
-                ) ?? constanteDeTexto;
+            ResourceManager resourceManager = new ResourceManager
+                ("Domain.Language.strings", this.GetType().Assembly);
+
+            var mensaje = resourceManager
+                .GetString(constanteDeTexto, CultureInfo.GetCultureInfo(this.IdiomaPreferido.CodigoIso));
+
+            if (String.IsNullOrEmpty(mensaje))
+            {
+                mensaje = TraducirMensaje(constanteDeTexto, resourceManager);
+            }
+            return mensaje ?? constanteDeTexto;
         }
 
         public string TraducirConFormato(string constanteDeTexto, params object[] args)
@@ -80,6 +87,21 @@ namespace Domain.Models
                 foreach (var subscriptor in _subscriptores)
                     subscriptor.IdiomaCambiado(nuevoIdioma);
             }
+        }
+
+        private string TraducirMensaje(string mensaje, ResourceManager resourceManager)
+        {
+            var propertyInfos = typeof(ConstantesTexto).GetFields();
+
+            foreach (var item in propertyInfos)
+            {
+                if (mensaje.ToLower().Contains(item.Name.ToLower()))
+                {
+                    mensaje = mensaje.Replace(item.Name, resourceManager.GetString(
+                        item.Name, CultureInfo.GetCultureInfo(this.IdiomaPreferido.CodigoIso)));
+                }
+            }
+            return mensaje;
         }
     }
 }

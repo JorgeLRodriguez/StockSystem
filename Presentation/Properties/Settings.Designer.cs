@@ -34,7 +34,7 @@ namespace UI.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("es-AR")]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
         public string Idioma {
             get {
                 return ((string)(this["Idioma"]));

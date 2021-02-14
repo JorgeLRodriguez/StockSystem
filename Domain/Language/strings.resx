@@ -321,4 +321,28 @@
   <data name="ErrorSistemaCorrupto" xml:space="preserve">
     <value>¡Error de integridad! El sistema se encuentra inoperable. Contacte con el administrador del sistema.</value>
   </data>
+  <data name="Articulo" xml:space="preserve">
+    <value>Articulo</value>
+  </data>
+  <data name="ComprobanteDetalle" xml:space="preserve">
+    <value>Detalle de Comprobante</value>
+  </data>
+  <data name="Sucursal" xml:space="preserve">
+    <value>Sucursal</value>
+  </data>
+  <data name="NumeroComprobante" xml:space="preserve">
+    <value>Número de Comprobante</value>
+  </data>
+  <data name="Cierre" xml:space="preserve">
+    <value>Cierre</value>
+  </data>
+  <data name="Destinatario" xml:space="preserve">
+    <value>Destinatario</value>
+  </data>
+  <data name="Linea" xml:space="preserve">
+    <value>Linea</value>
+  </data>
+  <data name="ImpEtiq" xml:space="preserve">
+    <value>Impresión de Etiquetas</value>
+  </data>
 </root>

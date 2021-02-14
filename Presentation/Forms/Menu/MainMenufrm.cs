@@ -20,10 +20,7 @@ namespace UI
         public MainMenufrm(IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
-            leftBorderBtn = new Panel
-            {
-                Size = new Size(7, 60)
-            };
+            leftBorderBtn = new Panel{Size = new Size(7, 60)};
             panelLeft.Controls.Add(leftBorderBtn);
             _serviciosAplicacion = serviciosAplicacion;
             _traductorUsuario = serviciosAplicacion.TraductorUsuario;
@@ -41,19 +38,16 @@ namespace UI
             else
                 subMenu.Visible = false;
         }
-
         private void btnStock_Click(object sender, EventArgs e)
         {
             showSubMenu(panelStock);
             ActivateButton(sender, Color.FromArgb(5, 26, 14));
         }
-
         private void btnABM_Click(object sender, EventArgs e)
         {
             showSubMenu(panelABM);
             ActivateButton(sender, Color.FromArgb(5, 26, 14));
         }
-
         private void btnReportes_Click(object sender, EventArgs e)
         {
             showSubMenu(panelReportes);
@@ -118,7 +112,6 @@ namespace UI
         {
             Reset();
         }
-
         private void btnrecepcion_Click(object sender, EventArgs e)
         {
             Form recfrm = Recepcionfrm.getInstance(_serviciosAplicacion);
@@ -129,93 +122,79 @@ namespace UI
             Form scanfrm = Scaneofrm.getInstance();
             openChildFormInPanel(scanfrm);
         }
-
         private void btnpicking_Click(object sender, EventArgs e)
         {
             Form pickfrm = Pickingfrm.getInstance();
             openChildFormInPanel(pickfrm);
         }
-
         private void btntransf_Click(object sender, EventArgs e)
         {
             Form tranfrm = Transferenciafrm.getInstance();
             openChildFormInPanel(tranfrm);
         }
-
         private void btnajuste_Click(object sender, EventArgs e)
         {
             Form ajfrm = AjusteInvfrm.getInstance();
             openChildFormInPanel(ajfrm);
         }
-
         private void btnImportar_Click(object sender, EventArgs e)
         {
             Form impfrm = Importarfrm.getInstance();
             openChildFormInPanel(impfrm);
         }
-
         private void btnArticulos_Click(object sender, EventArgs e)
         {
             Form artfrm = Articfrm.getInstance();
             openChildFormInPanel(artfrm);
         }
-
         private void btnPxE_Click(object sender, EventArgs e)
         {
             Form pxefrm = PxEfrm.getInstance();
             openChildFormInPanel(pxefrm);
         }
-
         private void btnLayout_Click(object sender, EventArgs e)
         {
             Form layfrm = Layoutfrm.getInstance();
             openChildFormInPanel(layfrm);
         }
-
         private void btnEtiq_Click(object sender, EventArgs e)
         {
             Form etiqfrm = Etiquetasfrm.getInstance();
             openChildFormInPanel(etiqfrm);
         }
-
         private void btndeposito_Click(object sender, EventArgs e)
         {
             Form depofrm = Depositofrm.getInstance();
             openChildFormInPanel(depofrm);
         }
-
         private void btnInventario_Click(object sender, EventArgs e)
         {
             Form invfrm = Inventariofrm.getInstance();
             openChildFormInPanel(invfrm);
         }
-
         private void btnMovim_Click(object sender, EventArgs e)
         {
             Form movimfrm = Movimientosfrm.getInstance();
             openChildFormInPanel(movimfrm);
         }
-
         private void btnHxI_Click(object sender, EventArgs e)
         {
             Form hxifrm = HxEfrm.getInstance();
             openChildFormInPanel(hxifrm);
         }
-
         private void btnIxC_Click(object sender, EventArgs e)
         {
             Form ixcfrm = IxCfrm.getInstance();
             openChildFormInPanel(ixcfrm);
         }
-
         private void btnListStock_Click(object sender, EventArgs e)
         {
             Form liststfrm = ListadoStockfrm.getInstance();
             openChildFormInPanel(liststfrm);
         }
-
         private void MainMenufrm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            _serviciosAplicacion.Usuario.FinalizarSesion();
             Application.Exit();
         }
         public void IdiomaCambiado(Idioma nuevoIdioma)

@@ -65,8 +65,7 @@ namespace Domain.Models
 
             return this.ObtenerTodasLasEntradasEnBitacora(traductor)
                 .Where(l => l.CreatedOn >= desde && l.CreatedOn <= hasta)
-                //.Where(l => evento == null || evento.Id.Equals(l.Evento.Id));
-                                .Where(l => evento == null || evento.Id.Equals(l.Evento_ID));
+                .Where(l => evento == null || evento.Id.Equals(l.Evento.Id));
         }
 
         public void RegistrarEnBitacora(int tipoEvento, string mensaje)
@@ -85,7 +84,7 @@ namespace Domain.Models
             {
                 CreatedOn = DateTime.Now,
                 Evento_ID = tipoEvento,
-                Severidad = severidad.ToString(),
+                Severidad = severidad,
                 Mensaje = mensaje,
                 Usuario = usuario,
             };

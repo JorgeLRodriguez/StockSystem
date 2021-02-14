@@ -11,14 +11,8 @@ namespace Entities.Bitacora
         public const int UsuarioIngresoAlSistema = 1;
         public const int UsuarioSalioDelSistema = 2;
         public const int UsuarioFalloIngresandoCredenciales = 3;
-        public const int AdministradorRealizoUnaCopiaDeSeguridad = 4;
-        public const int AdministradorRecuperoBaseDeDatos = 5;
-        //public const int PlanificadorConfiguroOfertaAgenda = 6;
-        public const int InformacionUsuarioActualizada = 7;
-        //public const int InformacionPacienteActualizada = 8;
-        //public const int NuevoTurnoAsignado = 9;
-        //public const int InicioAtencionAmbulatoria = 10;
-        //public const int FinAtencionAmbulatoria = 11;
+        public const int ComprobanteGenerado = 4;
+
         #endregion 
         [Key]
         public int Id { get; set; }

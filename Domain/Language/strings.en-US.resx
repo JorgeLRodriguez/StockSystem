@@ -321,4 +321,28 @@
   <data name="ErrorSistemaCorrupto" xml:space="preserve">
     <value>Integrity check failed! The system is in unoperable state. Contact with your administrator.</value>
   </data>
+  <data name="Articulo" xml:space="preserve">
+    <value>Article</value>
+  </data>
+  <data name="ComprobanteDetalle" xml:space="preserve">
+    <value>Voucher detail</value>
+  </data>
+  <data name="Sucursal" xml:space="preserve">
+    <value>Subsidiary</value>
+  </data>
+  <data name="NumeroComprobante" xml:space="preserve">
+    <value>Voucher number</value>
+  </data>
+  <data name="Cierre" xml:space="preserve">
+    <value>Closing</value>
+  </data>
+  <data name="Destinatario" xml:space="preserve">
+    <value>Addressee</value>
+  </data>
+  <data name="Linea" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="ImpEtiq" xml:space="preserve">
+    <value>Label printing</value>
+  </data>
 </root>

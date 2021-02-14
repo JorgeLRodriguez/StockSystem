@@ -37,8 +37,6 @@
             this.voucherPicker = new System.Windows.Forms.DateTimePicker();
             this.invlab = new System.Windows.Forms.Label();
             this.invdetdataGrid = new System.Windows.Forms.DataGridView();
-            this.articlecbdg = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.quantitytxtdg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.savebtn = new System.Windows.Forms.Button();
             this.clientcbx = new System.Windows.Forms.ComboBox();
             this.addbtn = new System.Windows.Forms.Button();
@@ -52,6 +50,8 @@
             this.leftpanel = new System.Windows.Forms.Panel();
             this.maskednumber = new System.Windows.Forms.MaskedTextBox();
             this.panelright = new System.Windows.Forms.Panel();
+            this.articlecbdg = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.quantitytxtdg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.invdetdataGrid)).BeginInit();
             this.leftpanel.SuspendLayout();
             this.panelright.SuspendLayout();
@@ -148,22 +148,6 @@
             this.invdetdataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.invdetdataGrid.Size = new System.Drawing.Size(403, 468);
             this.invdetdataGrid.TabIndex = 9;
-            // 
-            // articlecbdg
-            // 
-            this.articlecbdg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.articlecbdg.HeaderText = "";
-            this.articlecbdg.Name = "articlecbdg";
-            this.articlecbdg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.articlecbdg.Width = 210;
-            // 
-            // quantitytxtdg
-            // 
-            dataGridViewCellStyle2.NullValue = null;
-            this.quantitytxtdg.DefaultCellStyle = dataGridViewCellStyle2;
-            this.quantitytxtdg.HeaderText = "";
-            this.quantitytxtdg.Name = "quantitytxtdg";
-            this.quantitytxtdg.Width = 150;
             // 
             // savebtn
             // 
@@ -341,6 +325,22 @@
             this.panelright.Size = new System.Drawing.Size(460, 553);
             this.panelright.TabIndex = 21;
             // 
+            // articlecbdg
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.articlecbdg.DefaultCellStyle = dataGridViewCellStyle2;
+            this.articlecbdg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.articlecbdg.HeaderText = "";
+            this.articlecbdg.Name = "articlecbdg";
+            this.articlecbdg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.articlecbdg.Width = 210;
+            // 
+            // quantitytxtdg
+            // 
+            this.quantitytxtdg.HeaderText = "";
+            this.quantitytxtdg.Name = "quantitytxtdg";
+            this.quantitytxtdg.Width = 150;
+            // 
             // Recepcionfrm
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(26)))), ((int)(((byte)(14)))));
@@ -377,8 +377,8 @@
         private System.Windows.Forms.Panel leftpanel;
         private System.Windows.Forms.Panel panelright;
         private System.Windows.Forms.MaskedTextBox maskednumber;
+        private System.Windows.Forms.ComboBox clientcbx;
         private System.Windows.Forms.DataGridViewComboBoxColumn articlecbdg;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantitytxtdg;
-        private System.Windows.Forms.ComboBox clientcbx;
     }
 }

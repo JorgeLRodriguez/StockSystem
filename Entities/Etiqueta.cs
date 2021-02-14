@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Entities.Infraestructure;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entities
 {
     public class Etiqueta : IdentityBase
     {
         [Column("id_comprobante")]
+        [Display(Name = ConstantesTexto.Comprobante)]
         public int Comprobante_ID { get; set; }
         [ForeignKey("Comprobante_ID"), Required]
         public virtual Comprobante Comprobante { get; set; }
-        [Column("id_articulo")]
+        [Column("id_articulo"),Required]
+        [Display(Name = ConstantesTexto.Articulo)]
         public int Articulo_ID { get; set; }
 
-        [ForeignKey("Articulo_ID"),Required]
+        [ForeignKey("Articulo_ID")]
         public virtual Articulo Articulo { get; set; }
         public int etiq_nro { get; set; }
         public int etiq_total { get; set; }

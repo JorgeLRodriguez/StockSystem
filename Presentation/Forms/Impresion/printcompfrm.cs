@@ -12,13 +12,11 @@ namespace UI.Forms.Impresion
     public partial class printcompfrm : Form , ISubscriptorCambioIdioma
     {
         private readonly ITraductorUsuario _traductorUsuario;
-        private readonly IServiciosAplicacion _serviciosAplicacion;
         private Comprobante _comprobante;
         public printcompfrm(Comprobante comprobante, IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
             _comprobante = comprobante;
-            _serviciosAplicacion = serviciosAplicacion;
             _traductorUsuario = serviciosAplicacion.TraductorUsuario;
             this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
         }
@@ -52,8 +50,6 @@ namespace UI.Forms.Impresion
             BindingSource ComprobanteDetalle = new BindingSource();
             BindingSource Cliente = new BindingSource();
 
-            _comprobante = _serviciosAplicacion.Comprobante.GetComprobanteByID(_comprobante.ID);
-
             Articulo.DataSource = _comprobante.ComprobanteDetalle.Select(x => x.Articulo);
             Comprobante.DataSource = _comprobante;
             ComprobanteDetalle.DataSource = _comprobante.ComprobanteDetalle;
@@ -72,11 +68,6 @@ namespace UI.Forms.Impresion
             this.reportViewer1.LocalReport.Refresh();
             this.reportViewer1.RefreshReport();
             Cursor = Cursors.Default;
-
-            //http://datazarblog.blogspot.com/2018/04/como-generar-un-reporte-con-parametros.html
-            //https://si.ua.es/es/documentacion/informes-net/documentos/apuntes-de-referencia/origen-de-datos.pdf
-            //http://joseluisgarciab.blogspot.com/2013/10/reportviewer-y-rdlc-ejemplo-facturacion.html
-            //https://es.stackoverflow.com/questions/352717/reporte-sencillo-en-reportviewer-c-a%C3%B1adir-campos-de-2-datasets-distintos
         }
         private void copiacb_SelectedIndexChanged(object sender, EventArgs e)
         {

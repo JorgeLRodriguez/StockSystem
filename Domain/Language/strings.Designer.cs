@@ -97,6 +97,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Articulo.
+        /// </summary>
+        internal static string Articulo {
+            get {
+                return ResourceManager.GetString("Articulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Artículos.
         /// </summary>
         internal static string Articulos {
@@ -147,6 +156,15 @@ namespace Domain.Language {
         internal static string CantidadTotal {
             get {
                 return ResourceManager.GetString("CantidadTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cierre.
+        /// </summary>
+        internal static string Cierre {
+            get {
+                return ResourceManager.GetString("Cierre", resourceCulture);
             }
         }
         
@@ -205,6 +223,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Detalle de Comprobante.
+        /// </summary>
+        internal static string ComprobanteDetalle {
+            get {
+                return ResourceManager.GetString("ComprobanteDetalle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El comprobante ha sido generado exitosamente..
         /// </summary>
         internal static string ComprobanteGenerado {
@@ -255,6 +282,15 @@ namespace Domain.Language {
         internal static string Descripcion {
             get {
                 return ResourceManager.GetString("Descripcion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Destinatario.
+        /// </summary>
+        internal static string Destinatario {
+            get {
+                return ResourceManager.GetString("Destinatario", resourceCulture);
             }
         }
         
@@ -403,6 +439,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Impresión de Etiquetas.
+        /// </summary>
+        internal static string ImpEtiq {
+            get {
+                return ResourceManager.GetString("ImpEtiq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Importar.
         /// </summary>
         internal static string Importar {
@@ -475,6 +520,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Linea.
+        /// </summary>
+        internal static string Linea {
+            get {
+                return ResourceManager.GetString("Linea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Listado Stock.
         /// </summary>
         internal static string ListStock {
@@ -525,6 +579,15 @@ namespace Domain.Language {
         internal static string Movimientos {
             get {
                 return ResourceManager.GetString("Movimientos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Número de Comprobante.
+        /// </summary>
+        internal static string NumeroComprobante {
+            get {
+                return ResourceManager.GetString("NumeroComprobante", resourceCulture);
             }
         }
         
@@ -633,6 +696,15 @@ namespace Domain.Language {
         internal static string Stock {
             get {
                 return ResourceManager.GetString("Stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sucursal.
+        /// </summary>
+        internal static string Sucursal {
+            get {
+                return ResourceManager.GetString("Sucursal", resourceCulture);
             }
         }
         

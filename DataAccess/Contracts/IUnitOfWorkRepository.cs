@@ -12,7 +12,8 @@ namespace DataAccess.Contracts
     public interface IUnitOfWorkRepository : IDisposable
     {
         IGenericRepository<Numerador> NumeradorRepository { get; }
-        IGenericRepository<Comprobante> ComprobanteRepository { get; }
+        //IGenericRepository<Comprobante> ComprobanteRepository { get; }
+        IComprobanteRepository ComprobanteRepository { get; }
         IGenericRepository<Articulo> ArticuloRepository { get; }
         IGenericRepository<Cliente> ClienteRepository { get; }
         IGenericRepository<Etiqueta> EtiquetaRepository { get; }

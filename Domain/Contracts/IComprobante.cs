@@ -1,10 +1,12 @@
 ﻿using Entities;
+using System.Collections.Generic;
 
 namespace Domain.Contracts
 {
     public interface IComprobante
     {
         Comprobante Create(Comprobante comprobante);
-        Comprobante GetComprobanteByID(int ID);
+        TipoRechazo[] GetTipoRechazo(ITraductor _traductor);
+        IEnumerable<Comprobante> GetComprobanteScaneo();
     }
 }

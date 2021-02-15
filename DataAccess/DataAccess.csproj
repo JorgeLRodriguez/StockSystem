@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IBitacoraRepository.cs" />
+    <Compile Include="Contracts\IComprobanteRepository.cs" />
     <Compile Include="Contracts\IIdiomaRepository.cs" />
     <Compile Include="Contracts\IUsuarioRepository.cs" />
     <Compile Include="Repositories\BitacoraRepository.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Repositories\CalculadoraIntegridadDVRepository.cs" />
     <Compile Include="Contracts\ICalculadoraIntegridadDVRepository.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
+    <Compile Include="Repositories\ComprobanteRepository.cs" />
     <Compile Include="Repositories\DatabaseContextDV.cs" />
     <Compile Include="Repositories\IdiomaRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

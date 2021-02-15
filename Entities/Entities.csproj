@@ -63,6 +63,7 @@
     <Compile Include="Infraestructure\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoComprobante.cs" />
+    <Compile Include="TipoRechazo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\Articulo.datasource" />

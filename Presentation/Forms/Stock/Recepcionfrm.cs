@@ -22,14 +22,10 @@ namespace UI.Stock
         }
         public static Recepcionfrm GetInstance(IServiciosAplicacion serviciosAplicacion)
         {
-            return _instance = _instance ?? new Recepcionfrm(serviciosAplicacion);
-        }
-        private void Recepcionfrm_Load(object sender, EventArgs e)
-        {
-            var list = _serviciosAplicacion.Cliente.Get();
-            clientcbx.DisplayMember = "Descripcion";
-            clientcbx.ValueMember = "Id";
-            clientcbx.DataSource = list;
+            if (_instance == null || _instance.IsDisposed)
+                _instance = new Recepcionfrm(serviciosAplicacion);
+
+            return _instance;
         }
         private void Clientcbx_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -123,6 +119,17 @@ namespace UI.Stock
             savebtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Guardar);
             typetxt.Text = TipoComprobante.SIR.ToString();
             this.Text = _traductorUsuario.Traducir(ConstantesTexto.Recepcion);
+        }
+        private void btnclose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        private void Recepcionfrm_Load(object sender, EventArgs e)
+        {
+            var list = _serviciosAplicacion.Cliente.Get();
+            clientcbx.DisplayMember = "Descripcion";
+            clientcbx.ValueMember = "Id";
+            clientcbx.DataSource = list;
         }
     }
 }

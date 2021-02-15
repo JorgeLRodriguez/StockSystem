@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Recepcionfrm));
             this.clientlab = new System.Windows.Forms.Label();
             this.datelab = new System.Windows.Forms.Label();
             this.voucherPicker = new System.Windows.Forms.DateTimePicker();
@@ -50,10 +51,12 @@
             this.subsidiarytxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.leftpanel = new System.Windows.Forms.Panel();
-            this.panelright = new System.Windows.Forms.Panel();
+            this.btnclose = new System.Windows.Forms.PictureBox();
             this.remitotxt = new System.Windows.Forms.TextBox();
+            this.panelright = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.invdetdataGrid)).BeginInit();
             this.leftpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnclose)).BeginInit();
             this.panelright.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -295,6 +298,7 @@
             this.leftpanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.leftpanel.Controls.Add(this.btnclose);
             this.leftpanel.Controls.Add(this.remitotxt);
             this.leftpanel.Controls.Add(this.letterlab);
             this.leftpanel.Controls.Add(this.lettertxt);
@@ -315,6 +319,29 @@
             this.leftpanel.Size = new System.Drawing.Size(456, 553);
             this.leftpanel.TabIndex = 20;
             // 
+            // btnclose
+            // 
+            this.btnclose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
+            this.btnclose.Location = new System.Drawing.Point(3, 3);
+            this.btnclose.Name = "btnclose";
+            this.btnclose.Size = new System.Drawing.Size(15, 15);
+            this.btnclose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnclose.TabIndex = 22;
+            this.btnclose.TabStop = false;
+            this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
+            // 
+            // remitotxt
+            // 
+            this.remitotxt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.remitotxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.remitotxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remitotxt.Location = new System.Drawing.Point(161, 195);
+            this.remitotxt.MaxLength = 11;
+            this.remitotxt.Name = "remitotxt";
+            this.remitotxt.Size = new System.Drawing.Size(193, 27);
+            this.remitotxt.TabIndex = 21;
+            // 
             // panelright
             // 
             this.panelright.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -325,16 +352,6 @@
             this.panelright.Name = "panelright";
             this.panelright.Size = new System.Drawing.Size(460, 553);
             this.panelright.TabIndex = 21;
-            // 
-            // remitotxt
-            // 
-            this.remitotxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.remitotxt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remitotxt.Location = new System.Drawing.Point(161, 195);
-            this.remitotxt.MaxLength = 11;
-            this.remitotxt.Name = "remitotxt";
-            this.remitotxt.Size = new System.Drawing.Size(193, 27);
-            this.remitotxt.TabIndex = 21;
             // 
             // Recepcionfrm
             // 
@@ -350,6 +367,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.invdetdataGrid)).EndInit();
             this.leftpanel.ResumeLayout(false);
             this.leftpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnclose)).EndInit();
             this.panelright.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -375,5 +393,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn articlecbdg;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantitytxtdg;
         private System.Windows.Forms.TextBox remitotxt;
+        private System.Windows.Forms.PictureBox btnclose;
     }
 }

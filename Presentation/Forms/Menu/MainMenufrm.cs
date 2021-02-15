@@ -119,7 +119,7 @@ namespace UI
         }
         private void btnscaneo_Click(object sender, EventArgs e)
         {
-            Form scanfrm = Scaneofrm.getInstance();
+            Form scanfrm = Scaneofrm.getInstance(_serviciosAplicacion);
             openChildFormInPanel(scanfrm);
         }
         private void btnpicking_Click(object sender, EventArgs e)

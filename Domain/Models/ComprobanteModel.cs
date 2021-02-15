@@ -69,20 +69,40 @@ namespace Domain.Models
                 throw ex;
             }
         }
-        public Comprobante GetComprobanteByID(int ID)
+        //public Comprobante GetComprobanteByID(int ID)
+        //{
+        //    Comprobante comprobante;
+        //    try
+        //    {
+        //        comprobante = _unitOfWork.ComprobanteRepository.GetById(ID);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Log.Save(this, ex);
+        //        throw ex;
+        //    }
+        //    if (comprobante == null) throw new ApplicationException(ConstantesTexto.ErrorSinRegistros);
+        //    return comprobante;
+        //}
+        public TipoRechazo[] GetTipoRechazo(ITraductor _traductor)
         {
-            Comprobante comprobante;
-            try
-            {
-                comprobante = _unitOfWork.ComprobanteRepository.GetById(ID);
-            }
-            catch (Exception ex)
-            {
-                Log.Save(this, ex);
-                throw ex;
-            }
-            if (comprobante == null) throw new ApplicationException(ConstantesTexto.ErrorSinRegistros);
-            return comprobante;
+            var tiposRechazos = _unitOfWork.ComprobanteRepository.GetTiposRechazo();
+
+            foreach (var item in tiposRechazos)
+                item.Descripcion = _traductor.Traducir (item.Descripcion);
+
+            return tiposRechazos;
+        }
+        public IEnumerable<Comprobante> GetComprobanteScaneo()
+        {
+            return _unitOfWork.ComprobanteRepository
+                .Get(
+                filter: x => x.id_tipo_comprobante.Equals(TipoComprobante.SIR.ToString()) ||
+                x.id_tipo_comprobante.Equals(TipoComprobante.SPK.ToString())
+                )
+                .OrderByDescending(
+                x => x.ID
+                ) ?? throw new Exception (ConstantesTexto.ErrorSinRegistros);
         }
         private List<Etiqueta> GetEtiquetas(Comprobante comprobante)
         {

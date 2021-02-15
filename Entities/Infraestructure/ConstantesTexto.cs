@@ -65,6 +65,12 @@
         public const string Cierre = "Cierre";
         public const string Destinatario = "Destinatario";
         public const string Linea = "Linea";
+        public const string ProductoVencido = "ProductoVencido";
+        public const string ProductoDefectuoso = "ProductoDefectuoso";
+        public const string EmbalajeDefectuoso = "EmbalajeDefectuoso";
+        public const string ProductoApto = "ProductoApto";
+        public const string Expedicion = "Expedicion";
+        public const string Suprimir = "Suprimir";
 
         //TitulosForms
         public const string Login = "Login";

@@ -14,6 +14,14 @@ namespace Entities
         public string Descripcion { get; set; }
         public string codigo_barra { get; set; }
         public bool tiene_codigo_barra { get; set; }
+        [NotMapped]
+        public string BarraDesc
+        {
+            get
+            {
+                return "(" + codigo_barra + ") " + Descripcion;
+            }
+        }
         public virtual ICollection<ComprobanteDetalle> ComprobanteDetalle { get; set; }
         public virtual ICollection<Etiqueta> Etiquetas { get; set; }
     }

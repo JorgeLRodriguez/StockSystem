@@ -43,6 +43,13 @@ namespace Entities
         [Display(Name = ConstantesTexto.Observacion)]
         public string observaciones { get; set; }
         public byte[] DVH { get; set; }
+        [NotMapped]
+        public string Descripcion {
+            get 
+            {
+                return id_tipo_comprobante + " - " + suc_comprobante + " - " + letra_comprobante + " - " + ("0000000" + num_comprobante).Substring(("0000000" + num_comprobante).Length-7); 
+            }
+        } 
         public virtual ICollection<ComprobanteDetalle> ComprobanteDetalle { get; set; }
         public virtual ICollection<Etiqueta> Etiquetas { get; set; }
     }

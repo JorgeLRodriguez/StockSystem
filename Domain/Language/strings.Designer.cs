@@ -322,6 +322,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Embalaje defectuoso.
+        /// </summary>
+        internal static string EmbalajeDefectuoso {
+            get {
+                return ResourceManager.GetString("EmbalajeDefectuoso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Debe completar todos los campos..
         /// </summary>
         internal static string ErrorCampoVacio {
@@ -390,6 +399,15 @@ namespace Domain.Language {
         internal static string EtiquetasGeneradas {
             get {
                 return ResourceManager.GetString("EtiquetasGeneradas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Expedición.
+        /// </summary>
+        internal static string Expedicion {
+            get {
+                return ResourceManager.GetString("Expedicion", resourceCulture);
             }
         }
         
@@ -637,6 +655,33 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Producto apto.
+        /// </summary>
+        internal static string ProductoApto {
+            get {
+                return ResourceManager.GetString("ProductoApto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Producto defectuoso.
+        /// </summary>
+        internal static string ProductoDefectuoso {
+            get {
+                return ResourceManager.GetString("ProductoDefectuoso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Producto vencido.
+        /// </summary>
+        internal static string ProductoVencido {
+            get {
+                return ResourceManager.GetString("ProductoVencido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Posiciones x Estado.
         /// </summary>
         internal static string PxE {
@@ -705,6 +750,15 @@ namespace Domain.Language {
         internal static string Sucursal {
             get {
                 return ResourceManager.GetString("Sucursal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Suprimir.
+        /// </summary>
+        internal static string Suprimir {
+            get {
+                return ResourceManager.GetString("Suprimir", resourceCulture);
             }
         }
         

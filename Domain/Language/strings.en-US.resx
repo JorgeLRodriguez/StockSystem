@@ -345,4 +345,22 @@
   <data name="ImpEtiq" xml:space="preserve">
     <value>Label printing</value>
   </data>
+  <data name="ProductoVencido" xml:space="preserve">
+    <value>Product expired</value>
+  </data>
+  <data name="ProductoDefectuoso" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="EmbalajeDefectuoso" xml:space="preserve">
+    <value>Defective packaging</value>
+  </data>
+  <data name="ProductoApto" xml:space="preserve">
+    <value>Suitable product</value>
+  </data>
+  <data name="Expedicion" xml:space="preserve">
+    <value>Expedition</value>
+  </data>
+  <data name="Suprimir" xml:space="preserve">
+    <value>Remove</value>
+  </data>
 </root>

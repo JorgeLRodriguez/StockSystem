@@ -21,7 +21,8 @@ namespace DataAccess.Repositories
         {
             _db = _context;
             NumeradorRepository = new GenericRepository<Numerador>(_db);
-            ComprobanteRepository = new GenericRepository<Comprobante>(_db);
+            //ComprobanteRepository = new GenericRepository<Comprobante>(_db);
+            ComprobanteRepository = new ComprobanteRepository(_db);
             ArticuloRepository = new GenericRepository<Articulo>(_db);
             ClienteRepository = new GenericRepository<Cliente>(_db);
             UsuarioRepository = new UsuarioRepository(_db);
@@ -31,7 +32,8 @@ namespace DataAccess.Repositories
             CalculadoraIntegridadDVRepository = new CalculadoraIntegridadDVRepository(_db);
         }
         public IGenericRepository<Numerador> NumeradorRepository { get; }
-        public IGenericRepository<Comprobante> ComprobanteRepository { get; }
+        //public IGenericRepository<Comprobante> ComprobanteRepository { get; }
+        public IComprobanteRepository ComprobanteRepository { get; }
         public IGenericRepository<Articulo> ArticuloRepository { get; }
         public IGenericRepository<Cliente> ClienteRepository { get; }
         public IGenericRepository<Etiqueta> EtiquetaRepository { get; }

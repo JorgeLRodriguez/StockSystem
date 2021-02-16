@@ -5,8 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities
 {
-    public class ComprobanteDetalle : IdentityBase, IDigitoVerificadorHorizontal
+    public class ComprobanteDetalle : IDigitoVerificadorHorizontal
     {
+		[Key, Required]
+		public int ID { get; set; }
 		[Column("id_comprobante"), RegularExpression("^[0-9]*$")]
 		[Display(Name = ConstantesTexto.Comprobante)]
 		public int Comprobante_ID { get; set; }

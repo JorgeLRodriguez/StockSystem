@@ -26,7 +26,6 @@ namespace DataAccess.Repositories
             ArticuloRepository = new GenericRepository<Articulo>(_db);
             ClienteRepository = new GenericRepository<Cliente>(_db);
             UsuarioRepository = new UsuarioRepository(_db);
-            EtiquetaRepository = new GenericRepository<Etiqueta>(_db);
             IdiomaRepository = new IdiomaRepository();
             BitacoraRepository = new BitacoraRepository(_db);
             CalculadoraIntegridadDVRepository = new CalculadoraIntegridadDVRepository(_db);

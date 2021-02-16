@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities
 {
-    public class Etiqueta : IdentityBase
+    public class Etiqueta
     {
+        [Key, Required]
+        public int ID { get; set; }
         [Column("id_comprobante")]
         [Display(Name = ConstantesTexto.Comprobante)]
         public int Comprobante_ID { get; set; }

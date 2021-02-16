@@ -124,6 +124,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Hay items sin scanear..
+        /// </summary>
+        internal static string AtItemSinScan {
+            get {
+                return ResourceManager.GetString("AtItemSinScan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Hay campos sin completar..
         /// </summary>
         internal static string AtLogInEmptyorNull {
@@ -489,6 +498,15 @@ namespace Domain.Language {
         internal static string InformeRecepcion {
             get {
                 return ResourceManager.GetString("InformeRecepcion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Informe de Scaneo.
+        /// </summary>
+        internal static string InformeScaneo {
+            get {
+                return ResourceManager.GetString("InformeScaneo", resourceCulture);
             }
         }
         

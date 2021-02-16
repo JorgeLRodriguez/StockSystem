@@ -60,6 +60,7 @@
         public const string SeleCopia = "SeleCopia";
         public const string Generado = "Generado";
         public const string InformeRecepcion = "InformeRecepcion";
+        public const string InformeScaneo = "InformeScaneo";
         public const string Sucursal = "Sucursal";
         public const string NumeroComprobante = "NumeroComprobante";
         public const string Cierre = "Cierre";
@@ -86,6 +87,7 @@
         public const string Atencion = "Atencion";
         public const string AtLogInEmptyorNull = "AtLogInEmptyorNull";
         public const string AtLogInIncorrecto = "AtLogInIncorrecto";
+        public const string AtItemSinScan = "AtItemSinScan";
 
         //MensajeError
         public const string ErrorCampoVacio = "ErrorCampoVacio";

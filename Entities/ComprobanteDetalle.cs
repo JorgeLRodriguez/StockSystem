@@ -23,7 +23,11 @@ namespace Entities
         [DatoSensible, RegularExpression("^[0-9]*$"), Range(1, int.MaxValue)]
 		[Display(Name = ConstantesTexto.Cantidad)]
         public int cantidad { get; set; }
+		[RegularExpression("^[0-9]*$"), Range(1, int.MaxValue)]
+		[Display(Name = ConstantesTexto.Motivo)]
 		public int ?id_tipo_rechazo { get; set; }
+		[NotMapped]
+		public TipoRechazo TipoRechazo { get; set; }
 		public int ?id_pallet { get; set; }
         public byte[] DVH { get; set; }
     }

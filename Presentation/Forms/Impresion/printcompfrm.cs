@@ -32,7 +32,7 @@ namespace UI.Forms.Impresion
 
             ReportParameter[] reportParameters = new ReportParameter[10];
 
-            reportParameters[0] = new ReportParameter("informe", _traductorUsuario.Traducir(ConstantesTexto.InformeRecepcion), true);
+            reportParameters[0] = new ReportParameter("informe", GetNombreInforme(_comprobante.id_tipo_comprobante), true);
             reportParameters[1] = new ReportParameter("cliente", _traductorUsuario.Traducir(ConstantesTexto.Cliente), true);
             reportParameters[2] = new ReportParameter("remito", _traductorUsuario.Traducir(ConstantesTexto.Remito), true);
             reportParameters[3] = new ReportParameter("copia", _traductorUsuario.Traducir(ConstantesTexto.Original), true);
@@ -49,22 +49,26 @@ namespace UI.Forms.Impresion
             BindingSource Comprobante = new BindingSource();
             BindingSource ComprobanteDetalle = new BindingSource();
             BindingSource Cliente = new BindingSource();
+            BindingSource TipoRechazo = new BindingSource();
 
             Articulo.DataSource = _comprobante.ComprobanteDetalle.Select(x => x.Articulo);
             Comprobante.DataSource = _comprobante;
             ComprobanteDetalle.DataSource = _comprobante.ComprobanteDetalle;
             Cliente.DataSource = _comprobante.Cliente;
+            TipoRechazo.DataSource = _comprobante.ComprobanteDetalle.Select(x => x.TipoRechazo ?? new TipoRechazo());
 
             ReportDataSource ArticuloDS = new ReportDataSource("Articulo", Articulo);
             ReportDataSource ComprobanteDS = new ReportDataSource("Comprobante", Comprobante);
             ReportDataSource ComprobanteDetalleDS = new ReportDataSource("ComprobanteDetalle", ComprobanteDetalle);
             ReportDataSource ClienteDS = new ReportDataSource("Cliente", Cliente);
+            ReportDataSource TipoRechazoDS = new ReportDataSource("TipoRechazo", TipoRechazo);
 
             this.reportViewer1.LocalReport.DataSources.Clear();
             this.reportViewer1.LocalReport.DataSources.Add(ArticuloDS);
             this.reportViewer1.LocalReport.DataSources.Add(ComprobanteDS);
             this.reportViewer1.LocalReport.DataSources.Add(ComprobanteDetalleDS);
             this.reportViewer1.LocalReport.DataSources.Add(ClienteDS);
+            this.reportViewer1.LocalReport.DataSources.Add(TipoRechazoDS);
             this.reportViewer1.LocalReport.Refresh();
             this.reportViewer1.RefreshReport();
             Cursor = Cursors.Default;
@@ -75,6 +79,18 @@ namespace UI.Forms.Impresion
             reportViewer1.LocalReport.SetParameters(reportParameter);
             this.reportViewer1.LocalReport.Refresh();
             this.reportViewer1.RefreshReport();
+        }
+        private string GetNombreInforme(string tipoComprobante)
+        {
+            switch (tipoComprobante)
+            {
+                case "SIR":
+                    return _traductorUsuario.Traducir(ConstantesTexto.InformeRecepcion);
+                case "SIS":
+                    return _traductorUsuario.Traducir(ConstantesTexto.InformeScaneo);
+                default:
+                    return String.Empty;
+            }
         }
         public void IdiomaCambiado(Idioma nuevoIdioma)
         {

@@ -363,4 +363,10 @@
   <data name="Suprimir" xml:space="preserve">
     <value>Suprimir</value>
   </data>
+  <data name="InformeScaneo" xml:space="preserve">
+    <value>Informe de Scaneo</value>
+  </data>
+  <data name="AtItemSinScan" xml:space="preserve">
+    <value>Hay items sin scanear.</value>
+  </data>
 </root>

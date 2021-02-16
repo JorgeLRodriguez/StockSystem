@@ -34,7 +34,7 @@ namespace Entities
         public DateTime? fecha_comprobante { get; set; }
         [DatoSensible]
         [Display(Name = ConstantesTexto.Cierre)]
-        public char cierre { get; set; }
+        public string cierre { get; set; }
         [Column("id_destinatario"), RegularExpression("^[0-9]*$"), Range(0, int.MaxValue)]
         [Display(Name = ConstantesTexto.Destinatario)]
         public int Destinatario_ID { get; set; }

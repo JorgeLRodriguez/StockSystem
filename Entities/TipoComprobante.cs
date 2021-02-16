@@ -3,7 +3,8 @@
     public enum TipoComprobante
     {
         SIR = 1,
-        SIA = 2,
-        SPK = 3
+        SIS = 2,
+        SIA = 3,
+        SPK = 4
     }
 }

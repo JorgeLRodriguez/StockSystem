@@ -273,6 +273,7 @@
     <None Include="Properties\DataSources\Entities.Comprobante.datasource" />
     <None Include="Properties\DataSources\Entities.ComprobanteDetalle.datasource" />
     <None Include="Properties\DataSources\Entities.Etiqueta.datasource" />
+    <None Include="Properties\DataSources\Entities.TipoRechazo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

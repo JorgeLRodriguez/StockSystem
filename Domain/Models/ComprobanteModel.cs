@@ -42,7 +42,8 @@ namespace Domain.Models
 
                 numerador.numero += 1;
                 comprobante.num_comprobante = numerador.numero;
-                comprobante.Etiquetas = GetEtiquetas(comprobante);
+                if (comprobante.id_tipo_comprobante.Equals(TipoComprobante.SIR.ToString()))
+                    comprobante.Etiquetas = GetEtiquetas(comprobante);
 
                 ValidateModel<Comprobante>.Default.Validar(comprobante);
                 ValidateModel<ComprobanteDetalle>.Default.Validar(comprobante.ComprobanteDetalle.ToList());
@@ -69,21 +70,6 @@ namespace Domain.Models
                 throw ex;
             }
         }
-        //public Comprobante GetComprobanteByID(int ID)
-        //{
-        //    Comprobante comprobante;
-        //    try
-        //    {
-        //        comprobante = _unitOfWork.ComprobanteRepository.GetById(ID);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Log.Save(this, ex);
-        //        throw ex;
-        //    }
-        //    if (comprobante == null) throw new ApplicationException(ConstantesTexto.ErrorSinRegistros);
-        //    return comprobante;
-        //}
         public TipoRechazo[] GetTipoRechazo(ITraductor _traductor)
         {
             var tiposRechazos = _unitOfWork.ComprobanteRepository.GetTiposRechazo();
@@ -95,14 +81,30 @@ namespace Domain.Models
         }
         public IEnumerable<Comprobante> GetComprobanteScaneo()
         {
-            return _unitOfWork.ComprobanteRepository
+            var C = _unitOfWork.ComprobanteRepository
                 .Get(
-                filter: x => x.id_tipo_comprobante.Equals(TipoComprobante.SIR.ToString()) ||
+                filter: x => x.id_tipo_comprobante.Equals(TipoComprobante.SIR.ToString()) &&
+                x.cierre.Equals(null) ||
                 x.id_tipo_comprobante.Equals(TipoComprobante.SPK.ToString())
                 )
                 .OrderByDescending(
                 x => x.ID
-                ) ?? throw new Exception (ConstantesTexto.ErrorSinRegistros);
+                );
+            if (C.Count() == 0) throw new Exception(ConstantesTexto.ErrorSinRegistros);
+            return C; 
+        }
+        public void Update(Comprobante comprobante)
+        {
+            try
+            {
+                _unitOfWork.ComprobanteRepository.Update(comprobante);
+                _unitOfWork.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                Log.Save(this, ex);
+                throw ex;
+            }
         }
         private List<Etiqueta> GetEtiquetas(Comprobante comprobante)
         {

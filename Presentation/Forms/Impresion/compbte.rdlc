@@ -17,6 +17,10 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="BarraDesc">
+          <DataField>BarraDesc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="ChangedBy">
           <DataField>ChangedBy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -24,6 +28,14 @@
         <Field Name="ChangedOn">
           <DataField>ChangedOn</DataField>
           <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="Cliente">
+          <DataField>Cliente</DataField>
+          <rd:TypeName>Entities.Cliente</rd:TypeName>
+        </Field>
+        <Field Name="Cliente_ID">
+          <DataField>Cliente_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="codigo_barra">
           <DataField>codigo_barra</DataField>
@@ -47,10 +59,6 @@
         </Field>
         <Field Name="ID">
           <DataField>ID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="id_cliente">
-          <DataField>id_cliente</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="tiene_codigo_barra">
@@ -106,6 +114,10 @@
           <DataField>CreatedOn</DataField>
           <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
+        <Field Name="DVH">
+          <DataField>DVH</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
         <Field Name="ID">
           <DataField>ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -121,6 +133,10 @@
         <Field Name="linea">
           <DataField>linea</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TipoRechazo">
+          <DataField>TipoRechazo</DataField>
+          <rd:TypeName>Entities.TipoRechazo</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -190,11 +206,15 @@
         </Field>
         <Field Name="cierre">
           <DataField>cierre</DataField>
-          <rd:TypeName>System.Char</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Cliente">
           <DataField>Cliente</DataField>
           <rd:TypeName>Entities.Cliente</rd:TypeName>
+        </Field>
+        <Field Name="Cliente_ID">
+          <DataField>Cliente_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="CreatedBy">
           <DataField>CreatedBy</DataField>
@@ -204,20 +224,28 @@
           <DataField>CreatedOn</DataField>
           <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
+        <Field Name="Descripcion">
+          <DataField>Descripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Destinatario">
+          <DataField>Destinatario</DataField>
+          <rd:TypeName>Entities.Destinatario</rd:TypeName>
+        </Field>
+        <Field Name="Destinatario_ID">
+          <DataField>Destinatario_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DVH">
+          <DataField>DVH</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
         <Field Name="fecha_comprobante">
           <DataField>fecha_comprobante</DataField>
           <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
         <Field Name="ID">
           <DataField>ID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="id_cliente">
-          <DataField>id_cliente</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="id_destinatario">
-          <DataField>id_destinatario</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="id_tipo_comprobante">
@@ -251,6 +279,27 @@
         <rd:ObjectDataSourceType>Entities.Comprobante, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
+    <DataSet Name="TipoRechazo">
+      <Query>
+        <DataSourceName>Entities</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Descripcion">
+          <DataField>Descripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Entities</rd:DataSetName>
+        <rd:TableName>TipoRechazo</rd:TableName>
+        <rd:ObjectDataSourceType>Entities.TipoRechazo, Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -260,16 +309,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>4.15334cm</Width>
+                  <Width>3.70329cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.58548cm</Width>
+                  <Width>4.73167cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>2.40441cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>4.26346cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -431,7 +480,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -505,7 +553,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Lookup(Fields!id_tipo_rechazo.Value, Fields!ID.Value,Fields!Descripcion.Value,"TipoRechazo")</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -682,9 +730,9 @@
             </TablixRowHierarchy>
             <DataSetName>ComprobanteDetalle</DataSetName>
             <Top>0.81703cm</Top>
-            <Left>1.36447cm</Left>
+            <Left>0.63013cm</Left>
             <Height>1.8cm</Height>
-            <Width>13.73882cm</Width>
+            <Width>15.10283cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>

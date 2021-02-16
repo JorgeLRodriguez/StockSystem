@@ -24,7 +24,6 @@ namespace UI.Stock
         {
             if (_instance == null || _instance.IsDisposed)
                 _instance = new Recepcionfrm(serviciosAplicacion);
-
             return _instance;
         }
         private void Clientcbx_SelectedIndexChanged(object sender, EventArgs e)

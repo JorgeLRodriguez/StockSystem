@@ -1,26 +1,33 @@
 ﻿using Domain;
+using Domain.Contracts;
+using Entities;
+using Entities.Infraestructure;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
 
 namespace UI.Stock
 {
-    public partial class Importarfrm : Form
+    public partial class Importarfrm : Form, ISubscriptorCambioIdioma
     {
+        private readonly ITraductorUsuario _traductorUsuario;
+        private readonly IServiciosAplicacion _serviciosAplicacion;
+        private static Importarfrm _instance = null;
         DataTable dt = new DataTable();
-        public Importarfrm()
+        public Importarfrm(IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
+            _serviciosAplicacion = serviciosAplicacion;
+            _traductorUsuario = serviciosAplicacion.TraductorUsuario;
+            this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
         }
-        private static Importarfrm instance = null;
-        public static Importarfrm getInstance()
+        public static Importarfrm GetInstance(IServiciosAplicacion serviciosAplicacion)
         {
-            if (instance == null) { instance = new Importarfrm(); }
-            return instance;
+            if (_instance == null || _instance.IsDisposed)
+                _instance = new Importarfrm(serviciosAplicacion);
+            return _instance;
         }
-
         private void iconButton1_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = ".csv|*.csv";
@@ -82,6 +89,12 @@ namespace UI.Stock
                 MessageBox.Show(ex.Message, "");
             }
 
+        }
+        public void IdiomaCambiado(Idioma nuevoIdioma)
+        {
+            impbtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Importar);
+            savebtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Guardar);
+            openFileDialog.Title = _traductorUsuario.Traducir(ConstantesTexto.Importar);
         }
     }
 }

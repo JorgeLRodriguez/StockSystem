@@ -220,7 +220,7 @@ namespace UI.Stock
         }
         private void dcbtn_Click(object sender, EventArgs e)
         {
-            if (CountScans()) this.MostrarDialogoAdvertencia(_traductorUsuario, ConstantesTexto.AtItemSinScan);
+            if (!CountScans()) { this.MostrarDialogoAdvertencia(_traductorUsuario, ConstantesTexto.AtItemSinScan); return; }
             try
             {
                 var comp = (Comprobante)receiptcb.SelectedItem;

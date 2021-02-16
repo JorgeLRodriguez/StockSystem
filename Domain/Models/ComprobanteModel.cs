@@ -38,15 +38,17 @@ namespace Domain.Models
                         numero = 0
                     }
                 );
-                _unitOfWork.SaveChanges();
 
                 numerador.numero += 1;
                 comprobante.num_comprobante = numerador.numero;
-                if (comprobante.id_tipo_comprobante.Equals(TipoComprobante.SIR.ToString()))
-                    comprobante.Etiquetas = GetEtiquetas(comprobante);
 
                 ValidateModel<Comprobante>.Default.Validar(comprobante);
                 ValidateModel<ComprobanteDetalle>.Default.Validar(comprobante.ComprobanteDetalle.ToList());
+
+                _unitOfWork.SaveChanges();
+
+                if (comprobante.id_tipo_comprobante.Equals(TipoComprobante.SIR.ToString()))
+                    comprobante.Etiquetas = GetEtiquetas(comprobante);
 
                 comprobante = _unitOfWork.ComprobanteRepository.Create(comprobante);
                 _unitOfWork.NumeradorRepository.Update(numerador);

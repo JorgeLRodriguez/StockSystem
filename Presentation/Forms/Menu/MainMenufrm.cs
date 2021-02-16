@@ -139,7 +139,7 @@ namespace UI
         }
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            Form impfrm = Importarfrm.getInstance();
+            Form impfrm = Importarfrm.GetInstance(_serviciosAplicacion);
             openChildFormInPanel(impfrm);
         }
         private void btnArticulos_Click(object sender, EventArgs e)

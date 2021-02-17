@@ -1,9 +1,5 @@
 ﻿using Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Contracts
 {
@@ -11,5 +7,6 @@ namespace Domain.Contracts
     {
         IEnumerable<Articulo> GetByClient(int? id_cliente = null);
         Articulo GetByID(int id);
+        Articulo GetByFS(string codigoFS);
     }
 }

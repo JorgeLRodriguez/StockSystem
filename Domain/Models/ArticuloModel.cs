@@ -28,20 +28,37 @@ namespace Domain.Models
                 Log.Save(this, ex);
                 throw ex;
             }
-            if (!articulos.Any()) throw new Exception(ConstantesTexto.ErrorSinRegistros);
+            if (!articulos.Any()) throw new Exception(ConstantesTexto.Articulo + ": " + ConstantesTexto.ErrorSinRegistros);
             return articulos;
         }
         public Articulo GetByID (int id)
         {
+            Articulo A = null;
             try
             {
-                return _unitOfWork.ArticuloRepository.GetById(id) ?? throw new Exception(ConstantesTexto.ErrorSinRegistros);
+                A = _unitOfWork.ArticuloRepository.GetById(id);
             }
             catch (Exception ex)
             {
                 Log.Save(this, ex);
-                throw new Exception(ex.Message);
+                throw ex;
             }
+            return A ?? throw new Exception(ConstantesTexto.Articulo + ": " + ConstantesTexto.ErrorSinRegistros);
+        }
+        public Articulo GetByFS (string codigoFS)
+        {
+            Articulo A = null;
+            try
+            {
+                A = _unitOfWork.ArticuloRepository.Get(filter: x => x.Codigo_fs.Equals(codigoFS)).FirstOrDefault();
+                    
+            }
+            catch (Exception ex)
+            {
+                Log.Save(this, ex);
+                throw ex;
+            }
+            return A ?? throw new Exception(ConstantesTexto.Articulo + ": " + ConstantesTexto.ErrorSinRegistros);
         }
     }
 }

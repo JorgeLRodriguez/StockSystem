@@ -1,6 +1,5 @@
 ﻿using DataAccess.Contracts;
 using Entities;
-using Entities.Infraestructure;
 using System;
 
 namespace DataAccess.Repositories
@@ -21,21 +20,22 @@ namespace DataAccess.Repositories
         {
             _db = _context;
             NumeradorRepository = new GenericRepository<Numerador>(_db);
-            //ComprobanteRepository = new GenericRepository<Comprobante>(_db);
             ComprobanteRepository = new ComprobanteRepository(_db);
             ArticuloRepository = new GenericRepository<Articulo>(_db);
             ClienteRepository = new GenericRepository<Cliente>(_db);
+            DestinatarioRepository = new GenericRepository<Destinatario>(_db);
+            RemitoStockRepository = new GenericRepository<RemitoStock>(_db);
             UsuarioRepository = new UsuarioRepository(_db);
             IdiomaRepository = new IdiomaRepository();
             BitacoraRepository = new BitacoraRepository(_db);
             CalculadoraIntegridadDVRepository = new CalculadoraIntegridadDVRepository(_db);
         }
         public IGenericRepository<Numerador> NumeradorRepository { get; }
-        //public IGenericRepository<Comprobante> ComprobanteRepository { get; }
         public IComprobanteRepository ComprobanteRepository { get; }
         public IGenericRepository<Articulo> ArticuloRepository { get; }
         public IGenericRepository<Cliente> ClienteRepository { get; }
-        public IGenericRepository<Etiqueta> EtiquetaRepository { get; }
+        public IGenericRepository<Destinatario> DestinatarioRepository { get; }
+        public IGenericRepository<RemitoStock> RemitoStockRepository { get; }
         public IIdiomaRepository IdiomaRepository { get; }
         public IBitacoraRepository BitacoraRepository { get; }
         public IUsuarioRepository UsuarioRepository { get; }

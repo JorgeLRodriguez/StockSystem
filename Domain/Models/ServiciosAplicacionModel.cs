@@ -33,6 +33,14 @@ namespace Domain.Models
         {
             get { return _enlazadorDeDependencias.Resolver<IComprobante>(); }
         }
+        public IDestinatario Destinatario
+        {
+            get { return _enlazadorDeDependencias.Resolver<IDestinatario>(); }
+        }
+        public IRemitoStock RemitoStock
+        {
+            get { return _enlazadorDeDependencias.Resolver<IRemitoStock>(); }
+        }
         public void Dispose()
         {
             _enlazadorDeDependencias?.Dispose();

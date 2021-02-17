@@ -54,7 +54,7 @@
             this.impbtn.Text = "Importar";
             this.impbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.impbtn.UseVisualStyleBackColor = true;
-            this.impbtn.Click += new System.EventHandler(this.iconButton1_Click);
+            this.impbtn.Click += new System.EventHandler(this.impbtn_Click);
             // 
             // csvdg
             // 

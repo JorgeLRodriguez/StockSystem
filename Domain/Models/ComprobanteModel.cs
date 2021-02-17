@@ -83,7 +83,10 @@ namespace Domain.Models
         }
         public IEnumerable<Comprobante> GetComprobanteScaneo()
         {
-            var C = _unitOfWork.ComprobanteRepository
+            IEnumerable<Comprobante> C = null;
+            try
+            {
+                C = _unitOfWork.ComprobanteRepository
                 .Get(
                 filter: x => x.id_tipo_comprobante.Equals(TipoComprobante.SIR.ToString()) &&
                 x.cierre.Equals(null) ||
@@ -92,8 +95,38 @@ namespace Domain.Models
                 .OrderByDescending(
                 x => x.ID
                 );
+            }
+            catch(Exception ex)
+            {
+                Log.Save(this, ex);
+                throw ex;
+            }
             if (C.Count() == 0) throw new Exception(ConstantesTexto.ErrorSinRegistros);
-            return C; 
+            return C;
+        }
+        public IEnumerable<Comprobante> GetComprobantePicking()
+        {
+            IEnumerable<Comprobante> C = null;
+            try
+            {
+                C = _unitOfWork.ComprobanteRepository
+                .Get(
+                filter: x => x.id_tipo_comprobante.Equals(TipoComprobante.SPK.ToString()) &&
+                x.cierre.Equals(null) ||
+                x.cierre != "C" ||
+                x.cierre != "D"
+                )
+                .OrderByDescending(
+                x => x.ID
+                );
+            }
+            catch (Exception ex)
+            {
+                Log.Save(this, ex);
+                throw ex;
+            }
+            if (C.Count() == 0) throw new Exception(ConstantesTexto.ErrorSinRegistros);
+            return C;
         }
         public void Update(Comprobante comprobante)
         {

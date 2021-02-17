@@ -11,5 +11,7 @@ namespace Domain.Contracts
         ICliente Cliente { get; }
         IArticulo Articulo { get; }
         IComprobante Comprobante { get; }
+        IDestinatario Destinatario { get; }
+        IRemitoStock RemitoStock { get; }
     }
 }

@@ -8,6 +8,7 @@ namespace Domain.Contracts
         Comprobante Create(Comprobante comprobante);
         TipoRechazo[] GetTipoRechazo(ITraductor _traductor);
         IEnumerable<Comprobante> GetComprobanteScaneo();
+        IEnumerable<Comprobante> GetComprobantePicking();
         void Update(Comprobante comprobante);
     }
 }

@@ -17,7 +17,7 @@ namespace Entities
 		public string numero_remito { get; set; }
 		[Required, RegularExpression("^[0-9]*$"), Range(1,6)]
 		public int regis_tipo_doc { get; set; }
-		[Required, RegularExpression("^[0-9]*$"), StringLength(11, MinimumLength = 1)]
+		[Required, RegularExpression("^[0-9]*$"), Range(1,999999999)]
 		public int numero_doc { get; set; }
 		[Required, StringLength(50, MinimumLength = 1)]
 		public string nombres_destinatario { get; set; }
@@ -31,7 +31,7 @@ namespace Entities
 		public string te_linea_destinatario { get; set; }
 		[Required, RegularExpression("^[0-9]*$"), StringLength(10, MinimumLength = 1)]
 		public string te_celular_destinatario { get; set; }
-		[Required, RegularExpression(@"\w + ([-+.’]\w +)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")]
+		[Required, EmailAddress, DataType(DataType.EmailAddress)]
 		public string email_dest_destinatario { get; set; }
 		[Required, DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "0:yyyy/MM/dd}")]
 		public DateTime fecha_entrega { get; set; }

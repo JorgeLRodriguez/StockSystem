@@ -34,5 +34,7 @@ namespace DataAccess.Repositories
         public IDbSet<Etiqueta> Etiqueta { get; set; }
         public IDbSet<Bitacora> Bitacora { get; set; }
         public IDbSet<DigitoVerificadorVertical> DigitoVerificadorVertical { get; set; }
+        public IDbSet<RemitoStock> RemitoStock { get; set; }
+        public IDbSet<Destinatario> Destinatario { get; set; }
     }
 }

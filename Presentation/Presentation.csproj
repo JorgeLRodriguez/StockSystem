@@ -80,7 +80,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ErrorDeValidacionException.cs" />
     <Compile Include="FormExtensions.cs" />
     <Compile Include="Forms\ABM\Articfrm.cs">
       <SubType>Form</SubType>

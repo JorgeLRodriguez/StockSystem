@@ -124,7 +124,7 @@ namespace UI
         }
         private void btnpicking_Click(object sender, EventArgs e)
         {
-            Form pickfrm = Pickingfrm.getInstance();
+            Form pickfrm = Pickingfrm.GetInstance(_serviciosAplicacion);
             openChildFormInPanel(pickfrm);
         }
         private void btntransf_Click(object sender, EventArgs e)

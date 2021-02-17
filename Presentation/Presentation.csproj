@@ -218,6 +218,7 @@
     <EmbeddedResource Include="Forms\ABM\Articfrm.resx">
       <DependentUpon>Articfrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Impresion\picking.rdlc" />
     <EmbeddedResource Include="Forms\Impresion\compbte.rdlc" />
     <EmbeddedResource Include="Forms\Impresion\etiqueta.rdlc" />
     <EmbeddedResource Include="Forms\Impresion\printcompfrm.resx">
@@ -271,6 +272,7 @@
     <None Include="Properties\DataSources\Entities.Cliente.datasource" />
     <None Include="Properties\DataSources\Entities.Comprobante.datasource" />
     <None Include="Properties\DataSources\Entities.ComprobanteDetalle.datasource" />
+    <None Include="Properties\DataSources\Entities.Destinatario.datasource" />
     <None Include="Properties\DataSources\Entities.Etiqueta.datasource" />
     <None Include="Properties\DataSources\Entities.TipoRechazo.datasource" />
     <None Include="Properties\Settings.settings">

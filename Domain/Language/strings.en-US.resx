@@ -369,4 +369,31 @@
   <data name="AtItemSinScan" xml:space="preserve">
     <value>There are unscanned items.</value>
   </data>
+  <data name="Estado" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Impreso" xml:space="preserve">
+    <value>Printed</value>
+  </data>
+  <data name="NoImpreso" xml:space="preserve">
+    <value>Not printed</value>
+  </data>
+  <data name="Despachado" xml:space="preserve">
+    <value>Dispatched</value>
+  </data>
+  <data name="InformePicking" xml:space="preserve">
+    <value>Picking Report</value>
+  </data>
+  <data name="CodigoPostal" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="Confirmado" xml:space="preserve">
+    <value>Confirmed</value>
+  </data>
+  <data name="ConfComprobante" xml:space="preserve">
+    <value>Do you want to confirm the receipt?</value>
+  </data>
+  <data name="ProcCorrecto" xml:space="preserve">
+    <value>Correct process.</value>
+  </data>
 </root>

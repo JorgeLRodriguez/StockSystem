@@ -125,10 +125,9 @@ namespace UI.Stock
         }
         private void Recepcionfrm_Load(object sender, EventArgs e)
         {
-            var list = _serviciosAplicacion.Cliente.Get();
             clientcbx.DisplayMember = "Descripcion";
             clientcbx.ValueMember = "Id";
-            clientcbx.DataSource = list;
+            clientcbx.DataSource = _serviciosAplicacion.Cliente.Get();
         }
     }
 }

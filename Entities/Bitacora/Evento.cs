@@ -13,6 +13,7 @@ namespace Entities.Bitacora
         public const int UsuarioFalloIngresandoCredenciales = 3;
         public const int ComprobanteGenerado = 4;
         public const int AltaDestinatario = 5;
+        public const int ComprobanteActualizado = 6;
 
         #endregion 
         [Key]

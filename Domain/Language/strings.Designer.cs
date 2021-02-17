@@ -214,6 +214,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Código Postal.
+        /// </summary>
+        internal static string CodigoPostal {
+            get {
+                return ResourceManager.GetString("CodigoPostal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Completar Cantidad.
         /// </summary>
         internal static string ComplCant {
@@ -259,11 +268,29 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ¿Desea confirmar el comprobante?.
+        /// </summary>
+        internal static string ConfComprobante {
+            get {
+                return ResourceManager.GetString("ConfComprobante", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Configuracion.
         /// </summary>
         internal static string Config {
             get {
                 return ResourceManager.GetString("Config", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirmado.
+        /// </summary>
+        internal static string Confirmado {
+            get {
+                return ResourceManager.GetString("Confirmado", resourceCulture);
             }
         }
         
@@ -291,6 +318,15 @@ namespace Domain.Language {
         internal static string Descripcion {
             get {
                 return ResourceManager.GetString("Descripcion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Despachado.
+        /// </summary>
+        internal static string Despachado {
+            get {
+                return ResourceManager.GetString("Despachado", resourceCulture);
             }
         }
         
@@ -394,6 +430,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Estado.
+        /// </summary>
+        internal static string Estado {
+            get {
+                return ResourceManager.GetString("Estado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Etiquetas.
         /// </summary>
         internal static string Etiq {
@@ -484,11 +529,29 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Impreso.
+        /// </summary>
+        internal static string Impreso {
+            get {
+                return ResourceManager.GetString("Impreso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Imprimir.
         /// </summary>
         internal static string Imprimir {
             get {
                 return ResourceManager.GetString("Imprimir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Informe de Picking.
+        /// </summary>
+        internal static string InformePicking {
+            get {
+                return ResourceManager.GetString("InformePicking", resourceCulture);
             }
         }
         
@@ -619,6 +682,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No impreso.
+        /// </summary>
+        internal static string NoImpreso {
+            get {
+                return ResourceManager.GetString("NoImpreso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Número de Comprobante.
         /// </summary>
         internal static string NumeroComprobante {
@@ -660,6 +732,15 @@ namespace Domain.Language {
         internal static string Picking {
             get {
                 return ResourceManager.GetString("Picking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Proceso correcto..
+        /// </summary>
+        internal static string ProcCorrecto {
+            get {
+                return ResourceManager.GetString("ProcCorrecto", resourceCulture);
             }
         }
         

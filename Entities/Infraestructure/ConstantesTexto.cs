@@ -61,6 +61,7 @@
         public const string Generado = "Generado";
         public const string InformeRecepcion = "InformeRecepcion";
         public const string InformeScaneo = "InformeScaneo";
+        public const string InformePicking = "InformePicking";
         public const string Sucursal = "Sucursal";
         public const string NumeroComprobante = "NumeroComprobante";
         public const string Cierre = "Cierre";
@@ -72,6 +73,13 @@
         public const string ProductoApto = "ProductoApto";
         public const string Expedicion = "Expedicion";
         public const string Suprimir = "Suprimir";
+        public const string Estado = "Estado";
+        public const string Impreso = "Impreso";
+        public const string Despachado = "Despachado";
+        public const string NoImpreso = "NoImpreso";
+        public const string CodigoPostal = "CodigoPostal";
+        public const string Confirmado = "Confirmado";
+        public const string ProcCorrecto = "ProcCorrecto";
 
         //TitulosForms
         public const string Login = "Login";
@@ -82,6 +90,7 @@
         public const string loginCorrecto = "loginCorrecto";
         public const string ComprobanteGenerado = "ComprobanteGenerado";
         public const string EtiquetasGeneradas = "EtiquetasGeneradas";
+        public const string ConfComprobante = "ConfComprobante";
 
         //MensajeAtencion
         public const string Atencion = "Atencion";

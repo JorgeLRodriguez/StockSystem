@@ -369,4 +369,31 @@
   <data name="AtItemSinScan" xml:space="preserve">
     <value>Hay items sin scanear.</value>
   </data>
+  <data name="Estado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Impreso" xml:space="preserve">
+    <value>Impreso</value>
+  </data>
+  <data name="NoImpreso" xml:space="preserve">
+    <value>No impreso</value>
+  </data>
+  <data name="Despachado" xml:space="preserve">
+    <value>Despachado</value>
+  </data>
+  <data name="InformePicking" xml:space="preserve">
+    <value>Informe de Picking</value>
+  </data>
+  <data name="CodigoPostal" xml:space="preserve">
+    <value>Código Postal</value>
+  </data>
+  <data name="Confirmado" xml:space="preserve">
+    <value>Confirmado</value>
+  </data>
+  <data name="ConfComprobante" xml:space="preserve">
+    <value>¿Desea confirmar el comprobante?</value>
+  </data>
+  <data name="ProcCorrecto" xml:space="preserve">
+    <value>Proceso correcto.</value>
+  </data>
 </root>

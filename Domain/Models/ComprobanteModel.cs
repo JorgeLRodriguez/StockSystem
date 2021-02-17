@@ -58,10 +58,7 @@ namespace Domain.Models
                     (
                     Evento.ComprobanteGenerado,
                     Severidad.Informativo,
-                    comprobante.id_tipo_comprobante + " - " +
-                    comprobante.letra_comprobante + " - " +
-                    comprobante.suc_comprobante + " - " +
-                    comprobante.num_comprobante
+                    comprobante.Descripcion
                     );
 
                 return comprobante;
@@ -88,15 +85,16 @@ namespace Domain.Models
             {
                 C = _unitOfWork.ComprobanteRepository
                 .Get(
-                filter: x => x.id_tipo_comprobante.Equals(TipoComprobante.SIR.ToString()) &&
-                x.cierre.Equals(null) ||
-                x.id_tipo_comprobante.Equals(TipoComprobante.SPK.ToString())
+                filter: x => 
+                x.id_tipo_comprobante.Equals(TipoComprobante.SPK.ToString()) && x.cierre.Equals("C") ||
+                x.id_tipo_comprobante.Equals(TipoComprobante.SIR.ToString()) && x.cierre.Equals(null) ||
+                x.id_tipo_comprobante.Equals(TipoComprobante.SIR.ToString()) && !x.cierre.Equals("D")
                 )
                 .OrderByDescending(
                 x => x.ID
                 );
-            }
-            catch(Exception ex)
+            } 
+            catch (Exception ex)
             {
                 Log.Save(this, ex);
                 throw ex;
@@ -113,8 +111,7 @@ namespace Domain.Models
                 .Get(
                 filter: x => x.id_tipo_comprobante.Equals(TipoComprobante.SPK.ToString()) &&
                 x.cierre.Equals(null) ||
-                x.cierre != "C" ||
-                x.cierre != "D"
+                x.cierre == "I"
                 )
                 .OrderByDescending(
                 x => x.ID
@@ -134,6 +131,12 @@ namespace Domain.Models
             {
                 _unitOfWork.ComprobanteRepository.Update(comprobante);
                 _unitOfWork.SaveChanges();
+                BitacoraModel.Default.RegistrarEnBitacora
+                    (
+                    Evento.ComprobanteActualizado,
+                    Severidad.Informativo,
+                    comprobante.Descripcion
+                    );
             }
             catch(Exception ex)
             {

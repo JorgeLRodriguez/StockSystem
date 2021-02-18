@@ -13,6 +13,7 @@ namespace UI.Stock
 {
     public partial class Pickingfrm : Form, ISubscriptorCambioIdioma
     {
+        #region FormSettings
         private readonly ITraductorUsuario _traductorUsuario;
         private readonly IServiciosAplicacion _serviciosAplicacion;
         private static Pickingfrm _instance = null;
@@ -31,6 +32,46 @@ namespace UI.Stock
                 _instance = new Pickingfrm(serviciosAplicacion);
             return _instance;
         }
+        #endregion
+        #region FormActions
+        private void printbtn_Click(object sender, EventArgs e)
+        {
+            if (SavePDF(reportViewer1))
+            {
+                try
+                {
+                    UpdateComp("I", C);
+                }
+                catch (Exception ex)
+                {
+                    this.MostrarDialogoError(_traductorUsuario, ex.Message);
+                }
+            }
+        }
+        private void maindg_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            C = list.Where(x => x.Descripcion.Equals(((DataGridView)sender).Rows[e.RowIndex].Cells[1].Value.ToString()))
+                    .FirstOrDefault();
+            EnabledButtons(C);
+            LoadReportViewerData(C);
+        }
+        private void confirmbtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, _traductorUsuario.Traducir(ConstantesTexto.ConfComprobante), this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    UpdateComp("C", C);
+                    this.MostrarDialogoInformacion(_traductorUsuario, ConstantesTexto.ProcCorrecto);
+                }
+                catch (Exception ex)
+                {
+                    this.MostrarDialogoError(_traductorUsuario, ex.Message);
+                }
+            }
+        }
+        #endregion
+        #region PrivateFunctions
         private void CargarComprobantes()
         {
             list = _serviciosAplicacion.Comprobante.GetComprobantePicking();
@@ -90,12 +131,12 @@ namespace UI.Stock
             Cliente.DataSource = _comprobante.Cliente;
             TipoRechazo.DataSource = _comprobante.ComprobanteDetalle.Select(x => x.TipoRechazo ?? new TipoRechazo());
             Destinatario.DataSource = _comprobante.Destinatario;
-            ReportDataSource ArticuloDS = new ReportDataSource("Articulo", Articulo);
-            ReportDataSource ComprobanteDS = new ReportDataSource("Comprobante", Comprobante);
-            ReportDataSource ComprobanteDetalleDS = new ReportDataSource("ComprobanteDetalle", ComprobanteDetalle);
-            ReportDataSource ClienteDS = new ReportDataSource("Cliente", Cliente);
-            ReportDataSource TipoRechazoDS = new ReportDataSource("TipoRechazo", TipoRechazo);
-            ReportDataSource DestinatarioDS = new ReportDataSource("Destinatario", Destinatario);
+            ReportDataSource ArticuloDS = new ReportDataSource(nameof(Articulo), Articulo);
+            ReportDataSource ComprobanteDS = new ReportDataSource(nameof(Comprobante), Comprobante);
+            ReportDataSource ComprobanteDetalleDS = new ReportDataSource(nameof(ComprobanteDetalle), ComprobanteDetalle);
+            ReportDataSource ClienteDS = new ReportDataSource(nameof(Cliente), Cliente);
+            ReportDataSource TipoRechazoDS = new ReportDataSource(nameof(TipoRechazo), TipoRechazo);
+            ReportDataSource DestinatarioDS = new ReportDataSource(nameof(Destinatario), Destinatario);
             this.reportViewer1.LocalReport.DataSources.Clear();
             this.reportViewer1.LocalReport.DataSources.Add(ArticuloDS);
             this.reportViewer1.LocalReport.DataSources.Add(ComprobanteDS);
@@ -107,16 +148,6 @@ namespace UI.Stock
             this.reportViewer1.RefreshReport();
             Cursor = Cursors.Default;
         }
-        public void IdiomaCambiado(Idioma nuevoIdioma)
-        {
-            maindg.Columns[0].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Cliente);
-            maindg.Columns[1].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Comprobante);
-            maindg.Columns[2].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Fecha);
-            maindg.Columns[3].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Estado);
-            printbtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Imprimir);
-            confirmbtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Conf);
-            Inicio();
-        }
         private void Inicio()
         {
             maindg.Rows.Clear();
@@ -125,23 +156,9 @@ namespace UI.Stock
             C = list.FirstOrDefault();
             EnabledButtons(C);
             LoadReportViewerData(C);
-            this.reportViewer1.RefreshReport();
+            reportViewer1.RefreshReport();
         }
-        private void printbtn_Click(object sender, EventArgs e)
-        {
-            if (SavePDF(reportViewer1))
-            {
-                try
-                {
-                    UpdateComp("I", C);
-                }
-                catch (Exception ex)
-                {
-                    this.MostrarDialogoError(_traductorUsuario, ex.Message);
-                }
-            }
-        }
-        private void UpdateComp (string cierre, Comprobante C)
+        private void UpdateComp(string cierre, Comprobante C)
         {
             C.cierre = cierre;
             _serviciosAplicacion.Comprobante.Update(C);
@@ -165,7 +182,7 @@ namespace UI.Stock
             }
             return false;
         }
-        private void EnabledButtons (Comprobante C)
+        private void EnabledButtons(Comprobante C)
         {
             if (C.cierre == null)
             {
@@ -178,27 +195,18 @@ namespace UI.Stock
                 confirmbtn.Enabled = true;
             }
         }
-        private void maindg_CellClick(object sender, DataGridViewCellEventArgs e)
+        #endregion
+        #region Language
+        public void IdiomaCambiado(Idioma nuevoIdioma)
         {
-            C = list.Where(x => x.Descripcion.Equals(((DataGridView)sender).Rows[e.RowIndex].Cells[1].Value.ToString()))
-                    .FirstOrDefault();
-            EnabledButtons(C);
-            LoadReportViewerData(C);
+            maindg.Columns[0].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Cliente);
+            maindg.Columns[1].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Comprobante);
+            maindg.Columns[2].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Fecha);
+            maindg.Columns[3].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Estado);
+            printbtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Imprimir);
+            confirmbtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Conf);
+            Inicio();
         }
-        private void confirmbtn_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(this, _traductorUsuario.Traducir(ConstantesTexto.ConfComprobante), this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                try
-                {
-                    UpdateComp("C", C);
-                    this.MostrarDialogoInformacion(_traductorUsuario, ConstantesTexto.ProcCorrecto);
-                }
-                catch (Exception ex)
-                {
-                    this.MostrarDialogoError(_traductorUsuario, ex.Message);
-                }
-            }               
-        }
+        #endregion
     }
 }

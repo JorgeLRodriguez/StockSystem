@@ -10,6 +10,7 @@ namespace UI.Stock
 {
     public partial class Recepcionfrm : Form , ISubscriptorCambioIdioma
     {
+        #region FormSettings
         private readonly ITraductorUsuario _traductorUsuario;
         private readonly IServiciosAplicacion _serviciosAplicacion;
         private static Recepcionfrm _instance = null;
@@ -26,9 +27,15 @@ namespace UI.Stock
                 _instance = new Recepcionfrm(serviciosAplicacion);
             return _instance;
         }
+        #endregion
+        #region FormActions
+        private void Recepcionfrm_Load(object sender, EventArgs e)
+        {
+            ListClients();
+        }
         private void Clientcbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List_Articles();
+            ListArticles();
         }
         private void Addbtn_Click(object sender, EventArgs e)
         {
@@ -39,21 +46,6 @@ namespace UI.Stock
             if (invdetdataGrid.Rows.Count == 0) return;
             invdetdataGrid.Rows.Remove(invdetdataGrid.CurrentRow);
         }
-        private void List_Articles()
-        {
-            try
-            {
-                DataGridViewComboBoxColumn articlecbdg = invdetdataGrid.Columns[0] as DataGridViewComboBoxColumn;
-                var list = _serviciosAplicacion.Articulo.GetByClient(int.Parse(clientcbx.SelectedValue.ToString()));
-                articlecbdg.DisplayMember = "Descripcion";
-                articlecbdg.ValueMember = "ID";
-                articlecbdg.DataSource = list;
-            }
-            catch (Exception ex)
-            {
-                this.MostrarDialogoError(_traductorUsuario, ex.Message);
-            }
-        }
         private void Savebtn_Click(object sender, EventArgs e)
         {
             invdetdataGrid.EndEdit();
@@ -61,28 +53,24 @@ namespace UI.Stock
             {
                 Comprobante comprobante = new Comprobante
                 {
-                    Cliente_ID = Int32.Parse(clientcbx.SelectedValue.ToString()),
+                    Cliente_ID = ((Cliente)clientcbx.SelectedValue).ID,
                     id_tipo_comprobante = TipoComprobante.SIR.ToString(),
                     letra_comprobante = lettertxt.Text,
                     suc_comprobante = int.Parse(subsidiarytxt.Text),
                     nro_remito_cliente = (remitotxt.Text).ToString().Trim(),
-                    fecha_comprobante = voucherPicker.Value,
-                    CreatedBy = Environment.UserName,
-                    CreatedOn = DateTime.Now
+                    fecha_comprobante = voucherPicker.Value
                 };
-
                 List<ComprobanteDetalle> comprobanteDetalles = new List<ComprobanteDetalle>();
                 if (invdetdataGrid.Rows.Count > 0)
                 {
                     foreach (DataGridViewRow row in invdetdataGrid.Rows)
                     {
-                        ComprobanteDetalle comprobanteDetalle = new ComprobanteDetalle
+                        comprobanteDetalles.Add(new ComprobanteDetalle()
                         {
                             Articulo_ID = String.IsNullOrEmpty(row.Cells[0].EditedFormattedValue.ToString()) ? 0 : (int)row.Cells[0].Value,
                             cantidad = String.IsNullOrEmpty(row.Cells[1].EditedFormattedValue.ToString()) ? 0 : int.Parse(row.Cells[1].EditedFormattedValue.ToString()),
                             linea = row.Index + 1,
-                        };
-                        comprobanteDetalles.Add(comprobanteDetalle);
+                        });
                     }
                 }
                 comprobante.ComprobanteDetalle = comprobanteDetalles;
@@ -97,13 +85,41 @@ namespace UI.Stock
                 this.MostrarDialogoError(_traductorUsuario, ex.Message);
             }
         }
+        private void btnclose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        #endregion
+        #region PrivateFunctions
+        private void ListArticles()
+        {
+            try
+            {
+                DataGridViewComboBoxColumn articlecbdg = invdetdataGrid.Columns[0] as DataGridViewComboBoxColumn;
+                articlecbdg.DisplayMember = nameof(Articulo.Descripcion);
+                articlecbdg.ValueMember = nameof(Articulo.ID);
+                articlecbdg.DataSource = _serviciosAplicacion.Articulo.GetByClient((Cliente)clientcbx.SelectedValue);
+            }
+            catch (Exception ex)
+            {
+                this.MostrarDialogoError(_traductorUsuario, ex.Message);
+            }
+        }
+        private void ListClients()
+        {
+            clientcbx.DisplayMember = nameof(Cliente.Descripcion);
+            clientcbx.DataSource = _serviciosAplicacion.Cliente.Get();
+        }
         private void Reset()
         {
-            List_Articles();
+            ListClients();
+            ListArticles();
             voucherPicker.ResetText();
             remitotxt.Clear();
             invdetdataGrid.Rows.Clear();
         }
+        #endregion
+        #region Language
         public void IdiomaCambiado(Idioma nuevoIdioma)
         {
             invdetdataGrid.Columns[0].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Articulos).Substring(0, _traductorUsuario.Traducir(ConstantesTexto.Articulos).Length - 1);
@@ -119,15 +135,6 @@ namespace UI.Stock
             typetxt.Text = TipoComprobante.SIR.ToString();
             this.Text = _traductorUsuario.Traducir(ConstantesTexto.Recepcion);
         }
-        private void btnclose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-        private void Recepcionfrm_Load(object sender, EventArgs e)
-        {
-            clientcbx.DisplayMember = "Descripcion";
-            clientcbx.ValueMember = "Id";
-            clientcbx.DataSource = _serviciosAplicacion.Cliente.Get();
-        }
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ namespace UI.Stock
 {
     public partial class Importarfrm : Form, ISubscriptorCambioIdioma
     {
+        #region FormSettings
         private readonly ITraductorUsuario _traductorUsuario;
         private readonly IServiciosAplicacion _serviciosAplicacion;
         private static Importarfrm _instance = null;
@@ -28,6 +29,8 @@ namespace UI.Stock
                 _instance = new Importarfrm(serviciosAplicacion);
             return _instance;
         }
+        #endregion
+        #region FormActions
         private void impbtn_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -73,6 +76,8 @@ namespace UI.Stock
                 this.MostrarDialogoError(_traductorUsuario, ex.Message);
             }       
         }
+        #endregion
+        #region PrivateFunctions
         private List<RemitoStock> GetRemitos (DataGridView dg)
         {
             List<RemitoStock> remitoStocks = new List<RemitoStock>();
@@ -110,11 +115,14 @@ namespace UI.Stock
             }
             return remitoStocks;
         }
+        #endregion
+        #region Language
         public void IdiomaCambiado(Idioma nuevoIdioma)
         {
             impbtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Importar);
             savebtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Guardar);
             openFileDialog.Title = _traductorUsuario.Traducir(ConstantesTexto.Importar);
         }
+        #endregion
     }
 }

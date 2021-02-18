@@ -15,12 +15,12 @@ namespace Domain.Models
         {
             _unitOfWork = unitOfWork;
         }
-        public IEnumerable<Articulo> GetByClient(int? id_cliente)
+        public IEnumerable<Articulo> GetByClient(Cliente cliente)
         {
             IEnumerable<Articulo> articulos;
             try
             {
-                articulos = _unitOfWork.ArticuloRepository.Get(filter: x => x.Cliente_ID == id_cliente);
+                articulos = _unitOfWork.ArticuloRepository.Get(filter: x => x.Cliente_ID == cliente.ID);
 
             }
             catch (Exception ex)

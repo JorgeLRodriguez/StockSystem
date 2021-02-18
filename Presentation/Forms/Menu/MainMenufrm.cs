@@ -119,7 +119,7 @@ namespace UI
         }
         private void btnscaneo_Click(object sender, EventArgs e)
         {
-            Form scanfrm = Scaneofrm.getInstance(_serviciosAplicacion);
+            Form scanfrm = Scaneofrm.GetInstance(_serviciosAplicacion);
             openChildFormInPanel(scanfrm);
         }
         private void btnpicking_Click(object sender, EventArgs e)
@@ -134,7 +134,7 @@ namespace UI
         }
         private void btnajuste_Click(object sender, EventArgs e)
         {
-            Form ajfrm = AjusteInvfrm.getInstance();
+            Form ajfrm = AjusteInvfrm.GetInstance(_serviciosAplicacion);
             openChildFormInPanel(ajfrm);
         }
         private void btnImportar_Click(object sender, EventArgs e)

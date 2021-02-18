@@ -11,6 +11,7 @@ namespace UI.Stock
 {
     public partial class Scaneofrm : Form , ISubscriptorCambioIdioma
     {
+        #region FormSettings
         private readonly ITraductorUsuario _traductorUsuario;
         private readonly IServiciosAplicacion _serviciosAplicacion;
         private List<TipoRechazo> _tipoRechazo;
@@ -22,16 +23,108 @@ namespace UI.Stock
             _traductorUsuario = serviciosAplicacion.TraductorUsuario;
             this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
         }
-        public static Scaneofrm getInstance(IServiciosAplicacion serviciosAplicacion)
+        public static Scaneofrm GetInstance(IServiciosAplicacion serviciosAplicacion)
         {
             if (_instance == null || _instance.IsDisposed)
                 _instance = new Scaneofrm(serviciosAplicacion);
             return _instance;
         }
+        #endregion
+        #region FormActions
+        private void receiptcb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            maindg.Rows.Clear();
+            scandg.Rows.Clear();
+            receiptdg.Rows.Clear();
+            var comprobante = (Comprobante)receiptcb.SelectedItem;
+            comprobante.ComprobanteDetalle.ToList().ForEach(x => LoadMainDg(x));
+            if (comprobante.id_tipo_comprobante.Equals(TipoComprobante.SPK.ToString()))
+            {
+                expedbtn.Visible = true;
+            }
+            else
+            {
+                expedbtn.Visible = false;
+            }
+        }
+        private void scandg_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                string tipoDesc = ((DataGridView)sender).Rows[e.RowIndex].Cells[2].Value.ToString();
+                string codigo = ((DataGridView)sender).Rows[e.RowIndex].Cells[1].Value.ToString();
+                string barraDesc = ((Comprobante)receiptcb.SelectedItem).ComprobanteDetalle
+                    .Where(cd => cd.Articulo.Codigo_fs == codigo)
+                    .Select(cd => cd.Articulo.BarraDesc)
+                    .FirstOrDefault();
+                scandg.Rows.Remove(scandg.Rows[e.RowIndex]);
+                UpdateMaindg(barraDesc);
+                UpdateReceiptdg(codigo, tipoDesc);
+            }
+        }
+        private void codetxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!CompararScanConCodigo(codetxt.Text)) codetxt.Text = "";
+                codetxt.SelectAll();
+            }
+        }
+        private void dcbtn_Click(object sender, EventArgs e)
+        {
+            if (!CountScans()) { this.MostrarDialogoAdvertencia(_traductorUsuario, ConstantesTexto.AtItemSinScan); return; }
+            try
+            {
+                var comp = (Comprobante)receiptcb.SelectedItem;
+                Comprobante C = new Comprobante()
+                {
+                    Cliente_ID = comp.Cliente_ID,
+                    id_tipo_comprobante = TipoComprobante.SIS.ToString(),
+                    letra_comprobante = comp.letra_comprobante,
+                    suc_comprobante = comp.suc_comprobante,
+                    nro_remito_cliente = comp.nro_remito_cliente,
+                    cierre = "D",
+                    fecha_comprobante = DateTime.Now,
+                };
+                List<ComprobanteDetalle> CD = new List<ComprobanteDetalle>();
+                if (maindg.Rows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in receiptdg.Rows)
+                    {
+                        CD.Add(new ComprobanteDetalle()
+                        {
+                            Articulo_ID = Convert.ToInt32(row.Cells[3].Value),
+                            linea = row.Index + 1,
+                            cantidad = Convert.ToInt32(row.Cells[2].Value),
+                            id_tipo_rechazo = Convert.ToInt32(row.Cells[1].Value),
+                            TipoRechazo = _tipoRechazo.Where(x => x.ID.Equals(row.Cells[1].Value)).FirstOrDefault()
+                        });
+                    }
+                }
+                C.ComprobanteDetalle = CD;
+                C = _serviciosAplicacion.Comprobante.Create(C);
+                comp.cierre = "D";
+                _serviciosAplicacion.Comprobante.Update(comp);
+                this.MostrarDialogoInformacion(_traductorUsuario, ConstantesTexto.ComprobanteGenerado);
+                new printcompfrm(C, _serviciosAplicacion).ShowDialog();
+                Inicio();
+            }
+            catch (Exception ex)
+            {
+                this.MostrarDialogoError(_traductorUsuario, ex.Message);
+            }
+        }
+        private void btnclose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
         private void Scaneofrm_Load(object sender, EventArgs e)
         {
             Inicio();
         }
+        #endregion
+        #region PrivateFunctions
         private void CargarTiposRechazo()
         {
             _tipoRechazo = _serviciosAplicacion.Comprobante.GetTipoRechazo(_traductorUsuario).ToList();
@@ -51,22 +144,6 @@ namespace UI.Stock
             catch(Exception ex)
             {
                 this.MostrarDialogoError(_traductorUsuario, ex.Message);
-            }
-        }
-        private void receiptcb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            maindg.Rows.Clear();
-            scandg.Rows.Clear();
-            receiptdg.Rows.Clear();
-            var comprobante = (Comprobante)receiptcb.SelectedItem;
-            comprobante.ComprobanteDetalle.ToList().ForEach(x => LoadMainDg(x));
-            if (comprobante.id_tipo_comprobante.Equals(TipoComprobante.SPK.ToString()))
-            {
-                expedbtn.Visible = true;
-            }
-            else
-            {
-                expedbtn.Visible = false;
             }
         }
         private bool CompararScanConCodigo (string _codBarra)
@@ -143,7 +220,6 @@ namespace UI.Stock
             comprobanteDetalle.Articulo.Codigo_fs,
             ((TipoRechazo)reasoncb.SelectedItem).ID,
             cantidad,
-            //
             comprobanteDetalle.Articulo_ID
             );
         }
@@ -194,78 +270,8 @@ namespace UI.Stock
             CargarTiposRechazo();
             CargarComprobante();
         }
-        private void scandg_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
-            {
-                string tipoDesc = ((DataGridView)sender).Rows[e.RowIndex].Cells[2].Value.ToString();
-                string codigo = ((DataGridView)sender).Rows[e.RowIndex].Cells[1].Value.ToString();
-                string barraDesc = ((Comprobante)receiptcb.SelectedItem).ComprobanteDetalle
-                    .Where(cd => cd.Articulo.Codigo_fs == codigo)
-                    .Select(cd => cd.Articulo.BarraDesc)
-                    .FirstOrDefault();
-                scandg.Rows.Remove(scandg.Rows[e.RowIndex]);
-                UpdateMaindg(barraDesc);
-                UpdateReceiptdg(codigo, tipoDesc);
-            }
-        }
-        private void codetxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (!CompararScanConCodigo(codetxt.Text)) codetxt.Text = "";
-                codetxt.SelectAll();
-            }
-        }
-        private void dcbtn_Click(object sender, EventArgs e)
-        {
-            if (!CountScans()) { this.MostrarDialogoAdvertencia(_traductorUsuario, ConstantesTexto.AtItemSinScan); return; }
-            try
-            {
-                var comp = (Comprobante)receiptcb.SelectedItem;
-                Comprobante C = new Comprobante()
-                {
-                    Cliente_ID = comp.Cliente_ID,
-                    id_tipo_comprobante = TipoComprobante.SIS.ToString(),
-                    letra_comprobante = comp.letra_comprobante,
-                    suc_comprobante = comp.suc_comprobante,
-                    nro_remito_cliente = comp.nro_remito_cliente,
-                    cierre = "D",
-                    fecha_comprobante = DateTime.Now,
-                };
-                List<ComprobanteDetalle> CD = new List<ComprobanteDetalle>();
-                if (maindg.Rows.Count > 0)
-                {
-                    foreach (DataGridViewRow row in receiptdg.Rows)
-                    {
-                        CD.Add(new ComprobanteDetalle()
-                        {
-                            Articulo_ID = Convert.ToInt32(row.Cells[3].Value),
-                            linea =  row.Index + 1,
-                            cantidad = Convert.ToInt32(row.Cells[2].Value),
-                            id_tipo_rechazo = Convert.ToInt32(row.Cells[1].Value),
-                            TipoRechazo = _tipoRechazo.Where(x => x.ID.Equals(row.Cells[1].Value)).FirstOrDefault()
-                        });
-                    }
-                }
-                C.ComprobanteDetalle = CD;
-                C = _serviciosAplicacion.Comprobante.Create(C);
-                comp.cierre = "D";
-                _serviciosAplicacion.Comprobante.Update(comp);
-                this.MostrarDialogoInformacion(_traductorUsuario, ConstantesTexto.ComprobanteGenerado);
-                new printcompfrm(C, _serviciosAplicacion).ShowDialog();
-                Inicio();
-            }
-            catch (Exception ex)
-            {
-                this.MostrarDialogoError(_traductorUsuario, ex.Message);
-            }
-        }
-        private void btnclose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        #endregion
+        #region Language
         public void IdiomaCambiado(Idioma nuevoIdioma)
         {
             maindg.Columns[0].HeaderText = _traductorUsuario.Traducir(ConstantesTexto.Linea);
@@ -286,5 +292,6 @@ namespace UI.Stock
             expedbtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Expedicion);
             CargarTiposRechazo();
         }
+        #endregion
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Domain.Contracts;
+using Entities;
+using Entities.Infraestructure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,17 +13,36 @@ using System.Windows.Forms;
 
 namespace UI.Stock
 {
-    public partial class AjusteInvfrm : Form
+    public partial class AjusteInvfrm : Form, ISubscriptorCambioIdioma
     {
-        public AjusteInvfrm()
+        private readonly ITraductorUsuario _traductorUsuario;
+        private readonly IServiciosAplicacion _serviciosAplicacion;
+        private static AjusteInvfrm _instance = null;
+        public AjusteInvfrm(IServiciosAplicacion serviciosAplicacion)
         {
             InitializeComponent();
+            _serviciosAplicacion = serviciosAplicacion;
+            _traductorUsuario = serviciosAplicacion.TraductorUsuario;
+            this.EnlazarmeConServiciosDeTraduccion(_traductorUsuario);
         }
-        private static AjusteInvfrm instance = null;
-        public static AjusteInvfrm getInstance()
+        public static AjusteInvfrm GetInstance(IServiciosAplicacion serviciosAplicacion)
         {
-            if (instance == null) { instance = new AjusteInvfrm(); }
-            return instance;
+            if (_instance == null || _instance.IsDisposed)
+                _instance = new AjusteInvfrm(serviciosAplicacion);
+            return _instance;
+        }
+
+        private void savebtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void IdiomaCambiado(Idioma nuevoIdioma)
+        {
+            clientlab.Text = _traductorUsuario.Traducir(ConstantesTexto.Cliente);
+            datelab.Text = _traductorUsuario.Traducir(ConstantesTexto.Fecha);
+            obslab.Text = _traductorUsuario.Traducir(ConstantesTexto.Observacion);
+            savebtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Guardar);
         }
     }
 }

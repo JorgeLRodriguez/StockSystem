@@ -67,33 +67,34 @@ namespace UI
             thisControl.ValueMember = valueMember;
             thisControl.DataSource = dataSource.AsObservable();
         }
+        //public DataGridView DataGridView()
 
-        #region "DateTimePicker Extensions"
+        //#region "DateTimePicker Extensions"
 
-        public static void ConfigurarSoloHora(this DateTimePicker thisControl)
-        {
-            thisControl.Format = DateTimePickerFormat.Custom;
-            thisControl.CustomFormat = "HH:mm";
-            thisControl.ShowUpDown = true;
-        }
+        //public static void ConfigurarSoloHora(this DateTimePicker thisControl)
+        //{
+        //    thisControl.Format = DateTimePickerFormat.Custom;
+        //    thisControl.CustomFormat = "HH:mm";
+        //    thisControl.ShowUpDown = true;
+        //}
 
-        public static void ConfigurarFormatoFechaHora(this DateTimePicker thisControl)
-        {
-            thisControl.Format = DateTimePickerFormat.Custom;
-            thisControl.CustomFormat = "yyyy-MM-dd HH:mm";
-            thisControl.ShowUpDown = true;
-        }
+        //public static void ConfigurarFormatoFechaHora(this DateTimePicker thisControl)
+        //{
+        //    thisControl.Format = DateTimePickerFormat.Custom;
+        //    thisControl.CustomFormat = "yyyy-MM-dd HH:mm";
+        //    thisControl.ShowUpDown = true;
+        //}
 
-        public static void EstablecerValorEntreElRangoPermitido(this DateTimePicker thisControl, DateTime value)
-        {
-            if (value < thisControl.MinDate)
-                thisControl.Value = thisControl.MinDate;
-            else if (value > thisControl.MaxDate)
-                thisControl.Value = thisControl.MaxDate;
-            else
-                thisControl.Value = value;
-        }
+        //public static void EstablecerValorEntreElRangoPermitido(this DateTimePicker thisControl, DateTime value)
+        //{
+        //    if (value < thisControl.MinDate)
+        //        thisControl.Value = thisControl.MinDate;
+        //    else if (value > thisControl.MaxDate)
+        //        thisControl.Value = thisControl.MaxDate;
+        //    else
+        //        thisControl.Value = value;
+        //}
 
-        #endregion
+        //#endregion
     }
 }

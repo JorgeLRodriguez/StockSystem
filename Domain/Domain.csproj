@@ -51,7 +51,10 @@
     <Compile Include="Contracts\IBitacora.cs" />
     <Compile Include="Contracts\ICliente.cs" />
     <Compile Include="Contracts\IComprobante.cs" />
+    <Compile Include="Contracts\IDeposito.cs" />
     <Compile Include="Contracts\IDestinatario.cs" />
+    <Compile Include="Contracts\IPallet.cs" />
+    <Compile Include="Contracts\IPasillo.cs" />
     <Compile Include="Contracts\IRemitoStock.cs" />
     <Compile Include="Contracts\IServiciosAplicacion.cs" />
     <Compile Include="Contracts\ISubscriptorIdioma.cs" />
@@ -79,7 +82,10 @@
     <Compile Include="Models\ArticuloModel.cs" />
     <Compile Include="Models\ClienteModel.cs" />
     <Compile Include="Models\ComprobanteModel.cs" />
+    <Compile Include="Models\DepositoModel.cs" />
     <Compile Include="Models\DestinatarioModel.cs" />
+    <Compile Include="Models\PalletModel.cs" />
+    <Compile Include="Models\PasilloModel.cs" />
     <Compile Include="Models\RemitoStockModel.cs" />
     <Compile Include="Models\ServiciosAplicacionModel.cs" />
     <Compile Include="Models\TraductorUsuarioModel.cs" />

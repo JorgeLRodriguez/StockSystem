@@ -36,5 +36,8 @@ namespace DataAccess.Repositories
         public IDbSet<DigitoVerificadorVertical> DigitoVerificadorVertical { get; set; }
         public IDbSet<RemitoStock> RemitoStock { get; set; }
         public IDbSet<Destinatario> Destinatario { get; set; }
+        public IDbSet<Deposito> Deposito { get; set; }
+        public IDbSet<Pasillo> Pasillo { get; set; }
+        public IDbSet< Pallet> Pallet { get; set; }
     }
 }

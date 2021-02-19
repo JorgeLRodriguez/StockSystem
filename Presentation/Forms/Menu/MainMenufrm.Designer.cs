@@ -98,7 +98,7 @@ namespace UI
             this.panelReportes.Controls.Add(this.btnInventario);
             this.panelReportes.Controls.Add(this.btndeposito);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportes.Location = new System.Drawing.Point(0, 683);
+            this.panelReportes.Location = new System.Drawing.Point(0, 645);
             this.panelReportes.Name = "panelReportes";
             this.panelReportes.Size = new System.Drawing.Size(250, 214);
             this.panelReportes.TabIndex = 6;
@@ -225,7 +225,7 @@ namespace UI
             this.btnReportes.IconColor = System.Drawing.Color.White;
             this.btnReportes.IconSize = 40;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 623);
+            this.btnReportes.Location = new System.Drawing.Point(0, 585);
             this.btnReportes.MaximumSize = new System.Drawing.Size(250, 60);
             this.btnReportes.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnReportes.Name = "btnReportes";
@@ -247,7 +247,7 @@ namespace UI
             this.panelABM.Controls.Add(this.btnPxE);
             this.panelABM.Controls.Add(this.btnArticulos);
             this.panelABM.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelABM.Location = new System.Drawing.Point(0, 478);
+            this.panelABM.Location = new System.Drawing.Point(0, 440);
             this.panelABM.Name = "panelABM";
             this.panelABM.Size = new System.Drawing.Size(250, 145);
             this.panelABM.TabIndex = 4;
@@ -338,7 +338,7 @@ namespace UI
             this.btnABM.IconColor = System.Drawing.Color.White;
             this.btnABM.IconSize = 40;
             this.btnABM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnABM.Location = new System.Drawing.Point(0, 418);
+            this.btnABM.Location = new System.Drawing.Point(0, 380);
             this.btnABM.MaximumSize = new System.Drawing.Size(250, 60);
             this.btnABM.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnABM.Name = "btnABM";
@@ -364,7 +364,7 @@ namespace UI
             this.panelStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStock.Location = new System.Drawing.Point(0, 202);
             this.panelStock.Name = "panelStock";
-            this.panelStock.Size = new System.Drawing.Size(250, 216);
+            this.panelStock.Size = new System.Drawing.Size(250, 178);
             this.panelStock.TabIndex = 2;
             this.panelStock.Visible = false;
             // 
@@ -402,6 +402,7 @@ namespace UI
             this.btnajuste.Text = "Ajuste";
             this.btnajuste.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnajuste.UseVisualStyleBackColor = true;
+            this.btnajuste.Visible = false;
             this.btnajuste.Click += new System.EventHandler(this.btnajuste_Click);
             // 
             // btntransf

@@ -129,7 +129,7 @@ namespace UI
         }
         private void btntransf_Click(object sender, EventArgs e)
         {
-            Form tranfrm = Transferenciafrm.getInstance();
+            Form tranfrm = Transferenciafrm.GetInstance(_serviciosAplicacion);
             openChildFormInPanel(tranfrm);
         }
         private void btnajuste_Click(object sender, EventArgs e)

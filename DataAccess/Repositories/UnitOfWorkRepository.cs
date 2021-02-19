@@ -14,7 +14,6 @@ namespace DataAccess.Repositories
             get { return _default.Value; }
         }
         #endregion
-
         private readonly DatabaseContext _db;
         public UnitOfWorkRepository(DatabaseContext _context)
         {
@@ -29,6 +28,9 @@ namespace DataAccess.Repositories
             IdiomaRepository = new IdiomaRepository();
             BitacoraRepository = new BitacoraRepository(_db);
             CalculadoraIntegridadDVRepository = new CalculadoraIntegridadDVRepository(_db);
+            PasilloRepository = new GenericRepository<Pasillo>(_db);
+            PalletRepository = new GenericRepository<Pallet>(_db);
+            DepositoRepository = new GenericRepository<Deposito>(_db);
         }
         public IGenericRepository<Numerador> NumeradorRepository { get; }
         public IComprobanteRepository ComprobanteRepository { get; }
@@ -40,6 +42,9 @@ namespace DataAccess.Repositories
         public IBitacoraRepository BitacoraRepository { get; }
         public IUsuarioRepository UsuarioRepository { get; }
         public ICalculadoraIntegridadDVRepository CalculadoraIntegridadDVRepository { get; }
+        public IGenericRepository<Pasillo> PasilloRepository { get; }
+        public IGenericRepository<Deposito> DepositoRepository { get; }
+        public IGenericRepository<Pallet> PalletRepository { get; }
         public void Dispose() { _db.Dispose(); }
         public void SaveChanges() { _db.SaveChanges(); }
     }

@@ -396,4 +396,16 @@
   <data name="ProcCorrecto" xml:space="preserve">
     <value>Proceso correcto.</value>
   </data>
+  <data name="Domicilio" xml:space="preserve">
+    <value>Domicilio</value>
+  </data>
+  <data name="Pasillo" xml:space="preserve">
+    <value>Pasillo</value>
+  </data>
+  <data name="Columna" xml:space="preserve">
+    <value>Columna</value>
+  </data>
+  <data name="Fila" xml:space="preserve">
+    <value>Fila</value>
+  </data>
 </root>

@@ -223,6 +223,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Columna.
+        /// </summary>
+        internal static string Columna {
+            get {
+                return ResourceManager.GetString("Columna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Completar Cantidad.
         /// </summary>
         internal static string ComplCant {
@@ -349,6 +358,15 @@ namespace Domain.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Domicilio.
+        /// </summary>
+        internal static string Domicilio {
+            get {
+                return ResourceManager.GetString("Domicilio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Duplicado.
         /// </summary>
         internal static string Duplicado {
@@ -471,6 +489,15 @@ namespace Domain.Language {
         internal static string Fecha {
             get {
                 return ResourceManager.GetString("Fecha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fila.
+        /// </summary>
+        internal static string Fila {
+            get {
+                return ResourceManager.GetString("Fila", resourceCulture);
             }
         }
         
@@ -723,6 +750,15 @@ namespace Domain.Language {
         internal static string Original {
             get {
                 return ResourceManager.GetString("Original", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Pasillo.
+        /// </summary>
+        internal static string Pasillo {
+            get {
+                return ResourceManager.GetString("Pasillo", resourceCulture);
             }
         }
         

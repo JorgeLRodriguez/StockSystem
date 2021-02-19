@@ -65,9 +65,9 @@
             // 
             this.obslab.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.obslab.ForeColor = System.Drawing.Color.White;
-            this.obslab.Location = new System.Drawing.Point(483, 7);
+            this.obslab.Location = new System.Drawing.Point(478, 8);
             this.obslab.Name = "obslab";
-            this.obslab.Size = new System.Drawing.Size(115, 26);
+            this.obslab.Size = new System.Drawing.Size(124, 26);
             this.obslab.TabIndex = 5;
             this.obslab.Text = "Observacion";
             this.obslab.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -77,9 +77,9 @@
             this.obstxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.obstxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.obstxt.Location = new System.Drawing.Point(596, 8);
+            this.obstxt.Location = new System.Drawing.Point(608, 8);
             this.obstxt.Name = "obstxt";
-            this.obstxt.Size = new System.Drawing.Size(326, 26);
+            this.obstxt.Size = new System.Drawing.Size(314, 26);
             this.obstxt.TabIndex = 6;
             // 
             // dataGridView1
@@ -154,6 +154,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AjusteInvfrm";
             this.Text = "AjusteInvfrm";
+            this.Load += new System.EventHandler(this.AjusteInvfrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

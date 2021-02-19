@@ -74,15 +74,22 @@ namespace UI.Stock
         #region PrivateFunctions
         private void CargarComprobantes()
         {
-            list = _serviciosAplicacion.Comprobante.GetComprobantePicking();
-            foreach (var item in list)
+            try
             {
-                maindg.Rows.Add(
-                    item.Cliente.Descripcion,
-                    item.Descripcion,
-                    item.fecha_comprobante,
-                    GetStatus(item.cierre)
-                    );         
+                list = _serviciosAplicacion.Comprobante.GetComprobantePicking();
+                foreach (var item in list)
+                {
+                    maindg.Rows.Add(
+                        item.Cliente.Descripcion,
+                        item.Descripcion,
+                        item.fecha_comprobante,
+                        GetStatus(item.cierre)
+                        );
+                }
+            }
+            catch(Exception ex)
+            {
+                this.MostrarDialogoError(_traductorUsuario, ex.Message);
             }
         }
         private string GetStatus(string cierre)

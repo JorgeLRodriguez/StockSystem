@@ -47,10 +47,13 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Comprobante.cs" />
     <Compile Include="ComprobanteDetalle.cs" />
+    <Compile Include="Deposito.cs" />
     <Compile Include="Infraestructure\ConstantesTexto.cs" />
     <Compile Include="Destinatario.cs" />
     <Compile Include="Bitacora\Bitacora.cs" />
     <Compile Include="Bitacora\Evento.cs" />
+    <Compile Include="Pallet.cs" />
+    <Compile Include="Pasillo.cs" />
     <Compile Include="RemitoStock.cs" />
     <Compile Include="Security\DatoSensible.cs" />
     <Compile Include="Security\IDigitoVerificadorHorizontal.cs" />

@@ -21,6 +21,9 @@ namespace Domain.Dependencies
             For<IComprobante>().Use<ComprobanteModel>();
             For<IDestinatario>().Use<DestinatarioModel>();
             For<IRemitoStock>().Use<RemitoStockModel>();
+            For<IDeposito>().Use<DepositoModel>();
+            For<IPasillo>().Use<PasilloModel>();
+            For<IPallet>().Use<PalletModel>();
             For<ITraductorUsuario>().Singleton();
             For<ITraductor>().Use(ctx => ctx.GetInstance<ITraductorUsuario>());
             For<ICriptografia>().Use(() => Criptografia.Default);

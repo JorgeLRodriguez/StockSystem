@@ -36,13 +36,22 @@ namespace UI.Stock
         {
 
         }
-
+        private void ListClients()
+        {
+            clientcbx.DisplayMember = nameof(Cliente.Descripcion);
+            clientcbx.DataSource = _serviciosAplicacion.Cliente.Get();
+        }
         public void IdiomaCambiado(Idioma nuevoIdioma)
         {
             clientlab.Text = _traductorUsuario.Traducir(ConstantesTexto.Cliente);
             datelab.Text = _traductorUsuario.Traducir(ConstantesTexto.Fecha);
             obslab.Text = _traductorUsuario.Traducir(ConstantesTexto.Observacion);
             savebtn.Text = _traductorUsuario.Traducir(ConstantesTexto.Guardar);
+        }
+
+        private void AjusteInvfrm_Load(object sender, EventArgs e)
+        {
+            ListClients();
         }
     }
 }

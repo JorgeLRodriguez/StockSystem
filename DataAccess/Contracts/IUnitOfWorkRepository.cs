@@ -1,11 +1,5 @@
-﻿using DataAccess.Contracts;
-using Entities;
-using Entities.Infraestructure;
+﻿using Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Contracts
 {
@@ -17,6 +11,9 @@ namespace DataAccess.Contracts
         IGenericRepository<Cliente> ClienteRepository { get; }
         IGenericRepository<RemitoStock> RemitoStockRepository { get; }
         IGenericRepository<Destinatario> DestinatarioRepository { get; }
+        IGenericRepository<Pasillo> PasilloRepository { get; }
+        IGenericRepository<Deposito> DepositoRepository { get; }
+        IGenericRepository<Pallet> PalletRepository { get; }
         IIdiomaRepository IdiomaRepository { get; }
         IBitacoraRepository BitacoraRepository { get; }
         IUsuarioRepository UsuarioRepository { get; }

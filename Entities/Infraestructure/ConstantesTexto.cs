@@ -80,6 +80,10 @@
         public const string CodigoPostal = "CodigoPostal";
         public const string Confirmado = "Confirmado";
         public const string ProcCorrecto = "ProcCorrecto";
+        public const string Domicilio = "Domicilio";
+        public const string Pasillo = "Pasillo";
+        public const string Columna = "Columna";
+        public const string Fila = "Fila";
 
         //TitulosForms
         public const string Login = "Login";
